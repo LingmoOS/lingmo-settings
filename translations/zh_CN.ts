@@ -1077,12 +1077,12 @@
         <translation>程序坞</translation>
     </message>
     <message>
-        <location filename="../src/qml/SideBar.qml" line="154"/>
+        <location filename="../src/qml/SideBar.qml" line="145"/>
         <source>User</source>
         <translation>用户</translation>
     </message>
     <message>
-        <location filename="../src/qml/SideBar.qml" line="136"/>
+        <location filename="../src/qml/SideBar.qml" line="127"/>
         <source>Background</source>
         <translation>背景</translation>
     </message>
@@ -1098,11 +1098,6 @@
     </message>
     <message>
         <location filename="../src/qml/SideBar.qml" line="208"/>
-        <source>Digital Wellbeing</source>
-        <translation>数字健康</translation>
-    </message>
-    <message>
-        <location filename="../src/qml/SideBar.qml" line="217"/>
         <source>Accessibility</source>
         <translation>辅助功能</translation>
     </message>
@@ -1124,22 +1119,22 @@
         <translation>系统</translation>
     </message>
     <message>
-        <location filename="../src/qml/SideBar.qml" line="163"/>
+        <location filename="../src/qml/SideBar.qml" line="154"/>
         <source>Notifications</source>
         <translation>通知</translation>
     </message>
     <message>
-        <location filename="../src/qml/SideBar.qml" line="172"/>
+        <location filename="../src/qml/SideBar.qml" line="163"/>
         <source>Sound</source>
         <translation>声音</translation>
     </message>
     <message>
-        <location filename="../src/qml/SideBar.qml" line="190"/>
+        <location filename="../src/qml/SideBar.qml" line="181"/>
         <source>Touchpad</source>
         <translation>触摸板</translation>
     </message>
     <message>
-        <location filename="../src/qml/SideBar.qml" line="208"/>
+        <location filename="../src/qml/SideBar.qml" line="199"/>
         <source>Date &amp; Time</source>
         <translation>日期和时间</translation>
     </message>
