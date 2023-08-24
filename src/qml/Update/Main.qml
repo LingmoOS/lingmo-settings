@@ -92,7 +92,7 @@ ItemPage {
 
                 // StandardItem {
                 //     key: qsTr("openCute Version")
-                //     value: about.openCuteversion
+                //     value: about.OpenLingmoVersion
                 // }
 
                 StandardItem {

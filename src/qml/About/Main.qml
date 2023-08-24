@@ -82,7 +82,7 @@ ItemPage {
 
                 StandardItem {
                     key: qsTr("OpenLingmo Version")
-                    value: about.openCuteversion
+                    value: about.OpenLingmoVersion
                 }
             }
 

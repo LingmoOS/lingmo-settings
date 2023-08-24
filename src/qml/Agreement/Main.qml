@@ -73,7 +73,7 @@ ItemPage {
                 StandardItem {
                     key: qsTr("Software Version")
                     
-                    value: about.openCuteversion
+                    value: about.OpenLingmoVersion
                 }
 
                 StandardItem {
