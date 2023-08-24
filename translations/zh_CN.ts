@@ -1160,11 +1160,6 @@
     </message>
     <message>
         <location filename="../src/qml/SideBar.qml" line="253"/>
-        <source>Update</source>
-        <translation>开发测试</translation>
-    </message>
-    <message>
-        <location filename="../src/qml/SideBar.qml" line="316"/>
         <source>About LingmoOS</source>
         <translation>关于灵墨操作系统</translation>
     </message>
