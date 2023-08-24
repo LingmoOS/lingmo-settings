@@ -93,7 +93,6 @@ ItemPage {
             RoundedItem {
                 StandardItem {
                     key: qsTr("Debian Version")
-                    
                     value: about.debianversion
                 }
             }
@@ -104,8 +103,7 @@ ItemPage {
 
             RoundedItem {
                 StandardItem {
-                    key: qsTr("Desktop Version")
-                    
+                    key: qsTr("Lingmo Desktop Version")
                     value: about.desktopversion
                 }
 
@@ -132,12 +130,11 @@ ItemPage {
 
                 StandardItem {
                     key: qsTr("Update Time")
-                    
                     value: about.updateversion
                 }
             }
 
-                Item {
+            Item {
                 height: CuteUI.Units.smallSpacing
             }
 
@@ -157,7 +154,6 @@ ItemPage {
 
                 StandardItem {
                     key: qsTr("Kernel Version")
-                    
                     value: about.kernelVersion
                 }
 
@@ -171,7 +167,6 @@ ItemPage {
 
                 StandardItem {
                     key: qsTr("Processor")
-                    
                     value: about.cpuInfo
                 }
 
@@ -185,7 +180,6 @@ ItemPage {
 
                 StandardItem {
                     key: qsTr("RAM")
-                    
                     value: about.memorySize
                 }
 
@@ -239,33 +233,41 @@ ItemPage {
             //         }
             //     }
             // }
-
             StandardButton {
                 Layout.fillWidth: true
-                text: ""
-                // onClicked: timeZoneDialog.visibility = "Maximized"
+                // visible: about.isCutefishOS
+                text: qsTr("Software Update")
                 onClicked: {
                     about.openUpdator()
                 }
-
-                RowLayout {
-                    anchors.fill: parent
-                    anchors.leftMargin: CuteUI.Units.largeSpacing * 1.5
-                    anchors.rightMargin: CuteUI.Units.largeSpacing * 1.5
-
-                    Label {
-                        text: qsTr("System Update")
-                    }
-
-                    Item {
-                        Layout.fillWidth: true
-                    }
-
-                    Label {
-                        text: qsTr("→")
-                    }
-                }
             }
+
+            // StandardButton {
+            //     Layout.fillWidth: true
+            //     text: ""
+            //     // onClicked: timeZoneDialog.visibility = "Maximized"
+            //     onClicked: {
+            //         about.openUpdator()
+            //     }
+
+            //     RowLayout {
+            //         anchors.fill: parent
+            //         anchors.leftMargin: CuteUI.Units.largeSpacing * 1.5
+            //         anchors.rightMargin: CuteUI.Units.largeSpacing * 1.5
+
+            //         Label {
+            //             text: qsTr("System Update")
+            //         }
+
+            //         Item {
+            //             Layout.fillWidth: true
+            //         }
+
+            //         Label {
+            //             text: qsTr("→")
+            //         }
+            //     }
+            // }
 
             // CuteUI.InfoDialog {
             //     id: infoDialog

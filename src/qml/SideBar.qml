@@ -51,16 +51,6 @@ Item {
     ListModel {
         id: listModel
 
-        // ListElement {
-        //     title: qsTr("Home")
-        //     name: "home"
-        //     page: "qrc:/qml/HomePage/Main.qml"
-        //     iconSource: "home.svg"
-        //     // iconColor: "#46C8FF"
-        //     iconColor: "#195A8C"
-        //     category: qsTr("Home")
-        // }
-
         ListElement {
             title: qsTr("WLAN")
             name: "wlan"
@@ -75,49 +65,43 @@ Item {
             name: "ethernet"
             page: "qrc:/qml/Wired/Main.qml"
             iconSource: "network.svg"
-            // iconColor: "#1B76FF"
             iconColor: "#1B76FF"
-            // iconColor: "#1B76FF"
             category: qsTr("Network and connection")
         }
 
-//        ListElement {
-//            title: qsTr("Hotspot")
-//            name: "hotspot"
-//            page: "qrc:/qml/Hotspot/Main.qml"
-//            iconSource: "hotspot.svg"
-//            iconColor: "#0067FF"
-//            category: qsTr("Network and connection")
-//        }
+       ListElement {
+           title: qsTr("Hotspot")
+           name: "hotspot"
+           page: "qrc:/qml/Hotspot/Main.qml"
+           iconSource: "hotspot.svg"
+           iconColor: "#0067FF"
+           category: qsTr("Network and connection")
+       }
 
         ListElement {
             title: qsTr("Bluetooth")
             name: "bluetooth"
             page: "qrc:/qml/Bluetooth/Main.qml"
             iconSource: "bluetooth.svg"
-            // iconColor: "#2AC9E6"
             iconColor: "#2AC9E6"
-            // iconColor: "#2AC9E6"
             category: qsTr("Network and connection")
         }
 
-//        ListElement {
-//            title: qsTr("VPN")
-//            name: "vpn"
-//            page: "qrc:/qml/VPN/Main.qml"
-//            iconSource: "bluetooth.svg"
-//            iconColor: "#0067FF"
-//            category: qsTr("Network and connection")
-//        }
+       ListElement {
+           title: qsTr("VPN")
+           name: "vpn"
+           page: "qrc:/qml/VPN/Main.qml"
+           iconSource: "bluetooth.svg"
+           iconColor: "#0067FF"
+           category: qsTr("Network and connection")
+       }
 
         ListElement {
             title: qsTr("Proxy")
             name: "proxy"
             page: "qrc:/qml/Proxy/Main.qml"
             iconSource: "proxy.svg"
-            // iconColor: "#A670F0"
             iconColor: "#A670F0"
-            // iconColor: "#A670F0"
             category: qsTr("Network and connection")
         }
 
@@ -126,9 +110,7 @@ Item {
             name: "display"
             page: "qrc:/qml/Display/Main.qml"
             iconSource: "display.svg"
-            // iconColor: "#0087ED"
             iconColor: "#0087ED"
-            // iconColor: "#0087ED"
             category: qsTr("Display and appearance")
         }
 
@@ -137,9 +119,7 @@ Item {
             name: "appearance"
             page: "qrc:/qml/Appearance/Main.qml"
             iconSource: "appearance.svg"
-            // iconColor: "#03B4CB"
             iconColor: "#03B4CB"
-            // iconColor: "#03B4CB"
             category: qsTr("Display and appearance")
         }
 
@@ -148,9 +128,7 @@ Item {
             name: "background"
             page: "qrc:/qml/Wallpaper/Main.qml"
             iconSource: "wallpaper.svg"
-            // iconColor: "#34B4A7"
             iconColor: "#34B4A7"
-            // iconColor: "#34B4A7"
             category: qsTr("Display and appearance")
         }
 
@@ -159,9 +137,7 @@ Item {
             name: "dock"
             page: "qrc:/qml/Dock/Main.qml"
             iconSource: "dock.svg"
-            // iconColor: "#FC85EE"
             iconColor: "#FC85EE"
-            // iconColor: "#FC85EE"
             category: qsTr("Display and appearance")
         }
 
@@ -170,9 +146,7 @@ Item {
             name: "accounts"
             page: "qrc:/qml/User/Main.qml"
             iconSource: "accounts.svg"
-            // iconColor: "#4366DA"
             iconColor: "#4366DA"
-            // iconColor: "#4366DA"
             category: qsTr("System")
         }
 
@@ -181,9 +155,7 @@ Item {
             name: "notifications"
             page: "qrc:/qml/Notification/Main.qml"
             iconSource: "notifications.svg"
-            // iconColor: "#F16884"
             iconColor: "#F16884"
-            // iconColor: "#F16884"
             category: qsTr("System")
         }
 
@@ -192,9 +164,7 @@ Item {
             name: "sound"
             page: "qrc:/qml/Sound/Main.qml"
             iconSource: "sound.svg"
-            // iconColor: "#F16884"
             iconColor: "#F16884"
-            // iconColor: "#F16884"
             category: qsTr("System")
         }
 
@@ -203,9 +173,7 @@ Item {
             name: "mouse"
             page: "qrc:/qml/Cursor/Main.qml"
             iconSource: "cursor.svg"
-            // iconColor: "#3385FF"
             iconColor: "#3385FF"
-            // iconColor: "#3385FF"
             category: qsTr("System")
         }
 
@@ -214,29 +182,25 @@ Item {
             name: "touchpad"
             page: "qrc:/qml/Touchpad/Main.qml"
             iconSource: "touchpad.svg"
-            // iconColor: "#999999"
             iconColor: "#999999"
-            // iconColor: "#999999"
             category: qsTr("System")
         }
 
-//        ListElement {
-//            title: qsTr("Application")
-//            name: "application"
-//            page: "qrc:/qml/Application/Main.qml"
-//            iconSource: "accounts.svg"
-//            iconColor: "#DA7C43"
-//            category: qsTr("System")
-//        }
+       ListElement {
+           title: qsTr("Application")
+           name: "application"
+           page: "qrc:/qml/Application/Main.qml"
+           iconSource: "accounts.svg"
+           iconColor: "#DA7C43"
+           category: qsTr("System")
+       }
 
         ListElement {
             title: qsTr("Date & Time")
             name: "datetime"
             page: "qrc:/qml/DateTime/Main.qml"
             iconSource: "datetime.svg"
-            // iconColor: "#418CFF"
             iconColor: "#418CFF"
-            // iconColor: "#418CFF"
             category: qsTr("System")
         }
 
@@ -245,9 +209,7 @@ Item {
             name: "accessibility"
             page: "qrc:/qml/Accessibility/Main.qml"
             iconSource: "accessibility.svg"
-            // iconColor: "#2EC347"
             iconColor: "#2EC347"
-            // iconColor: "#2EC347"
             category: qsTr("System")
         }
         
@@ -256,9 +218,7 @@ Item {
             name: "defaultapps"
             page: "qrc:/qml/DefaultApp/Main.qml"
             iconSource: "defaultapps.svg"
-            // iconColor: "#418CFF"
             iconColor: "#418CFF"
-            // iconColor: "#418CFF"
             category: qsTr("System")
         }
 
@@ -267,9 +227,7 @@ Item {
             name: "language"
             page: "qrc:/qml/LanguagePage.qml"
             iconSource: "language.svg"
-            // iconColor: "#20A7FF"
             iconColor: "#20A7FF"
-            // iconColor: "#20A7FF"
             category: qsTr("System")
         }
 
@@ -278,9 +236,7 @@ Item {
             name: "battery"
             page: "qrc:/qml/Battery/Main.qml"
             iconSource: "battery.svg"
-            // iconColor: "#2EC347"
             iconColor: "#2EC347"
-            // iconColor: "#2EC347"
             category: qsTr("System")
         }
 
@@ -289,48 +245,18 @@ Item {
             name: "power"
             page: "qrc:/qml/Power/Main.qml"
             iconColor: "#FE8433"
-            // iconSource: "power.svg"
             iconSource: "power.svg"
-            // iconSource: "power.svg"
             category: qsTr("System")
         }
-
-        // ListElement {
-        //     title: qsTr("Update")
-        //     name: "Update"
-        //     page: "qrc:/qml/Dev/Main.qml"
-        //     iconSource: "about.svg"
-        //     iconColor: "#FF56A5"
-        //     category: qsTr("System")
-        // }
-        // ListElement {
-        //     title: qsTr("About Dev")
-        //     name: "Develop"
-        //     page: "qrc:/qml/Dev/Main.qml"
-        //     iconSource: "about.svg"
-        //     iconColor: "#FF6BB7"
-        //     category: qsTr("System")
-        // }
 
         ListElement {
             title: qsTr("About LingmoOS")
             name: "about"
             page: "qrc:/qml/About/Main.qml"
             iconSource: "about.svg"
-            // iconColor: "#1ABAFF"
             iconColor: "#1ABAFF"
-            // iconColor: "#1ABAFF"
             category: qsTr("System")
         }
-
-        // ListElement {
-        //     title: qsTr("Update")
-        //     name: "update"
-        //     page: "qrc:/qml/Update/Main.qml"
-        //     iconSource: "about.svg"
-        //     iconColor: "#FF6BCF"
-        //     category: qsTr("System")
-        // }
     }
 
     ColumnLayout {
