@@ -204,7 +204,7 @@ QString About::cpuInfo()
 
 void About::openUpdator()
 {
-    QProcess::startDetached("cute-terminal", QStringList());
+    QProcess::startDetached("update", QStringList());
 }
 
 qlonglong About::calculateTotalRam() const

@@ -11,6 +11,7 @@
         <file>images/sensors-voltage-symbolic.svg</file>
         <file>qml/StandardItem.qml</file>
         <file>images/video.mp4</file>
+        <file>images/logo-rad.png</file>
         <file>images/dark/LingmoOS-500.png</file>
         <file>images/dark/LingmoOS-64.png</file>
         <file>images/light/LingmoOS-500.png</file>
@@ -88,8 +89,6 @@
         <file>images/light/checked.svg</file>
         <file>images/dark/checked.svg</file>
         <file>qml/About/Main.qml</file>
-        <file>qml/About/FontGrade.qml</file>
-        <file>qml/About/MoreInfoDialog.qml</file>
         <file>qml/User/Main.qml</file>
         <file>qml/Appearance/Main.qml</file>
         <file>qml/Display/Main.qml</file>

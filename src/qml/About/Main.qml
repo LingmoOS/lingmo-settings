@@ -244,7 +244,9 @@ ItemPage {
                 Layout.fillWidth: true
                 text: ""
                 // onClicked: timeZoneDialog.visibility = "Maximized"
-                onClicked: infoDialog.show()
+                onClicked: {
+                    about.openUpdator()
+                }
 
                 RowLayout {
                     anchors.fill: parent
@@ -252,7 +254,7 @@ ItemPage {
                     anchors.rightMargin: CuteUI.Units.largeSpacing * 1.5
 
                     Label {
-                        text: qsTr("more Info")
+                        text: qsTr("System Update")
                     }
 
                     Item {
@@ -265,24 +267,24 @@ ItemPage {
                 }
             }
 
-            CuteUI.InfoDialog {
-                id: infoDialog
-                name: qsTr("Lingmo OS")
-                version: about.version
-                description: qsTr("Built on Debian 12")
-                ver1: qsTr("OpenLingmo Server 1.0.2")
-                ver2: about.buildversion
-                ver3: qsTr("Pro_Beta")
-                kernel: about.kernelVersion
-                buildtime: about.buildtime
-                iconSource: "qrc:/images/dark/LingmoOS-64.png"
-                // RowLayout {
-                //     spacing: CuteUI.Units.largeSpacing
-                //     Item {
-                //         Layout.fillWidth: true
-                //     }
-                // }
-            }
+            // CuteUI.InfoDialog {
+            //     id: infoDialog
+            //     name: qsTr("Lingmo OS")
+            //     version: about.version
+            //     description: qsTr("Built on Debian 12")
+            //     ver1: qsTr("OpenLingmo Server 1.0.2")
+            //     ver2: about.buildversion
+            //     ver3: qsTr("Pro_Beta")
+            //     kernel: about.kernelVersion
+            //     buildtime: about.buildtime
+            //     iconSource: "qrc:/images/dark/LingmoOS-64.png"
+            //     // RowLayout {
+            //     //     spacing: CuteUI.Units.largeSpacing
+            //     //     Item {
+            //     //         Layout.fillWidth: true
+            //     //     }
+            //     // }
+            // }
 
             Item {
                 height: CuteUI.Units.smallSpacing
