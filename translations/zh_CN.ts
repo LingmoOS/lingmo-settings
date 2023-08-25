@@ -68,11 +68,6 @@
         <translation>OpenLingmo服务版本</translation>
     </message>
     <message>
-        <location filename="../src/qml/About/Main.qml" line="95"/>
-        <source>Debian Version</source>
-        <translation>Debian版本</translation>
-    </message>
-    <message>
         <location filename="../src/qml/About/Main.qml" line="106"/>
         <source>Lingmo Desktop Version</source>
         <translation>灵墨桌面环境版本</translation>

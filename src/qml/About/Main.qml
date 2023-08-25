@@ -33,14 +33,6 @@ ItemPage {
                 source: CuteUI.Theme.darkMode ? "qrc:/images/dark/LingmoOS-500.png" : "qrc:/images/light/LingmoOS-500.png"
             }
 
-            // Item {
-            //     height: CuteUI.Units.smallSpacing
-            // }
-            
-            // Item {
-            //     height: CuteUI.Units.smallSpacing
-            // }
-
             // Label {
             //     Layout.alignment: Qt.AlignTop | Qt.AlignHCenter
             //     // text: qsTr("SwiftOS")
@@ -83,17 +75,6 @@ ItemPage {
                 StandardItem {
                     key: qsTr("OpenLingmo Version")
                     value: about.OpenLingmoVersion
-                }
-            }
-
-                Item {
-                height: CuteUI.Units.smallSpacing
-            }
-
-            RoundedItem {
-                StandardItem {
-                    key: qsTr("Debian Version")
-                    value: about.debianversion
                 }
             }
 

@@ -69,15 +69,6 @@ Item {
             category: qsTr("Network and connection")
         }
 
-       ListElement {
-           title: qsTr("Hotspot")
-           name: "hotspot"
-           page: "qrc:/qml/Hotspot/Main.qml"
-           iconSource: "hotspot.svg"
-           iconColor: "#0067FF"
-           category: qsTr("Network and connection")
-       }
-
         ListElement {
             title: qsTr("Bluetooth")
             name: "bluetooth"
@@ -86,15 +77,6 @@ Item {
             iconColor: "#2AC9E6"
             category: qsTr("Network and connection")
         }
-
-       ListElement {
-           title: qsTr("VPN")
-           name: "vpn"
-           page: "qrc:/qml/VPN/Main.qml"
-           iconSource: "bluetooth.svg"
-           iconColor: "#0067FF"
-           category: qsTr("Network and connection")
-       }
 
         ListElement {
             title: qsTr("Proxy")
@@ -185,15 +167,6 @@ Item {
             iconColor: "#999999"
             category: qsTr("System")
         }
-
-       ListElement {
-           title: qsTr("Application")
-           name: "application"
-           page: "qrc:/qml/Application/Main.qml"
-           iconSource: "accounts.svg"
-           iconColor: "#DA7C43"
-           category: qsTr("System")
-       }
 
         ListElement {
             title: qsTr("Date & Time")
