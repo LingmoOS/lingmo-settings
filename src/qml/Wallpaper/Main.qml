@@ -2,8 +2,8 @@ import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
 import QtGraphicalEffects 1.0
-import Cute.Settings 1.0
-import CuteUI 1.0 as CuteUI
+import Lingmo.Settings 1.0
+import LingmoUI 1.0 as LingmoUI
 
 import "../"
 
@@ -21,15 +21,15 @@ ItemPage {
         ColumnLayout {
             id: layout
             anchors.fill: parent
-            spacing: CuteUI.Units.largeSpacing
+            spacing: LingmoUI.Units.largeSpacing
 
             RoundedItem {
                 RowLayout {
-                    spacing: CuteUI.Units.largeSpacing * 2
+                    spacing: LingmoUI.Units.largeSpacing * 2
 
                     Label {
                         text: qsTr("Background type")
-                        leftPadding: CuteUI.Units.smallSpacing
+                        leftPadding: LingmoUI.Units.smallSpacing
                     }
 
                     TabBar {
@@ -59,7 +59,7 @@ ItemPage {
                     property int rowCount: _view.width / itemWidth
 
                     Layout.fillWidth: true
-                    implicitHeight: Math.ceil(_view.count / rowCount) * cellHeight + CuteUI.Units.largeSpacing
+                    implicitHeight: Math.ceil(_view.count / rowCount) * cellHeight + LingmoUI.Units.largeSpacing
 
                     visible: background.backgroundType === 0
 
@@ -93,9 +93,9 @@ ItemPage {
                         // Preload background
                         Rectangle {
                             anchors.fill: parent
-                            anchors.margins: CuteUI.Units.largeSpacing
-                            radius: CuteUI.Theme.bigRadius + CuteUI.Units.smallSpacing / 2
-                            color: CuteUI.Theme.backgroundColor
+                            anchors.margins: LingmoUI.Units.largeSpacing
+                            radius: LingmoUI.Theme.bigRadius + LingmoUI.Units.smallSpacing / 2
+                            color: LingmoUI.Theme.backgroundColor
                             visible: _image.status !== Image.Ready
                         }
 
@@ -105,24 +105,24 @@ ItemPage {
                             width: 32
                             height: width
                             sourceSize: Qt.size(width, height)
-                            source: CuteUI.Theme.darkMode ? "qrc:/images/dark/picture.svg"
+                            source: LingmoUI.Theme.darkMode ? "qrc:/images/dark/picture.svg"
                                                           : "qrc:/images/light/picture.svg"
                             visible: _image.status !== Image.Ready
                         }
 
                         Rectangle {
                             anchors.fill: parent
-                            anchors.margins: CuteUI.Units.smallSpacing
+                            anchors.margins: LingmoUI.Units.smallSpacing
                             color: "transparent"
-                            radius: CuteUI.Theme.bigRadius + CuteUI.Units.smallSpacing / 2
+                            radius: LingmoUI.Theme.bigRadius + LingmoUI.Units.smallSpacing / 2
 
-                            border.color: CuteUI.Theme.highlightColor
+                            border.color: LingmoUI.Theme.highlightColor
                             border.width: _image.status == Image.Ready & isSelected ? 3 : 0
 
                             Image {
                                 id: _image
                                 anchors.fill: parent
-                                anchors.margins: CuteUI.Units.smallSpacing
+                                anchors.margins: LingmoUI.Units.smallSpacing
                                 source: "file://" + modelData
                                 sourceSize: Qt.size(width, height)
                                 fillMode: Image.PreserveAspectCrop
@@ -147,7 +147,7 @@ ItemPage {
 
                                         Rectangle {
                                             anchors.fill: parent
-                                            radius: CuteUI.Theme.bigRadius
+                                            radius: LingmoUI.Theme.bigRadius
                                         }
                                     }
                                 }
@@ -188,7 +188,7 @@ ItemPage {
 
                 Item {
                     visible: background.backgroundType === 1
-                    height: CuteUI.Units.smallSpacing
+                    height: LingmoUI.Units.smallSpacing
                 }
 
                 Loader {
@@ -206,7 +206,7 @@ ItemPage {
 //            }
 
             Item {
-                height: CuteUI.Units.largeSpacing
+                height: LingmoUI.Units.largeSpacing
             }
         }
     }
@@ -220,7 +220,7 @@ ItemPage {
 
             property int rowCount: _colorView.width / cellWidth
 
-            implicitHeight: Math.ceil(_colorView.count / _colorView.rowCount) * cellHeight + CuteUI.Units.largeSpacing
+            implicitHeight: Math.ceil(_colorView.count / _colorView.rowCount) * cellHeight + LingmoUI.Units.largeSpacing
 
             cellWidth: 50
             cellHeight: 50
@@ -249,7 +249,7 @@ ItemPage {
                 property bool checked: Qt.colorEqual(background.backgroundColor, bgColor)
                 property color currentColor: bgColor
 
-                width: _colorView.itemSize + CuteUI.Units.largeSpacing
+                width: _colorView.itemSize + LingmoUI.Units.largeSpacing
                 height: width
                 color: "transparent"
                 radius: width / 2

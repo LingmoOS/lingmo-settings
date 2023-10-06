@@ -3,8 +3,8 @@ import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
 import QtGraphicalEffects 1.0
 
-import CuteUI 1.0 as CuteUI
-import Cute.Settings 1.0 as Settings
+import LingmoUI 1.0 as LingmoUI
+import Lingmo.Settings 1.0 as Settings
 
 ItemPage {
     headerTitle: qsTr("Language")
@@ -15,12 +15,12 @@ ItemPage {
 
     ColumnLayout {
         anchors.fill: parent
-        anchors.topMargin: CuteUI.Units.smallSpacing
+        anchors.topMargin: LingmoUI.Units.smallSpacing
 
         ListView {
             id: listView
 
-            CuteUI.WheelHandler {
+            LingmoUI.WheelHandler {
                 target: listView
             }
 
@@ -30,24 +30,24 @@ ItemPage {
             model: language.languages
             clip: true
 
-            topMargin: CuteUI.Units.largeSpacing
-            leftMargin: CuteUI.Units.largeSpacing * 2
-            rightMargin: CuteUI.Units.largeSpacing * 2
-            bottomMargin: CuteUI.Units.largeSpacing
-            spacing: CuteUI.Units.largeSpacing
+            topMargin: LingmoUI.Units.largeSpacing
+            leftMargin: LingmoUI.Units.largeSpacing * 2
+            rightMargin: LingmoUI.Units.largeSpacing * 2
+            bottomMargin: LingmoUI.Units.largeSpacing
+            spacing: LingmoUI.Units.largeSpacing
 
             currentIndex: language.currentLanguage
 
             ScrollBar.vertical: ScrollBar {
-                bottomPadding: CuteUI.Theme.smallRadius
+                bottomPadding: LingmoUI.Theme.smallRadius
             }
 
             highlightFollowsCurrentItem: true
             highlightMoveDuration: 0
             highlightResizeDuration : 0
             highlight: Rectangle {
-                color: CuteUI.Theme.highlightColor
-                radius: CuteUI.Theme.smallRadius
+                color: LingmoUI.Theme.highlightColor
+                radius: LingmoUI.Theme.smallRadius
             }
 
             delegate: MouseArea {
@@ -65,18 +65,18 @@ ItemPage {
 
                 Rectangle {
                     anchors.fill: parent
-                    color: isSelected ? "transparent" : item.containsMouse ? CuteUI.Theme.disabledTextColor : "transparent"
+                    color: isSelected ? "transparent" : item.containsMouse ? LingmoUI.Theme.disabledTextColor : "transparent"
                     opacity: isSelected ? 1 : 0.1
-                    radius: CuteUI.Theme.smallRadius
+                    radius: LingmoUI.Theme.smallRadius
                 }
 
                 RowLayout {
                     anchors.fill: parent
-                    anchors.leftMargin: CuteUI.Units.smallSpacing
-                    anchors.rightMargin: CuteUI.Units.largeSpacing
+                    anchors.leftMargin: LingmoUI.Units.smallSpacing
+                    anchors.rightMargin: LingmoUI.Units.largeSpacing
 
                     Label {
-                        color: isSelected ? CuteUI.Theme.highlightedTextColor : CuteUI.Theme.textColor
+                        color: isSelected ? LingmoUI.Theme.highlightedTextColor : LingmoUI.Theme.textColor
                         text: modelData
                         Layout.alignment: Qt.AlignVCenter
                     }

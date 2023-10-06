@@ -5,7 +5,7 @@
 
 NetworkProxy::NetworkProxy(QObject *parent)
     : QObject(parent)
-    , m_settings("cuteos", "network")
+    , m_settings("lingmoos", "network")
 {
     m_flag = m_settings.value("ProxyFlag", 0).toInt();
     m_useSameProxy = m_settings.value("UseSameProxy", false).toBool();
@@ -155,7 +155,7 @@ void NetworkProxy::setSocksProxyPort(const QString &port)
 
 void NetworkProxy::updateProxy()
 {
-    QDBusInterface iface("com.cute.Session", "/Session", "com.cute.Session");
+    QDBusInterface iface("com.lingmo.Session", "/Session", "com.lingmo.Session");
 
     if (iface.isValid()) {
         iface.asyncCall("updateNetworkProxy");

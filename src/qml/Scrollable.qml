@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021 CuteOS Team.
+ * Copyright (C) 2021 LingmoOS Team.
  *
  * Author:     revenmartin <revenmartin@gmail.com>
  *
@@ -19,25 +19,25 @@
 
 import QtQuick 2.4
 import QtQuick.Controls 2.4
-import CuteUI 1.0 as CuteUI
+import LingmoUI 1.0 as LingmoUI
 
 Flickable {
     id: root
     flickableDirection: Flickable.VerticalFlick
     clip: true
 
-    topMargin: CuteUI.Units.largeSpacing
-    leftMargin: CuteUI.Units.largeSpacing * 2
-    rightMargin: CuteUI.Units.largeSpacing * 2
+    topMargin: LingmoUI.Units.largeSpacing
+    leftMargin: LingmoUI.Units.largeSpacing * 2
+    rightMargin: LingmoUI.Units.largeSpacing * 2
 
     contentWidth: width - (leftMargin + rightMargin)
 
-    CuteUI.WheelHandler {
+    LingmoUI.WheelHandler {
         id: wheelHandler
         target: root
     }
 
     ScrollBar.vertical: ScrollBar {
-        bottomPadding: CuteUI.Theme.smallRadius
+        bottomPadding: LingmoUI.Theme.smallRadius
     }
 }

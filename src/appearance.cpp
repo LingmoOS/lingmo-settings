@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021 CuteOS Team.
+ * Copyright (C) 2021 LingmoOS Team.
  *
  * Author:     revenmartin <revenmartin@gmail.com>
  *
@@ -30,11 +30,11 @@
 
 Appearance::Appearance(QObject *parent)
     : QObject(parent)
-    , m_interface("com.cute.Settings",
+    , m_interface("com.lingmo.Settings",
                   "/Theme",
-                  "com.cute.Theme",
+                  "com.lingmo.Theme",
                   QDBusConnection::sessionBus())
-    , m_dockSettings(new QSettings(QSettings::UserScope, "cuteos", "dock"))
+    , m_dockSettings(new QSettings(QSettings::UserScope, "lingmoos", "dock"))
     , m_kwinSettings(new QSettings(QStandardPaths::writableLocation(QStandardPaths::ConfigLocation) + "/kwinrc",
                                    QSettings::IniFormat))
     , m_dockIconSize(0)
@@ -89,9 +89,9 @@ int Appearance::dockIconSize() const
 void Appearance::setDockIconSize(int dockIconSize)
 {
     if (m_dockIconSize != dockIconSize) {
-        QDBusInterface iface("com.cute.Dock",
+        QDBusInterface iface("com.lingmo.Dock",
                              "/Dock",
-                             "com.cute.Dock",
+                             "com.lingmo.Dock",
                              QDBusConnection::sessionBus());
         if (iface.isValid()) {
             iface.call("setIconSize", dockIconSize);
@@ -110,9 +110,9 @@ int Appearance::dockDirection() const
 void Appearance::setDockDirection(int dockDirection)
 {
     if (m_dockDirection != dockDirection) {
-        QDBusInterface iface("com.cute.Dock",
+        QDBusInterface iface("com.lingmo.Dock",
                              "/Dock",
-                             "com.cute.Dock",
+                             "com.lingmo.Dock",
                              QDBusConnection::sessionBus());
         if (iface.isValid()) {
             iface.call("setDirection", dockDirection);
@@ -133,9 +133,9 @@ void Appearance::setDockVisibility(int visibility)
     if (m_dockVisibility != visibility) {
         m_dockVisibility = visibility;
 
-        QDBusInterface iface("com.cute.Dock",
+        QDBusInterface iface("com.lingmo.Dock",
                              "/Dock",
-                             "com.cute.Dock",
+                             "com.lingmo.Dock",
                              QDBusConnection::sessionBus());
         if (iface.isValid()) {
             iface.call("setVisibility", visibility);
@@ -169,9 +169,9 @@ void Appearance::setDockStyle(int style)
     if (m_dockStyle != style) {
         m_dockStyle = style;
 
-        QDBusInterface iface("com.cute.Dock",
+        QDBusInterface iface("com.lingmo.Dock",
                              "/Dock",
-                             "com.cute.Dock",
+                             "com.lingmo.Dock",
                              QDBusConnection::sessionBus());
         if (iface.isValid()) {
             iface.call("setStyle", style);
@@ -186,9 +186,9 @@ void Appearance::setGenericFontFamily(const QString &name)
     if (name.isEmpty())
         return;
 
-    QDBusInterface iface("com.cute.Settings",
+    QDBusInterface iface("com.lingmo.Settings",
                          "/Theme",
-                         "com.cute.Theme",
+                         "com.lingmo.Theme",
                          QDBusConnection::sessionBus(), this);
     if (iface.isValid()) {
         iface.call("setSystemFont", name);
@@ -200,9 +200,9 @@ void Appearance::setFixedFontFamily(const QString &name)
     if (name.isEmpty())
         return;
 
-    QDBusInterface iface("com.cute.Settings",
+    QDBusInterface iface("com.lingmo.Settings",
                          "/Theme",
-                         "com.cute.Theme",
+                         "com.lingmo.Theme",
                          QDBusConnection::sessionBus(), this);
     if (iface.isValid()) {
         iface.call("setSystemFixedFont", name);
@@ -218,9 +218,9 @@ void Appearance::setFontPointSize(int fontPointSize)
 {
     m_fontPointSize = fontPointSize;
 
-    QDBusInterface iface("com.cute.Settings",
+    QDBusInterface iface("com.lingmo.Settings",
                          "/Theme",
-                         "com.cute.Theme",
+                         "com.lingmo.Theme",
                          QDBusConnection::sessionBus(), this);
     if (iface.isValid()) {
         iface.call("setSystemFontPointSize", m_fontPointSize * 1.0);
@@ -229,9 +229,9 @@ void Appearance::setFontPointSize(int fontPointSize)
 
 void Appearance::setAccentColor(int accentColor)
 {
-    QDBusInterface iface("com.cute.Settings",
+    QDBusInterface iface("com.lingmo.Settings",
                          "/Theme",
-                         "com.cute.Theme",
+                         "com.lingmo.Theme",
                          QDBusConnection::sessionBus(), this);
     if (iface.isValid()) {
         iface.call("setAccentColor", accentColor);
@@ -245,9 +245,9 @@ double Appearance::devicePixelRatio() const
 
 void Appearance::setDevicePixelRatio(double value)
 {
-    QDBusInterface iface("com.cute.Settings",
+    QDBusInterface iface("com.lingmo.Settings",
                          "/Theme",
-                         "com.cute.Theme",
+                         "com.lingmo.Theme",
                          QDBusConnection::sessionBus(), this);
     if (iface.isValid()) {
         iface.call("setDevicePixelRatio", value);
@@ -283,7 +283,7 @@ void Appearance::setMinimiumAnimation(int minimiumAnimation)
         m_minimiumAnimation = minimiumAnimation;
         m_kwinSettings->beginGroup("Plugins");
         m_kwinSettings->setValue("magiclampEnabled", m_minimiumAnimation == 1);
-        m_kwinSettings->setValue("cute_squashEnabled", m_minimiumAnimation == 0);
+        m_kwinSettings->setValue("lingmo_squashEnabled", m_minimiumAnimation == 0);
         m_kwinSettings->endGroup();
         m_kwinSettings->sync();
         QDBusInterface("org.kde.KWin", "/KWin").call("reconfigure");

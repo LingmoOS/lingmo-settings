@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021 CuteOS Team.
+ * Copyright (C) 2021 LingmoOS Team.
  *
  * Author:     revenmartin <revenmartin@gmail.com>
  *
@@ -22,18 +22,18 @@ import QtQuick.Controls 2.4
 import QtQuick.Layouts 1.3
 import QtGraphicalEffects 1.0
 
-import CuteUI 1.0 as CuteUI
-import Cute.NetworkManagement 1.0 as NM
+import LingmoUI 1.0 as LingmoUI
+import Lingmo.NetworkManagement 1.0 as NM
 
 Item {
     id: control
 
     Rectangle {
         anchors.fill: parent
-        radius: CuteUI.Theme.smallRadius
-        color: mouseArea.containsMouse ? Qt.rgba(CuteUI.Theme.textColor.r,
-                                                 CuteUI.Theme.textColor.g,
-                                                 CuteUI.Theme.textColor.b,
+        radius: LingmoUI.Theme.smallRadius
+        color: mouseArea.containsMouse ? Qt.rgba(LingmoUI.Theme.textColor.r,
+                                                 LingmoUI.Theme.textColor.g,
+                                                 LingmoUI.Theme.textColor.b,
                                                  0.1) : "transparent"
 
         Behavior on color {
@@ -59,14 +59,14 @@ Item {
 
     RowLayout {
         anchors.fill: parent
-        anchors.margins: CuteUI.Units.smallSpacing
-        spacing: CuteUI.Units.largeSpacing
+        anchors.margins: LingmoUI.Units.smallSpacing
+        spacing: LingmoUI.Units.largeSpacing
 
         Image {
             width: 22
             height: width
             sourceSize: Qt.size(width, height)
-            source: "qrc:/images/" + (CuteUI.Theme.darkMode ? "dark/" : "light/") + "network-wired.svg"
+            source: "qrc:/images/" + (LingmoUI.Theme.darkMode ? "dark/" : "light/") + "network-wired.svg"
         }
 
         Label {
@@ -85,7 +85,7 @@ Item {
             ColorOverlay {
                 anchors.fill: parent
                 source: parent
-                color: CuteUI.Theme.highlightColor
+                color: LingmoUI.Theme.highlightColor
                 opacity: 1
                 visible: true
             }

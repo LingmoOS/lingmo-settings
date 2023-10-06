@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021 CuteOS Team.
+ * Copyright (C) 2021 LingmoOS Team.
  *
  * Author:     revenmartin <revenmartin@gmail.com>
  *
@@ -23,16 +23,16 @@ import QtQuick.Layouts 1.12
 import QtQuick.Dialogs 1.2
 import QtGraphicalEffects 1.0
 
-import Cute.Settings 1.0
-import Cute.Accounts 1.0
-import CuteUI 1.0 as CuteUI
+import Lingmo.Settings 1.0
+import Lingmo.Accounts 1.0
+import LingmoUI 1.0 as LingmoUI
 
 import "../"
 
 RoundedItem {
     id: control
 
-    height: mainLayout.implicitHeight + CuteUI.Units.largeSpacing * 2
+    height: mainLayout.implicitHeight + LingmoUI.Units.largeSpacing * 2
 
     UserAccount {
         id: currentUser
@@ -62,7 +62,7 @@ RoundedItem {
                 id: _topItem
 
                 Layout.fillWidth: true
-                height: _topLayout.implicitHeight + CuteUI.Units.largeSpacing
+                height: _topLayout.implicitHeight + LingmoUI.Units.largeSpacing
 
                 MouseArea {
                     anchors.fill: parent
@@ -72,8 +72,8 @@ RoundedItem {
                 RowLayout {
                     id: _topLayout
                     anchors.fill: parent
-                    anchors.topMargin: CuteUI.Units.smallSpacing
-                    anchors.bottomMargin: CuteUI.Units.smallSpacing
+                    anchors.topMargin: LingmoUI.Units.smallSpacing
+                    anchors.bottomMargin: LingmoUI.Units.smallSpacing
                     spacing: 0
 
                     Image {
@@ -112,17 +112,17 @@ RoundedItem {
                         Layout.alignment: Qt.AlignVCenter
                         font.pixelSize: 15
                         text: "<b>%1</b>".arg(userName)
-                        leftPadding: CuteUI.Units.largeSpacing
+                        leftPadding: LingmoUI.Units.largeSpacing
                     }
 
                     Item {
-                        width: CuteUI.Units.largeSpacing
+                        width: LingmoUI.Units.largeSpacing
                     }
 
                     Label {
                         Layout.alignment: Qt.AlignVCenter
                         text: realName
-                        color: CuteUI.Theme.disabledTextColor
+                        color: LingmoUI.Theme.disabledTextColor
                         visible: realName !== userName
                     }
 
@@ -137,12 +137,12 @@ RoundedItem {
                     }
 
                     Item {
-                        width: CuteUI.Units.smallSpacing
+                        width: LingmoUI.Units.smallSpacing
                     }
 
-                    CuteUI.RoundImageButton {
-                        iconMargins: CuteUI.Units.smallSpacing
-                        source: CuteUI.Theme.darkMode ? additionalSettings.shown ? "qrc:/images/dark/up.svg" : "qrc:/images/dark/down.svg"
+                    LingmoUI.RoundImageButton {
+                        iconMargins: LingmoUI.Units.smallSpacing
+                        source: LingmoUI.Theme.darkMode ? additionalSettings.shown ? "qrc:/images/dark/up.svg" : "qrc:/images/dark/down.svg"
                                                       : additionalSettings.shown ? "qrc:/images/light/up.svg" : "qrc:/images/light/down.svg"
                         onClicked: additionalSettings.toggle()
                         Layout.alignment: Qt.AlignVCenter
@@ -153,16 +153,16 @@ RoundedItem {
 
         Hideable {
             id: additionalSettings
-            spacing: CuteUI.Units.largeSpacing
+            spacing: LingmoUI.Units.largeSpacing
 
             Item {
-                height: CuteUI.Units.largeSpacing
+                height: LingmoUI.Units.largeSpacing
             }
 
             GridLayout {
                 Layout.fillWidth: true
-                Layout.bottomMargin: CuteUI.Units.smallSpacing
-                rowSpacing: CuteUI.Units.largeSpacing * 2
+                Layout.bottomMargin: LingmoUI.Units.smallSpacing
+                rowSpacing: LingmoUI.Units.largeSpacing * 2
                 columns: 2
 
                 Label {
@@ -208,8 +208,8 @@ RoundedItem {
                 id: changePasswdLayout
                 visible: false
                 columns: 2
-                columnSpacing: CuteUI.Units.largeSpacing * 2
-                rowSpacing: CuteUI.Units.smallSpacing * 2
+                columnSpacing: LingmoUI.Units.largeSpacing * 2
+                rowSpacing: LingmoUI.Units.smallSpacing * 2
 
                 Label {
                     text: qsTr("Password")
@@ -240,7 +240,7 @@ RoundedItem {
 
             RowLayout {
                 id: changePasswdFooterLayout
-                spacing: CuteUI.Units.largeSpacing
+                spacing: LingmoUI.Units.largeSpacing
                 visible: false
 
                 Button {
@@ -271,7 +271,7 @@ RoundedItem {
             StandardButton {
                 text: qsTr("Change password")
                 onClicked: showChangePasswordItem()
-                backgroundColor: CuteUI.Theme.darkMode ? "#363636" : CuteUI.Theme.backgroundColor
+                backgroundColor: LingmoUI.Theme.darkMode ? "#363636" : LingmoUI.Theme.backgroundColor
                 Layout.fillWidth: true
                 visible: !changePasswdLabel.visible
             }
@@ -280,7 +280,7 @@ RoundedItem {
                 text: qsTr("Delete this user")
                 enabled: model.userId !== loggedUser.userId
                 onClicked: accountsManager.deleteUser(userId, true)
-                backgroundColor: CuteUI.Theme.darkMode ? "#363636" : CuteUI.Theme.backgroundColor
+                backgroundColor: LingmoUI.Theme.darkMode ? "#363636" : LingmoUI.Theme.backgroundColor
                 Layout.fillWidth: true
             }
         }

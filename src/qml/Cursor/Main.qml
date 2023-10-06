@@ -3,9 +3,9 @@ import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
 import QtGraphicalEffects 1.0
 
-import CuteUI 1.0 as CuteUI
-import Cute.Settings 1.0
-import Cute.Accounts 1.0
+import LingmoUI 1.0 as LingmoUI
+import Lingmo.Settings 1.0
+import Lingmo.Accounts 1.0
 import "../"
 
 ItemPage {
@@ -30,13 +30,13 @@ ItemPage {
         ColumnLayout {
             id: layout
             anchors.fill: parent
-            spacing: CuteUI.Units.largeSpacing * 2
+            spacing: LingmoUI.Units.largeSpacing * 2
 
             RoundedItem {
                 GridLayout {
                     columns: 2
-                    columnSpacing: CuteUI.Units.largeSpacing * 1.5
-                    rowSpacing: CuteUI.Units.largeSpacing * 2
+                    columnSpacing: LingmoUI.Units.largeSpacing * 1.5
+                    rowSpacing: LingmoUI.Units.largeSpacing * 2
 
                     Label {
                         text: qsTr("Left hand")
@@ -89,7 +89,7 @@ ItemPage {
                 HorizontalDivider {}
 
                 RowLayout {
-                    spacing: CuteUI.Units.largeSpacing * 2
+                    spacing: LingmoUI.Units.largeSpacing * 2
 
                     Label {
                         text: qsTr("Pointer speed")
@@ -98,7 +98,7 @@ ItemPage {
                     Slider {
                         id: accelerationSlider
                         Layout.fillWidth: true
-                        rightPadding: CuteUI.Units.largeSpacing
+                        rightPadding: LingmoUI.Units.largeSpacing
                         from: 1
                         to: 11
                         stepSize: 1
@@ -119,14 +119,14 @@ ItemPage {
             RoundedItem {
                 Label {
                     text: qsTr("Theme")
-                    color: CuteUI.Theme.disabledTextColor
+                    color: LingmoUI.Theme.disabledTextColor
                     visible: _view.count > 0
                 }
 
                 GridView {
                     id: _view
                     Layout.fillWidth: true
-                    implicitHeight: Math.ceil(_view.count / rowCount) * cellHeight + CuteUI.Units.largeSpacing
+                    implicitHeight: Math.ceil(_view.count / rowCount) * cellHeight + LingmoUI.Units.largeSpacing
                     model: cursorModel
                     interactive: false
                     visible: _view.count > 0
@@ -171,7 +171,7 @@ ItemPage {
                         MouseArea {
                             id: _mouseArea
                             anchors.fill: parent
-                            anchors.margins: CuteUI.Units.smallSpacing * 1.5
+                            anchors.margins: LingmoUI.Units.smallSpacing * 1.5
                             onClicked: {
                                 _view.currentIndex = index
                                 cursorModel.currentTheme = model.id
@@ -181,28 +181,28 @@ ItemPage {
 
                         Rectangle {
                             anchors.fill: parent
-                            anchors.margins: CuteUI.Units.smallSpacing * 1.5
-                            color: CuteUI.Theme.darkMode ? "#3C3C3C" : "#FAFAFA"
-                            radius: CuteUI.Theme.mediumRadius
+                            anchors.margins: LingmoUI.Units.smallSpacing * 1.5
+                            color: LingmoUI.Theme.darkMode ? "#3C3C3C" : "#FAFAFA"
+                            radius: LingmoUI.Theme.mediumRadius
                             z: -1
 
                             border.width: isCurrent ? 3 : 0
-                            border.color: CuteUI.Theme.highlightColor
+                            border.color: LingmoUI.Theme.highlightColor
                         }
 
                         ColumnLayout {
                             anchors.fill: parent
-                            anchors.margins: CuteUI.Units.smallSpacing * 1.5
+                            anchors.margins: LingmoUI.Units.smallSpacing * 1.5
 
                             Item {
                                 Layout.fillHeight: true
                             }
 
                             Item {
-                                height: CuteUI.Units.largeSpacing
+                                height: LingmoUI.Units.largeSpacing
                             }
 
-                            CuteUI.IconItem {
+                            LingmoUI.IconItem {
                                 width: 22
                                 height: 22
                                 source: model.image
@@ -217,7 +217,7 @@ ItemPage {
                             Label {
                                 text: model.name
                                 Layout.alignment: Qt.AlignHCenter | Qt.AlignBottom
-                                bottomPadding: CuteUI.Units.largeSpacing
+                                bottomPadding: LingmoUI.Units.largeSpacing
                             }
 
                             Item {
@@ -229,7 +229,7 @@ ItemPage {
             }
 
             Item {
-                height: CuteUI.Units.smallSpacing
+                height: LingmoUI.Units.smallSpacing
             }
         }
     }

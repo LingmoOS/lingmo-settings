@@ -1,7 +1,7 @@
 import QtQuick 2.4
 import QtQuick.Controls 2.4
 import QtQuick.Layouts 1.3
-import CuteUI 1.0 as CuteUI
+import LingmoUI 1.0 as LingmoUI
 
 Item {
     id: control
@@ -17,7 +17,7 @@ Item {
         id: background
         anchors.fill: parent
         color: "transparent"
-        radius: CuteUI.Theme.smallRadius
+        radius: LingmoUI.Theme.smallRadius
     }
 
     RowLayout {
@@ -26,7 +26,7 @@ Item {
 
         Label {
             id: keyLabel
-            color: CuteUI.Theme.textColor
+            color: LingmoUI.Theme.textColor
         }
 
         Item {
@@ -35,7 +35,7 @@ Item {
 
         Label {
             id: valueLabel
-            color: CuteUI.Theme.disabledTextColor
+            color: LingmoUI.Theme.disabledTextColor
         }
     }
 }

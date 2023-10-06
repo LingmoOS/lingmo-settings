@@ -1,7 +1,7 @@
 /*
- * Copyright (C) 2021 - 2022 CuteOS Team.
+ * Copyright (C) 2021 - 2022 LingmoOS Team.
  *
- * Author:     Kate Leet <cuteos@foxmail.com>
+ * Author:     Kate Leet <lingmoos@foxmail.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -21,8 +21,8 @@ import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
 
-import CuteUI 1.0 as CuteUI
-import Cute.Settings 1.0
+import LingmoUI 1.0 as LingmoUI
+import Lingmo.Settings 1.0
 import "../"
 
 ComboBox {

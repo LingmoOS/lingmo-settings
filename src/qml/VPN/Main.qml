@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021 CuteOS Team.
+ * Copyright (C) 2021 LingmoOS Team.
  *
  * Author:     revenmartin <revenmartin@gmail.com>
  *
@@ -20,8 +20,8 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
-import CuteUI 1.0 as CuteUI
-import Cute.Settings 1.0
+import LingmoUI 1.0 as LingmoUI
+import Lingmo.Settings 1.0
 import "../"
 
 ItemPage {
@@ -47,12 +47,12 @@ ItemPage {
 
             RoundedItem {
                 id: mainItem
-                spacing: CuteUI.Units.largeSpacing
+                spacing: LingmoUI.Units.largeSpacing
 
                 RowLayout {
                     Label {
                         text: qsTr("VPN")
-                        color: CuteUI.Theme.disabledTextColor
+                        color: LingmoUI.Theme.disabledTextColor
                     }
 
                     Item {
@@ -69,7 +69,7 @@ ItemPage {
             }
 
             Item {
-                height: CuteUI.Units.smallSpacing
+                height: LingmoUI.Units.smallSpacing
             }
         }
     }

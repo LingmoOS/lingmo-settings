@@ -3,9 +3,9 @@
 
 Mouse::Mouse(QObject *parent)
     : QObject(parent)
-    , m_interface("com.cute.Settings",
+    , m_interface("com.lingmo.Settings",
                   "/Mouse",
-                  "com.cute.Mouse",
+                  "com.lingmo.Mouse",
                   QDBusConnection::sessionBus())
 {
     if (m_interface.isValid()) {

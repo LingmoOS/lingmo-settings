@@ -1,7 +1,7 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
-import CuteUI 1.0 as CuteUI
+import LingmoUI 1.0 as LingmoUI
 import QtGraphicalEffects 1.0
 
 Item {
@@ -50,7 +50,7 @@ Item {
 
         radius: height * 0.2
         opacity: 0.5
-        color: CuteUI.Theme.backgroundColor
+        color: LingmoUI.Theme.backgroundColor
     }
 
     Rectangle {
@@ -67,7 +67,7 @@ Item {
 
         radius: height * 0.2
         opacity: 0.5
-        color: CuteUI.Theme.backgroundColor
+        color: LingmoUI.Theme.backgroundColor
     }
 
     Rectangle {
@@ -82,7 +82,7 @@ Item {
 
         height: 38
         radius: height * 0.3
-        color: CuteUI.Theme.backgroundColor
+        color: LingmoUI.Theme.backgroundColor
         opacity: 0.7
     }
 
@@ -94,7 +94,7 @@ Item {
 
             Rectangle {
                 anchors.fill: parent
-                radius: CuteUI.Theme.bigRadius
+                radius: LingmoUI.Theme.bigRadius
             }
         }
     }

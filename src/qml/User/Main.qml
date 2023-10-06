@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021 CuteOS Team.
+ * Copyright (C) 2021 LingmoOS Team.
  *
  * Author:     revenmartin <revenmartin@gmail.com>
  *
@@ -22,9 +22,9 @@ import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
 import QtGraphicalEffects 1.0
 
-import CuteUI 1.0 as CuteUI
-import Cute.Settings 1.0
-import Cute.Accounts 1.0
+import LingmoUI 1.0 as LingmoUI
+import Lingmo.Settings 1.0
+import Lingmo.Accounts 1.0
 import "../"
 
 ItemPage {
@@ -58,13 +58,13 @@ ItemPage {
         ColumnLayout {
             id: layout
             anchors.fill: parent
-            spacing: CuteUI.Units.largeSpacing * 2
+            spacing: LingmoUI.Units.largeSpacing * 2
 
             ListView {
                 id: _userView
                 model: userModel
                 Layout.fillWidth: true
-                spacing: CuteUI.Units.largeSpacing * 2
+                spacing: LingmoUI.Units.largeSpacing * 2
                 interactive: false
 
                 Layout.preferredHeight: {
@@ -95,7 +95,7 @@ ItemPage {
 
                 ColumnLayout {
                     id: _mainLayout
-                    spacing: CuteUI.Units.largeSpacing * 1.5
+                    spacing: LingmoUI.Units.largeSpacing * 1.5
 
                     Label {
                         text: qsTr("Add new user")
@@ -103,8 +103,8 @@ ItemPage {
 
                     GridLayout {
                         columns: 2
-                        columnSpacing: CuteUI.Units.largeSpacing * 2
-                        rowSpacing: CuteUI.Units.smallSpacing * 2
+                        columnSpacing: LingmoUI.Units.largeSpacing * 2
+                        rowSpacing: LingmoUI.Units.smallSpacing * 2
 
                         Label {
                             text: qsTr("User name")
@@ -161,7 +161,7 @@ ItemPage {
 
                     RowLayout {
                         id: footerLayout
-                        spacing: CuteUI.Units.largeSpacing
+                        spacing: LingmoUI.Units.largeSpacing
 
                         Button {
                             id: cancelButton
@@ -204,8 +204,8 @@ ItemPage {
 
                 RowLayout {
                     anchors.fill: parent
-                    anchors.leftMargin: CuteUI.Units.largeSpacing * 1.5
-                    anchors.rightMargin: CuteUI.Units.largeSpacing * 1.5
+                    anchors.leftMargin: LingmoUI.Units.largeSpacing * 1.5
+                    anchors.rightMargin: LingmoUI.Units.largeSpacing * 1.5
 
                     Label {
                         text: qsTr("Add user")
@@ -222,7 +222,7 @@ ItemPage {
             }
 
             Item {
-                height: CuteUI.Units.largeSpacing
+                height: LingmoUI.Units.largeSpacing
             }
         }
     }

@@ -3,9 +3,9 @@ import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
 import QtGraphicalEffects 1.0
 
-import CuteUI 1.0 as CuteUI
-import Cute.Settings 1.0
-import Cute.Accounts 1.0
+import LingmoUI 1.0 as LingmoUI
+import Lingmo.Settings 1.0
+import Lingmo.Accounts 1.0
 import "../"
 
 ItemPage {
@@ -22,12 +22,12 @@ ItemPage {
         ColumnLayout {
             id: layout
             anchors.fill: parent
-            spacing: CuteUI.Units.largeSpacing * 2
+            spacing: LingmoUI.Units.largeSpacing * 2
 
             RoundedItem {
                 Label {
                     text: qsTr("Appearance enhancement")
-                    color: CuteUI.Theme.disabledTextColor
+                    color: LingmoUI.Theme.disabledTextColor
                     visible: _view.count > 0
                 }
 
@@ -83,7 +83,7 @@ ItemPage {
             RoundedItem {
                 Label {
                     text: qsTr("Barrier free function")
-                    color: CuteUI.Theme.disabledTextColor
+                    color: LingmoUI.Theme.disabledTextColor
                     visible: _view.count > 0
                 }
 
@@ -121,7 +121,7 @@ ItemPage {
             }
 
             Item {
-                height: CuteUI.Units.smallSpacing
+                height: LingmoUI.Units.smallSpacing
             }
         }
     }

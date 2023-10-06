@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021 CuteOS Team.
+ * Copyright (C) 2021 LingmoOS Team.
  *
  * Author:     revenmartin <revenmartin@gmail.com>
  *
@@ -22,9 +22,9 @@ import QtQuick.Controls 2.4
 import QtQuick.Layouts 1.3
 import QtQuick.Window 2.3
 import QtGraphicalEffects 1.0
-import CuteUI 1.0 as CuteUI
+import LingmoUI 1.0 as LingmoUI
 
-CuteUI.Window {
+LingmoUI.Window {
     id: rootWindow
     title: qsTr("Settings")
     visible: true
@@ -36,14 +36,14 @@ CuteUI.Window {
 
     property alias stackView: _stackView
 
-    background.opacity: CuteUI.Theme.darkMode ? 0.7 : 0.5
+    background.opacity: LingmoUI.Theme.darkMode ? 0.7 : 0.5
     header.height: 40
     contentTopMargin: 0
 
     LayoutMirroring.enabled: Qt.application.layoutDirection === Qt.RightToLeft
     LayoutMirroring.childrenInherit: true
 
-    CuteUI.WindowBlur {
+    LingmoUI.WindowBlur {
         view: rootWindow
         geometry: Qt.rect(rootWindow.x, rootWindow.y, rootWindow.width, rootWindow.height)
         windowRadius: rootWindow.windowRadius

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021 CuteOS Team.
+ * Copyright (C) 2021 LingmoOS Team.
  *
  * Author:     revenmartin <revenmartin@gmail.com>
  *
@@ -23,14 +23,14 @@ import QtQuick.Layouts 1.3
 import QtGraphicalEffects 1.0
 import QtQuick.Window 2.3
 
-import CuteUI 1.0 as CuteUI
-import Cute.NetworkManagement 1.0 as NM
+import LingmoUI 1.0 as LingmoUI
+import Lingmo.NetworkManagement 1.0 as NM
 import "../"
 
 Item {
     id: control
 
-    height: _itemLayout.implicitHeight + CuteUI.Units.largeSpacing
+    height: _itemLayout.implicitHeight + LingmoUI.Units.largeSpacing
 
     property bool passwordIsStatic: (model.securityType === NM.Enums.StaticWep || model.securityType === NM.Enums.WpaPsk ||
                                      model.securityType === NM.Enums.Wpa2Psk || model.securityType === NM.Enums.SAE)
@@ -41,19 +41,19 @@ Item {
         anchors.fill: parent
         anchors.leftMargin: 0
         anchors.rightMargin: 0
-        anchors.topMargin: CuteUI.Units.smallSpacing
-        anchors.bottomMargin: CuteUI.Units.smallSpacing
+        anchors.topMargin: LingmoUI.Units.smallSpacing
+        anchors.bottomMargin: LingmoUI.Units.smallSpacing
         spacing: 0
 
         // 顶部项
         Item {
             Layout.fillWidth: true
-            Layout.preferredHeight: _topItem.implicitHeight + CuteUI.Units.largeSpacing
+            Layout.preferredHeight: _topItem.implicitHeight + LingmoUI.Units.largeSpacing
 
             Rectangle {
                 anchors.fill: parent
-                radius: CuteUI.Theme.smallRadius
-                color: CuteUI.Theme.textColor
+                radius: LingmoUI.Theme.smallRadius
+                color: LingmoUI.Theme.textColor
                 opacity: mouseArea.pressed ? 0.15 :  mouseArea.containsMouse ? 0.1 : 0.0
             }
 
@@ -108,15 +108,15 @@ Item {
             RowLayout {
                 id: _topItem
                 anchors.fill: parent
-                anchors.leftMargin: CuteUI.Units.smallSpacing
-                anchors.rightMargin: CuteUI.Units.smallSpacing
-                spacing: CuteUI.Units.largeSpacing
+                anchors.leftMargin: LingmoUI.Units.smallSpacing
+                anchors.rightMargin: LingmoUI.Units.smallSpacing
+                spacing: LingmoUI.Units.largeSpacing
 
                 Image {
                     width: 22
                     height: width
                     sourceSize: Qt.size(width, height)
-                    source: "qrc:/images/" + (CuteUI.Theme.darkMode ? "dark/" : "light/") + model.connectionIcon + ".svg"
+                    source: "qrc:/images/" + (LingmoUI.Theme.darkMode ? "dark/" : "light/") + model.connectionIcon + ".svg"
                     smooth: false
                 }
 
@@ -128,7 +128,7 @@ Item {
                     Layout.fillWidth: true
                 }
 
-                CuteUI.BusyIndicator {
+                LingmoUI.BusyIndicator {
                     id: busyIndicator
                     width: 22
                     height: width
@@ -148,7 +148,7 @@ Item {
                     ColorOverlay {
                         anchors.fill: parent
                         source: parent
-                        color: CuteUI.Theme.highlightColor
+                        color: LingmoUI.Theme.highlightColor
                         opacity: 1
                         visible: true
                     }
@@ -159,7 +159,7 @@ Item {
                     width: 22
                     height: width
                     sourceSize: Qt.size(width, height)
-                    source: CuteUI.Theme.darkMode ? "qrc:/images/dark/locked.svg" : "qrc:/images/light/locked.svg"
+                    source: LingmoUI.Theme.darkMode ? "qrc:/images/dark/locked.svg" : "qrc:/images/light/locked.svg"
                     visible: (model.securityType === -1 | model.securityType === 0) ? false : true
                     smooth: false
                 }
@@ -192,13 +192,13 @@ Item {
             }
 
             Item {
-                height: CuteUI.Units.largeSpacing * 2
+                height: LingmoUI.Units.largeSpacing * 2
             }
 
             // 密码对话
             RowLayout {
                 visible: predictableWirelessPassword
-                spacing: CuteUI.Units.largeSpacing
+                spacing: LingmoUI.Units.largeSpacing
 
                 Label {
                     text: qsTr("Password")
@@ -263,7 +263,7 @@ Item {
             }
 
             Item {
-                height: CuteUI.Units.smallSpacing
+                height: LingmoUI.Units.smallSpacing
             }
 
             HorizontalDivider {}

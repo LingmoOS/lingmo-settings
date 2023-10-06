@@ -1,8 +1,8 @@
 import QtQuick 2.4
 import QtQuick.Controls 2.4
 import QtQuick.Layouts 1.3
-import Cute.Settings 1.0
-import CuteUI 1.0 as CuteUI
+import Lingmo.Settings 1.0
+import LingmoUI 1.0 as LingmoUI
 import org.kde.bluezqt 1.0 as BluezQt
 import org.kde.plasma.private.bluetooth 1.0
 
@@ -38,7 +38,7 @@ ItemPage {
         ColumnLayout {
             id: layout
             anchors.fill: parent
-            anchors.bottomMargin: CuteUI.Units.largeSpacing
+            anchors.bottomMargin: LingmoUI.Units.largeSpacing
 
             Switch {
                 id: bluetoothSwitch

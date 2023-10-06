@@ -9,7 +9,7 @@
 class About : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY(bool isCuteOS READ isCuteOS CONSTANT)
+    Q_PROPERTY(bool isLingmoOS READ isLingmoOS CONSTANT)
     Q_PROPERTY(QString version READ version CONSTANT)
     Q_PROPERTY(QString OpenLingmoVersion READ OpenLingmoVersion CONSTANT)
     Q_PROPERTY(QString debianversion READ debianversion CONSTANT)
@@ -31,7 +31,7 @@ class About : public QObject
 public:
     explicit About(QObject *parent = nullptr);
 
-    bool isCuteOS();
+    bool isLingmoOS();
 
     QString version();
     QString OpenLingmoVersion();

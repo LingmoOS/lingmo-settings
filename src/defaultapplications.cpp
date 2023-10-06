@@ -1,7 +1,7 @@
 /*
- * Copyright (C) 2021 - 2022 CuteOS Team.
+ * Copyright (C) 2021 - 2022 LingmoOS Team.
  *
- * Author:     Kate Leet <kate@cuteos.com>
+ * Author:     Kate Leet <kate@lingmoos.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -79,7 +79,7 @@ void DefaultApplications::loadApps()
     QSettings mimeApps(mimeAppsListFilePath(), QSettings::IniFormat);
     mimeApps.beginGroup("Default Applications");
 
-    QSettings settings("cuteos", "defaultApps");
+    QSettings settings("lingmoos", "defaultApps");
 
     QString defaultBrowser = mimeApps.value("x-scheme-handler/http").toString();
     QString defaultFM = mimeApps.value("inode/directory").toString();
@@ -236,7 +236,7 @@ void DefaultApplications::setDefaultTerminal(int index)
 
     qDebug() << index << desktop;
 
-    QSettings settings("cuteos", "defaultApps");
+    QSettings settings("lingmoos", "defaultApps");
     settings.setValue("terminal", desktop);
 }
 

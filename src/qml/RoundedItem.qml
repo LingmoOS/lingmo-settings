@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021 CuteOS Team.
+ * Copyright (C) 2021 LingmoOS Team.
  *
  * Author:     revenmartin <revenmartin@gmail.com>
  *
@@ -19,7 +19,7 @@
 
 import QtQuick 2.12
 import QtQuick.Layouts 1.12
-import CuteUI 1.0 as CuteUI
+import LingmoUI 1.0 as LingmoUI
 
 Rectangle {
     Layout.fillWidth: true
@@ -28,8 +28,8 @@ Rectangle {
     property alias spacing: _mainLayout.spacing
     property alias layout: _mainLayout
 
-    color: CuteUI.Theme.secondBackgroundColor
-    radius: CuteUI.Theme.mediumRadius
+    color: LingmoUI.Theme.secondBackgroundColor
+    radius: LingmoUI.Theme.mediumRadius
 
     Behavior on color {
         ColorAnimation {
@@ -45,10 +45,10 @@ Rectangle {
     ColumnLayout {
         id: _mainLayout
         anchors.fill: parent
-        anchors.leftMargin: CuteUI.Units.largeSpacing * 1.5
-        anchors.rightMargin: CuteUI.Units.largeSpacing * 1.5
-        anchors.topMargin: CuteUI.Units.largeSpacing
-        anchors.bottomMargin: CuteUI.Units.largeSpacing
-        spacing: CuteUI.Units.largeSpacing
+        anchors.leftMargin: LingmoUI.Units.largeSpacing * 1.5
+        anchors.rightMargin: LingmoUI.Units.largeSpacing * 1.5
+        anchors.topMargin: LingmoUI.Units.largeSpacing
+        anchors.bottomMargin: LingmoUI.Units.largeSpacing
+        spacing: LingmoUI.Units.largeSpacing
     }
 }

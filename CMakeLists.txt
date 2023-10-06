@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.5)
 
-set(PROJECT_NAME ling-settings)
+set(PROJECT_NAME lingmo-settings)
 project(${PROJECT_NAME})
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
@@ -71,7 +71,7 @@ set(RESOURCES
 )
 
 qt5_add_dbus_adaptor(DBUS_SOURCES
-                     src/com.cute.SettingsUI.xml
+                     src/com.lingmo.SettingsUI.xml
                      src/application.h Application)
 set_source_files_properties(${DBUS_SOURCES} PROPERTIES SKIP_AUTOGEN ON)
 
@@ -87,7 +87,7 @@ target_link_libraries(${PROJECT_NAME}
         Qt5::Xml
         Qt5::X11Extras
         Qt5::Concurrent
-        # CuteUI
+        # LingmoUI
 
         KF5::NetworkManagerQt
         KF5::ModemManagerQt
@@ -121,7 +121,7 @@ endforeach()
 install(TARGETS ${PROJECT_NAME} RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
 
 install(FILES
-    ling-settings.desktop
+    lingmo-settings.desktop
     DESTINATION /usr/share/applications/
     COMPONENT Runtime
 )
@@ -129,5 +129,5 @@ install(FILES
 install(FILES ${QM_FILES} DESTINATION /usr/share/${PROJECT_NAME}/translations)
 
 # dev files
-set(INCLUDE_INSTALL_DIR include/ling-settings)
+set(INCLUDE_INSTALL_DIR include/lingmo-settings)
 install(DIRECTORY ${HEADERS} DESTINATION ${INCLUDE_INSTALL_DIR})

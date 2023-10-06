@@ -1,7 +1,7 @@
-Source: ling-settings
+Source: lingmo-settings
 Section: devel
 Priority: optional
-Maintainer: LingmoOS <cuteos@foxmail.com>
+Maintainer: LingmoOS <lingmo@lingmo.org>
 Build-Depends: cmake,
                debhelper (>= 9),
                extra-cmake-modules,
@@ -22,10 +22,10 @@ Build-Depends: cmake,
                qttools5-dev,
                qttools5-dev-tools,
                libqapt-dev
-Standards-Version: 1.0.6
+Standards-Version: 4.5.0
 Homepage: https://lingmo.org
 
-Package: ling-settings
+Package: lingmo-settings
 Architecture: any
 Depends: qml-module-qtquick-controls2,
          qml-module-qtquick2,
@@ -40,9 +40,9 @@ Depends: qml-module-qtquick-controls2,
          kscreen,
          ${misc:Depends},
          ${shlibs:Depends}
-Description: OpenSwift Settings
+Description: Lingmo OS
 
-Package: ling-settings-dev
+Package: lingmo-settings-dev
 Architecture: any
-Depends: ling-settings (= ${binary:Version}), ${misc:Depends}, ${shlib:Depends}, ${dist:Depends}
+Depends: lingmo-settings (= ${binary:Version}), ${misc:Depends}, ${shlib:Depends}, ${dist:Depends}
 Description: LingmoOS Settings Dev

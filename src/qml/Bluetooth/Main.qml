@@ -1,9 +1,9 @@
 import QtQuick 2.4
 import QtQuick.Controls 2.4
 import QtQuick.Layouts 1.3
-import Cute.Settings 1.0
-import CuteUI 1.0 as CuteUI
-import Cute.Bluez 1.0 as Bluez
+import Lingmo.Settings 1.0
+import LingmoUI 1.0 as LingmoUI
+import Lingmo.Bluez 1.0 as Bluez
 import "../"
 
 ItemPage {
@@ -63,16 +63,16 @@ ItemPage {
         ColumnLayout {
             id: layout
             anchors.fill: parent
-            anchors.bottomMargin: CuteUI.Units.largeSpacing
+            anchors.bottomMargin: LingmoUI.Units.largeSpacing
 
             RoundedItem {
                 id: mainItem
-                spacing: CuteUI.Units.largeSpacing
+                spacing: LingmoUI.Units.largeSpacing
 
                 RowLayout {
                     Label {
                         text: qsTr("Bluetooth")
-                        color: CuteUI.Theme.disabledTextColor
+                        color: LingmoUI.Theme.disabledTextColor
                     }
 
                     Item {
@@ -109,16 +109,16 @@ ItemPage {
                     section.property: "Section"
                     section.criteria: ViewSection.FullString
                     section.delegate: Label {
-                        color: CuteUI.Theme.disabledTextColor
-                        topPadding: CuteUI.Units.largeSpacing
-                        bottomPadding: CuteUI.Units.largeSpacing
+                        color: LingmoUI.Theme.disabledTextColor
+                        topPadding: LingmoUI.Units.largeSpacing
+                        bottomPadding: LingmoUI.Units.largeSpacing
                         text: section == "My devices" ? qsTr("My devices")
                                                      : qsTr("Other devices")
                     }
 
                     delegate: Item {
                         width: ListView.view.width
-                        height: _itemLayout.implicitHeight + CuteUI.Units.largeSpacing
+                        height: _itemLayout.implicitHeight + LingmoUI.Units.largeSpacing
 
                         property bool paired: model.Connected && model.Paired
 
@@ -127,18 +127,18 @@ ItemPage {
                             anchors.fill: parent
                             anchors.leftMargin: 0
                             anchors.rightMargin: 0
-                            anchors.topMargin: CuteUI.Units.smallSpacing
-                            anchors.bottomMargin: CuteUI.Units.smallSpacing
+                            anchors.topMargin: LingmoUI.Units.smallSpacing
+                            anchors.bottomMargin: LingmoUI.Units.smallSpacing
                             spacing: 0
 
                             Item {
                                 Layout.fillWidth: true
-                                height: _contentLayout.implicitHeight + CuteUI.Units.largeSpacing
+                                height: _contentLayout.implicitHeight + LingmoUI.Units.largeSpacing
 
                                 Rectangle {
                                     anchors.fill: parent
-                                    radius: CuteUI.Theme.smallRadius
-                                    color: CuteUI.Theme.textColor
+                                    radius: LingmoUI.Theme.smallRadius
+                                    color: LingmoUI.Theme.textColor
                                     opacity: mouseArea.pressed ? 0.15 :  mouseArea.containsMouse ? 0.1 : 0.0
                                 }
 
@@ -165,13 +165,13 @@ ItemPage {
                                 RowLayout {
                                     id: _contentLayout
                                     anchors.fill: parent
-                                    anchors.rightMargin: CuteUI.Units.smallSpacing
+                                    anchors.rightMargin: LingmoUI.Units.smallSpacing
 
                                     Image {
                                         width: 16
                                         height: 16
                                         sourceSize: Qt.size(16, 16)
-                                        source: CuteUI.Theme.darkMode ? "qrc:/images/sidebar/dark/bluetooth.svg"
+                                        source: LingmoUI.Theme.darkMode ? "qrc:/images/sidebar/dark/bluetooth.svg"
                                                                       : "qrc:/images/sidebar/light/bluetooth.svg"
                                         Layout.alignment: Qt.AlignVCenter
                                     }
@@ -195,12 +195,12 @@ ItemPage {
 
                                 ColumnLayout {
                                     Item {
-                                        height: CuteUI.Units.largeSpacing
+                                        height: LingmoUI.Units.largeSpacing
                                     }
 
                                     RowLayout {
-                                        spacing: CuteUI.Units.largeSpacing
-                                        Layout.leftMargin: CuteUI.Units.smallSpacing
+                                        spacing: LingmoUI.Units.largeSpacing
+                                        Layout.leftMargin: LingmoUI.Units.smallSpacing
 
                                         Button {
                                             text: qsTr("Connect")
@@ -242,7 +242,7 @@ ItemPage {
             }
 
             Item {
-                height: CuteUI.Units.largeSpacing * 2
+                height: LingmoUI.Units.largeSpacing * 2
             }
         }
     }

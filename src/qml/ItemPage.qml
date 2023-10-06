@@ -1,7 +1,7 @@
 import QtQuick 2.4
 import QtQuick.Controls 2.4
 import QtQuick.Layouts 1.3
-import CuteUI 1.0 as CuteUI
+import LingmoUI 1.0 as LingmoUI
 
 Page {
     id: page
@@ -17,13 +17,13 @@ Page {
 
         Label {
             anchors.left: parent.left
-            leftPadding: CuteUI.Units.largeSpacing * 3
-            rightPadding: Qt.application.layoutDirection === Qt.RightToLeft ? CuteUI.Units.largeSpacing * 3 : 0
-            topPadding: CuteUI.Units.largeSpacing
+            leftPadding: LingmoUI.Units.largeSpacing * 3
+            rightPadding: Qt.application.layoutDirection === Qt.RightToLeft ? LingmoUI.Units.largeSpacing * 3 : 0
+            topPadding: LingmoUI.Units.largeSpacing
             bottomPadding: 0
             font.pointSize: 12
             text: page.headerTitle
-            color: rootWindow.active ? CuteUI.Theme.textColor : CuteUI.Theme.disabledTextColor
+            color: rootWindow.active ? LingmoUI.Theme.textColor : LingmoUI.Theme.disabledTextColor
         }
     }
 }

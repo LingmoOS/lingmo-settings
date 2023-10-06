@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021 CuteOS Team.
+ * Copyright (C) 2021 LingmoOS Team.
  *
  * Author:     Reion Wong <reionwong@gmail.com>
  *
@@ -25,8 +25,8 @@
 
 PowerManager::PowerManager(QObject *parent)
     : QObject(parent)
-    , m_iface("com.cute.PowerManager",
-              "/CPUManagement", "com.cute.CPUManagement",
+    , m_iface("com.lingmo.PowerManager",
+              "/CPUManagement", "com.lingmo.CPUManagement",
               QDBusConnection::sessionBus())
     , m_mode(-1)
 {
@@ -34,7 +34,7 @@ PowerManager::PowerManager(QObject *parent)
         m_mode = m_iface.property("mode").toInt();
     }
 
-    QSettings settings(QSettings::UserScope, "cuteos", "power");
+    QSettings settings(QSettings::UserScope, "lingmoos", "power");
     m_idleTime = settings.value("CloseScreenTimeout", 600).toInt();
     m_hibernateTime = settings.value("HibernateTimeout", 600).toInt();
 
@@ -66,8 +66,8 @@ void PowerManager::setIdleTime(int idleTime)
     if (m_idleTime != idleTime) {
         m_idleTime = idleTime;
 
-        QDBusInterface iface("com.cute.PowerManager",
-                             "/PowerManager", "com.cute.PowerManager",
+        QDBusInterface iface("com.lingmo.PowerManager",
+                             "/PowerManager", "com.lingmo.PowerManager",
                              QDBusConnection::sessionBus());
         if (iface.isValid()) {
             iface.asyncCall("setDimDisplayTimeout", idleTime);
@@ -100,8 +100,8 @@ void PowerManager::setSleepWhenClosedScreen(bool sleepWhenClosedScreen)
     m_sleepWhenClosedScreen = sleepWhenClosedScreen;
     emit sleepWhenClosedScreenChanged();
 
-    QDBusInterface iface("com.cute.PowerManager",
-                         "/PowerManager", "com.cute.PowerManager",
+    QDBusInterface iface("com.lingmo.PowerManager",
+                         "/PowerManager", "com.lingmo.PowerManager",
                          QDBusConnection::sessionBus());
     if (iface.isValid()) {
         iface.asyncCall("setSleepWhenClosedScreen", sleepWhenClosedScreen);
@@ -118,8 +118,8 @@ void PowerManager::setLockWhenClosedScreen(bool lockWhenClosedScreen)
     m_lockWhenClosedScreen = lockWhenClosedScreen;
     emit lockWhenClosedScreenChanged();
 
-    QDBusInterface iface("com.cute.PowerManager",
-                         "/PowerManager", "com.cute.PowerManager",
+    QDBusInterface iface("com.lingmo.PowerManager",
+                         "/PowerManager", "com.lingmo.PowerManager",
                          QDBusConnection::sessionBus());
     if (iface.isValid()) {
         iface.asyncCall("setLockWhenClosedScreen", lockWhenClosedScreen);

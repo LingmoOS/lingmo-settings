@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021 CuteOS Team.
+ * Copyright (C) 2021 LingmoOS Team.
  *
  * Author:     revenmartin <revenmartin@gmail.com>
  *
@@ -20,8 +20,8 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
-import CuteUI 1.0 as CuteUI
-import Cute.Settings 1.0
+import LingmoUI 1.0 as LingmoUI
+import Lingmo.Settings 1.0
 import "../"
 
 ItemPage {
@@ -46,10 +46,10 @@ ItemPage {
         ColumnLayout {
             id: layout
             anchors.fill: parent
-            spacing: CuteUI.Units.largeSpacing * 2
+            spacing: LingmoUI.Units.largeSpacing * 2
 
             RoundedItem {
-                spacing: CuteUI.Units.largeSpacing * 1.5
+                spacing: LingmoUI.Units.largeSpacing * 1.5
 
                 RowLayout {
                     Label {
@@ -96,8 +96,8 @@ ItemPage {
 
                 RowLayout {
                     anchors.fill: parent
-                    anchors.leftMargin: CuteUI.Units.largeSpacing * 1.5
-                    anchors.rightMargin: CuteUI.Units.largeSpacing * 1.5
+                    anchors.leftMargin: LingmoUI.Units.largeSpacing * 1.5
+                    anchors.rightMargin: LingmoUI.Units.largeSpacing * 1.5
 
                     Label {
                         text: qsTr("Time Zone")

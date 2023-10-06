@@ -13,7 +13,7 @@
 
 CursorThemeModel::CursorThemeModel(QObject *parent)
     : QAbstractListModel(parent)
-    , m_settings("cuteos", "theme")
+    , m_settings("lingmoos", "theme")
 {
     initThemes();
 
@@ -79,9 +79,9 @@ void CursorThemeModel::setCurrentTheme(const QString &theme)
         m_currentTheme = theme;
         emit currentThemeChanged();
 
-        QDBusInterface interface("com.cute.Settings",
+        QDBusInterface interface("com.lingmo.Settings",
                                  "/Theme",
-                                 "com.cute.Theme",
+                                 "com.lingmo.Theme",
                                  QDBusConnection::sessionBus());
         if (interface.isValid())
             interface.asyncCall("setCursorTheme", m_currentTheme);

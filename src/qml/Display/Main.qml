@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021 CuteOS Team.
+ * Copyright (C) 2021 LingmoOS Team.
  *
  * Author:     revenmartin <revenmartin@gmail.com>
  *
@@ -20,9 +20,9 @@
 import QtQuick 2.4
 import QtQuick.Controls 2.4
 import QtQuick.Layouts 1.3
-import Cute.Settings 1.0
-import Cute.Screen 1.0 as CS
-import CuteUI 1.0 as CuteUI
+import Lingmo.Settings 1.0
+import Lingmo.Screen 1.0 as CS
+import LingmoUI 1.0 as LingmoUI
 import "../"
 
 ItemPage {
@@ -57,7 +57,7 @@ ItemPage {
         ColumnLayout {
             id: layout
             anchors.fill: parent
-            spacing: CuteUI.Units.largeSpacing * 2
+            spacing: LingmoUI.Units.largeSpacing * 2
 
             RoundedItem {
                 Layout.fillWidth: true
@@ -65,16 +65,16 @@ ItemPage {
 
                 Label {
                     text: qsTr("Brightness")
-                    color: CuteUI.Theme.disabledTextColor
+                    color: LingmoUI.Theme.disabledTextColor
                     visible: brightness.enabled
                 }
 
                 Item {
-                    height: CuteUI.Units.smallSpacing / 2
+                    height: LingmoUI.Units.smallSpacing / 2
                 }
 
                 RowLayout {
-                    spacing: CuteUI.Units.largeSpacing
+                    spacing: LingmoUI.Units.largeSpacing
 
                     Image {
                         width: 16
@@ -82,7 +82,7 @@ ItemPage {
                         sourceSize.width: width
                         sourceSize.height: height
                         Layout.alignment: Qt.AlignVCenter
-                        source: "qrc:/images/" + (CuteUI.Theme.darkMode ? "dark" : "light") + "/display-brightness-low-symbolic.svg"
+                        source: "qrc:/images/" + (LingmoUI.Theme.darkMode ? "dark" : "light") + "/display-brightness-low-symbolic.svg"
                     }
 
                     Slider {
@@ -108,12 +108,12 @@ ItemPage {
                         sourceSize.width: width
                         sourceSize.height: height
                         Layout.alignment: Qt.AlignVCenter
-                        source: "qrc:/images/" + (CuteUI.Theme.darkMode ? "dark" : "light") + "/display-brightness-symbolic.svg"
+                        source: "qrc:/images/" + (LingmoUI.Theme.darkMode ? "dark" : "light") + "/display-brightness-symbolic.svg"
                     }
                 }
 
                 Item {
-                    height: CuteUI.Units.smallSpacing / 2
+                    height: LingmoUI.Units.smallSpacing / 2
                 }
             }
 
@@ -122,7 +122,7 @@ ItemPage {
 
                 Label {
                     text: qsTr("Screen")
-                    color: CuteUI.Theme.disabledTextColor
+                    color: LingmoUI.Theme.disabledTextColor
                     visible: _screenView.count > 0
                 }
 
@@ -134,7 +134,7 @@ ItemPage {
                     interactive: false
                     clip: true
 
-                    Layout.preferredHeight: currentItem ? currentItem.layout.implicitHeight + CuteUI.Units.largeSpacing : 0
+                    Layout.preferredHeight: currentItem ? currentItem.layout.implicitHeight + LingmoUI.Units.largeSpacing : 0
 
                     Behavior on Layout.preferredHeight {
                         NumberAnimation {
@@ -157,8 +157,8 @@ ItemPage {
 
                             GridLayout {
                                 columns: 2
-                                columnSpacing: CuteUI.Units.largeSpacing * 1.5
-                                rowSpacing: CuteUI.Units.largeSpacing * 1.5
+                                columnSpacing: LingmoUI.Units.largeSpacing * 1.5
+                                rowSpacing: LingmoUI.Units.largeSpacing * 1.5
 
                                 Label {
                                     text: qsTr("Screen Name")
@@ -167,7 +167,7 @@ ItemPage {
 
                                 Label {
                                     text: element.display
-                                    color: CuteUI.Theme.disabledTextColor
+                                    color: LingmoUI.Theme.disabledTextColor
                                     visible: _screenView.count > 1
                                 }
 
@@ -178,8 +178,8 @@ ItemPage {
                                 ComboBox {
                                     Layout.fillWidth: true
                                     model: element.resolutions
-                                    leftPadding: CuteUI.Units.largeSpacing
-                                    rightPadding: CuteUI.Units.largeSpacing
+                                    leftPadding: LingmoUI.Units.largeSpacing
+                                    rightPadding: LingmoUI.Units.largeSpacing
                                     topInset: 0
                                     bottomInset: 0
                                     currentIndex: element.resolutionIndex !== undefined ?
@@ -198,8 +198,8 @@ ItemPage {
                                     id: refreshRate
                                     Layout.fillWidth: true
                                     model: element.refreshRates
-                                    leftPadding: CuteUI.Units.largeSpacing
-                                    rightPadding: CuteUI.Units.largeSpacing
+                                    leftPadding: LingmoUI.Units.largeSpacing
+                                    rightPadding: LingmoUI.Units.largeSpacing
                                     topInset: 0
                                     bottomInset: 0
                                     currentIndex: element.refreshRateIndex ?
@@ -287,7 +287,7 @@ ItemPage {
             RoundedItem {
                 Label {
                     text: qsTr("Scale")
-                    color: CuteUI.Theme.disabledTextColor
+                    color: LingmoUI.Theme.disabledTextColor
                 }
 
                 TabBar {

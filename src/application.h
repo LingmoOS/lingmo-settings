@@ -1,12 +1,12 @@
 /*
- * @Author: CuteOS
+ * @Author: LingmoOS
  * @Date: 2022-07-02 21:45:34
  * @LastEditors: 柚子
  * @LastEditTime: 2022-07-03 11:08:18
  * @FilePath: /settings/src/application.h
  * @Description: 
  * 
- * Copyright (c) 2022 by CuteOS, All Rights Reserved. 
+ * Copyright (c) 2022 by LingmoOS, All Rights Reserved. 
  */
 #ifndef APPLICATION_H
 #define APPLICATION_H

@@ -1,8 +1,8 @@
 import QtQuick 2.4
 import QtQuick.Controls 2.4
 import QtQuick.Layouts 1.3
-import Cute.Settings 1.0
-import CuteUI 1.0 as CuteUI
+import Lingmo.Settings 1.0
+import LingmoUI 1.0 as LingmoUI
 import "../"
 
 ItemPage {
@@ -19,16 +19,16 @@ ItemPage {
         ColumnLayout {
             id: layout
             anchors.fill: parent
-            spacing: CuteUI.Units.largeSpacing * 2
+            spacing: LingmoUI.Units.largeSpacing * 2
 
             RoundedItem {
                 Label {
                     text: qsTr("Style")
-                    color: CuteUI.Theme.disabledTextColor
+                    color: LingmoUI.Theme.disabledTextColor
                 }
 
                 RowLayout {
-                    spacing: CuteUI.Units.largeSpacing * 2
+                    spacing: LingmoUI.Units.largeSpacing * 2
 
                     IconCheckBox {
                         source: "qrc:/images/dock_straight.svg"
@@ -50,11 +50,11 @@ ItemPage {
            RoundedItem {
                Label {
                    text: qsTr("Position on screen")
-                   color: CuteUI.Theme.disabledTextColor
+                   color: LingmoUI.Theme.disabledTextColor
                }
 
                RowLayout {
-                   spacing: CuteUI.Units.largeSpacing * 2
+                   spacing: LingmoUI.Units.largeSpacing * 2
 
                    IconCheckBox {
                        source: "qrc:/images/dock_left.svg"
@@ -83,13 +83,13 @@ ItemPage {
             RoundedItem {
                 Label {
                     text: qsTr("Size")
-                    color: CuteUI.Theme.disabledTextColor
+                    color: LingmoUI.Theme.disabledTextColor
                 }
 
                 TabBar {
                     id: dockSizeTabbar
                     Layout.fillWidth: true
-                    bottomPadding: CuteUI.Units.smallSpacing
+                    bottomPadding: LingmoUI.Units.smallSpacing
 
                     TabButton {
                         text: qsTr("Small")
@@ -149,7 +149,7 @@ ItemPage {
             RoundedItem {
                 Label {
                     text: qsTr("Display mode")
-                    color: CuteUI.Theme.disabledTextColor
+                    color: LingmoUI.Theme.disabledTextColor
                 }
 
                 TabBar {

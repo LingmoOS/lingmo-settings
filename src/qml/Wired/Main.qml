@@ -1,7 +1,7 @@
 /*
- * Copyright (C) 2021 CuteOS Team.
+ * Copyright (C) 2021 LingmoOS Team.
  *
- * Author:     rekols <aj@cuteos.com>
+ * Author:     rekols <aj@lingmoos.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -22,8 +22,8 @@ import QtQuick.Controls 2.4
 import QtQuick.Layouts 1.3
 import QtGraphicalEffects 1.0
 
-import CuteUI 1.0 as CuteUI
-import Cute.NetworkManagement 1.0 as NM
+import LingmoUI 1.0 as LingmoUI
+import Lingmo.NetworkManagement 1.0 as NM
 
 import "../"
 
@@ -65,20 +65,20 @@ ItemPage {
         ColumnLayout {
             id: mainLayout
             anchors.fill: parent
-            anchors.bottomMargin: CuteUI.Units.largeSpacing
-            spacing: CuteUI.Units.largeSpacing * 2
+            anchors.bottomMargin: LingmoUI.Units.largeSpacing
+            spacing: LingmoUI.Units.largeSpacing * 2
 
             // Wired connection
             RoundedItem {
                 visible: enabledConnections.wwanHwEnabled
-                spacing: CuteUI.Units.largeSpacing
+                spacing: LingmoUI.Units.largeSpacing
 
                 RowLayout {
-                    spacing: CuteUI.Units.largeSpacing
+                    spacing: LingmoUI.Units.largeSpacing
 
                     Label {
                         text: qsTr("Ethernet")
-                        color: CuteUI.Theme.disabledTextColor
+                        color: LingmoUI.Theme.disabledTextColor
                         Layout.fillWidth: true
                     }
 
@@ -125,7 +125,7 @@ ItemPage {
             }
 
             Item {
-                height: CuteUI.Units.largeSpacing
+                height: LingmoUI.Units.largeSpacing
             }
         }
     }

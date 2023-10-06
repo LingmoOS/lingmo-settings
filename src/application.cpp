@@ -28,7 +28,7 @@
 #include "datetime/time.h"
 #include "datetime/timezonemap.h"
 
-const QString ModuleDirectory = "/usr/lib/cute-settings/modules";
+const QString ModuleDirectory = "/usr/lib/lingmo-settings/modules";
 
 static QObject *passwordSingleton(QQmlEngine *engine, QJSEngine *scriptEngine)
 {
@@ -43,10 +43,10 @@ Application::Application(int &argc, char **argv)
     : QApplication(argc, argv)
 {
     setWindowIcon(QIcon::fromTheme("preferences-system"));
-    setOrganizationName("cuteos");
+    setOrganizationName("lingmoos");
 
     QCommandLineParser parser;
-    parser.setApplicationDescription(QStringLiteral("Cute Settings"));
+    parser.setApplicationDescription(QStringLiteral("Lingmo Settings"));
     parser.addHelpOption();
 
     QCommandLineOption moduleOption("m", "Switch to module", "module");
@@ -55,8 +55,8 @@ Application::Application(int &argc, char **argv)
 
     const QString module = parser.value(moduleOption);
 
-    if (!QDBusConnection::sessionBus().registerService("com.cute.SettingsUI")) {
-        QDBusInterface iface("com.cute.SettingsUI", "/SettingsUI", "com.cute.SettingsUI", QDBusConnection::sessionBus());
+    if (!QDBusConnection::sessionBus().registerService("com.lingmo.SettingsUI")) {
+        QDBusInterface iface("com.lingmo.SettingsUI", "/SettingsUI", "com.lingmo.SettingsUI", QDBusConnection::sessionBus());
         if (iface.isValid())
             iface.call("switchToPage", module);
         return;
@@ -66,7 +66,7 @@ Application::Application(int &argc, char **argv)
     QDBusConnection::sessionBus().registerObject(QStringLiteral("/SettingsUI"), this);
 
     // QML
-    const char *uri = "Cute.Settings";
+    const char *uri = "Lingmo.Settings";
     qmlRegisterType<Appearance>(uri, 1, 0, "Appearance");
     qmlRegisterType<FontsModel>(uri, 1, 0, "FontsModel");
     qmlRegisterType<Brightness>(uri, 1, 0, "Brightness");
@@ -96,7 +96,7 @@ Application::Application(int &argc, char **argv)
 
     // Translations
     QLocale locale;
-    QString qmFilePath = QString("%1/%2.qm").arg("/usr/share/ling-settings/translations/").arg(locale.name());
+    QString qmFilePath = QString("%1/%2.qm").arg("/usr/share/lingmo-settings/translations/").arg(locale.name());
     if (QFile::exists(qmFilePath)) {
         QTranslator *translator = new QTranslator(QApplication::instance());
         if (translator->load(qmFilePath)) {

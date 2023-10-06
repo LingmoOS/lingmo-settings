@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021 CuteOS Team.
+ * Copyright (C) 2021 LingmoOS Team.
  *
  * Author:     revenmartin <revenmartin@gmail.com>
  *
@@ -20,9 +20,9 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
-import CuteUI 1.0 as CuteUI
-import Cute.Settings 1.0
-import Cute.Audio 1.0
+import LingmoUI 1.0 as LingmoUI
+import Lingmo.Settings 1.0
+import Lingmo.Audio 1.0
 import "../"
 
 ItemPage {
@@ -82,9 +82,9 @@ ItemPage {
 
             Label {
                 text: qsTr("Output Devices")
-                leftPadding: CuteUI.Units.largeSpacing
-                bottomPadding: CuteUI.Units.smallSpacing
-                color: CuteUI.Theme.disabledTextColor
+                leftPadding: LingmoUI.Units.largeSpacing
+                bottomPadding: LingmoUI.Units.smallSpacing
+                color: LingmoUI.Theme.disabledTextColor
                 visible: sinks.count >= 1
             }
 
@@ -93,7 +93,7 @@ ItemPage {
                 id: sinks
                 Layout.fillWidth: true
                 interactive: false
-                spacing: CuteUI.Units.largeSpacing
+                spacing: LingmoUI.Units.largeSpacing
 
                 Layout.preferredHeight: {
                     var totalHeight = 0
@@ -107,35 +107,35 @@ ItemPage {
 
                 delegate: Item {
                     width: ListView.view.width
-                    height: _itemLayout.implicitHeight + CuteUI.Units.largeSpacing * 2
+                    height: _itemLayout.implicitHeight + LingmoUI.Units.largeSpacing * 2
 
                     readonly property var currentPort: Ports[ActivePortIndex]
 
                     Rectangle {
                         anchors.fill: parent
-                        color: CuteUI.Theme.secondBackgroundColor
-                        radius: CuteUI.Theme.bigRadius
+                        color: LingmoUI.Theme.secondBackgroundColor
+                        radius: LingmoUI.Theme.bigRadius
                     }
 
                     ColumnLayout {
                         id: _itemLayout
                         anchors.fill: parent
-                        anchors.margins: CuteUI.Units.largeSpacing
-                        spacing: CuteUI.Units.largeSpacing
+                        anchors.margins: LingmoUI.Units.largeSpacing
+                        spacing: LingmoUI.Units.largeSpacing
 
                         Label {
                             text: !currentPort ? Description : currentPort.description
                         }
 
                         RowLayout {
-                            spacing: CuteUI.Units.largeSpacing
+                            spacing: LingmoUI.Units.largeSpacing
 
                             Image {
                                 Layout.leftMargin: 2
                                 height: 16
                                 width: height
                                 sourceSize: Qt.size(width, height)
-                                source: "qrc:/images/" + (CuteUI.Theme.darkMode ? "dark" : "light") + "/" + audioIcon(slider.value / slider.to * 100) + ".svg"
+                                source: "qrc:/images/" + (LingmoUI.Theme.darkMode ? "dark" : "light") + "/" + audioIcon(slider.value / slider.to * 100) + ".svg"
                                 smooth: false
                                 antialiasing: true
                             }
@@ -166,14 +166,14 @@ ItemPage {
             }
 
             Item {
-                height: CuteUI.Units.largeSpacing * 2
+                height: LingmoUI.Units.largeSpacing * 2
             }
 
             Label {
                 text: qsTr("Input Devices")
-                leftPadding: CuteUI.Units.largeSpacing
-                bottomPadding: CuteUI.Units.smallSpacing
-                color: CuteUI.Theme.disabledTextColor
+                leftPadding: LingmoUI.Units.largeSpacing
+                bottomPadding: LingmoUI.Units.smallSpacing
+                color: LingmoUI.Theme.disabledTextColor
                 visible: sinkInputView.count >= 1
             }
 
@@ -184,40 +184,40 @@ ItemPage {
                 Layout.preferredHeight: contentHeight
 
                 interactive: false
-                spacing: CuteUI.Units.largeSpacing
+                spacing: LingmoUI.Units.largeSpacing
                 model: paSourceFilterModel
 
                 delegate: Item {
                     width: ListView.view.width
-                    height: _layout.implicitHeight + CuteUI.Units.largeSpacing * 2
+                    height: _layout.implicitHeight + LingmoUI.Units.largeSpacing * 2
 
                     readonly property var currentPort: Ports[ActivePortIndex]
 
                     Rectangle {
                         anchors.fill: parent
-                        color: CuteUI.Theme.secondBackgroundColor
-                        radius: CuteUI.Theme.bigRadius
+                        color: LingmoUI.Theme.secondBackgroundColor
+                        radius: LingmoUI.Theme.bigRadius
                     }
 
                     ColumnLayout {
                         id: _layout
                         anchors.fill: parent
-                        anchors.margins: CuteUI.Units.largeSpacing
-                        spacing: CuteUI.Units.largeSpacing
+                        anchors.margins: LingmoUI.Units.largeSpacing
+                        spacing: LingmoUI.Units.largeSpacing
 
                         Label {
                             text: !currentPort ? Description : currentPort.description
                         }
 
                         RowLayout {
-                            spacing: CuteUI.Units.largeSpacing
+                            spacing: LingmoUI.Units.largeSpacing
 
                             Image {
                                 Layout.leftMargin: 2
                                 height: 16
                                 width: height
                                 sourceSize: Qt.size(width, height)
-                                source: "qrc:/images/" + (CuteUI.Theme.darkMode ? "dark" : "light") + "/" + microphoneIcon(_slider.value / _slider.to * 100) + ".svg"
+                                source: "qrc:/images/" + (LingmoUI.Theme.darkMode ? "dark" : "light") + "/" + microphoneIcon(_slider.value / _slider.to * 100) + ".svg"
                                 smooth: false
                                 antialiasing: true
                             }
@@ -248,7 +248,7 @@ ItemPage {
             }
 
             Item {
-                height: CuteUI.Units.largeSpacing * 2
+                height: LingmoUI.Units.largeSpacing * 2
             }
         }
     }

@@ -1,7 +1,7 @@
 /*
- * Copyright (C) 2021 CuteOS Team.
+ * Copyright (C) 2021 LingmoOS Team.
  *
- * Author:     Kate Leet <kateleet@cuteos.com>
+ * Author:     Kate Leet <kateleet@lingmoos.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -21,15 +21,15 @@
 
 Notifications::Notifications(QObject *parent)
     : QObject(parent)
-    , m_iface("com.cute.Notification",
+    , m_iface("com.lingmo.Notification",
               "/Notification",
-              "com.cute.Notification", QDBusConnection::sessionBus())
+              "com.lingmo.Notification", QDBusConnection::sessionBus())
 {
     m_doNotDisturb = m_iface.property("doNotDisturb").toBool();
 
-    QDBusConnection::sessionBus().connect("com.cute.Notification",
+    QDBusConnection::sessionBus().connect("com.lingmo.Notification",
                                           "/Notification",
-                                          "com.cute.Notification",
+                                          "com.lingmo.Notification",
                                           "doNotDisturbChanged", this, SLOT(onDBusDoNotDisturbChanged()));
 }
 
@@ -42,9 +42,9 @@ void Notifications::setDoNotDisturb(bool enabled)
 {
     m_doNotDisturb = enabled;
 
-    QDBusInterface iface("com.cute.Notification",
+    QDBusInterface iface("com.lingmo.Notification",
                          "/Notification",
-                         "com.cute.Notification", QDBusConnection::sessionBus());
+                         "com.lingmo.Notification", QDBusConnection::sessionBus());
 
     if (iface.isValid()) {
         iface.asyncCall("setDoNotDisturb", enabled);

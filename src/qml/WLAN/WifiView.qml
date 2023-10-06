@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021 CuteOS Team.
+ * Copyright (C) 2021 LingmoOS Team.
  *
  * Author:     revenmartin <revenmartin@gmail.com>
  *
@@ -22,12 +22,12 @@ import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
 import "../"
 
-import CuteUI 1.0 as CuteUI
-import Cute.NetworkManagement 1.0 as NM
+import LingmoUI 1.0 as LingmoUI
+import Lingmo.NetworkManagement 1.0 as NM
 
 ColumnLayout {
     id: _contentLayout
-    spacing: CuteUI.Units.largeSpacing
+    spacing: LingmoUI.Units.largeSpacing
 
     ConnectDialog {
         id: connectDialog
@@ -44,12 +44,12 @@ ColumnLayout {
     }
 
     RowLayout {
-        spacing: CuteUI.Units.smallSpacing * 1.5
+        spacing: LingmoUI.Units.smallSpacing * 1.5
 
         Label {
             id: wlanLabel
             text: qsTr("WLAN")
-            color: CuteUI.Theme.disabledTextColor
+            color: LingmoUI.Theme.disabledTextColor
         }
 
         Item {

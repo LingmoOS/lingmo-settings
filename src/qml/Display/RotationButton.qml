@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021 CuteOS Team.
+ * Copyright (C) 2021 LingmoOS Team.
  *
  * Author:     revenmartin <revenmartin@gmail.com>
  *
@@ -18,8 +18,8 @@
  */
 
 import QtQuick 2.12
-import CuteUI 1.0 as CuteUI
-import Cute.Screen 1.0 as CS
+import LingmoUI 1.0 as LingmoUI
+import Lingmo.Screen 1.0 as CS
 import "../"
 
 IconCheckBox {

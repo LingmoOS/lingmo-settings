@@ -1,7 +1,7 @@
 /*
- * Copyright (C) 2021 CuteOS Team.
+ * Copyright (C) 2021 LingmoOS Team.
  *
- * Author:     Kate Leet <cuteos@foxmail.com>
+ * Author:     Kate Leet <lingmoos@foxmail.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -21,8 +21,8 @@ import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
 
-import CuteUI 1.0 as CuteUI
-import Cute.Settings 1.0
+import LingmoUI 1.0 as LingmoUI
+import Lingmo.Settings 1.0
 import "../"
 
 ItemPage {
@@ -43,7 +43,7 @@ ItemPage {
             RoundedItem {
                 GridLayout {
                     columns: 2
-                    columnSpacing: CuteUI.Units.largeSpacing * 2
+                    columnSpacing: LingmoUI.Units.largeSpacing * 2
 
                     Label {
                         text: qsTr("Web Browser")

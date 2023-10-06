@@ -60,13 +60,13 @@ About::About(QObject *parent)
 {
 }
 
-bool About::isCuteOS()
+bool About::isLingmoOS()
 {
-    if (!QFile::exists("/etc/cuteos"))
+    if (!QFile::exists("/etc/lingmoos"))
         return false;
 
-    QSettings settings("/etc/cuteos", QSettings::IniFormat);
-    return settings.value("CuteOS", false).toBool();
+    QSettings settings("/etc/lingmoos", QSettings::IniFormat);
+    return settings.value("LingmoOS", false).toBool();
 }
 
 QString About::version()
@@ -204,7 +204,7 @@ QString About::cpuInfo()
 
 void About::openUpdator()
 {
-    QProcess::startDetached("ling-updator", QStringList());
+    QProcess::startDetached("lingmo-updator", QStringList());
 }
 
 qlonglong About::calculateTotalRam() const

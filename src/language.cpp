@@ -1,5 +1,5 @@
 ﻿/*
- * Copyright (C) 2021 CuteOS Team.
+ * Copyright (C) 2021 LingmoOS Team.
  *
  * Author:     Reion Wong <reionwong@gmail.com>
  *
@@ -42,9 +42,9 @@ static const QMap<QString, QString> s_displayName = {{"zh_CN", "简体中文"},
 
 Language::Language(QObject *parent)
     : QObject(parent)
-    , m_interface("com.cute.Settings",
+    , m_interface("com.lingmo.Settings",
                   "/Language",
-                  "com.cute.Language",
+                  "com.lingmo.Language",
                   QDBusConnection::sessionBus())
     , m_currentLanguage(-1)
 {

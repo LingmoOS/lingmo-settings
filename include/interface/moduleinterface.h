@@ -1,12 +1,12 @@
 /*
- * @Author: CuteOS
+ * @Author: LingmoOS
  * @Date: 2022-07-02 23:31:03
  * @LastEditors: 柚子
  * @LastEditTime: 2022-07-03 01:20:24
  * @FilePath: /new-settings/include/interface/moduleinterface.h
  * @Description: 
  * 
- * Copyright (c) 2022 by CuteOS, All Rights Reserved. 
+ * Copyright (c) 2022 by LingmoOS, All Rights Reserved. 
  */
 #ifndef MODULEINTERFACE_H
 #define MODULEINTERFACE_H
@@ -49,6 +49,6 @@ class ModuleInterface
 
         virtual QColor iconColor() const =0;
 };
-Q_DECLARE_INTERFACE(ModuleInterface, "com.cute.settings.module")
+Q_DECLARE_INTERFACE(ModuleInterface, "com.lingmo.settings.module")
 
 #endif // MODULEINTERFACE_H

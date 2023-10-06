@@ -3,8 +3,8 @@ import QtQuick.Controls 2.4
 import QtQuick.Layouts 1.3
 import QtGraphicalEffects 1.0
 
-import CuteUI 1.0 as CuteUI
-import Cute.NetworkManagement 1.0 as NM
+import LingmoUI 1.0 as LingmoUI
+import Lingmo.NetworkManagement 1.0 as NM
 
 import "../"
 
@@ -67,8 +67,8 @@ ItemPage {
         ColumnLayout {
             id: mainLayout
             anchors.fill: parent
-            anchors.bottomMargin: CuteUI.Units.largeSpacing
-            spacing: CuteUI.Units.largeSpacing * 2
+            anchors.bottomMargin: LingmoUI.Units.largeSpacing
+            spacing: LingmoUI.Units.largeSpacing * 2
 
             RoundedItem {
                 WifiView {
@@ -84,8 +84,8 @@ ItemPage {
 
                 RowLayout {
                     anchors.fill: parent
-                    anchors.leftMargin: CuteUI.Units.largeSpacing * 1.5
-                    anchors.rightMargin: CuteUI.Units.largeSpacing * 1.5
+                    anchors.leftMargin: LingmoUI.Units.largeSpacing * 1.5
+                    anchors.rightMargin: LingmoUI.Units.largeSpacing * 1.5
 
                     Label {
                         text: qsTr("Add other...")
@@ -112,7 +112,7 @@ ItemPage {
 //                RowLayout {
 //                    Label {
 //                        text: qsTr("Hotspot")
-//                        color: CuteUI.Theme.disabledTextColor
+//                        color: LingmoUI.Theme.disabledTextColor
 //                    }
 
 //                    Item {
@@ -134,7 +134,7 @@ ItemPage {
 //                }
 
 //                Item {
-//                    height: CuteUI.Units.largeSpacing
+//                    height: LingmoUI.Units.largeSpacing
 //                }
 
 //                TextField {
@@ -151,7 +151,7 @@ ItemPage {
 //            }
 
             Item {
-                height: CuteUI.Units.largeSpacing
+                height: LingmoUI.Units.largeSpacing
             }
         }
     }

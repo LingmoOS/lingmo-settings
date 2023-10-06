@@ -6,7 +6,7 @@
 
 Time::Time(QObject *parent)
     : QObject(parent)
-    , m_settings("cuteos", "locale")
+    , m_settings("lingmoos", "locale")
 {
     m_twentyFour = m_settings.value("twentyFour", false).toBool();
 
@@ -85,7 +85,7 @@ void Time::setTwentyFour(bool t)
         m_twentyFour = t;
         m_settings.setValue("twentyFour", m_twentyFour);
 
-        QDBusInterface("com.cute.Statusbar", "/Statusbar").call("setTwentyFourTime", m_twentyFour);
+        QDBusInterface("com.lingmo.Statusbar", "/Statusbar").call("setTwentyFourTime", m_twentyFour);
 
         emit twentyFourChanged();
     }

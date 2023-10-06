@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021 CuteOS Team.
+ * Copyright (C) 2021 LingmoOS Team.
  *
  * Author:     revenmartin <revenmartin@gmail.com>
  *
@@ -21,8 +21,8 @@ import QtQuick 2.4
 import QtQuick.Window 2.3
 import QtQuick.Controls 2.4
 import QtQuick.Layouts 1.3
-import CuteUI 1.0 as CuteUI
-import Cute.NetworkManagement 1.0 as NM
+import LingmoUI 1.0 as LingmoUI
+import Lingmo.NetworkManagement 1.0 as NM
 
 Dialog {
     id: control
@@ -32,7 +32,7 @@ Dialog {
 
     x: (parent.width - width) / 2
     y: (parent.height - height) / 2
-    height: detailsLayout.childrenRect.height + footerLayout.childrenRect.height + CuteUI.Units.largeSpacing * 1.5
+    height: detailsLayout.childrenRect.height + footerLayout.childrenRect.height + LingmoUI.Units.largeSpacing * 1.5
     modal: true
 
     signal forgetBtnClicked()
@@ -52,20 +52,20 @@ Dialog {
 
     ColumnLayout {
         id: detailsLayout
-        spacing: CuteUI.Units.largeSpacing * 1.5
+        spacing: LingmoUI.Units.largeSpacing * 1.5
 
         GridLayout {
             id: gridLayout
             columns: 2
-            columnSpacing: CuteUI.Units.largeSpacing
-            rowSpacing: CuteUI.Units.smallSpacing
+            columnSpacing: LingmoUI.Units.largeSpacing
+            rowSpacing: LingmoUI.Units.smallSpacing
 
             Label {
                 id: autoJoinLabel
                 text: qsTr("Auto-Join")
                 visible: false
                 Layout.alignment: Qt.AlignRight
-                color: CuteUI.Theme.disabledTextColor
+                color: LingmoUI.Theme.disabledTextColor
             }
 
             Switch {
@@ -79,7 +79,7 @@ Dialog {
 
             Label {
                 text: qsTr("Security")
-                color: CuteUI.Theme.disabledTextColor
+                color: LingmoUI.Theme.disabledTextColor
                 Layout.alignment: Qt.AlignRight
             }
 
@@ -91,7 +91,7 @@ Dialog {
 
             Label {
                 text: qsTr("Signal")
-                color: CuteUI.Theme.disabledTextColor
+                color: LingmoUI.Theme.disabledTextColor
                 Layout.alignment: Qt.AlignRight
             }
 
@@ -103,7 +103,7 @@ Dialog {
 
             Label {
                 text: qsTr("IPv4 Address")
-                color: CuteUI.Theme.disabledTextColor
+                color: LingmoUI.Theme.disabledTextColor
                 Layout.alignment: Qt.AlignRight
             }
 
@@ -117,7 +117,7 @@ Dialog {
             Label {
                 font.bold: true
                 text: qsTr("IPv6 Address")
-                color: CuteUI.Theme.disabledTextColor
+                color: LingmoUI.Theme.disabledTextColor
                 Layout.alignment: Qt.AlignRight
             }
 
@@ -131,7 +131,7 @@ Dialog {
             Label {
                 font.bold: true
                 text: qsTr("MAC Address")
-                color: CuteUI.Theme.disabledTextColor
+                color: LingmoUI.Theme.disabledTextColor
                 Layout.alignment: Qt.AlignRight
             }
 
@@ -145,7 +145,7 @@ Dialog {
             Label {
                 font.bold: true
                 text: qsTr("Gateway")
-                color: CuteUI.Theme.disabledTextColor
+                color: LingmoUI.Theme.disabledTextColor
                 Layout.alignment: Qt.AlignRight
             }
 
@@ -158,7 +158,7 @@ Dialog {
             Label {
                 font.bold: true
                 text: qsTr("DNS")
-                color: CuteUI.Theme.disabledTextColor
+                color: LingmoUI.Theme.disabledTextColor
                 Layout.alignment: Qt.AlignRight
             }
 
@@ -171,7 +171,7 @@ Dialog {
 
         RowLayout {
             id: footerLayout
-            spacing: CuteUI.Units.largeSpacing
+            spacing: LingmoUI.Units.largeSpacing
 
             Button {
                 text: qsTr("Close")

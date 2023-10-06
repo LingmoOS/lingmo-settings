@@ -1,8 +1,8 @@
 import QtQuick 2.4
 import QtQuick.Controls 2.4
 import QtQuick.Layouts 1.3
-import CuteUI 1.0 as CuteUI
-import Cute.Settings 1.0
+import LingmoUI 1.0 as LingmoUI
+import Lingmo.Settings 1.0
 import "../"
 
 ItemPage {
@@ -60,7 +60,7 @@ ItemPage {
         ColumnLayout {
             id: layout
             anchors.fill: parent
-            spacing: CuteUI.Units.largeSpacing * 2
+            spacing: LingmoUI.Units.largeSpacing * 2
 
             // Battery Info
             BatteryItem {
@@ -71,7 +71,7 @@ ItemPage {
 
                 ColumnLayout {
                     anchors.fill: parent
-                    anchors.leftMargin: batteryBackground.radius + CuteUI.Units.smallSpacing
+                    anchors.leftMargin: batteryBackground.radius + LingmoUI.Units.smallSpacing
 
                     Item {
                         Layout.fillHeight: true
@@ -122,7 +122,7 @@ ItemPage {
 
                 Label {
                     text: qsTr("History")
-                    color: CuteUI.Theme.disabledTextColor
+                    color: LingmoUI.Theme.disabledTextColor
                 }
 
                 HistoryGraph {
@@ -171,23 +171,23 @@ ItemPage {
 
                 Label {
                     text: qsTr("Health")
-                    color: CuteUI.Theme.disabledTextColor
+                    color: LingmoUI.Theme.disabledTextColor
                 }
 
                 RowLayout {
-                    Layout.topMargin: CuteUI.Units.largeSpacing
-                    spacing: CuteUI.Units.largeSpacing * 4
+                    Layout.topMargin: LingmoUI.Units.largeSpacing
+                    spacing: LingmoUI.Units.largeSpacing * 4
 
                     // Poor
                     Item {
-                        height: _poorLabel.implicitHeight + 4 + CuteUI.Units.smallSpacing
-                        width: _poorLabel.implicitWidth + CuteUI.Units.largeSpacing
+                        height: _poorLabel.implicitHeight + 4 + LingmoUI.Units.smallSpacing
+                        width: _poorLabel.implicitWidth + LingmoUI.Units.largeSpacing
 
                         Rectangle {
                             id: _poorRect
                             anchors.fill: parent
                             color: "#FF8738"
-                            radius: CuteUI.Theme.mediumRadius
+                            radius: LingmoUI.Theme.mediumRadius
                             opacity: 0.1
                             visible: battery.capacity >= 0 && battery.capacity <= 79
                         }
@@ -205,14 +205,14 @@ ItemPage {
                     }
 
                     Item {
-                        height: _normalLabel.implicitHeight + 4 + CuteUI.Units.smallSpacing
-                        width: _normalLabel.implicitWidth + CuteUI.Units.largeSpacing
+                        height: _normalLabel.implicitHeight + 4 + LingmoUI.Units.smallSpacing
+                        width: _normalLabel.implicitWidth + LingmoUI.Units.largeSpacing
 
                         Rectangle {
                             id: _normalRect
                             anchors.fill: parent
                             color: "#3385FF"
-                            radius: CuteUI.Theme.mediumRadius
+                            radius: LingmoUI.Theme.mediumRadius
                             opacity: 0.1
                             visible: battery.capacity >= 80 && battery.capacity <= 89
                         }
@@ -230,14 +230,14 @@ ItemPage {
                     }
 
                     Item {
-                        height: _excellentLabel.implicitHeight + 4 + CuteUI.Units.smallSpacing
-                        width: _excellentLabel.implicitWidth + CuteUI.Units.largeSpacing
+                        height: _excellentLabel.implicitHeight + 4 + LingmoUI.Units.smallSpacing
+                        width: _excellentLabel.implicitWidth + LingmoUI.Units.largeSpacing
 
                         Rectangle {
                             id: _excellentRect
                             anchors.fill: parent
                             color: "#00CD23"
-                            radius: CuteUI.Theme.mediumRadius
+                            radius: LingmoUI.Theme.mediumRadius
                             opacity: 0.1
                             visible: battery.capacity >= 90 && battery.capacity <= 100
                         }
@@ -285,7 +285,7 @@ ItemPage {
             }
 
             Item {
-                height: CuteUI.Units.largeSpacing
+                height: LingmoUI.Units.largeSpacing
             }
         }
     }

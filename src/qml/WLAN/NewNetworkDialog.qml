@@ -1,7 +1,7 @@
 /*
- * Copyright (C) 2021 CuteOS Team.
+ * Copyright (C) 2021 LingmoOS Team.
  *
- * Author:     Kate Leet <kate@cuteos.com>
+ * Author:     Kate Leet <kate@lingmoos.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -22,10 +22,10 @@ import QtQuick.Controls 2.4
 import QtQuick.Layouts 1.3
 import QtGraphicalEffects 1.0
 
-import CuteUI 1.0 as CuteUI
-import Cute.NetworkManagement 1.0 as NM
+import LingmoUI 1.0 as LingmoUI
+import Lingmo.NetworkManagement 1.0 as NM
 
-CuteUI.Window {
+LingmoUI.Window {
     id: control
 
     width: contentWidth
@@ -36,13 +36,13 @@ CuteUI.Window {
     maximumHeight: contentHeight
     modality: Qt.WindowModal
 
-    property int contentWidth: _mainLayout.implicitWidth + header.height + CuteUI.Units.largeSpacing * 2
-    property int contentHeight: _mainLayout.implicitHeight + header.height + CuteUI.Units.largeSpacing * 2
+    property int contentWidth: _mainLayout.implicitWidth + header.height + LingmoUI.Units.largeSpacing * 2
+    property int contentHeight: _mainLayout.implicitHeight + header.height + LingmoUI.Units.largeSpacing * 2
 
     visible: false
     minimizeButtonVisible: false
 
-    background.color: CuteUI.Theme.secondBackgroundColor
+    background.color: LingmoUI.Theme.secondBackgroundColor
     flags: Qt.Dialog | Qt.FramelessWindowHint
 
     signal connect(var ssid, var username, var pwd, var type)
@@ -61,14 +61,14 @@ CuteUI.Window {
     ColumnLayout {
         id: _mainLayout
         anchors.fill: parent
-        anchors.margins: CuteUI.Units.largeSpacing
+        anchors.margins: LingmoUI.Units.largeSpacing
         anchors.topMargin: 0
-        spacing: CuteUI.Units.largeSpacing
+        spacing: LingmoUI.Units.largeSpacing
 
         GridLayout {
             columns: 2
-            columnSpacing: CuteUI.Units.largeSpacing * 2
-            rowSpacing: CuteUI.Units.largeSpacing
+            columnSpacing: LingmoUI.Units.largeSpacing * 2
+            rowSpacing: LingmoUI.Units.largeSpacing
 
             Label {
                 text: qsTr("Name")
@@ -122,7 +122,7 @@ CuteUI.Window {
         }
 
         RowLayout {
-            spacing: CuteUI.Units.largeSpacing
+            spacing: LingmoUI.Units.largeSpacing
 
             Button {
                 text: qsTr("Cancel")

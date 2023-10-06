@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021 CuteOS Team.
+ * Copyright (C) 2021 LingmoOS Team.
  *
  * Author:     Reion Wong <reionwong@gmail.com>
  *
@@ -24,9 +24,9 @@
 #include <QDBusReply>
 #include <QDebug>
 
-static const QString s_sServer = "com.cute.Settings";
+static const QString s_sServer = "com.lingmo.Settings";
 static const QString s_sPath = "/PrimaryBattery";
-static const QString s_sInterface = "com.cute.PrimaryBattery";
+static const QString s_sInterface = "com.lingmo.PrimaryBattery";
 
 //DBus Battery Info Structure
 struct BatteryInfo {
@@ -55,9 +55,9 @@ Battery::Battery(QObject *parent)
                         "/org/freedesktop/UPower",
                         "org.freedesktop.UPower",
                         QDBusConnection::systemBus())
-    , m_interface("com.cute.Settings",
+    , m_interface("com.lingmo.Settings",
                   "/PrimaryBattery",
-                  "com.cute.PrimaryBattery",
+                  "com.lingmo.PrimaryBattery",
                   QDBusConnection::sessionBus())
     , m_available(false)
     , m_onBattery(false)
@@ -170,13 +170,13 @@ QString Battery::lastChargedTime() const
 
 bool Battery::showPercent()
 {
-    QSettings settings(QSettings::UserScope, "cuteos", "statusbar");
+    QSettings settings(QSettings::UserScope, "lingmoos", "statusbar");
     return settings.value("BatteryPercentage", false).toBool();
 }
 
 void Battery::setPercentEnabled(bool value)
 {
-    QDBusInterface("com.cute.Statusbar", "/Statusbar").call("setBatteryPercentage", value);
+    QDBusInterface("com.lingmo.Statusbar", "/Statusbar").call("setBatteryPercentage", value);
 }
 
 QString Battery::udi() const

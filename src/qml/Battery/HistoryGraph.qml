@@ -19,7 +19,7 @@
  */
 
 import QtQuick 2.12
-import CuteUI 1.0 as CuteUI
+import LingmoUI 1.0 as LingmoUI
 
 /**
  * We need to draw a graph, all other libs are not suitable as we are basically
@@ -73,10 +73,10 @@ Canvas {
             height - yPadding - scaledY);
     }
 
-    property bool darkMode: CuteUI.Theme.darkMode
-    property color textColor: CuteUI.Theme.textColor
-    property color bgColor: CuteUI.Theme.secondBackgroundColor
-    property color highlightColor: CuteUI.Theme.highlightColor
+    property bool darkMode: LingmoUI.Theme.darkMode
+    property color textColor: LingmoUI.Theme.textColor
+    property color bgColor: LingmoUI.Theme.secondBackgroundColor
+    property color highlightColor: LingmoUI.Theme.highlightColor
 
     onDarkModeChanged: {
         canvas.requestPaint()
@@ -165,7 +165,7 @@ Canvas {
         // Draw the X value texts
         c.textAlign = "center"
         c.lineWidth = 1
-        c.strokeStyle = CuteUI.Theme.darkMode ? 'rgba(0, 0, 0, 0.35)' : 'rgba(0, 0, 0, 0.15)'
+        c.strokeStyle = LingmoUI.Theme.darkMode ? 'rgba(0, 0, 0, 0.35)' : 'rgba(0, 0, 0, 0.15)'
 
         var xDivisions = xDuration / xDivisionWidth * 1000
         var xGridDistance = plotWidth / xDivisions

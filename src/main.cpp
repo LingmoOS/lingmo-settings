@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021 CuteOS Team.
+ * Copyright (C) 2021 LingmoOS Team.
  *
  * Author:     revenmartin <revenmartin@gmail.com>
  *
@@ -28,7 +28,7 @@ int main(int argc, char *argv[])
 
     Application app(argc, argv);
 
-    app.setWindowIcon(QIcon::fromTheme("cute-settings"));
+    app.setWindowIcon(QIcon::fromTheme("lingmo-settings"));
 
     return 0;
 }

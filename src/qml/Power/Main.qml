@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021 CuteOS Team.
+ * Copyright (C) 2021 LingmoOS Team.
  *
  * Author:     revenmartin <revenmartin@gmail.com>
  *
@@ -22,8 +22,8 @@ import QtQuick.Controls 2.4
 import QtQuick.Layouts 1.3
 import QtGraphicalEffects 1.0
 
-import Cute.Settings 1.0
-import CuteUI 1.0 as CuteUI
+import Lingmo.Settings 1.0
+import LingmoUI 1.0 as LingmoUI
 import "../"
 
 ItemPage {
@@ -62,16 +62,16 @@ ItemPage {
         ColumnLayout {
             id: layout
             anchors.fill: parent
-            spacing: CuteUI.Units.largeSpacing
+            spacing: LingmoUI.Units.largeSpacing
 
             RoundedItem {
                 Label {
                     text: qsTr("Mode")
-                    color: CuteUI.Theme.disabledTextColor
+                    color: LingmoUI.Theme.disabledTextColor
                 }
 
                 RowLayout {
-                    spacing: CuteUI.Units.largeSpacing * 2
+                    spacing: LingmoUI.Units.largeSpacing * 2
 
                     IconCheckBox {
                         source: "qrc:/images/powersave.svg"
@@ -96,21 +96,21 @@ ItemPage {
             }
 
             Label {
-                color: CuteUI.Theme.disabledTextColor
-                leftPadding: CuteUI.Units.largeSpacing * 2
-                rightPadding: CuteUI.Units.largeSpacing
+                color: LingmoUI.Theme.disabledTextColor
+                leftPadding: LingmoUI.Units.largeSpacing * 2
+                rightPadding: LingmoUI.Units.largeSpacing
                 Layout.fillWidth: true
                 wrapMode: Text.WordWrap
                 text: qsTr("Performance mode: CPU and GPU frequencies will be increased, while power consumption and heat generation will be increased.")
             }
 
             RoundedItem {
-                Layout.topMargin: CuteUI.Units.largeSpacing
+                Layout.topMargin: LingmoUI.Units.largeSpacing
 
                 GridLayout {
                     columns: 2
-                    rowSpacing: CuteUI.Units.largeSpacing * 2
-                    Layout.bottomMargin: CuteUI.Units.largeSpacing
+                    rowSpacing: LingmoUI.Units.largeSpacing * 2
+                    Layout.bottomMargin: LingmoUI.Units.largeSpacing
 
                     Label {
                         text: qsTr("Turn off screen")
@@ -184,7 +184,7 @@ ItemPage {
             }
 
             Item {
-                height: CuteUI.Units.largeSpacing * 2
+                height: LingmoUI.Units.largeSpacing * 2
             }
         }
     }

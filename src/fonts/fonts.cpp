@@ -4,7 +4,7 @@
 
 Fonts::Fonts(QObject *parent)
     : QObject(parent)
-    , m_settings("cuteos", "theme")
+    , m_settings("lingmoos", "theme")
     , m_antiAliasing(false)
     , m_hintingModel(new QStandardItemModel(this))
 {
@@ -75,9 +75,9 @@ void Fonts::save()
     m_settings.setValue("XftHintStyle", KXftConfig::toStr(m_hinting));
     m_settings.sync();
 
-    QDBusInterface interface("com.cute.Settings",
+    QDBusInterface interface("com.lingmo.Settings",
                              "/Theme",
-                             "com.cute.Theme",
+                             "com.lingmo.Theme",
                              QDBusConnection::sessionBus());
     if (interface.isValid())
         interface.asyncCall("applyXResources");
