@@ -27,11 +27,16 @@ ItemPage {
 
             Image {
                 Layout.alignment: Qt.AlignTop | Qt.AlignHCenter
-                width: 563
-                height: 330
+                width: 186
+                height: width
                 sourceSize: Qt.size(width, height)
+                source: "qrc:/images/logo.svg"
+                // Layout.alignment: Qt.AlignTop | Qt.AlignHCenter
+                // width: 563
+                // height: 330
+                // sourceSize: Qt.size(width, height)
                 // For Lingmo OS
-                source: LingmoUI.Theme.darkMode ? "qrc:/images/dark/nebula.png" : "qrc:/images/light/nebula.png"
+                // source: LingmoUI.Theme.darkMode ? "qrc:/images/dark/nebula.png" : "qrc:/images/light/nebula.png"
                 // For OpenLingmo
                 // source: LingmoUI.Theme.darkMode ? "qrc:/images/dark/OpenLingmo.png" : "qrc:/images/light/OpenLingmo.png"
             }

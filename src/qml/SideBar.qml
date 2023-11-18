@@ -56,7 +56,7 @@ Item {
             name: "wlan"
             page: "qrc:/qml/WLAN/Main.qml"
             iconSource: "wlan.svg"
-            iconColor: "#FF8695"
+            
             category: qsTr("Network and connection")
         }
 
@@ -65,7 +65,7 @@ Item {
             name: "ethernet"
             page: "qrc:/qml/Wired/Main.qml"
             iconSource: "network.svg"
-            iconColor: "#FF8695"
+            iconColor: "transparent"
             category: qsTr("Network and connection")
         }
 
@@ -74,7 +74,7 @@ Item {
             name: "bluetooth"
             page: "qrc:/qml/Bluetooth/Main.qml"
             iconSource: "bluetooth.svg"
-            iconColor: "#FF8695"
+            iconColor: "transparent"
             category: qsTr("Network and connection")
         }
 
@@ -83,7 +83,7 @@ Item {
             name: "proxy"
             page: "qrc:/qml/Proxy/Main.qml"
             iconSource: "proxy.svg"
-            iconColor: "#FF8695"
+            iconColor: "transparent"
             category: qsTr("Network and connection")
         }
 
@@ -92,7 +92,7 @@ Item {
             name: "display"
             page: "qrc:/qml/Display/Main.qml"
             iconSource: "display.svg"
-            iconColor: "#FF8695"
+            iconColor: "transparent"
             category: qsTr("Display and appearance")
         }
 
@@ -101,7 +101,7 @@ Item {
             name: "appearance"
             page: "qrc:/qml/Appearance/Main.qml"
             iconSource: "appearance.svg"
-            iconColor: "#FF8695"
+            iconColor: "transparent"
             category: qsTr("Display and appearance")
         }
 
@@ -110,7 +110,7 @@ Item {
             name: "background"
             page: "qrc:/qml/Wallpaper/Main.qml"
             iconSource: "wallpaper.svg"
-            iconColor: "#FF8695"
+            iconColor: "transparent"
             category: qsTr("Display and appearance")
         }
 
@@ -119,7 +119,7 @@ Item {
             name: "dock"
             page: "qrc:/qml/Dock/Main.qml"
             iconSource: "dock.svg"
-            iconColor: "#FF8695"
+            iconColor: "transparent"
             category: qsTr("Display and appearance")
         }
 
@@ -128,7 +128,7 @@ Item {
             name: "accounts"
             page: "qrc:/qml/User/Main.qml"
             iconSource: "accounts.svg"
-            iconColor: "#FF8695"
+            iconColor: "transparent"
             category: qsTr("System")
         }
 
@@ -137,7 +137,7 @@ Item {
             name: "notifications"
             page: "qrc:/qml/Notification/Main.qml"
             iconSource: "notifications.svg"
-            iconColor: "#FF8695"
+            iconColor: "transparent"
             category: qsTr("System")
         }
 
@@ -146,7 +146,7 @@ Item {
             name: "sound"
             page: "qrc:/qml/Sound/Main.qml"
             iconSource: "sound.svg"
-            iconColor: "#FF8695"
+            iconColor: "transparent"
             category: qsTr("System")
         }
 
@@ -155,7 +155,7 @@ Item {
             name: "mouse"
             page: "qrc:/qml/Cursor/Main.qml"
             iconSource: "cursor.svg"
-            iconColor: "#FF8695"
+            iconColor: "transparent"
             category: qsTr("System")
         }
 
@@ -164,7 +164,7 @@ Item {
             name: "touchpad"
             page: "qrc:/qml/Touchpad/Main.qml"
             iconSource: "touchpad.svg"
-            iconColor: "#FF8695"
+            iconColor: "transparent"
             category: qsTr("System")
         }
 
@@ -173,7 +173,7 @@ Item {
             name: "datetime"
             page: "qrc:/qml/DateTime/Main.qml"
             iconSource: "datetime.svg"
-            iconColor: "#FF8695"
+            iconColor: "transparent"
             category: qsTr("System")
         }
 
@@ -182,7 +182,7 @@ Item {
             name: "accessibility"
             page: "qrc:/qml/Accessibility/Main.qml"
             iconSource: "accessibility.svg"
-            iconColor: "#FF8695"
+            iconColor: "transparent"
             category: qsTr("System")
         }
         
@@ -191,7 +191,7 @@ Item {
             name: "defaultapps"
             page: "qrc:/qml/DefaultApp/Main.qml"
             iconSource: "defaultapps.svg"
-            iconColor: "#FF8695"
+            iconColor: "transparent"
             category: qsTr("System")
         }
 
@@ -200,7 +200,7 @@ Item {
             name: "language"
             page: "qrc:/qml/LanguagePage.qml"
             iconSource: "language.svg"
-            iconColor: "#FF8695"
+            iconColor: "transparent"
             category: qsTr("System")
         }
 
@@ -209,7 +209,7 @@ Item {
             name: "battery"
             page: "qrc:/qml/Battery/Main.qml"
             iconSource: "battery.svg"
-            iconColor: "#FF8695"
+            iconColor: "transparent"
             category: qsTr("System")
         }
 
@@ -217,8 +217,8 @@ Item {
             title: qsTr("Power")
             name: "power"
             page: "qrc:/qml/Power/Main.qml"
-            iconColor: "#FF8695"
             iconSource: "power.svg"
+            iconColor: "transparent"
             category: qsTr("System")
         }
 
@@ -227,7 +227,7 @@ Item {
             name: "about"
             page: "qrc:/qml/About/Main.qml"
             iconSource: "about.svg"
-            iconColor: "#FF8695"
+            iconColor: "transparent"
             category: qsTr("System")
         }
     }
@@ -268,10 +268,9 @@ Item {
             highlightResizeDuration : 0
             highlight: Rectangle {
                 radius: LingmoUI.Theme.mediumRadius
-                // color: Qt.rgba(LingmoUI.Theme.textColor.r,
-                //                LingmoUI.Theme.textColor.g,
-                //                LingmoUI.Theme.textColor.b, 0.05)
-                color: "#4DA4ED"
+                color: Qt.rgba(LingmoUI.Theme.textColor.r,
+                               LingmoUI.Theme.textColor.g,
+                               LingmoUI.Theme.textColor.b, 0.05)
                 smooth: true
             }
 
@@ -337,7 +336,7 @@ Item {
                         width: 24
                         height: 24
                         Layout.alignment: Qt.AlignVCenter
-                        radius: 20
+                        radius: 6
                         color: model.iconColor
 
                         gradient: Gradient {
@@ -385,10 +384,10 @@ Item {
     Battery {
         id: _battery
 
-        // Component.onCompleted: {
-        //     if (!_battery.available)
-        //         removeItem("battery")
-        // }
+        Component.onCompleted: {
+            if (!_battery.available)
+                removeItem("battery")
+        }
     }
 
     NM.EnabledConnections {
