@@ -1,4 +1,4 @@
-Source: lingmo-settings
+Source: lingmo-systemsettings
 Section: devel
 Priority: optional
 Maintainer: LingmoOS <lingmo@lingmo.org>
@@ -25,7 +25,7 @@ Build-Depends: cmake,
 Standards-Version: 4.5.0
 Homepage: https://lingmo.org
 
-Package: lingmo-settings
+Package: lingmo-systemsettings
 Architecture: any
 Depends: qml-module-qtquick-controls2,
          qml-module-qtquick2,
@@ -42,7 +42,7 @@ Depends: qml-module-qtquick-controls2,
          ${shlibs:Depends}
 Description: Lingmo OS
 
-Package: lingmo-settings-dev
+Package: lingmo-systemsettings-dev
 Architecture: any
-Depends: lingmo-settings (= ${binary:Version}), ${misc:Depends}, ${shlib:Depends}, ${dist:Depends}
+Depends: lingmo-systemsettings (= ${binary:Version}), ${misc:Depends}, ${shlib:Depends}, ${dist:Depends}
 Description: LingmoOS Settings Dev

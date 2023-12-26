@@ -71,14 +71,14 @@ bool About::isLingmoOS()
 
 QString About::version()
 {
-    QSettings settings("/etc/lingmo",QSettings::IniFormat);
-    return settings.value("Version").toString();
+    QSettings settings("/etc/os-release",QSettings::IniFormat);
+    return settings.value("PRETTY_NAME").toString();
 }
 
-QString About::OpenLingmoVersion()
+QString About::systemrelease()
 {
-    QSettings settings("/etc/OpenLingmo/OpenLingmo_version",QSettings::IniFormat);
-    return settings.value("Version").toString();
+    QSettings settings("/etc/os-release",QSettings::IniFormat);
+    return settings.value("RELEASE").toString();
 }
 
 QString About::debianversion()

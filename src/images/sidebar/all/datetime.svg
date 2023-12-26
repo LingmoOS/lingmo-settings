@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   t="1683298350722"
+   class="icon"
+   viewBox="0 0 1024 1024"
+   version="1.1"
+   p-id="31180"
+   width="200"
+   height="200"
+   id="svg6"
+   sodipodi:docname="datetime.svg"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs10" />
+  <sodipodi:namedview
+     id="namedview8"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="2.0625"
+     inkscape:cx="191.27273"
+     inkscape:cy="148.12121"
+     inkscape:window-width="1920"
+     inkscape:window-height="1006"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg6" />
+  <path
+     id="path2"
+     style="fill:#0ea2ef;fill-opacity:1"
+     d="M 512,0 C 228.07301,0 0,228.07301 0,512 c 0,283.92699 228.07301,512 512,512 283.92699,0 512,-228.07301 512,-512 C 1024,228.07301 795.92699,0 512,0 Z m 0,93.09 C 742.39977,93.09 930.91,281.60023 930.91,512 930.91,742.39977 742.39977,930.91 512,930.91 281.60023,930.91 93.09,742.39977 93.09,512 93.09,281.60023 281.60023,93.09 512,93.09 Z" />
+  <path
+     id="path4"
+     style="fill:#0ea2ef;fill-opacity:1"
+     d="m 512,232.73 c -25.59997,0 -46.55,20.94003 -46.55,46.54 V 512 c 0,11.63635 4.65819,23.26819 11.64,30.25 L 640,728.44 c 9.30908,11.63635 20.94638,16.29 34.91,16.29 11.63635,0 20.94092,-4.66092 30.25,-13.97 18.61816,-16.29089 20.95089,-46.54184 4.66,-65.16 L 558.55,493.38 v -0.24 c -0.44023,0.1123 -0.88065,0.21803 -1.32,0.33 -0.0745,0.0189 -0.0944,-0.051 -0.02,-0.07 0.44466,-0.11332 0.8942,-0.22534 1.34,-0.34 V 279.27 c 0,-25.59997 -20.95003,-46.54 -46.55,-46.54 z" />
+</svg>

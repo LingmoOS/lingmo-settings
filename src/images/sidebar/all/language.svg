@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   t="1683298536677"
+   class="icon"
+   viewBox="0 0 1024 1024"
+   version="1.1"
+   p-id="38243"
+   width="200"
+   height="200"
+   id="svg4"
+   sodipodi:docname="language.svg"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs8" />
+  <sodipodi:namedview
+     id="namedview6"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="2.0625"
+     inkscape:cx="-29.818182"
+     inkscape:cy="83.636364"
+     inkscape:window-width="1920"
+     inkscape:window-height="1006"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg4" />
+  <path
+     id="path2"
+     style="fill:#0ea2ef;fill-opacity:1"
+     d="M 512,0 A 512,512 0 1 0 1024,512 512.58182,512.58182 0 0 0 512,0 Z m 98.68,81.22 a 443.11273,443.11273 0 0 1 343.5,407.51 H 791.27 C 784.28819,335.82833 719.34025,179.43081 610.68,81.22 Z M 399.17,84.95 C 297.14247,181.53172 239.10345,333.96652 232.75,488.73 H 70.98 A 441.50691,441.50691 0 0 1 399.17,84.95 Z m 66.28,8.14 v 395.64 h -162.9 c 6.65599,-145.91985 64.15392,-314.18554 162.9,-395.64 z m 69.82,0 c 109.91698,81.22174 178.50001,247.85833 186.18,395.64 H 535.27 v -0.12 c -0.23148,0.24036 -0.48235,0.45778 -0.73,0.68 -0.0143,0.0132 -0.0247,-0.007 -0.01,-0.02 0.25059,-0.22486 0.50559,-0.44823 0.74,-0.69 z M 72.31,558.55 h 160.14 c 12.9629,142.42895 64.46719,277.40737 163.19,372.36 A 420.07273,420.07273 0 0 1 72.31,558.55 Z m 230.24,0 h 162.9 V 930.91 C 373.59264,849.92099 315.79217,688.87714 302.55,558.55 Z m 232.72,0 H 721.01 C 705.76638,690.97169 637.48372,849.68826 535.27,930.91 Z m 256,0 H 954.18 A 445.184,445.184 0 0 1 605.25,944.17 615.21455,615.21455 0 0 0 791.27,558.55 Z" />
+</svg>

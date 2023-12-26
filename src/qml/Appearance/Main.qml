@@ -173,16 +173,6 @@ ItemPage {
                         model.append({"accentColor": String(LingmoUI.Theme.pinkColor)})
                         model.append({"accentColor": String(LingmoUI.Theme.orangeColor)})
                         model.append({"accentColor": String(LingmoUI.Theme.greyColor)})
-                        model.append({"accentColor": "#630FF3"})
-                        model.append({"accentColor": "#4DA4ED"})
-                        model.append({"accentColor": "#FF5795"})
-                        model.append({"accentColor": "#FF8695"})
-                        model.append({"accentColor": "#008484"})
-                        model.append({"accentColor": "#B7E786"})
-                        model.append({"accentColor": "#EA27C6"})
-                        model.append({"accentColor": "#EE72EB"})
-                        model.append({"accentColor": "#F0905A"})
-                        model.append({"accentColor": "#FF0F4F"})
                     }
 
                     delegate: Item {

@@ -23,7 +23,6 @@
         <file>images/light/Logo-computer-400.png</file>
         <file>images/dark/Logo-computer-400.png</file>
         <file>images/dark_mode.svg</file>
-        <file>images/logo.svg</file>
         <file>images/light_mode.svg</file>
         <file>images/dock_bottom.svg</file>
         <file>images/dock_left.svg</file>
@@ -62,27 +61,17 @@
         <file>images/dark/up.svg</file>
         <file>qml/Wallpaper/Main.qml</file>
         <file>qml/Wallpaper/DesktopPreview.qml</file>
-        <file>images/sidebar/dark/about.svg</file>
-        <file>images/sidebar/dark/accounts.svg</file>
-        <file>images/sidebar/dark/accessibility.svg</file>
-        <file>images/sidebar/dark/appearance.svg</file>
-        <file>images/sidebar/dark/battery.svg</file>
-        <file>images/sidebar/dark/bluetooth.svg</file>
-        <file>images/sidebar/dark/display.svg</file>
-        <file>images/sidebar/dark/dock.svg</file>
-        <file>images/sidebar/dark/language.svg</file>
-        <file>images/sidebar/dark/network.svg</file>
-        <file>images/sidebar/dark/wallpaper.svg</file>
-        <file>images/sidebar/light/about.svg</file>
-        <file>images/sidebar/light/accounts.svg</file>
-        <file>images/sidebar/light/appearance.svg</file>
-        <file>images/sidebar/light/battery.svg</file>
-        <file>images/sidebar/light/bluetooth.svg</file>
-        <file>images/sidebar/light/display.svg</file>
-        <file>images/sidebar/light/dock.svg</file>
-        <file>images/sidebar/light/language.svg</file>
-        <file>images/sidebar/light/network.svg</file>
-        <file>images/sidebar/light/wallpaper.svg</file>
+        <file>images/sidebar/all/about.svg</file>
+        <file>images/sidebar/all/accounts.svg</file>
+        <file>images/sidebar/all/appearance.svg</file>
+        <file>images/sidebar/all/accessibility.svg</file>
+        <file>images/sidebar/all/battery.svg</file>
+        <file>images/sidebar/all/bluetooth.svg</file>
+        <file>images/sidebar/all/display.svg</file>
+        <file>images/sidebar/all/dock.svg</file>
+        <file>images/sidebar/all/language.svg</file>
+        <file>images/sidebar/all/network.svg</file>
+        <file>images/sidebar/all/wallpaper.svg</file>
         <file>qml/RoundedItem.qml</file>
         <file>images/powersave.svg</file>
         <file>images/performance.svg</file>
@@ -102,8 +91,7 @@
         <file>qml/Display/RotationButton.qml</file>
         <file>images/dark/locked.svg</file>
         <file>images/light/locked.svg</file>
-        <file>images/sidebar/light/power.svg</file>
-        <file>images/sidebar/dark/power.svg</file>
+        <file>images/sidebar/all/power.svg</file>
         <file>images/balance.svg</file>
         <file>qml/WLAN/Main.qml</file>
         <file>qml/Wired/Main.qml</file>
@@ -111,22 +99,21 @@
         <file>qml/WLAN/WifiItem.qml</file>
         <file>qml/WLAN/WifiView.qml</file>
         <file>qml/WLAN/WirelessDetailsDialog.qml</file>
-        <file>images/sidebar/light/wlan.svg</file>
-        <file>images/sidebar/dark/wlan.svg</file>
+        <file>images/sidebar/all/wlan.svg</file>
         <file>qml/Bluetooth/Main.qml</file>
         <file>qml/StandardButton.qml</file>
         <file>qml/Hotspot/Main.qml</file>
-        <file>images/sidebar/dark/hotspot.svg</file>
+        <file>images/sidebar/all/hotspot.svg</file>
         <file>qml/Application/Main.qml</file>
         <file>qml/Cursor/Main.qml</file>
-        <file>images/sidebar/dark/cursor.svg</file>
+        <file>images/sidebar/all/cursor.svg</file>
         <file>qml/DateTime/Main.qml</file>
         <file>qml/DateTime/TimeZoneDialog.qml</file>
         <file>images/light/world.svg</file>
         <file>images/dark/world.svg</file>
-        <file>images/sidebar/dark/datetime.svg</file>
+        <file>images/sidebar/all/datetime.svg</file>
         <file>qml/Touchpad/Main.qml</file>
-        <file>images/sidebar/dark/touchpad.svg</file>
+        <file>images/sidebar/all/touchpad.svg</file>
         <file>images/dark/logo.png</file>
         <file>images/light/logo.png</file>
         <file>images/light/devlogo3.png</file>
@@ -135,16 +122,21 @@
         <file>qml/Bluetooth/PairDialog.qml</file>
         <file>qml/VPN/Main.qml</file>
         <file>qml/Proxy/Main.qml</file>
-        <file>images/sidebar/dark/proxy.svg</file>
+        <file>images/sidebar/all/proxy.svg</file>
         <file>qml/Sound/Main.qml</file>
         <file>qml/Accessibility/Main.qml</file>
-        <file>images/sidebar/dark/sound.svg</file>
+        <file>images/sidebar/all/sound.svg</file>
         <file>images/light/audio-volume-high-symbolic.svg</file>
         <file>images/light/audio-volume-low-symbolic.svg</file>
         <file>images/light/audio-volume-medium-symbolic.svg</file>
         <file>images/light/audio-volume-muted-symbolic.svg</file>
-        <file>images/light/accessibility.svg</file>
+        <file>images/dark/lingmo-logo-g.svg</file>
+        <file>images/dark/lingmo-logo-g.png</file>
+        <file>images/light/lingmo-logo-dark.svg</file>
+        <file>images/light/lingmo-logo-dark.png</file>
+        <file>images/sidebar/all/accessibility.svg</file>
         <file>images/dark/accessibility.svg</file>
+        <file>images/light/accessibility.svg</file>
         <file>images/dark/audio-volume-high-symbolic.svg</file>
         <file>images/dark/audio-volume-low-symbolic.svg</file>
         <file>images/dark/audio-volume-medium-symbolic.svg</file>
@@ -156,9 +148,9 @@
         <file>images/dark/audio-input-microphone-low-symbolic.svg</file>
         <file>images/dark/audio-input-microphone-medium-symbolic.svg</file>
         <file>qml/DefaultApp/Main.qml</file>
-        <file>images/sidebar/dark/defaultapps.svg</file>
+        <file>images/sidebar/all/defaultapps.svg</file>
         <file>qml/Notification/Main.qml</file>
-        <file>images/sidebar/dark/notifications.svg</file>
+        <file>images/sidebar/all/notifications.svg</file>
         <file>qml/WLAN/ConnectDialog.qml</file>
         <file>qml/WLAN/NewNetworkDialog.qml</file>
         <file>qml/DefaultApp/AppComboBox.qml</file>

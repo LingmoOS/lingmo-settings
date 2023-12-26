@@ -1,10 +1,28 @@
-lingmo-settings (1.9.3) UNRELEASED; urgency=high
+lingmo-systemsettings (1.9.9-12) UNRELEASED; urgency=high
 
-  * Update Loge <lingmo@lingmo.org>
+  * Update Pages <lingmo@lingmo.org>
 
- -- Lingmo OS Team <lingmo@lingmo.org>  Wed, 25 Oct 2023 23:11:32 +0800
+ -- Lingmo OS Team <lingmo@lingmo.org>  Wed, 27 Dec 2023 23:32:02 +0800
 
-lingmo-settings (1.8.1) UNRELEASED; urgency=high
+lingmo-systemsettings (1.9.9-11) UNRELEASED; urgency=high
+
+  * Update Pages <lingmo@lingmo.org>
+
+ -- Lingmo OS Team <lingmo@lingmo.org>  Sat, 23 Dec 2023 23:10:23 +0800
+
+lingmo-systemsettings (1.9.9-10) UNRELEASED; urgency=high
+
+  * Update Pages <lingmo@lingmo.org>
+
+ -- Lingmo OS Team <lingmo@lingmo.org>  Sat, 23 Dec 2023 23:10:23 +0800
+
+lingmo-settings (1.9.9-6) UNRELEASED; urgency=high
+
+  * Update Pages <lingmo@lingmo.org>
+
+ -- Lingmo OS Team <lingmo@lingmo.org>  Sat, 23 Dec 2023 00:50:21 +0800
+
+lingmo-settings (1.9.9-3) UNRELEASED; urgency=high
 
   * Update Pages <lingmo@lingmo.org>
 

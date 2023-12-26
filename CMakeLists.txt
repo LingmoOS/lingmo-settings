@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.5)
 
-set(PROJECT_NAME lingmo-settings)
+# set(PROJECT_NAME lingmo-control-center)
+set(PROJECT_NAME lingmo-systemsettings)
 project(${PROJECT_NAME})
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
@@ -121,7 +122,7 @@ endforeach()
 install(TARGETS ${PROJECT_NAME} RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
 
 install(FILES
-    lingmo-settings.desktop
+    lingmo-systemsettings.desktop
     DESTINATION /usr/share/applications/
     COMPONENT Runtime
 )
@@ -129,5 +130,5 @@ install(FILES
 install(FILES ${QM_FILES} DESTINATION /usr/share/${PROJECT_NAME}/translations)
 
 # dev files
-set(INCLUDE_INSTALL_DIR include/lingmo-settings)
+set(INCLUDE_INSTALL_DIR include/lingmo-systemsettings)
 install(DIRECTORY ${HEADERS} DESTINATION ${INCLUDE_INSTALL_DIR})

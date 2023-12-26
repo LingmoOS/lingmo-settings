@@ -55,8 +55,9 @@ Item {
             title: qsTr("WLAN")
             name: "wlan"
             page: "qrc:/qml/WLAN/Main.qml"
+            // source: "wlan.svg"
             iconSource: "wlan.svg"
-            
+            iconColor: "transparent"
             category: qsTr("Network and connection")
         }
 
@@ -64,6 +65,7 @@ Item {
             title: qsTr("Ethernet")
             name: "ethernet"
             page: "qrc:/qml/Wired/Main.qml"
+            // source: "network.svg"
             iconSource: "network.svg"
             iconColor: "transparent"
             category: qsTr("Network and connection")
@@ -73,6 +75,7 @@ Item {
             title: qsTr("Bluetooth")
             name: "bluetooth"
             page: "qrc:/qml/Bluetooth/Main.qml"
+            // source: "bluetooth.svg"
             iconSource: "bluetooth.svg"
             iconColor: "transparent"
             category: qsTr("Network and connection")
@@ -82,6 +85,7 @@ Item {
             title: qsTr("Proxy")
             name: "proxy"
             page: "qrc:/qml/Proxy/Main.qml"
+            // source: "proxy.svg"
             iconSource: "proxy.svg"
             iconColor: "transparent"
             category: qsTr("Network and connection")
@@ -91,6 +95,7 @@ Item {
             title: qsTr("Display")
             name: "display"
             page: "qrc:/qml/Display/Main.qml"
+            // source: "display.svg"
             iconSource: "display.svg"
             iconColor: "transparent"
             category: qsTr("Display and appearance")
@@ -100,6 +105,7 @@ Item {
             title: qsTr("Appearance")
             name: "appearance"
             page: "qrc:/qml/Appearance/Main.qml"
+            // source: "appearance.svg"
             iconSource: "appearance.svg"
             iconColor: "transparent"
             category: qsTr("Display and appearance")
@@ -109,6 +115,7 @@ Item {
             title: qsTr("Background")
             name: "background"
             page: "qrc:/qml/Wallpaper/Main.qml"
+            // source: "wallpaper.svg"
             iconSource: "wallpaper.svg"
             iconColor: "transparent"
             category: qsTr("Display and appearance")
@@ -118,6 +125,7 @@ Item {
             title: qsTr("Dock")
             name: "dock"
             page: "qrc:/qml/Dock/Main.qml"
+            // source: "dock.svg"
             iconSource: "dock.svg"
             iconColor: "transparent"
             category: qsTr("Display and appearance")
@@ -127,6 +135,7 @@ Item {
             title: qsTr("User")
             name: "accounts"
             page: "qrc:/qml/User/Main.qml"
+            // source: "accounts.svg"
             iconSource: "accounts.svg"
             iconColor: "transparent"
             category: qsTr("System")
@@ -136,6 +145,7 @@ Item {
             title: qsTr("Notifications")
             name: "notifications"
             page: "qrc:/qml/Notification/Main.qml"
+            // source: "notifications.svg"
             iconSource: "notifications.svg"
             iconColor: "transparent"
             category: qsTr("System")
@@ -145,6 +155,7 @@ Item {
             title: qsTr("Sound")
             name: "sound"
             page: "qrc:/qml/Sound/Main.qml"
+            // source: "sound.svg"
             iconSource: "sound.svg"
             iconColor: "transparent"
             category: qsTr("System")
@@ -154,6 +165,7 @@ Item {
             title: qsTr("Mouse")
             name: "mouse"
             page: "qrc:/qml/Cursor/Main.qml"
+            // source: "cursor.svg"
             iconSource: "cursor.svg"
             iconColor: "transparent"
             category: qsTr("System")
@@ -163,6 +175,7 @@ Item {
             title: qsTr("Touchpad")
             name: "touchpad"
             page: "qrc:/qml/Touchpad/Main.qml"
+            // source: "touchpad.svg"
             iconSource: "touchpad.svg"
             iconColor: "transparent"
             category: qsTr("System")
@@ -172,6 +185,7 @@ Item {
             title: qsTr("Date & Time")
             name: "datetime"
             page: "qrc:/qml/DateTime/Main.qml"
+            // source: "datetime.svg"
             iconSource: "datetime.svg"
             iconColor: "transparent"
             category: qsTr("System")
@@ -181,6 +195,7 @@ Item {
             title: qsTr("Accessibility")
             name: "accessibility"
             page: "qrc:/qml/Accessibility/Main.qml"
+            //source: "accessibility.svg"
             iconSource: "accessibility.svg"
             iconColor: "transparent"
             category: qsTr("System")
@@ -190,6 +205,7 @@ Item {
             title: qsTr("Default Applications")
             name: "defaultapps"
             page: "qrc:/qml/DefaultApp/Main.qml"
+            //source: "defaultapps.svg"
             iconSource: "defaultapps.svg"
             iconColor: "transparent"
             category: qsTr("System")
@@ -199,7 +215,18 @@ Item {
             title: qsTr("Language")
             name: "language"
             page: "qrc:/qml/LanguagePage.qml"
+            // source: "language.svg"
             iconSource: "language.svg"
+            iconColor: "transparent"
+            category: qsTr("System")
+        }
+
+        ListElement {
+            title: qsTr("Accessibility")
+            name: "accessibility"
+            page: "qrc:/qml/Accessibility/Main.qml"
+            // source: "appearance.svg"
+            iconSource: "accessibility.svg"
             iconColor: "transparent"
             category: qsTr("System")
         }
@@ -208,8 +235,9 @@ Item {
             title: qsTr("Battery")
             name: "battery"
             page: "qrc:/qml/Battery/Main.qml"
-            iconSource: "battery.svg"
+            // source: "battery.svg"
             iconColor: "transparent"
+            iconSource: "battery.svg"
             category: qsTr("System")
         }
 
@@ -217,13 +245,13 @@ Item {
             title: qsTr("Power")
             name: "power"
             page: "qrc:/qml/Power/Main.qml"
-            iconSource: "power.svg"
             iconColor: "transparent"
+            iconSource: "power.svg"
             category: qsTr("System")
         }
 
         ListElement {
-            title: qsTr("About LingmoOS")
+            title: qsTr("About")
             name: "about"
             page: "qrc:/qml/About/Main.qml"
             iconSource: "about.svg"
@@ -271,6 +299,7 @@ Item {
                 color: Qt.rgba(LingmoUI.Theme.textColor.r,
                                LingmoUI.Theme.textColor.g,
                                LingmoUI.Theme.textColor.b, 0.05)
+                // color: "#4DA4ED"
                 smooth: true
             }
 
@@ -336,7 +365,7 @@ Item {
                         width: 24
                         height: 24
                         Layout.alignment: Qt.AlignVCenter
-                        radius: 6
+                        radius: 20
                         color: model.iconColor
 
                         gradient: Gradient {
@@ -349,7 +378,7 @@ Item {
                             anchors.centerIn: parent
                             width: 16
                             height: width
-                            source: "qrc:/images/sidebar/dark/" + model.iconSource
+                            source: "qrc:/images/sidebar/all/" + model.iconSource
                             sourceSize: Qt.size(width, height)
                             Layout.alignment: Qt.AlignVCenter
                             antialiasing: false

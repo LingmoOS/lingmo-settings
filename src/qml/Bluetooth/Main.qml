@@ -171,7 +171,7 @@ ItemPage {
                                         width: 16
                                         height: 16
                                         sourceSize: Qt.size(16, 16)
-                                        source: LingmoUI.Theme.darkMode ? "qrc:/images/sidebar/dark/bluetooth.svg"
+                                        source: LingmoUI.Theme.darkMode ? "qrc:/images/sidebar/all/bluetooth.svg"
                                                                       : "qrc:/images/sidebar/light/bluetooth.svg"
                                         Layout.alignment: Qt.AlignVCenter
                                     }

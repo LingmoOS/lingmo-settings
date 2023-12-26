@@ -54,33 +54,28 @@
     <name>Main</name>
     <message>
         <location filename="../src/qml/About/Main.qml" line="10"/>
-        <source>About LingmoOS</source>
-        <translation>关于灵墨操作系统</translation>
+        <source>About</source>
+        <translation>关于</translation>
     </message>
     <message>
         <location filename="../src/qml/About/Main.qml" line="71"/>
-        <source>LingmoOS Version</source>
-        <translation>灵墨操作系统版本</translation>
+        <source>OS Version</source>
+        <translation>操作系统版本</translation>
     </message>
     <message>
         <location filename="../src/qml/About/Main.qml" line="84"/>
-        <source>OpenLingmo Version</source>
-        <translation>OpenLingmo服务版本</translation>
+        <source>System Release</source>
+        <translation>系统发行类型</translation>
     </message>
     <message>
         <location filename="../src/qml/About/Main.qml" line="106"/>
-        <source>Lingmo Desktop Version</source>
-        <translation>灵墨桌面环境版本</translation>
+        <source>Desktop Version</source>
+        <translation>桌面环境版本</translation>
     </message>
     <message>
         <location filename="../src/qml/About/Main.qml" line="119"/>
         <source>UI Version</source>
-        <translation>UI界面版本</translation>
-    </message>
-    <message>
-        <location filename="../src/qml/About/Main.qml" line="132"/>
-        <source>Update Time</source>
-        <translation>更新</translation>
+        <translation>UI版本</translation>
     </message>
     <message>
         <location filename="../src/qml/About/Main.qml" line="143"/>
@@ -1155,8 +1150,8 @@
     </message>
     <message>
         <location filename="../src/qml/SideBar.qml" line="253"/>
-        <source>About LingmoOS</source>
-        <translation>关于灵墨操作系统</translation>
+        <source>About</source>
+        <translation>关于</translation>
     </message>
 </context>
 <context>

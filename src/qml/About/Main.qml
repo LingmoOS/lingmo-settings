@@ -7,7 +7,7 @@ import "../"
 
 ItemPage {
     id: control
-    headerTitle: qsTr("About LingmoOS")
+    headerTitle: qsTr("About")
 
     About {
         id: about
@@ -27,23 +27,19 @@ ItemPage {
 
             Image {
                 Layout.alignment: Qt.AlignTop | Qt.AlignHCenter
-                width: 186
-                height: width
+                width: 400
+                height: 101
+                // Layout.fillWidth: true
                 sourceSize: Qt.size(width, height)
-                source: "qrc:/images/logo.svg"
-                // Layout.alignment: Qt.AlignTop | Qt.AlignHCenter
-                // width: 563
-                // height: 330
-                // sourceSize: Qt.size(width, height)
                 // For Lingmo OS
-                // source: LingmoUI.Theme.darkMode ? "qrc:/images/dark/nebula.png" : "qrc:/images/light/nebula.png"
+                source: LingmoUI.Theme.darkMode ? "qrc:/images/dark/lingmo-logo-g.png" : "qrc:/images/light/lingmo-logo-dark.png"
                 // For OpenLingmo
                 // source: LingmoUI.Theme.darkMode ? "qrc:/images/dark/OpenLingmo.png" : "qrc:/images/light/OpenLingmo.png"
             }
 
             RoundedItem {
                 StandardItem {
-                    key: qsTr("LingmoOS Version")
+                    key: qsTr("OS Version")
                     // key: qsTr("System Version")
                     value: about.version
                 }
@@ -57,8 +53,8 @@ ItemPage {
                 }
 
                 StandardItem {
-                    key: qsTr("OpenLingmo Version")
-                    value: about.OpenLingmoVersion
+                    key: qsTr("System Release")
+                    value: about.systemrelease
                 }
             }
 
@@ -68,7 +64,7 @@ ItemPage {
 
             RoundedItem {
                 StandardItem {
-                    key: qsTr("Lingmo Desktop Version")
+                    key: qsTr("Desktop Version")
                     value: about.desktopversion
                 }
 
@@ -85,18 +81,18 @@ ItemPage {
                     value: about.uiversion
                 }
 
-                Rectangle {
-                    // anchors.fill: parent
-                    Layout.fillWidth: true
-                    width: 20
-                    height: 1
-                    color: LingmoUI.Theme.settingsTextColor
-                }
+                // Rectangle {
+                //     // anchors.fill: parent
+                //     Layout.fillWidth: true
+                //     width: 20
+                //     height: 1
+                //     color: LingmoUI.Theme.settingsTextColor
+                // }
 
-                StandardItem {
-                    key: qsTr("Update Type")
-                    value: about.updateversion
-                }
+                // StandardItem {
+                //     key: qsTr("Update Type")
+                //     value: about.updateversion
+                // }
             }
 
             Item {
