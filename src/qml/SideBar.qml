@@ -258,6 +258,15 @@ Item {
             iconColor: "transparent"
             category: qsTr("System")
         }
+
+        ListElement {
+            title: qsTr("System Update")
+            name: "about"
+            page: "qrc:/qml/Update/Main.qml"
+            iconSource: "about.svg"
+            iconColor: "transparent"
+            category: qsTr("System")
+        }
     }
 
     ColumnLayout {
