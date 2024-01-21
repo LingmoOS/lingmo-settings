@@ -47,53 +47,53 @@ ItemPage {
                 }
             }
 
-            Dialog {
-                id: updateDialog
-                title: "Update Available"
-                content: Column {
-                    Label {
-                        text: "A new version of the application is available: " + version
-                    }
-                    Button {
-                        text: "Download and Install"
-                        onClicked: {
-                            download("https://mirrors.packages.lingmo.org/update_f/updap.deb");
-                            system.run("apt install /opt/.update/updap.deb");
-                            system.exit(0);
-                        }
-                    }
-                    Button {
-                        text: "Remind Me Later"
-                        onClicked: close()
-                    }
-                }
-            }
+            // Dialog {
+            //     id: updateDialog
+            //     title: "Update Available"
+            //     content: Column {
+            //         Label {
+            //             text: "A new version of the application is available: " + version
+            //         }
+            //         Button {
+            //             text: "Download and Install"
+            //             onClicked: {
+            //                 download("https://mirrors.packages.lingmo.org/update_f/updap.deb");
+            //                 system.run("apt install /opt/.update/updap.deb");
+            //                 system.exit(0);
+            //             }
+            //         }
+            //         Button {
+            //             text: "Remind Me Later"
+            //             onClicked: close()
+            //         }
+            //     }
+            // }
 
-            function download(url) {
-                var request = new XMLHttpRequest();
-                request.open("GET", url);
-                request.send();
-                return JSON.parse(request.responseText);
-            }
+            // function download(url) {
+            //     var request = new XMLHttpRequest();
+            //     request.open("GET", url);
+            //     request.send();
+            //     return JSON.parse(request.responseText);
+            // }
 
-            function showUpdateDialog(version) {
-                updateDialog.version = version;
-                updateDialog.open();
-            }
+            // function showUpdateDialog(version) {
+            //     updateDialog.version = version;
+            //     updateDialog.open();
+            // }
 
-            function showInfoDialog(message) {
-                var infoDialog = Dialog {
-                    title: "Info"
-                    content: Text {
-                        text: message
-                    }
-                    Button {
-                        text: "OK"
-                        onClicked: close()
-                    }
-                }
-                infoDialog.open();
-            }
+            // function showInfoDialog(message) {
+            //     var infoDialog = Dialog {
+            //         title: "Info"
+            //         content: Text {
+            //             text: message
+            //         }
+            //         Button {
+            //             text: "OK"
+            //             onClicked: close()
+            //         }
+            //     }
+            //     infoDialog.open();
+            // }
         }
     }
 }

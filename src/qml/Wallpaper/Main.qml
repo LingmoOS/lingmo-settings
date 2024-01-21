@@ -50,6 +50,16 @@ ItemPage {
                         TabButton {
                             text: qsTr("Color")
                         }
+
+                        TabButton {
+                            text: qsTr("Custom")
+
+                            MouseArea {
+                                anchors.fill: parent
+                                onClicked: fileDialog.open()
+                                cursorShape: Qt.PointingHandCursor
+                            }
+                        }
                     }
                 }
 
@@ -276,6 +286,17 @@ ItemPage {
                     radius: width / 2
                 }
             }
+        }
+    }
+
+    FileDialog {
+        id: fileDialog
+        folder: shortcuts.pictures
+        nameFilters: ["Image files (*.jpg *.png)", "All files (*)"]
+        onAccepted: {
+            background.modelData = fileDialog.fileUrl.toString().replace("file://", "")
+            _image.source = fileDialog.fileUrl
+            background.setBackground(modelData)
         }
     }
 }

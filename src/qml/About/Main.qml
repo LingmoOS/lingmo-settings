@@ -44,13 +44,7 @@ ItemPage {
                     value: about.version
                 }
 
-                Rectangle {
-                    // anchors.fill: parent
-                    Layout.fillWidth: true
-                    width: 20
-                    height: 1
-                    color: LingmoUI.Theme.settingsTextColor
-                }
+                HorizontalDivider {}
 
                 StandardItem {
                     key: qsTr("System Release")
@@ -68,13 +62,7 @@ ItemPage {
                     value: about.desktopversion
                 }
 
-                Rectangle {
-                    // anchors.fill: parent
-                    Layout.fillWidth: true
-                    width: 20
-                    height: 1
-                    color: LingmoUI.Theme.settingsTextColor
-                }
+                HorizontalDivider {}
 
                 StandardItem {
                     key: qsTr("UI Version")
@@ -105,52 +93,28 @@ ItemPage {
                     value: about.architecture
                 }
 
-                Rectangle {
-                    // anchors.fill: parent
-                    Layout.fillWidth: true
-                    width: 20
-                    height: 1
-                    color: LingmoUI.Theme.settingsTextColor
-                }
+                HorizontalDivider {}
 
                 StandardItem {
                     key: qsTr("Kernel Version")
                     value: about.kernelVersion
                 }
 
-                Rectangle {
-                    // anchors.fill: parent
-                    Layout.fillWidth: true
-                    width: 20
-                    height: 1
-                    color: LingmoUI.Theme.settingsTextColor
-                }
+                HorizontalDivider {}
 
                 StandardItem {
                     key: qsTr("Processor")
                     value: about.cpuInfo
                 }
 
-                Rectangle {
-                    // anchors.fill: parent
-                    Layout.fillWidth: true
-                    width: 20
-                    height: 1
-                    color: LingmoUI.Theme.settingsTextColor
-                }
+                HorizontalDivider {}
 
                 StandardItem {
                     key: qsTr("RAM")
                     value: about.memorySize
                 }
 
-                Rectangle {
-                    // anchors.fill: 
-                    Layout.fillWidth: true
-                    width: 20
-                    height: 1
-                    color: LingmoUI.Theme.settingsTextColor
-                }
+                HorizontalDivider {}
 
                 StandardItem {
                     key: qsTr("Internal Storage")
