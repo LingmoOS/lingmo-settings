@@ -53,12 +53,6 @@ ItemPage {
 
                         TabButton {
                             text: qsTr("Custom")
-
-                            MouseArea {
-                                anchors.fill: parent
-                                onClicked: fileDialog.open()
-                                cursorShape: Qt.PointingHandCursor
-                            }
                         }
                     }
                 }
@@ -289,14 +283,26 @@ ItemPage {
         }
     }
 
-    FileDialog {
-        id: fileDialog
-        folder: shortcuts.pictures
-        nameFilters: ["Image files (*.jpg *.png)", "All files (*)"]
-        onAccepted: {
-            background.modelData = fileDialog.fileUrl.toString().replace("file://", "")
-            _image.source = fileDialog.fileUrl
-            background.setBackground(modelData)
-        }
-    }
+    // GridView {
+    //     id: _customview
+    //     Layout.fillWidth: true
+    //     MouseArea {
+    //         anchors.fill: parent
+    //         onClicked: fileDialog.open()
+    //         cursorShape: Qt.PointingHandCursor
+    //     }
+    //     FileDialog {
+    //         id: fileDialog
+    //         folder: shortcuts.pictures
+    //         nameFilters: ["Image files (*.jpg *.png)", "All files (*)"]
+    //         onAccepted: {
+    //             background.modelData = fileDialog.fileUrl.toString().replace("file://", "")
+    //             _image.source = fileDialog.fileUrl
+    //             background.setBackground(modelData)
+    //         }
+    //     }
+    //     Item {
+    //         height: LingmoUI.Units.largeSpacing
+    //     }
+    // }
 }

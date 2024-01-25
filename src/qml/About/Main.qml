@@ -44,7 +44,14 @@ ItemPage {
                     value: about.version
                 }
 
-                HorizontalDivider {}
+                Rectangle {
+                    Layout.fillWidth: true
+                    anchors.centerIn: parent
+                    height: 1
+                    width: control.width
+                    color: LingmoUI.Theme.disabledTextColor
+                    opacity: LingmoUI.Theme.darkMode ? 0.3 : 0.1
+                }
 
                 StandardItem {
                     key: qsTr("System Release")
@@ -62,7 +69,14 @@ ItemPage {
                     value: about.desktopversion
                 }
 
-                HorizontalDivider {}
+                Rectangle {
+                    Layout.fillWidth: true
+                    anchors.centerIn: parent
+                    height: 1
+                    width: control.width
+                    color: LingmoUI.Theme.disabledTextColor
+                    opacity: LingmoUI.Theme.darkMode ? 0.3 : 0.1
+                }
 
                 StandardItem {
                     key: qsTr("UI Version")
@@ -93,28 +107,56 @@ ItemPage {
                     value: about.architecture
                 }
 
-                HorizontalDivider {}
+                Rectangle {
+                    Layout.fillWidth: true
+                    anchors.centerIn: parent
+                    height: 1
+                    width: control.width
+                    color: LingmoUI.Theme.disabledTextColor
+                    opacity: LingmoUI.Theme.darkMode ? 0.3 : 0.1
+                }
 
                 StandardItem {
                     key: qsTr("Kernel Version")
                     value: about.kernelVersion
                 }
 
-                HorizontalDivider {}
+                Rectangle {
+                    Layout.fillWidth: true
+                    anchors.centerIn: parent
+                    height: 1
+                    width: control.width
+                    color: LingmoUI.Theme.disabledTextColor
+                    opacity: LingmoUI.Theme.darkMode ? 0.3 : 0.1
+                }
 
                 StandardItem {
                     key: qsTr("Processor")
                     value: about.cpuInfo
                 }
 
-                HorizontalDivider {}
+                Rectangle {
+                    Layout.fillWidth: true
+                    anchors.centerIn: parent
+                    height: 1
+                    width: control.width
+                    color: LingmoUI.Theme.disabledTextColor
+                    opacity: LingmoUI.Theme.darkMode ? 0.3 : 0.1
+                }
 
                 StandardItem {
                     key: qsTr("RAM")
                     value: about.memorySize
                 }
 
-                HorizontalDivider {}
+                Rectangle {
+                    Layout.fillWidth: true
+                    anchors.centerIn: parent
+                    height: 1
+                    width: control.width
+                    color: LingmoUI.Theme.disabledTextColor
+                    opacity: LingmoUI.Theme.darkMode ? 0.3 : 0.1
+                }
 
                 StandardItem {
                     key: qsTr("Internal Storage")
