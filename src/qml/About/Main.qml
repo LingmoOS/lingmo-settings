@@ -32,7 +32,7 @@ ItemPage {
                 // Layout.fillWidth: true
                 sourceSize: Qt.size(width, height)
                 // For Lingmo OS
-                source: LingmoUI.Theme.darkMode ? "qrc:/images/dark/lingmo-logo-g.png" : "qrc:/images/light/lingmo-logo-dark.png"
+                source: LingmoUI.Theme.darkMode ? "qrc:/images/logo.svg" : "qrc:/images/logo.svg"
                 // For OpenLingmo
                 // source: LingmoUI.Theme.darkMode ? "qrc:/images/dark/OpenLingmo.png" : "qrc:/images/light/OpenLingmo.png"
             }
