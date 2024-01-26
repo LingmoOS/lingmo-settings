@@ -27,7 +27,9 @@ jobs:
     - name: Fix KF5
       run: mkdir -p /usr/include/KF5
     - name: Build Package
-      run: dpkg-buildpackage -b -uc -us -j$(nproc)
+      run: |
+        chmod -x debian/lingmo-*
+        dpkg-buildpackage -b -uc -us -j$(nproc)
     - name: Create Release
       id: create_release
       uses: actions/create-release@v1
@@ -46,9 +48,9 @@ jobs:
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
         asset_path: |
-            /__w/lingmo-settings/lingmo-settings-dev_2.0.0_amd64.deb
-            /__w/lingmo-settings/lingmo-settings-dev_2.0.0_amd64.deb
+            /__w/lingmo-settings/lingmo-settings_2.0.0-3_amd64.deb
+            /__w/lingmo-settings/lingmo-settings-dev_2.0.0-3_amd64.deb
         asset_name: |
-            lingmo-settings_2.0.0_amd64.deb
-            lingmo-settings-dev_2.0.0_amd64.deb
+            lingmo-settings_2.0.0-3_amd64.deb
+            lingmo-settings-dev_2.0.0-3_amd64.deb
         asset_content_type: application/deb

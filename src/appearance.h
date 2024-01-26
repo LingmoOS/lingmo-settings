@@ -32,6 +32,7 @@ class Appearance : public QObject
     Q_PROPERTY(int dockVisibility READ dockVisibility WRITE setDockVisibility NOTIFY dockVisibilityChanged)
     Q_PROPERTY(int dockStyle READ dockStyle WRITE setDockStyle NOTIFY dockStyleChanged)
     Q_PROPERTY(int fontPointSize READ fontPointSize WRITE setFontPointSize NOTIFY fontPointSizeChanged)
+    Q_PROPERTY(int DesktopSettings READ DesktopSettings WRITE setDesktopIcons NOTIFY desktopIconsChanged)
     Q_PROPERTY(bool dimsWallpaper READ dimsWallpaper WRITE setDimsWallpaper NOTIFY dimsWallpaperChanged)
     Q_PROPERTY(double devicePixelRatio READ devicePixelRatio WRITE setDevicePixelRatio NOTIFY devicePixelRatioChanged)
     Q_PROPERTY(bool dockRoundedWindow READ dockRoundedWindow WRITE setDockRoundedWindow NOTIFY dockRoundedWindowChanged)
@@ -69,6 +70,9 @@ public:
 
     Q_INVOKABLE void setAccentColor(int accentColor);
 
+    int DesktopSettings() const;
+    Q_INVOKABLE void setDesktopIcons(int DesktopSettings);
+
     double devicePixelRatio() const;
     Q_INVOKABLE void setDevicePixelRatio(double value);
 
@@ -84,6 +88,7 @@ signals:
     void dockVisibilityChanged();
     void dockStyleChanged();
     void fontPointSizeChanged();
+    void desktopIconsChanged();
     void dimsWallpaperChanged();
     void devicePixelRatioChanged();
     void dockRoundedWindowChanged();
@@ -101,6 +106,8 @@ private:
     int m_dockVisibility;
     int m_dockStyle;
     int m_fontPointSize;
+
+    int m_DesktopSettings;
 
     bool m_systemEffects;
     int m_minimiumAnimation;

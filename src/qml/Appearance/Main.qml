@@ -358,6 +358,80 @@ ItemPage {
 
                 }
             }
+            RoundedItem {
+                Label {
+                    text: qsTr("Desktop Settings")
+                    color: LingmoUI.Theme.disabledTextColor
+                }
+                GridLayout {
+                    rows: 3
+                    columns: 2
+
+                    columnSpacing: LingmoUI.Units.largeSpacing * 1.5
+                    rowSpacing: LingmoUI.Units.largeSpacing * 1.5
+
+                    Label {
+                        text: qsTr("Desktop Icons Size")
+                        bottomPadding: LingmoUI.Units.smallSpacing
+                    }
+
+                    TabBar {
+                        Layout.fillWidth: true
+
+                        TabButton {
+                            text: qsTr("Small")
+                        }
+
+                        TabButton {
+                            text: qsTr("Medium")
+                        }
+
+                        TabButton {
+                            text: qsTr("Large")
+                        }
+
+                        TabButton {
+                            text: qsTr("Huge")
+                        }
+
+                        currentIndex: {
+                            var index = 0
+
+                            if (appearance.fontPointSize <= 55)
+                                index = 0
+                            else if (appearance.fontPointSize <= 79)
+                                index = 1
+                            else if (appearance.fontPointSize <= 95)
+                                index = 2
+                            else if (appearance.fontPointSize <= 105)
+                                index = 3
+
+                            return index
+                        }
+
+                        onCurrentIndexChanged: {
+                            var desktopIconSize = 0
+
+                            switch (currentIndex) {
+                            case 0:
+                                desktopIconSize = 55
+                                break;
+                            case 1:
+                                desktopIconSize = 79
+                                break;
+                            case 2:
+                                desktopIconSize = 95
+                                break;
+                            case 3:
+                                desktopIconSize = 105
+                                break;
+                            }
+
+                            appearance.setDesktopIcons(desktopIconSize)
+                        }
+                    }
+                }
+            }
             Item {
                 Layout.fillHeight: true
             }

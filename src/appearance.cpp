@@ -238,6 +238,23 @@ void Appearance::setAccentColor(int accentColor)
     }
 }
 
+int Appearance::DesktopSettings() const
+{
+    return m_DesktopSettings;
+}
+
+void Appearance::setDesktopIcons(int DesktopSettings)
+{
+    m_DesktopSettings = DesktopSettings;
+    QDBusInterface iface("com.lingmo.Settings",
+                         "/Theme",
+                         "com.lingmo.Theme",
+                         QDBusConnection::sessionBus(), this);
+    if (iface.isValid()) {
+        iface.call("setDesktopIcons", m_DesktopSettings);
+    }
+}
+
 double Appearance::devicePixelRatio() const
 {
     return m_interface.property("devicePixelRatio").toDouble();

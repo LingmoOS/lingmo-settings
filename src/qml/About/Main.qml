@@ -28,7 +28,7 @@ ItemPage {
             Image {
                 Layout.alignment: Qt.AlignTop | Qt.AlignHCenter
                 width: 400
-                height: 101
+                // height: 101
                 // Layout.fillWidth: true
                 sourceSize: Qt.size(width, height)
                 // For Lingmo OS
@@ -45,12 +45,11 @@ ItemPage {
                 }
 
                 Rectangle {
+                    // anchors.fill: parent
                     Layout.fillWidth: true
-                    anchors.centerIn: parent
+                    width: 20
                     height: 1
-                    width: control.width
-                    color: LingmoUI.Theme.disabledTextColor
-                    opacity: LingmoUI.Theme.darkMode ? 0.3 : 0.1
+                    color: LingmoUI.Theme.settingsTextColor
                 }
 
                 StandardItem {
@@ -70,12 +69,11 @@ ItemPage {
                 }
 
                 Rectangle {
+                    // anchors.fill: parent
                     Layout.fillWidth: true
-                    anchors.centerIn: parent
+                    width: 20
                     height: 1
-                    width: control.width
-                    color: LingmoUI.Theme.disabledTextColor
-                    opacity: LingmoUI.Theme.darkMode ? 0.3 : 0.1
+                    color: LingmoUI.Theme.settingsTextColor
                 }
 
                 StandardItem {
@@ -83,18 +81,6 @@ ItemPage {
                     value: about.uiversion
                 }
 
-                // Rectangle {
-                //     // anchors.fill: parent
-                //     Layout.fillWidth: true
-                //     width: 20
-                //     height: 1
-                //     color: LingmoUI.Theme.settingsTextColor
-                // }
-
-                // StandardItem {
-                //     key: qsTr("Update Type")
-                //     value: about.updateversion
-                // }
             }
 
             Item {
@@ -108,12 +94,11 @@ ItemPage {
                 }
 
                 Rectangle {
+                    // anchors.fill: parent
                     Layout.fillWidth: true
-                    anchors.centerIn: parent
+                    width: 20
                     height: 1
-                    width: control.width
-                    color: LingmoUI.Theme.disabledTextColor
-                    opacity: LingmoUI.Theme.darkMode ? 0.3 : 0.1
+                    color: LingmoUI.Theme.settingsTextColor
                 }
 
                 StandardItem {
@@ -122,12 +107,11 @@ ItemPage {
                 }
 
                 Rectangle {
+                    // anchors.fill: parent
                     Layout.fillWidth: true
-                    anchors.centerIn: parent
+                    width: 20
                     height: 1
-                    width: control.width
-                    color: LingmoUI.Theme.disabledTextColor
-                    opacity: LingmoUI.Theme.darkMode ? 0.3 : 0.1
+                    color: LingmoUI.Theme.settingsTextColor
                 }
 
                 StandardItem {
@@ -136,12 +120,11 @@ ItemPage {
                 }
 
                 Rectangle {
+                    // anchors.fill: parent
                     Layout.fillWidth: true
-                    anchors.centerIn: parent
+                    width: 20
                     height: 1
-                    width: control.width
-                    color: LingmoUI.Theme.disabledTextColor
-                    opacity: LingmoUI.Theme.darkMode ? 0.3 : 0.1
+                    color: LingmoUI.Theme.settingsTextColor
                 }
 
                 StandardItem {
@@ -150,12 +133,11 @@ ItemPage {
                 }
 
                 Rectangle {
+                    // anchors.fill: parent
                     Layout.fillWidth: true
-                    anchors.centerIn: parent
+                    width: 20
                     height: 1
-                    width: control.width
-                    color: LingmoUI.Theme.disabledTextColor
-                    opacity: LingmoUI.Theme.darkMode ? 0.3 : 0.1
+                    color: LingmoUI.Theme.settingsTextColor
                 }
 
                 StandardItem {

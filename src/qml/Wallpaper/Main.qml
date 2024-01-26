@@ -2,6 +2,7 @@ import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
 import QtGraphicalEffects 1.0
+import QtQuick.Dialogs 1.2
 import Lingmo.Settings 1.0
 import LingmoUI 1.0 as LingmoUI
 
@@ -283,26 +284,26 @@ ItemPage {
         }
     }
 
-    // GridView {
-    //     id: _customview
-    //     Layout.fillWidth: true
-    //     MouseArea {
-    //         anchors.fill: parent
-    //         onClicked: fileDialog.open()
-    //         cursorShape: Qt.PointingHandCursor
-    //     }
-    //     FileDialog {
-    //         id: fileDialog
-    //         folder: shortcuts.pictures
-    //         nameFilters: ["Image files (*.jpg *.png)", "All files (*)"]
-    //         onAccepted: {
-    //             background.modelData = fileDialog.fileUrl.toString().replace("file://", "")
-    //             _image.source = fileDialog.fileUrl
-    //             background.setBackground(modelData)
-    //         }
-    //     }
-    //     Item {
-    //         height: LingmoUI.Units.largeSpacing
-    //     }
-    // }
+    GridView {
+        id: _customview
+        Layout.fillWidth: true
+        MouseArea {
+            anchors.fill: parent
+            onClicked: fileDialog.open()
+            cursorShape: Qt.PointingHandCursor
+        }
+        FileDialog {
+            id: fileDialog
+            folder: shortcuts.pictures
+            nameFilters: ["Image files (*.jpg *.png)", "All files (*)"]
+            onAccepted: {
+                background.modelData = fileDialog.fileUrl.toString().replace("file://", "")
+                _image.source = fileDialog.fileUrl
+                background.setBackground(modelData)
+            }
+        }
+        Item {
+            height: LingmoUI.Units.largeSpacing
+        }
+    }
 }

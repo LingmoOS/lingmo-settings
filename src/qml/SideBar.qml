@@ -222,16 +222,6 @@ Item {
         }
 
         ListElement {
-            title: qsTr("Accessibility")
-            name: "accessibility"
-            page: "qrc:/qml/Accessibility/Main.qml"
-            // source: "appearance.svg"
-            iconSource: "accessibility.svg"
-            iconColor: "transparent"
-            category: qsTr("System")
-        }
-
-        ListElement {
             title: qsTr("Battery")
             name: "battery"
             page: "qrc:/qml/Battery/Main.qml"
