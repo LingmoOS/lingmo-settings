@@ -397,13 +397,13 @@ ItemPage {
                         currentIndex: {
                             var index = 0
 
-                            if (appearance.fontPointSize <= 55)
+                            if (appearance.desktopIconSize <= 55)
                                 index = 0
-                            else if (appearance.fontPointSize <= 79)
+                            else if (appearance.desktopIconSize <= 79)
                                 index = 1
-                            else if (appearance.fontPointSize <= 95)
+                            else if (appearance.desktopIconSize <= 95)
                                 index = 2
-                            else if (appearance.fontPointSize <= 105)
+                            else if (appearance.desktopIconSize <= 105)
                                 index = 3
 
                             return index

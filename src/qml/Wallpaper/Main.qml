@@ -24,6 +24,23 @@ ItemPage {
             anchors.fill: parent
             spacing: LingmoUI.Units.largeSpacing
 
+            FileDialog {
+                id: fileDialog
+                folder: shortcuts.pictures
+                nameFilters: ["Image files (*.jpg *.png)", "All files (*)"]
+                onAccepted: {
+                    background.custumData = fileDialog.fileUrl.toString().replace("file://", custumData)
+                    // background.source = fileDialog.fileUrl
+                    background.setBackground(custumData)
+                }
+            }
+
+            DesktopPreview {
+               Layout.alignment: Qt.AlignHCenter
+               width: 500
+               height: 300
+            }
+
             RoundedItem {
                 RowLayout {
                     spacing: LingmoUI.Units.largeSpacing * 2
@@ -52,9 +69,9 @@ ItemPage {
                             text: qsTr("Color")
                         }
 
-                        TabButton {
-                            text: qsTr("Custom")
-                        }
+                        // TabButton {
+                        //     text: qsTr("Custom")
+                        // }
                     }
                 }
 
@@ -204,12 +221,6 @@ ItemPage {
                 }
             }
 
-//            DesktopPreview {
-//                Layout.alignment: Qt.AlignHCenter
-//                width: 500
-//                height: 300
-//            }
-
             Item {
                 height: LingmoUI.Units.largeSpacing
             }
@@ -284,26 +295,27 @@ ItemPage {
         }
     }
 
-    GridView {
-        id: _customview
-        Layout.fillWidth: true
-        MouseArea {
-            anchors.fill: parent
-            onClicked: fileDialog.open()
-            cursorShape: Qt.PointingHandCursor
-        }
-        FileDialog {
-            id: fileDialog
-            folder: shortcuts.pictures
-            nameFilters: ["Image files (*.jpg *.png)", "All files (*)"]
-            onAccepted: {
-                background.modelData = fileDialog.fileUrl.toString().replace("file://", "")
-                _image.source = fileDialog.fileUrl
-                background.setBackground(modelData)
-            }
-        }
-        Item {
-            height: LingmoUI.Units.largeSpacing
-        }
-    }
+    // GridView {
+    //     id: _customview
+    //     Layout.fillWidth: true
+
+    //     DesktopPreview {
+    //         Layout.alignment: Qt.AlignHCenter
+    //         width: 500
+    //         height: 300
+    //     }
+
+    //     StandardButton {
+    //         Layout.fillWidth: true
+    //         // visible: about.isLingmoOS
+    //         text: qsTr("Use custom images")
+    //         onClicked: {
+    //             fileDialog.open()
+    //         }
+    //     }
+        
+    //     Item {
+    //         height: LingmoUI.Units.largeSpacing
+    //     }
+    // }
 }

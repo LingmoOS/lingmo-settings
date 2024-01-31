@@ -21,6 +21,17 @@
 #include <QDebug>
 #include <QIcon>
 
+#include <QGuiApplication>
+#include <QQmlApplicationEngine>
+#include <QDBusConnection>
+#include <QQmlContext>
+#include <QTranslator>
+#include <QLocale>
+#include <QFile>
+
+#include "updatorhelper.h"
+#include "upgradeablemodel.h"
+
 int main(int argc, char *argv[])
 {
     QCoreApplication::setAttribute(Qt::AA_UseHighDpiPixmaps, true);
@@ -29,6 +40,16 @@ int main(int argc, char *argv[])
     Application app(argc, argv);
 
     app.setWindowIcon(QIcon::fromTheme("lingmo-settings"));
+
+    // QQmlApplicationEngine engine;
+    // const QUrl url(QStringLiteral("qrc:/main.qml"));
+    // QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
+    //                  &app, [url](QObject *obj, const QUrl &objUrl) {
+    //     if (!obj && url == objUrl)
+    //         QCoreApplication::exit(-1);
+    // }, Qt::QueuedConnection);
+    // engine.rootContext()->setContextProperty("upgradeableModel", UpgradeableModel::self());
+    // engine.load(url);
 
     return 0;
 }

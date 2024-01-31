@@ -1,0 +1,9 @@
+#!/bin/bash
+
+SERURL = https://packages.lingmo.org/update/release/2.0/
+PKG = updatkg.upkgimg
+INFO = updatelog.upkginf
+UPDATE_SAVE = /opt/update/
+UPDATE_PKG = /opt/update/updatkg.upkgimg
+UPDATE_INFO = /opt/update/updatelog.upkginf
+

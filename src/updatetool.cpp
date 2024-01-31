@@ -7,14 +7,25 @@
 #include <QTextStream>
 #include <QSysInfo>
 #include <QProcess>
+#include <QJsonObject>
+#include <QEventLoop>
+#include <QJsonDocument>
+#include <QFile>
+#include <QDir>
+#include <QRegExp>
+
 
 #ifdef Q_OS_LINUX
 #include <QStandardPaths>
 #include <QFileInfo>
 #endif
 
-const QString updateUrl = "https://os.lingmo.org/project/version.json";
+// const QString updateUrl = "https://os.lingmo.org/project/version.json";
 const QString downloadUrl = "https://mirrors.packages.lingmo.org/update_f/updap.deb";
+const QString baseUrl = "https://packages.lingmo.org"
+const QString updateUrl = "https://packages.lingmo.org/release/update/user/2.0/changelog.json"
+const QString pkgUrl = "https://packages.lingmo.org/release/update/user/2.0/update.upkgimg"
+
 
 int main(int argc, char *argv[])
 {

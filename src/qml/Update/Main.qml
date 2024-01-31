@@ -7,17 +7,56 @@ import "../"
 
 ItemPage {
     id: control
-    headerTitle: qsTr("Update")
+    headerTitle: qsTr("System Update")
+
+    StackView {
+        id: stackView
+        anchors.fill: parent
+        initialItem: homePage
+    }
 
     Update {
         id: update
+        
+        onHaneupdate: {
+            stackView.push(readUpdate)
+        }
+
+        onNoupdate: {
+            stackView.push(noUpdate)
+        }
+
+        onDownloaddown: {
+            stackView.push(readInstall)
+        }
+
+        onInstallDone: {
+            stackView.push(installDone)
+        }
     }
-    Scrollable {
-        anchors.fill: parent
-        contentHeight: layout.implicitHeight
 
+    Component {
+        id: readUpdate
 
+        ReadUpdate { }
+    }
 
-    }  
+    Component {
+        id: noUpdate
+
+        UpdatePage {}
+    }
+
+    Component {
+        id: readInstall
+
+        ReadInstall {}
+    }
+
+    Component {
+        id: installDone
+
+        InstallDone {}
+    }
 
 }

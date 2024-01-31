@@ -21,9 +21,9 @@ ItemPage {
             id: layout
             anchors.fill: parent
 
-            // Item {
-            //     height: LingmoUI.Units.largeSpacing
-            // }
+            Item {
+                height: LingmoUI.Units.largeSpacing
+            }
 
             Image {
                 Layout.alignment: Qt.AlignTop | Qt.AlignHCenter
@@ -37,6 +37,10 @@ ItemPage {
                 // source: LingmoUI.Theme.darkMode ? "qrc:/images/dark/OpenLingmo.png" : "qrc:/images/light/OpenLingmo.png"
             }
 
+            Item {
+                height: LingmoUI.Units.largeSpacing
+            }
+
             RoundedItem {
                 StandardItem {
                     key: qsTr("OS Version")
@@ -44,13 +48,7 @@ ItemPage {
                     value: about.version
                 }
 
-                Rectangle {
-                    // anchors.fill: parent
-                    Layout.fillWidth: true
-                    width: 20
-                    height: 1
-                    color: LingmoUI.Theme.settingsTextColor
-                }
+                Horizontalabt {}
 
                 StandardItem {
                     key: qsTr("System Release")
@@ -68,13 +66,7 @@ ItemPage {
                     value: about.desktopversion
                 }
 
-                Rectangle {
-                    // anchors.fill: parent
-                    Layout.fillWidth: true
-                    width: 20
-                    height: 1
-                    color: LingmoUI.Theme.settingsTextColor
-                }
+                Horizontalabt {}
 
                 StandardItem {
                     key: qsTr("UI Version")
@@ -93,12 +85,8 @@ ItemPage {
                     value: about.architecture
                 }
 
-                Rectangle {
-                    // anchors.fill: parent
-                    Layout.fillWidth: true
-                    width: 20
-                    height: 1
-                    color: LingmoUI.Theme.settingsTextColor
+                Horizontalabt {
+                    
                 }
 
                 StandardItem {
@@ -106,12 +94,8 @@ ItemPage {
                     value: about.kernelVersion
                 }
 
-                Rectangle {
-                    // anchors.fill: parent
-                    Layout.fillWidth: true
-                    width: 20
-                    height: 1
-                    color: LingmoUI.Theme.settingsTextColor
+                Horizontalabt {
+
                 }
 
                 StandardItem {
@@ -119,12 +103,8 @@ ItemPage {
                     value: about.cpuInfo
                 }
 
-                Rectangle {
-                    // anchors.fill: parent
-                    Layout.fillWidth: true
-                    width: 20
-                    height: 1
-                    color: LingmoUI.Theme.settingsTextColor
+                Horizontalabt {
+
                 }
 
                 StandardItem {
@@ -132,12 +112,8 @@ ItemPage {
                     value: about.memorySize
                 }
 
-                Rectangle {
-                    // anchors.fill: parent
-                    Layout.fillWidth: true
-                    width: 20
-                    height: 1
-                    color: LingmoUI.Theme.settingsTextColor
+                Horizontalabt {
+
                 }
 
                 StandardItem {
@@ -152,7 +128,7 @@ ItemPage {
 
             StandardButton {
                 Layout.fillWidth: true
-                // visible: about.isLingmofishOS
+                // visible: about.isLingmoOS
                 text: qsTr("Software Update")
                 onClicked: {
                     about.openUpdator()

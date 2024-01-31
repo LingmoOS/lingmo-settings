@@ -18,11 +18,12 @@ find_package(X11 REQUIRED)
 find_package(Freetype REQUIRED)
 find_package(PkgConfig REQUIRED)
 find_package(Libcrypt REQUIRED)
-# find_package(QApt REQUIRED)
+find_package(QApt REQUIRED)
 
 find_package(KF5NetworkManagerQt REQUIRED)
 find_package(KF5ModemManagerQt REQUIRED)
 find_package(KF5Config)
+find_package(QApt REQUIRED)
 
 pkg_search_module(FontConfig REQUIRED fontconfig IMPORTED_TARGET)
 pkg_search_module(ICU REQUIRED icu-i18n)
@@ -64,8 +65,9 @@ set(SRCS
     src/networkproxy.cpp
     src/defaultapplications.cpp
     src/desktopproperties.cpp
+    src/update/update.cpp
 #    src/update.cpp
-#    src/updatetool.cpp
+#    src/upgradeablemodel.cpp
 #    src/update/updatemodel.cpp
 )
 
@@ -90,6 +92,7 @@ target_link_libraries(${PROJECT_NAME}
         Qt5::Xml
         Qt5::X11Extras
         Qt5::Concurrent
+        QApt::Main
         # LingmoUI
 
         KF5::NetworkManagerQt

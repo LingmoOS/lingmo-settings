@@ -28,8 +28,14 @@
         <file>images/dock_left.svg</file>
         <file>qml/IconCheckBox.qml</file>
         <file>qml/HorizontalDivider.qml</file>
+        <file>qml/Horizontalabt.qml</file>
         <file>qml/LanguagePage.qml</file>
         <file>qml/Update/Main.qml</file>
+        <file>qml/Update/HomePage.qml</file>
+        <file>qml/Update/InstallDone.qml</file>
+        <file>qml/Update/ReadUpdate.qml</file>
+        <file>qml/Update/ReadInstall.qml</file>
+        <file>qml/Update/UpdateView.qml</file>
         <file>images/checked.svg</file>
         <file>images/light/network-wired.svg</file>
         <file>images/light/network-wireless-connected-00.svg</file>

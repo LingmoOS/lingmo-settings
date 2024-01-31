@@ -246,9 +246,9 @@ int Appearance::DesktopSettings() const
 void Appearance::setDesktopIcons(int DesktopSettings)
 {
     m_DesktopSettings = DesktopSettings;
-    QDBusInterface iface("com.lingmo.Settings",
-                         "/Theme",
-                         "com.lingmo.Theme",
+    QDBusInterface iface("com.lingmo.FileManager",
+                         "/FileManager",
+                         "com.lingmo.FileManager",
                          QDBusConnection::sessionBus(), this);
     if (iface.isValid()) {
         iface.call("setDesktopIcons", m_DesktopSettings);

@@ -38,7 +38,7 @@ Item {
         anchors.fill: parent
         color: LingmoUI.Theme.darkMode ? Qt.lighter(LingmoUI.Theme.backgroundColor, 1.5)
                                      : Qt.darker(LingmoUI.Theme.backgroundColor, 1.05)
-        opacity: rootWindow.compositing ? 0.7 : 1.0
+        opacity: rootWindow.compositing ? 0.3 : 0.4
 
         Behavior on color {
             ColorAnimation {
@@ -240,23 +240,24 @@ Item {
             category: qsTr("System")
         }
 
+        // ListElement {
+        //     title: qsTr("System Update")
+        //     name: "systemupdate"
+        //     page: "qrc:/qml/Update/Main.qml"
+        //     iconColor: "transparent"
+        //     iconSource: "about.svg"
+        //     category: qsTr("System & Update")
+        // }
+
         ListElement {
             title: qsTr("About")
             name: "about"
             page: "qrc:/qml/About/Main.qml"
             iconSource: "about.svg"
             iconColor: "transparent"
-            category: qsTr("System")
+            category: qsTr("System & Update")
         }
 
-        // ListElement {
-        //     title: qsTr("System Update")
-        //     name: "about"
-        //     page: "qrc:/qml/Update/Main.qml"
-        //     iconSource: "about.svg"
-        //     iconColor: "transparent"
-        //     category: qsTr("System")
-        // }
     }
 
     ColumnLayout {
