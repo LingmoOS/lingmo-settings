@@ -1,5 +1,23 @@
 #include <QProcess>
 #include <QDebug>
+#include <QSettings>
+#include <QCoreApplication>
+#include <QDialog>
+#include <QProcess>
+#include <QNetworkAccessManager>
+#include <QDBusPendingCall>
+#include <QTimer>
+#include <QNetworkRequest>
+#include <QNetworkReply>
+#include <QTextStream>
+#include <QSysInfo>
+#include <QProcess>
+#include <QJsonObject>
+#include <QEventLoop>
+#include <QJsonDocument>
+#include <QFile>
+#include <QDir>
+#include <QRegExp>
 
 #include "update.h"
 
@@ -9,7 +27,7 @@ const static QString s_interfaceName = "com.lingmo.Session";
 
 const QString LocaVer = "https://packages.lingmo.org/release/update/user/2.0/2.0.0/lover.upkginf";
 const QString pkgUrl = "https://packages.lingmo.org/release/update/user/2.0/update.deb"
-const QString DownSavePath = "/opt/update/";
+// const QString DownSavePath = "/opt/update/";
 const QString Logurl = "https://packages.lingmo.org/release/update/user/2.0/changelog.upkginf";
 
 static QString formatByteSize(double size, int precision)
@@ -54,10 +72,9 @@ static QString formatByteSize(double size, int precision)
     return QString();
 }
 
-UpdateSys::UpdateSys(const QString& DownSavePath, const QString& url, QObject *parent) :
+UpdateSys::UpdateSys(QObject *parent):
     : QObject(parent)
 {
-    m_savepath = DownSavePath;
 
     QSettings settings("/etc/os-release",QSettings::IniFormat);
     m_currentVersion = settings.value("PRETTY_NAME").toString();
@@ -92,7 +109,7 @@ void UpdateSys::getUpdateInfo()
     connect(process, SIGNAL(readyReadStandardOutput()), this, SLOT(readyReadStandardOutput()));
     connect(process, SIGNAL(readyReadStandardError()), this, SLOT(readyReadStandardError()));
     connect(process, SIGNAL(finished(int)), this, SLOT(finished(int)));
-    process->start("wget", QStringList() << "-O " << DownSavePath << LocaVer);
+    process->start("wget", QStringList() << "-O " << "/opt/update/" << LocaVer);
     process.waitForFinished();
 
     QByteArray logd = process.readAllStandardOutput();
@@ -102,13 +119,13 @@ void UpdateSys::getUpdateInfo()
     QString UpdateSys::GetWEBlVersion()
     {
         QSettings settings("/opt/update/lover.upkginf",QSettings::IniFormat);
-        return settings.value("BUILDID").toString();
+        webVersion = settings.value("BUILDID").toString();
     }
 
-    if (GetWEBlVersion > GetLocalVersion)
+    if (webVersion() > GetLocalVersion())
     {
         QProcess *process = new QProcess(this);
-        process->start("wget", QStringList() << "-O " << DownSavePath << Logurl);
+        process->start("wget", QStringList() << "-O " << "/opt/update/" << Logurl);
         emit haneupdate();
     } else {
         emit noupdate();
@@ -121,7 +138,7 @@ void UpdateSys::DownloadPkg()
     connect(process, SIGNAL(readyReadStandardOutput()), this, SLOT(readyReadStandardOutput()));
     connect(process, SIGNAL(readyReadStandardError()), this, SLOT(readyReadStandardError()));
     connect(process, SIGNAL(finished(int)), this, SLOT(finished(int)));
-    process->start("wget", QStringList() << "-O " << DownSavePath << pkgUrl);
+    process->start("wget", QStringList() << "-O " << "/opt/update/" << pkgUrl);
     process.waitForFinished();
     emit downloaddown();
 }
@@ -132,7 +149,7 @@ void UpdateSys::installPkg()
     connect(process, SIGNAL(readyReadStandardOutput()), this, SLOT(readyReadStandardOutput()));
     connect(process, SIGNAL(readyReadStandardError()), this, SLOT(readyReadStandardError()));
     connect(process, SIGNAL(finished(int)), this, SLOT(finished(int)));
-    process->start("apt", QStringList() << "-y install " << DownSavePath << "update.deb");
+    process->start("apt", QStringList() << "-y install " << "/opt/update/" << "update.deb");
     process.waitForFinished();
     emit installDone();
 }

@@ -61,7 +61,7 @@ ItemPage {
 
             RoundedItem {
                 Layout.fillWidth: true
-                visible: brightness.enabled
+                // visible: brightness.enabled
 
                 Label {
                     text: qsTr("Brightness")
@@ -118,7 +118,7 @@ ItemPage {
             }
 
             RoundedItem {
-                visible: _screenView.count > 0
+                // visible: _screenView.count > 0
 
                 Label {
                     text: qsTr("Screen")

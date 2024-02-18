@@ -32,8 +32,7 @@
 
 #include "datetime/time.h"
 #include "datetime/timezonemap.h"
-#include "updatorhelper.h"
-#include "upgradeablemodel.h"
+#include "update.h"
 
 const QString ModuleDirectory = "/usr/lib/lingmo-settings/modules";
 
@@ -81,7 +80,6 @@ Application::Application(int &argc, char **argv)
     qmlRegisterType<BatteryHistoryModel>(uri, 1, 0, "BatteryHistoryModel");
     qmlRegisterType<CursorThemeModel>(uri, 1, 0, "CursorThemeModel");
     qmlRegisterType<About>(uri, 1, 0, "About");
-    qmlRegisterType<Update>(uri, 1, 0, "Update");
     qmlRegisterType<Background>(uri, 1, 0, "Background");
     qmlRegisterType<Language>(uri, 1, 0, "Language");
     qmlRegisterType<Fonts>(uri, 1, 0, "Fonts");

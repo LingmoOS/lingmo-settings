@@ -65,10 +65,6 @@ set(SRCS
     src/networkproxy.cpp
     src/defaultapplications.cpp
     src/desktopproperties.cpp
-    src/update/update.cpp
-#    src/update.cpp
-#    src/upgradeablemodel.cpp
-#    src/update/updatemodel.cpp
 )
 
 set(RESOURCES

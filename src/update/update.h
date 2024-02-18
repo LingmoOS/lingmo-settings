@@ -29,17 +29,24 @@
 class UpdateSys : public QObject
 {
     Q_OBJECT
+    Q_PROPERTY(QString version READ version CONSTANT)
+    Q_PROPERTY(QString webVersion READ webVersion CONSTANT)
     Q_PROPERTY(QString changeLog READ changeLog CONSTANT)
     Q_PROPERTY(QString GetWEBlVersion READ GetWEBlVersion CONSTANT)
     Q_PROPERTY(QString GetLocalVersion READ GetLocalVersion CONSTANT)
 public:
-    explicit UpdateSys(QObject *parent = 0);
+    explicit UpdateSys(QObject *parent = nullptr);
     ~UpdateSys();
 
     bool isLingmoOS();
 
     void update();
     void checkUpdate();
+    void installDone();
+    void downloaddown();
+    void haneupdate();
+    void noupdate();
+
     bool isUpdate();
     QString getVersion();
     QString getDownloadUrl();
@@ -50,6 +57,8 @@ public:
 
     QString changeLog();
     QString GetWEBlVersion();
+    QString webVersion();
+    QString version();
 
     Q_INVOKABLE void getUpdateInfo();
     Q_INVOKABLE void DownloadPkg();
@@ -60,7 +69,7 @@ public:
 public Q_SLOTS:
     void slotCheckUpdate();
     void slotUpdate();
-    QString version();
+    
 
 private:
     QString m_downloadurl;
