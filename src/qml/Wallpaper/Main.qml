@@ -31,14 +31,15 @@ ItemPage {
                 selectFolder: fales
                 onAccepted: {
                     _image.sources = fileDialog.fileUrl
+                    fileDialog.baseData = fileDialog.fileUrl
                     background.setBackground(baseData)
                 }
             }
 
             DesktopPreview {
                Layout.alignment: Qt.AlignHCenter
-               width: 200
-               height: 120
+               width: 500
+               height: 300
             }
 
             RoundedItem {
@@ -306,123 +307,26 @@ ItemPage {
 
             implicitHeight: Math.ceil(_customView.count / _customView.rowCount) * cellHeight + LingmoUI.Units.largeSpacing
 
+            cellWidth: 50
+            cellHeight: 50
+
+            interactive: false
+            model: ListModel {}
+
             Item {
                 height: LingmoUI.Units.largeSpacing
             }
 
             StandardButton {
-                Layout.fillWidth: true
+                Layout.alignment: Qt.AlignTop | Qt.AlignHCenter
                 text: qsTr("Use Custom Images")
                 onClicked: {
                     fileDialog.open()
                 }
             }
-            
-
-            Layout.fillWidth: true
-            implicitHeight: Math.ceil(_view.count / rowCount) * cellHeight + LingmoUI.Units.largeSpacing
-
-            visible: background.backgroundType === 0
-
-            clip: true
-            model: background.backgrounds
-            currentIndex: -1
-            interactive: false
-
-            cellHeight: itemHeight
-            cellWidth: calcExtraSpacing(itemWidth, _view.width) + itemWidth
-
-            property int itemWidth: 180
-            property int itemHeight: 127
-
-            delegate: Item {
-                id: item
-
-                property bool isSelected: baseData === fileDialog.fileUrl
-
-                width: GridView.view.cellWidth
-                height: GridView.view.cellHeight
-                scale: 1.0
-
-                Behavior on scale {
-                    NumberAnimation {
-                        duration: 200
-                        easing.type: Easing.OutSine
-                    }
-                }
-
-                        // Preload background
-                Rectangle {
-                    anchors.fill: parent
-                    anchors.margins: LingmoUI.Units.largeSpacing
-                    radius: LingmoUI.Theme.bigRadius + LingmoUI.Units.smallSpacing / 2
-                    color: LingmoUI.Theme.backgroundColor
-                    visible: _image.status !== Image.Ready
-                }
-
-                Rectangle {
-                    anchors.fill: parent
-                    anchors.margins: LingmoUI.Units.smallSpacing
-                    color: "transparent"
-                    radius: LingmoUI.Theme.bigRadius + LingmoUI.Units.smallSpacing / 2
-
-                    border.color: LingmoUI.Theme.highlightColor
-                    border.width: _image.status == Image.Ready & isSelected ? 3 : 0
-
-                    Image {
-                        id: _customimage
-                        anchors.fill: parent
-                        anchors.margins: LingmoUI.Units.smallSpacing
-                        source: "file://" + baseData
-                        sourceSize: Qt.size(width, height)
-                        fillMode: Image.PreserveAspectCrop
-                        asynchronous: true
-                        mipmap: true
-                        cache: true
-                        smooth: true
-                        opacity: 1.0
-
-                        Behavior on opacity {
-                            NumberAnimation {
-                                duration: 100
-                                easing.type: Easing.InOutCubic
-                            }
-                        }
-
-                        layer.enabled: true
-                        layer.effect: OpacityMask {
-                            maskSource: Item {
-                                width: _image.width
-                                height: _image.height
-
-                                Rectangle {
-                                    anchors.fill: parent
-                                    radius: LingmoUI.Theme.bigRadius
-                                }
-                            }
-                        }
-                    }
-
-                    MouseArea {
-                        anchors.fill: parent
-                        acceptedButtons: Qt.LeftButton
-                        hoverEnabled: true
-
-                        onClicked: {
-                            background.setBackground(baseData)
-                        }
-
-                        onEntered: function() {
-                            _image.opacity = 0.7
-                        }
-                        onExited: function() {
-                            _image.opacity = 1.0
-                        }
-
-                        onPressedChanged: item.scale = pressed ? 0.97 : 1.0
-                    }
-                }
+            Item {
+                height: LingmoUI.Units.largeSpacing
             }
-        }
+        }      
     }
 }

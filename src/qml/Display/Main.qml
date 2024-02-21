@@ -1,7 +1,7 @@
 /*
- * Copyright (C) 2021 LingmoOS Team.
+ * Copyright (C) 2024 LingmoOS Team.
  *
- * Author:     revenmartin <revenmartin@gmail.com>
+ * Author:     LingmoOS Team <team@lingmo.org>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -61,7 +61,7 @@ ItemPage {
 
             RoundedItem {
                 Layout.fillWidth: true
-                // visible: brightness.enabled
+                visible: brightness.enabled
 
                 Label {
                     text: qsTr("Brightness")
@@ -118,7 +118,7 @@ ItemPage {
             }
 
             RoundedItem {
-                // visible: _screenView.count > 0
+                visible: _screenView.count > 0
 
                 Label {
                     text: qsTr("Screen")
@@ -262,7 +262,7 @@ ItemPage {
                                 CheckBox {
                                     id: enabledBox
                                     checked: element.enabled
-                                    visible: _screenView.count > 1
+                                    // visible: _screenView.count > 1
                                     onClicked: {
                                         element.enabled = checked
                                         screen.save()
