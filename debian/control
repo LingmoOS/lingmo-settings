@@ -39,7 +39,7 @@ Depends: qml-module-qtquick-controls2,
          qml-module-qtquick-shapes,
          qml-module-qtquick-dialogs,
          qml-module-qtquick-particles2,
-         lingmo,
+         liblingmo,
          kscreen,
          ${misc:Depends},
          ${shlibs:Depends}
