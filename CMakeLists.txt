@@ -108,11 +108,16 @@ target_link_libraries(${PROJECT_NAME}
         # QApt
 )
 
-file(GLOB TS_FILES translations/*.ts)
 file(GLOB HEADERS "include/*")
-qt5_create_translation(QM_FILES ${TS_FILES})
-add_custom_target(translations DEPENDS ${QM_FILES} SOURCES ${TS_FILES})
-add_dependencies(${PROJECT_NAME} translations)
+
+file(GLOB TS_FILES translations/*.ts)
+foreach(filepath ${TS_FILES})
+    string(REPLACE "${CMAKE_CURRENT_SOURCE_DIR}/" "" filename ${filepath})
+    list(APPEND ts_files_replaced ${filename})
+endforeach()
+qt5_create_translation(QM_FILES ${CMAKE_CURRENT_SOURCE_DIR} ${ts_files_replaced})
+
+add_custom_target(translations ALL DEPENDS ${QM_FILES} SOURCES ${TS_FILES})
 
 foreach(_ts_file ${TS_FILES})
     execute_process(
