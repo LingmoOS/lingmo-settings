@@ -17,39 +17,35 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "application.h"
-#include <QDebug>
-#include <QIcon>
-
-#include <QGuiApplication>
-#include <QQmlApplicationEngine>
 #include <QDBusConnection>
+#include <QDebug>
+#include <QFile>
+#include <QGuiApplication>
+#include <QIcon>
+#include <QLocale>
+#include <QQmlApplicationEngine>
 #include <QQmlContext>
 #include <QTranslator>
-#include <QLocale>
-#include <QFile>
 
-#include "updatorhelper.h"
-#include "upgradeablemodel.h"
+#include "application.h"
 
-int main(int argc, char *argv[])
-{
-    QCoreApplication::setAttribute(Qt::AA_UseHighDpiPixmaps, true);
-    QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling, true);
+int main(int argc, char *argv[]) {
+  QCoreApplication::setAttribute(Qt::AA_UseHighDpiPixmaps, true);
+  QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling, true);
 
-    Application app(argc, argv);
+  Application app(argc, argv);
 
-    app.setWindowIcon(QIcon::fromTheme("lingmo-settings"));
+  app.setWindowIcon(QIcon::fromTheme("lingmo-settings"));
 
-    // QQmlApplicationEngine engine;
-    // const QUrl url(QStringLiteral("qrc:/main.qml"));
-    // QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
-    //                  &app, [url](QObject *obj, const QUrl &objUrl) {
-    //     if (!obj && url == objUrl)
-    //         QCoreApplication::exit(-1);
-    // }, Qt::QueuedConnection);
-    // engine.rootContext()->setContextProperty("upgradeableModel", UpgradeableModel::self());
-    // engine.load(url);
+  // QQmlApplicationEngine engine;
+  // const QUrl url(QStringLiteral("qrc:/main.qml"));
+  // QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
+  //                  &app, [url](QObject *obj, const QUrl &objUrl) {
+  //     if (!obj && url == objUrl)
+  //         QCoreApplication::exit(-1);
+  // }, Qt::QueuedConnection);
+  // engine.rootContext()->setContextProperty("upgradeableModel",
+  // UpgradeableModel::self()); engine.load(url);
 
-    return 0;
+  return 0;
 }

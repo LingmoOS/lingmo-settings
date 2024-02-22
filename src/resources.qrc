@@ -32,11 +32,6 @@
         <file>qml/Horizontalabt.qml</file>
         <file>qml/LanguagePage.qml</file>
         <file>qml/Update/Main.qml</file>
-        <file>qml/Update/HomePage.qml</file>
-        <file>qml/Update/InstallDone.qml</file>
-        <file>qml/Update/ReadUpdate.qml</file>
-        <file>qml/Update/ReadInstall.qml</file>
-        <file>qml/Update/UpdateView.qml</file>
         <file>images/checked.svg</file>
         <file>images/light/network-wired.svg</file>
         <file>images/light/network-wireless-connected-00.svg</file>
@@ -163,5 +158,10 @@
         <file>qml/WLAN/ConnectDialog.qml</file>
         <file>qml/WLAN/NewNetworkDialog.qml</file>
         <file>qml/DefaultApp/AppComboBox.qml</file>
+        <file>images/dark/changes-white.png</file>
+        <file>images/light/changes.png</file>
+        <file>qml/Update/UpdateItemsView.qml</file>
+        <file>qml/Update/UpdateNetworkManager.qml</file>
+        <file>qml/Update/UpdateItem.qml</file>
     </qresource>
 </RCC>

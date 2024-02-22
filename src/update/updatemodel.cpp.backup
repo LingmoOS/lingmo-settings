@@ -1,4 +1,4 @@
-#include "updatemodel.h"
+#include "updatemodel.h.backup"
 
 const QString baseUrl = "https://packages.lingmo.org"
 const QString updateUrl = "https://packages.lingmo.org/release/update/user/2.0/changelog.json"

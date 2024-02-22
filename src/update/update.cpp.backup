@@ -19,7 +19,7 @@
 #include <QDir>
 #include <QRegExp>
 
-#include "update.h"
+#include "update.h.backup"
 
 const static QString s_dbusName = "com.lingmo.Session";
 const static QString s_pathName = "/Session";

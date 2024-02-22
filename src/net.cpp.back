@@ -18,7 +18,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-#include "net.h"
+#include "net.h.back"
 
 #include <QObject>
 #include <QTimer>
