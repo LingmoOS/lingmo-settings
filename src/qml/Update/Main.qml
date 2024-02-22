@@ -28,24 +28,31 @@ ItemPage {
     id: control
     headerTitle: qsTr("System Update")
 
+    // Whether updates are available
+    property bool hasupdate_: true
+
     Scrollable {
         anchors.fill: parent
-        contentHeight: layout.implicitHeight  // 有些问题
+        contentHeight: layout.implicitHeight
 
         ColumnLayout {
             id: layout
             anchors.fill: parent
             spacing: LUI.Units.largeSpacing
 
+            // 状态栏
             RoundedItem {
+                Layout.fillWidth: true
+                height: 100
                 RowLayout {
                     spacing: LUI.Units.largeSpacing
-                    Item{
+
+                    Item {
                         width: 80
                         height: 80
 
                         Image {
-                            source: "qrc:/images/dark/changes-white"
+                            source: LUI.Theme.darkMode ? "qrc:/images/dark/changes-white" : "qrc:/images/light/changes"
                             width: parent.width
                             height: parent.height
                             fillMode: Image.PreserveAspectCrop
@@ -54,8 +61,60 @@ ItemPage {
                             anchors.centerIn: parent
                         }
                     }
+
+                    Item {
+                        Layout.fillWidth: true
+                        Layout.fillHeight: true
+
+                        // Center promote text
+                        ColumnLayout {
+                            Layout.fillWidth: true
+                            Layout.fillHeight: true
+
+                            Label {
+                                id: updateText
+                                text: "You're up to date"
+                                Layout.fillHeight: true
+                                width: parent.width
+                                font.pointSize: 20
+                                font.bold: true
+                                verticalAlignment: Text.AlignVCenter
+                                horizontalAlignment: Text.AlignLeft
+                            }
+
+                            Label {
+                                id: updateCheckTimeText
+                                text: "Last checked: Today, 18:37"
+                                Layout.fillHeight: true
+                                width: parent.width
+                                font.pointSize: 10
+                                font.bold: false
+                                verticalAlignment: Text.AlignVCenter
+                                horizontalAlignment: Text.AlignLeft
+                            }
+                        }
+                    }
+
+
+                    Button {
+                        width: 40
+                        text: "Check for updates"
+                    }
+                }
+            }
+
+            // 更新列表
+            RoundedItem {
+                id: updateListRoot
+                visible: control.hasupdate_ // 有更新才显示列表
+                UpdateItemsView {
+                    Layout.fillWidth: true
+                    // visible: enabledConnections.wirelessHwEnabled
                 }
             }
         }
+
     }
 }
+
+

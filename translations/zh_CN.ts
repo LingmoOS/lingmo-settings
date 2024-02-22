@@ -1202,6 +1202,14 @@
     </message>
 </context>
 <context>
+    <name>UpdateItemsView</name>
+    <message>
+        <location filename="../src/qml/Update/UpdateItemsView.qml" line="33"/>
+        <source>Available Updates</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>UpdateModel</name>
     <message>
         <location filename="../src/update/updatemodel.cpp" line="73"/>
