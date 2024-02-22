@@ -6,7 +6,6 @@ import QtQuick.Window 2.3
 import "../"
 
 import LingmoUI 1.0 as LUI
-import FluentUI 1.0 as FUI
 
 Item {
     id: updateitem_
@@ -67,6 +66,7 @@ Item {
         Hideable {
             id: additionalInfos
             spacing: 0
+            Layout.leftMargin: 20
 
             Item {
                 height: LUI.Units.largeSpacing
@@ -77,7 +77,7 @@ Item {
                 spacing: LUI.Units.largeSpacing
 
                 Label {
-                    text: "Update Infomortion"
+                    text: qsTr("Update Infomortion")
                 }
 
                 Label {

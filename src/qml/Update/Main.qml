@@ -73,7 +73,7 @@ ItemPage {
 
                             Label {
                                 id: updateText
-                                text: "You're up to date"
+                                text: qsTr("You're up to date")
                                 Layout.fillHeight: true
                                 width: parent.width
                                 font.pointSize: 20
@@ -98,7 +98,7 @@ ItemPage {
 
                     Button {
                         width: 40
-                        text: "Check for updates"
+                        text: qsTr("Check for updates")
                     }
                 }
             }

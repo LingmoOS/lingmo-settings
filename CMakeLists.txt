@@ -8,8 +8,13 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
+    set(CMAKE_CXX_FLAGS "-fcoroutines ${CMAKE_CXX_FLAGS}")
+endif()
+
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake;${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
 set(QT Core Gui Widgets Quick QuickControls2 X11Extras DBus Xml Concurrent LinguistTools)
@@ -30,42 +35,11 @@ pkg_search_module(ICU REQUIRED icu-i18n)
 
 include_directories(${ICU_INCLUDE_DIRS})
 
-set(SRCS
-    src/cscreenmanager.cpp
-    src/cscreenoutput.cpp
-    src/application.cpp
-    src/accessibility.cpp
-    src/main.cpp
-    src/appearance.cpp
-    src/battery.cpp
-    src/brightness.cpp
-    src/fontsmodel.cpp
-    src/language.cpp
-    src/about.cpp
-    src/background.cpp
-    src/notifications.cpp
-    src/password.cpp
-    src/batteryhistorymodel.cpp
-    src/cicontheme.cpp
-    src/fonts/kxftconfig.cpp
-    src/fonts/fonts.cpp
-    src/powermanager.cpp
-    src/cursor/cursorthememodel.cpp
-    src/cursor/cursortheme.cpp
-    src/cursor/mouse.cpp
-    src/datetime/time.cpp
-    src/datetime/timezonedata.h
-    src/datetime/timezonemap.cpp
-    src/datetime/timedated_interface.cpp
-    src/touchpad.cpp
-    src/vpn/vpn.cpp
-    src/vpn/nm-l2tp-service.h
-    src/vpn/nm-openvpn-service.h
-    src/vpn/nm-pptp-service.h
-    src/networkproxy.cpp
-    src/defaultapplications.cpp
-    src/desktopproperties.cpp
-)
+file(GLOB_RECURSE SRCS_R "include/*.h" "src/*.c" "src/*.cpp" "src/*.h")
+foreach(filepath ${SRCS_R})
+    string(REPLACE "${CMAKE_CURRENT_SOURCE_DIR}/" "" filename ${filepath})
+    list(APPEND SRCS ${filename})
+endforeach()
 
 set(RESOURCES
     src/resources.qrc
@@ -79,6 +53,7 @@ set_source_files_properties(${DBUS_SOURCES} PROPERTIES SKIP_AUTOGEN ON)
 # qt5_add_dbus_interface(DBUS_SOURCES src/datetime/org.freedesktop.timedate1.xml timedated_interface)
 
 add_executable(${PROJECT_NAME} ${DBUS_SOURCES} ${SRCS} ${RESOURCES})
+target_include_directories(${PROJECT_NAME} PUBLIC "include" "src")
 target_link_libraries(${PROJECT_NAME}
         Qt5::Core
         Qt5::Widgets
