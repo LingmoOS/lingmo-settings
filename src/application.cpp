@@ -73,6 +73,7 @@ Application::Application(int &argc, char **argv)
 
     // QML
     const char *uri = "Lingmo.Settings";
+    // @uri Lingmo.Settings
     qmlRegisterType<Appearance>(uri, 1, 0, "Appearance");
     qmlRegisterType<FontsModel>(uri, 1, 0, "FontsModel");
     qmlRegisterType<Brightness>(uri, 1, 0, "Brightness");
