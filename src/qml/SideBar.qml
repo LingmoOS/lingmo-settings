@@ -240,14 +240,14 @@ Item {
             category: qsTr("System")
         }
 
-        // ListElement {
-        //     title: qsTr("System Update")
-        //     name: "systemupdate"
-        //     page: "qrc:/qml/Update/Main.qml"
-        //     iconColor: "transparent"
-        //     iconSource: "about.svg"
-        //     category: qsTr("System & Update")
-        // }
+        ListElement {
+            title: qsTr("System Update")
+            name: "systemupdate"
+            page: "qrc:/qml/Update/Main.qml"
+            iconColor: "transparent"
+            iconSource: "about.svg"
+            category: qsTr("System & Update")
+        }
 
         ListElement {
             title: qsTr("About")
