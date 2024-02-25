@@ -78,6 +78,14 @@
     </message>
 </context>
 <context>
+    <name>DownloadController</name>
+    <message>
+        <location filename="../src/update/downloadworker.cpp" line="146"/>
+        <source>Download Failed, please retry :(</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>LanguagePage</name>
     <message>
         <location filename="../src/qml/LanguagePage.qml" line="10"/>
@@ -1221,23 +1229,86 @@
     </message>
 </context>
 <context>
+    <name>UpdateItem</name>
+    <message>
+        <location filename="../src/qml/Update/UpdateItem.qml" line="80"/>
+        <source>Update Infomortion</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>UpdateItemsView</name>
     <message>
         <location filename="../src/qml/Update/UpdateItemsView.qml" line="33"/>
         <source>Available Updates</source>
         <translation type="unfinished"></translation>
     </message>
-</context>
-<context>
-    <name>UpdateModel</name>
     <message>
-        <location filename="../src/update/updatemodel.cpp" line="73"/>
-        <source>Downloaded %1 bytes to %2 in %3</source>
+        <location filename="../src/qml/Update/UpdateItemsView.qml" line="60"/>
+        <source>Processing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/update/updatemodel.cpp" line="106"/>
-        <source>Downloading %1...</source>
+        <location filename="../src/qml/Update/UpdateItemsView.qml" line="64"/>
+        <source>Download error</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qml/Update/UpdateItemsView.qml" line="70"/>
+        <source>Download finished</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qml/Update/UpdateItemsView.qml" line="74"/>
+        <source>Start installing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qml/Update/UpdateItemsView.qml" line="78"/>
+        <source>Installation error</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qml/Update/UpdateItemsView.qml" line="85"/>
+        <source>Successfully installed</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>UpdateTitleBar</name>
+    <message>
+        <location filename="../src/qml/Update/UpdateTitleBar.qml" line="52"/>
+        <source>You&apos;re up to date</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qml/Update/UpdateTitleBar.qml" line="54"/>
+        <source>Updates available</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qml/Update/UpdateTitleBar.qml" line="56"/>
+        <source>Installing updates</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qml/Update/UpdateTitleBar.qml" line="58"/>
+        <source>Checking updates</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qml/Update/UpdateTitleBar.qml" line="60"/>
+        <source>Error occurs in updating</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qml/Update/UpdateTitleBar.qml" line="88"/>
+        <source>Check for updates</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qml/Update/UpdateTitleBar.qml" line="102"/>
+        <source>Install updates</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
