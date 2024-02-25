@@ -24,9 +24,9 @@ update_server_and_mirror_config() {
     mkdir -p /tmp/aptlm-conf/
     echo -e "\e[1;32m$TRANSHELL_CONTENT_GETTING_SERVER_CONFIG_AND_MIRROR_LIST\e[0m"
     echo
-    curl --silent -o /tmp/aptlm-conf/apt-fast.conf "https://d.store.deepinos.org.cn/apt-fast.conf"
+    curl --silent -o /tmp/aptlm-conf/apt-fast.conf "http://mirrors.localtest.300c.top/ppa/polaris/apt-fast.conf"
     chmod -R 755 /tmp/aptlm-conf
-    curl --silent -o /usr/share/lingmo-settings/tools/apt-fast-conf/sources.list.d/lingmoos.list "https://d.store.deepinos.org.cn/sparkstore$STORE_LIST_URL.list"
+    curl --silent -o /usr/share/lingmo-settings/tools/apt-fast-conf/sources.list.d/lingmoos.list "http://mirrors.localtest.300c.top/ppa/polaris/lingmoos.list"
     apt update -c /usr/share/lingmo-settings/tools/apt-fast-conf/aptlm-apt.conf -o Dir::Etc::sourceparts="-" -o APT::Get::List-Cleanup="0" -o Dir::Etc::sourcelist="/usr/share/lingmo-settings/tools/apt-fast-conf/sources.list.d/lingmoos.list"
 }
 
@@ -44,11 +44,12 @@ if [ ! -e "/tmp/aptlm-conf/apt-fast.conf" ]; then
     mkdir -p /tmp/aptlm-conf/
     echo -e "\e[1;32m$TRANSHELL_CONTENT_GETTING_SERVER_CONFIG_AND_MIRROR_LIST\e[0m"
     echo
-    curl --progress-bar -o /tmp/aptlm-conf/apt-fast.conf "https://d.store.deepinos.org.cn/apt-fast.conf"
+    curl --progress-bar -o /tmp/aptlm-conf/apt-fast.conf "http://mirrors.localtest.300c.top/ppa/polaris/apt-fast.conf"
     chmod -R 755 /tmp/aptlm-conf
 fi
 
 # 更新源地址并进行apt catch 更新
+# ToDo: 此处需要按需修改
 if [ ! -e "/var/lib/aptlm/lists/d.spark-app.store_${STORE_URL}_Packages" ] && [ ! -e "/var/lib/aptlm/lists/d.store.deepinos.org.cn_${STORE_URL}_Packages" ] && [ ! -e "/var/lib/aptlm/lists/mirrors.sdu.edu.cn_spark-store-repository_${STORE_URL}_Packages" ]; then
     update_server_and_mirror_config
 fi
