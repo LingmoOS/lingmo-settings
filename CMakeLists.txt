@@ -17,7 +17,7 @@ endif()
 
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake;${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
-set(QT Core Gui Widgets Quick QuickControls2 X11Extras DBus Xml Concurrent LinguistTools)
+set(QT Core Gui Widgets Network Quick QuickControls2 X11Extras DBus Xml Concurrent LinguistTools)
 find_package(Qt5 REQUIRED ${QT})
 find_package(X11 REQUIRED)
 find_package(Freetype REQUIRED)
@@ -28,7 +28,7 @@ find_package(QApt REQUIRED)
 find_package(KF5NetworkManagerQt REQUIRED)
 find_package(KF5ModemManagerQt REQUIRED)
 find_package(KF5Config)
-find_package(QApt REQUIRED)
+# find_package(QApt REQUIRED)
 
 pkg_search_module(FontConfig REQUIRED fontconfig IMPORTED_TARGET)
 pkg_search_module(ICU REQUIRED icu-i18n)
@@ -63,7 +63,8 @@ target_link_libraries(${PROJECT_NAME}
         Qt5::Xml
         Qt5::X11Extras
         Qt5::Concurrent
-        QApt::Main
+        # QApt::Main
+        Qt5::Network
         # LingmoUI
 
         KF5::NetworkManagerQt
@@ -83,8 +84,6 @@ target_link_libraries(${PROJECT_NAME}
         # QApt
 )
 
-file(GLOB HEADERS "include/*")
-
 file(GLOB TS_FILES translations/*.ts)
 foreach(filepath ${TS_FILES})
     string(REPLACE "${CMAKE_CURRENT_SOURCE_DIR}/" "" filename ${filepath})
@@ -100,16 +99,22 @@ foreach(_ts_file ${TS_FILES})
     execute_process(COMMAND lrelease ${_ts_file})
 endforeach()
 
+include(GNUInstallDirs)
+
 install(TARGETS ${PROJECT_NAME} RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
 
 install(FILES
     lingmo-settings.desktop
-    DESTINATION /usr/share/applications/
+    DESTINATION ${CMAKE_INSTALL_DATADIR}/applications/
     COMPONENT Runtime
 )
 
-install(FILES ${QM_FILES} DESTINATION /usr/share/${PROJECT_NAME}/translations)
+install(FILES ${QM_FILES} DESTINATION ${CMAKE_INSTALL_DATADIR}/${PROJECT_NAME}/translations)
+
+# 安装工具脚本
+install(DIRECTORY "tools" DESTINATION ${CMAKE_INSTALL_DATADIR}/${PROJECT_NAME})
 
 # dev files
-set(INCLUDE_INSTALL_DIR include/lingmo-settings)
-install(DIRECTORY ${HEADERS} DESTINATION ${INCLUDE_INSTALL_DIR})
+file(GLOB EXPORT_HEADERS LIST_DIRECTORIES true "include/*")
+set(INCLUDE_INSTALL_DIR ${CMAKE_INSTALL_INCLUDEDIR}/${PROJECT_NAME})
+install(DIRECTORY ${EXPORT_HEADERS} DESTINATION ${INCLUDE_INSTALL_DIR})

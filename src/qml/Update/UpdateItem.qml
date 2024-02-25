@@ -49,7 +49,7 @@ Item {
                 spacing: LUI.Units.largeSpacing
 
                 Label {
-                    text: name
+                    text: package_name
                 }
 
                 Item {
@@ -81,7 +81,7 @@ Item {
                 }
 
                 Label {
-                    text: additional_info
+                    text: changelog
                 }
             }
 

@@ -161,7 +161,7 @@
         <file>images/dark/changes-white.png</file>
         <file>images/light/changes.png</file>
         <file>qml/Update/UpdateItemsView.qml</file>
-        <file>qml/Update/UpdateNetworkManager.qml</file>
         <file>qml/Update/UpdateItem.qml</file>
+        <file>qml/Update/UpdateTitleBar.qml</file>
     </qresource>
 </RCC>

@@ -49,33 +49,40 @@ ColumnLayout {
         interactive: false
         visible: true
 
-        model: ListModel {
-            id: updateListModel
-        }
+        model: control.updateListModel
 
         delegate: UpdateItem {
                 width: ListView.view.width
             }
     }
 
-    Component.onCompleted: {
-        let data = [
-                {
-                    name: "LingmoOS Insider Preview 3.0",
-                    status: "Pending install",
-                    additional_info: "This update improves user experience and system stablity."
-                },
-                {
-                    name: "LingmoOS Insider Preview 3.0",
-                    status: "Pending install",
-                    additional_info: "This update improves user experience and system stablity."
-                },
-                {
-                    name: "LingmoOS Insider Preview 3.0",
-                    status: "Pending install",
-                    additional_info: "This update improves user experience and system stablity."
-                }
-        ];
-        updateListModel.append(data);
+    function slotAddedToProcessingQueue(index) {
+        control.updateListModel.setProperty(index, "status", qsTr("Processing"));
+    }
+
+    function slotItemDownloadError(index) {
+        control.updateListModel.setProperty(index, "status", qsTr("Download error"));
+        control.processed_updates += 1;
+        control.has_error_ = true;
+    }
+
+    function slotItemDownloadFinished(index) {
+        control.updateListModel.setProperty(index, "status", qsTr("Download finished"));
+    }
+
+    function slotStartInstallingPackage(index) {
+        control.updateListModel.setProperty(index, "status", qsTr("Start installing"));
+    }
+
+    function slotErrorInstallingPackage(index, code) {
+        control.updateListModel.setProperty(index, "status", qsTr("Installation error"));
+        control.processed_updates += 1;
+        control.has_error_ = true;
+        console.log("Update error code:" + code + " index: " + index);
+    }
+
+    function slotSuccessfullyInstalledPackage(index) {
+        control.updateListModel.setProperty(index, "status", qsTr("Successfully installed"));
+        control.processed_updates += 1;
     }
 }
