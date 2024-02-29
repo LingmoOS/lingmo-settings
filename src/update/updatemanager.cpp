@@ -41,7 +41,7 @@ UpdateManager::~UpdateManager() { dw->deleteLater(); }
 
 void UpdateManager::check_for_update() {
   // 替换为真正的处理函数，待处理
-  QString url = "http://127.0.0.1:4523/m1/4053566-0-default/api/update/latest";
+  QString url = "https://dev-mirror.300c.top/api/updates.php";
   auto req = new QNetworkRequest(QUrl(url));
   connect(m_manager.get(), SIGNAL(finished(QNetworkReply*)), this,
           SLOT(handle_update_data(QNetworkReply*)));
@@ -51,8 +51,7 @@ void UpdateManager::check_for_update() {
 bool UpdateManager::hasUpdate() { return has_updates_; }
 
 void UpdateManager::handle_update_data(QNetworkReply* reply) {
-  if (reply->url() ==
-      QUrl("http://127.0.0.1:4523/m1/4053566-0-default/api/update/latest")) {
+  if (reply->url() == QUrl("https://dev-mirror.300c.top/api/updates.php")) {
     emit updateDataReply(reply->readAll());
   }
   reply->deleteLater();
