@@ -112,3 +112,31 @@ void UpdateManager::onDownloadProgress(int index, int i) {}
 void UpdateManager::onDownloadError(int index) {
   emit itemDownloadError(index);
 }
+
+QString UpdateManager::getLocalPackageData(const QString& packageName) {
+  QProcess dpkg;
+  dpkg.start("dpkg", QStringList() << "-s" << packageName);
+  dpkg.waitForFinished();  // 等待命令执行完毕
+
+  int exitCode = dpkg.exitCode();
+  QString output = dpkg.readAllStandardOutput();
+  QString errorOutput = dpkg.readAllStandardError();
+
+  // 根据返回的退出码判断 dpkg -s 命令是否执行成功
+  if (exitCode == 0) {
+    // 命令成功执行，解析输出以获取版本信息
+    QStringList lines = output.split("\n");
+    foreach (const QString& line, lines) {
+      if (line.startsWith("Version:")) {
+        return line.split(":").at(1).trimmed();  // 提取版本号
+      }
+    }
+  } else {
+    // 错误输出中通常包含 "is not installed" 说明软件包未安装
+    if (errorOutput.contains("is not installed")) {
+      return "inf";  // 软件包未安装
+    }
+  }
+
+  return "inf";  // 默认返回 inf
+}
