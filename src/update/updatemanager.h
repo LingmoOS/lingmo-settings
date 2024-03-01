@@ -54,6 +54,12 @@ class UpdateManager : public QObject {
 
   Q_INVOKABLE void handle_update_data(QNetworkReply* reply);
 
+  /**
+   * @brief 获取本地安装包版本数据
+   * @return
+   */
+  Q_INVOKABLE QString getLocalPackageData(const QString &packageName);
+
  signals:
   void updateDataReply(QString data);
   void addedToProcessingQueue(int index);

@@ -1,6 +1,6 @@
 #ifndef SERVER_CONFIG_H
 #define SERVER_CONFIG_H
 
-#define DEFAULTURL "mirrors.localtest.300c.top"
+#define DEFAULTURL "dev-mirror.300c.top"
 
-#endif // SERVER_CONFIG_H
+#endif  // SERVER_CONFIG_H

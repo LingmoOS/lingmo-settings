@@ -22,6 +22,7 @@ import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
 import LingmoUI 1.0 as LUI
 import Lingmo.Settings 1.0
+import "./Version.js" as DEBV
 import "../"
 
 ItemPage {
@@ -104,10 +105,12 @@ ItemPage {
         let update_info = JSON.parse(data);
         let update_list = compare_version(update_info);
 
-        // 初始化ListModel，清空旧数据
-        control.updateListModel.clear();
-        control.updateListModel.append(update_list);
-        control.hasupdate_ = true;
+        if (update_list.length !== 0) {
+            // 初始化ListModel，清空旧数据
+            control.updateListModel.clear();
+            control.updateListModel.append(update_list);
+            control.hasupdate_ = true;
+        }
         control.ischeckingupdate = false;
     }
 
@@ -119,16 +122,40 @@ ItemPage {
         // for ....
         data_root.forEach((element) => {
             // 调用C++中的方法比较远程中的版本号和本地的
-            // 先跳过
-
-            // 初始化状态信息
-            element.status = "Queued";
-            update_list.push(element);
+            let version_local = control.mUpdateManager.getLocalPackageData(element.package_name);
+            if (version_local !== "inf") {
+                let compare_result = debianVersionCompare(element.version, version_local);
+                if (compare_result === 1) {
+                    // 初始化状态信息
+                    element.status = "Queued";
+                    update_list.push(element);
+                }
+            } else {
+                // 初始化状态信息
+                element.status = "Queued";
+                update_list.push(element);
+            }
         });
 
         control.available_updates = update_list.length;
         return update_list;
     }
+
+    /**
+     * 比较软件包版本号
+     * @param v1 本地版本号
+     * @param v2 待比较版本号
+     * @returns {number|number}
+     * @examples compare("1.0.0","1.0.1") //return 1
+     *  compare("1.0.0","1.0.0") //return 0
+     *  compare("1.0.0~rc1","1.0.0") //return -1
+     *  compare("2:1.0.0","1:2.0.0") //return 1
+     */
+    function debianVersionCompare(v1, v2) {
+        let va= new DEBV.Version(v1), vb = new DEBV.Version(v2);
+        return va.compare(vb);
+    }
+
 }
 
 

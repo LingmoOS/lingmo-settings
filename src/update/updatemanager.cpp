@@ -41,7 +41,7 @@ UpdateManager::~UpdateManager() { dw->deleteLater(); }
 
 void UpdateManager::check_for_update() {
   // 替换为真正的处理函数，待处理
-  QString url = "http://127.0.0.1:4523/m1/4053566-0-default/api/update/latest";
+  QString url = "https://dev-mirror.300c.top/api/updates.php";
   auto req = new QNetworkRequest(QUrl(url));
   connect(m_manager.get(), SIGNAL(finished(QNetworkReply*)), this,
           SLOT(handle_update_data(QNetworkReply*)));
@@ -51,8 +51,7 @@ void UpdateManager::check_for_update() {
 bool UpdateManager::hasUpdate() { return has_updates_; }
 
 void UpdateManager::handle_update_data(QNetworkReply* reply) {
-  if (reply->url() ==
-      QUrl("http://127.0.0.1:4523/m1/4053566-0-default/api/update/latest")) {
+  if (reply->url() == QUrl("https://dev-mirror.300c.top/api/updates.php")) {
     emit updateDataReply(reply->readAll());
   }
   reply->deleteLater();
@@ -112,4 +111,32 @@ void UpdateManager::onDownloadFinished(int index) {
 void UpdateManager::onDownloadProgress(int index, int i) {}
 void UpdateManager::onDownloadError(int index) {
   emit itemDownloadError(index);
+}
+
+QString UpdateManager::getLocalPackageData(const QString& packageName) {
+  QProcess dpkg;
+  dpkg.start("dpkg", QStringList() << "-s" << packageName);
+  dpkg.waitForFinished();  // 等待命令执行完毕
+
+  int exitCode = dpkg.exitCode();
+  QString output = dpkg.readAllStandardOutput();
+  QString errorOutput = dpkg.readAllStandardError();
+
+  // 根据返回的退出码判断 dpkg -s 命令是否执行成功
+  if (exitCode == 0) {
+    // 命令成功执行，解析输出以获取版本信息
+    QStringList lines = output.split("\n");
+    foreach (const QString& line, lines) {
+      if (line.startsWith("Version:")) {
+        return line.split(":").at(1).trimmed();  // 提取版本号
+      }
+    }
+  } else {
+    // 错误输出中通常包含 "is not installed" 说明软件包未安装
+    if (errorOutput.contains("is not installed")) {
+      return "inf";  // 软件包未安装
+    }
+  }
+
+  return "inf";  // 默认返回 inf
 }
