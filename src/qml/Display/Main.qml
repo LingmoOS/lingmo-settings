@@ -223,6 +223,7 @@ ItemPage {
                                         id: rotationLayout
                                         anchors.fill: parent
                                         spacing: 0
+                                        property int current_rot: element.rotation
 
                                         RotationButton {
                                             value: 0
@@ -262,7 +263,7 @@ ItemPage {
                                 CheckBox {
                                     id: enabledBox
                                     checked: element.enabled
-                                    // visible: _screenView.count > 1
+                                    visible: _screenView.count > 1
                                     onClicked: {
                                         element.enabled = checked
                                         screen.save()
