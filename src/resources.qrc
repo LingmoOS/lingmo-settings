@@ -163,5 +163,6 @@
         <file>qml/Update/UpdateItemsView.qml</file>
         <file>qml/Update/UpdateItem.qml</file>
         <file>qml/Update/UpdateTitleBar.qml</file>
+        <file>qml/Update/Version.js</file>
     </qresource>
 </RCC>

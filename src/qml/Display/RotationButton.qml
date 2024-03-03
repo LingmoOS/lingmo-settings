@@ -28,16 +28,18 @@ IconCheckBox {
     property int value
     property var rot
 
-    checked: element.rotation === rot
+    checked: rotationLayout.current_rot === rot
 
     onClicked: {
         if (element.rotation === rot) {
             return;
         }
 
-        element.rotation = rot
+        element.rotation = rot;
+        rotationLayout.current_rot = rot;
+        // 下面不需要了
         // screen.resetTotalSize()
-        screen.save()
+        // screen.save()
     }
 
     Component.onCompleted: {
