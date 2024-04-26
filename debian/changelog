@@ -1,3 +1,9 @@
+lingmo-settings (2.1.2) UNRELEASED; urgency=high
+
+  * Changes Some Text
+
+ -- Lingmo OS Team <lingmo@lingmo.org>  Sat, 27 Apr 2024 00:14:00 +0800
+
 lingmo-settings (2.1.1beta-1) UNRELEASED; urgency=high
 
   * Adding a small deb Version compare function. Elysia <c.elysia@foxmail.com>

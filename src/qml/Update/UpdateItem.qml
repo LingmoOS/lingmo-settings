@@ -77,7 +77,7 @@ Item {
                 spacing: LUI.Units.largeSpacing
 
                 Label {
-                    text: qsTr("Update Infomortion")
+                    text: qsTr("ChangeLogs")
                 }
 
                 Label {

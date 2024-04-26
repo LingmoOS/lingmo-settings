@@ -40,6 +40,13 @@ RowLayout {
         Layout.fillWidth: true
         Layout.fillHeight: true
 
+        Rectangle {
+            id: background
+            anchors.fill: parent
+            color: "#1254e4"
+            radius: LingmoUI.Theme.smallRadius
+        }
+
         // Center promote text
         ColumnLayout {
             Layout.fillWidth: true
@@ -70,7 +77,7 @@ RowLayout {
 
             Label {
                 id: updateCheckTimeText
-                text: "Last checked: Today, 18:37"
+                text: "The last inspection was already the latest"
                 Layout.fillHeight: true
                 width: parent.width
                 font.pointSize: 10
@@ -99,7 +106,7 @@ RowLayout {
     Button {
         id: installUpdateButton
         width: 40
-        text: qsTr("Install updates")
+        text: qsTr("Update Now")
         visible: control.hasupdate_
         enabled: !control.isupdating
         onClicked: {
