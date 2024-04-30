@@ -23,7 +23,6 @@ find_package(X11 REQUIRED)
 find_package(Freetype REQUIRED)
 find_package(PkgConfig REQUIRED)
 find_package(Libcrypt REQUIRED)
-find_package(QApt REQUIRED)
 
 find_package(KF5NetworkManagerQt REQUIRED)
 find_package(KF5ModemManagerQt REQUIRED)
@@ -63,7 +62,7 @@ target_link_libraries(${PROJECT_NAME}
         Qt5::Xml
         Qt5::X11Extras
         Qt5::Concurrent
-        # QApt::Main
+        # ::Main
         Qt5::Network
         # LingmoUI
 
@@ -81,7 +80,7 @@ target_link_libraries(${PROJECT_NAME}
         X11::Xi
         X11::Xcursor
 
-        # QApt
+        # 
 )
 
 file(GLOB TS_FILES translations/*.ts)
