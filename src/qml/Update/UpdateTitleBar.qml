@@ -40,13 +40,6 @@ RowLayout {
         Layout.fillWidth: true
         Layout.fillHeight: true
 
-        Rectangle {
-            id: background
-            anchors.fill: parent
-            color: "#1254e4"
-            radius: LingmoUI.Theme.smallRadius
-        }
-
         // Center promote text
         ColumnLayout {
             Layout.fillWidth: true

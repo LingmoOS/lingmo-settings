@@ -398,12 +398,12 @@
         <translation>Drehung</translation>
     </message>
     <message>
-        <location filename="../src/qml/Display/Main.qml" line="258"/>
+        <location filename="../src/qml/Display/Main.qml" line="259"/>
         <source>Enabled</source>
         <translation>Aktiviert</translation>
     </message>
     <message>
-        <location filename="../src/qml/Display/Main.qml" line="289"/>
+        <location filename="../src/qml/Display/Main.qml" line="290"/>
         <source>Scale</source>
         <translation>Skala</translation>
     </message>
@@ -972,7 +972,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qml/Update/Main.qml" line="29"/>
+        <location filename="../src/qml/Update/Main.qml" line="30"/>
         <source>System Update</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1240,7 +1240,7 @@
     <name>UpdateItem</name>
     <message>
         <location filename="../src/qml/Update/UpdateItem.qml" line="80"/>
-        <source>Update Infomortion</source>
+        <source>ChangeLogs</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1316,7 +1316,7 @@
     </message>
     <message>
         <location filename="../src/qml/Update/UpdateTitleBar.qml" line="102"/>
-        <source>Install updates</source>
+        <source>Update Now</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
