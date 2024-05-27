@@ -1,3 +1,10 @@
+lingmo-settings (2.1.2+fix1) UNRELEASED; urgency=high
+ 
+  [ Elysia ]
+  * Fixed missing network-manager dependency.
+
+ -- Elysia <c.elysia@foxmail.com>  Mon, 27 May 2024 15:04:00 +0800
+
 lingmo-settings (2.1.2) UNRELEASED; urgency=high
 
   * Changes Some Text
