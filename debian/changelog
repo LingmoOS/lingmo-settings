@@ -1,3 +1,10 @@
+lingmo-settings (2.1.3) UNRELEASED; urgency=high
+
+  [ Elysia ]
+  * Fixed the Abort signal on existing app.
+
+ -- Elysia <c.elysia@foxmail.com>  Wen, 5 Jun 2024 19:51:00 +0800
+
 lingmo-settings (2.1.2+fix1) UNRELEASED; urgency=high
  
   [ Elysia ]
