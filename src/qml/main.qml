@@ -105,4 +105,11 @@ LingmoUI.Window {
         rootWindow.show()
         rootWindow.raise()
     }
+
+    onClosing: {
+            //do something
+            close.accepted = false;
+            console.log("Close clicked!");
+            Qt.callLater(Qt.quit);
+        }
 }
