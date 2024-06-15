@@ -32,6 +32,7 @@
 int main(int argc, char *argv[]) {
   QCoreApplication::setAttribute(Qt::AA_UseHighDpiPixmaps, true);
   QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling, true);
+  QCoreApplication::setAttribute(Qt::AA_UseOpenGLES, true);
 
   Application app(argc, argv);
 

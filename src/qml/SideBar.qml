@@ -243,7 +243,7 @@ Item {
         ListElement {
             title: qsTr("System Update")
             name: "systemupdate"
-            page: "qrc:/qml/Update/Main.qml"
+            page: "qrc:/qml/SystemUpdate/Main.qml"
             iconColor: "transparent"
             iconSource: "about.svg"
             category: qsTr("System & Update")

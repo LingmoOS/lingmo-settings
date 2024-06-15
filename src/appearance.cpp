@@ -227,14 +227,14 @@ void Appearance::setFontPointSize(int fontPointSize)
     }
 }
 
-void Appearance::setAccentColor(int accentColor)
+void Appearance::setAccentColor(int defaultColor)
 {
     QDBusInterface iface("com.lingmo.Settings",
                          "/Theme",
                          "com.lingmo.Theme",
                          QDBusConnection::sessionBus(), this);
     if (iface.isValid()) {
-        iface.call("setAccentColor", accentColor);
+        iface.call("setAccentColor", defaultColor);
     }
 }
 

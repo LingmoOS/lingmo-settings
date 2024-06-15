@@ -86,6 +86,72 @@
     </message>
 </context>
 <context>
+    <name>FinishedPage</name>
+    <message>
+        <location filename="../src/qml/SystemUpdate/FinishedPage.qml" line="51"/>
+        <source>The update is complete and we recommend that you restart your computer.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qml/SystemUpdate/FinishedPage.qml" line="58"/>
+        <source>Update failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qml/SystemUpdate/FinishedPage.qml" line="70"/>
+        <source>Exit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qml/SystemUpdate/FinishedPage.qml" line="77"/>
+        <source>Reboot</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>FirstPage</name>
+    <message>
+        <location filename="../src/qml/SystemUpdate/FirstPage.qml" line="83"/>
+        <location filename="../src/qml/SystemUpdate/FirstPage.qml" line="225"/>
+        <source>Has Update</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qml/SystemUpdate/FirstPage.qml" line="89"/>
+        <location filename="../src/qml/SystemUpdate/FirstPage.qml" line="231"/>
+        <source>Current Version: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qml/SystemUpdate/FirstPage.qml" line="105"/>
+        <source>Check Update</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qml/SystemUpdate/FirstPage.qml" line="246"/>
+        <source>Update now</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>HomePage</name>
+    <message>
+        <location filename="../src/qml/SystemUpdate/HomePage.qml" line="65"/>
+        <source>Checking for updates...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qml/SystemUpdate/HomePage.qml" line="88"/>
+        <source>Check for update failure</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qml/SystemUpdate/HomePage.qml" line="131"/>
+        <source>Recheck</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>LanguagePage</name>
     <message>
         <location filename="../src/qml/LanguagePage.qml" line="10"/>
@@ -398,12 +464,12 @@
         <translation>Rotazione</translation>
     </message>
     <message>
-        <location filename="../src/qml/Display/Main.qml" line="258"/>
+        <location filename="../src/qml/Display/Main.qml" line="259"/>
         <source>Enabled</source>
         <translation>Abilitato</translation>
     </message>
     <message>
-        <location filename="../src/qml/Display/Main.qml" line="289"/>
+        <location filename="../src/qml/Display/Main.qml" line="290"/>
         <source>Scale</source>
         <translation>Scala</translation>
     </message>
@@ -972,7 +1038,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qml/Update/Main.qml" line="29"/>
+        <location filename="../src/qml/Update/Main.qml" line="30"/>
         <source>System Update</source>
         <translation type="unfinished"></translation>
     </message>
@@ -980,6 +1046,11 @@
         <location filename="../src/qml/VPN/Main.qml" line="28"/>
         <location filename="../src/qml/VPN/Main.qml" line="54"/>
         <source>VPN</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qml/SystemUpdate/Main.qml" line="10"/>
+        <source>Update</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1240,7 +1311,7 @@
     <name>UpdateItem</name>
     <message>
         <location filename="../src/qml/Update/UpdateItem.qml" line="80"/>
-        <source>Update Infomortion</source>
+        <source>ChangeLogs</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1283,6 +1354,24 @@
     </message>
 </context>
 <context>
+    <name>UpdatePage</name>
+    <message>
+        <location filename="../src/qml/SystemUpdate/UpdatePage.qml" line="84"/>
+        <source>Your system is up to date</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qml/SystemUpdate/UpdatePage.qml" line="90"/>
+        <source>Current Version: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qml/SystemUpdate/UpdatePage.qml" line="197"/>
+        <source>Update now</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>UpdateTitleBar</name>
     <message>
         <location filename="../src/qml/Update/UpdateTitleBar.qml" line="52"/>
@@ -1316,7 +1405,7 @@
     </message>
     <message>
         <location filename="../src/qml/Update/UpdateTitleBar.qml" line="102"/>
-        <source>Install updates</source>
+        <source>Update Now</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1340,6 +1429,14 @@
     <message>
         <location filename="../src/qml/Update/UpdatesPage.qml" line="172"/>
         <source>Update now</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>UpdatingPage</name>
+    <message>
+        <location filename="../src/qml/SystemUpdate/UpdatingPage.qml" line="43"/>
+        <source>Updating, please wait</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

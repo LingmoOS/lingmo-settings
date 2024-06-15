@@ -68,7 +68,7 @@ public:
     int fontPointSize() const;
     Q_INVOKABLE void setFontPointSize(int fontPointSize);
 
-    Q_INVOKABLE void setAccentColor(int accentColor);
+    Q_INVOKABLE void setAccentColor(int defaultColor);
 
     int DesktopSettings() const;
     Q_INVOKABLE void setDesktopIcons(int DesktopSettings);

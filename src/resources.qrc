@@ -10,6 +10,14 @@
         <file>qml/Scrollable.qml</file>
         <file>images/sensors-voltage-symbolic.svg</file>
         <file>qml/StandardItem.qml</file>
+        <file>qml/SystemUpdate/Main.qml</file>
+        <file>qml/SystemUpdate/FirstPage.qml</file>
+        <file>qml/SystemUpdate/UpdatePage.qml</file>
+        <file>qml/SystemUpdate/UpdatingPage.qml</file>
+        <file>qml/SystemUpdate/FinishedPage.qml</file>
+        <file>images/laptop.png</file>
+        <file>images/check_failed.svg</file>
+        <file>images/done.svg</file>
         <file>images/dark/nebula.png</file>
         <file>images/light/nebula.png</file>
         <file>images/video.mp4</file>
