@@ -1,3 +1,10 @@
+lingmo-settings (2.1.4) UNRELEASED; urgency=high
+
+  [ Elysia ]
+  * Removed System Update module from Settings app for better compability with other distros. This function ca be added by using modules.
+
+ -- Elysia <c.elysia@foxmail.com>  Wen, 5 Jun 2024 19:51:00 +0800
+
 lingmo-settings (2.1.3) UNRELEASED; urgency=high
 
   [ Elysia ]
