@@ -31,7 +31,6 @@
 #include "powermanager.h"
 #include "settingsuiadaptor.h"
 #include "touchpad.h"
-#include "update/updatemanager.h"
 
 const QString ModuleDirectory = "/usr/lib/lingmo-settings/modules";
 
@@ -91,7 +90,6 @@ Application::Application(int &argc, char **argv) : QApplication(argc, argv) {
   qmlRegisterType<DefaultApplications>(uri, 1, 0, "DefaultApplications");
   qmlRegisterType<Accessibility>(uri, 1, 0, "Accessibility");
   qmlRegisterSingletonType<Password>(uri, 1, 0, "Password", passwordSingleton);
-  qmlRegisterType<UpdateManager>(uri, 1, 0, "UpdateManager");
 #if QT_VERSION < QT_VERSION_CHECK(5, 14, 0)
   qmlRegisterType<QAbstractItemModel>();
 #else
