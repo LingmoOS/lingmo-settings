@@ -32,4 +32,4 @@ This project has been licensed by GPLv3.
 
 ## Thanks
 
-Some icons are downloaded from ![FlatIcon](https://www.flaticon.com/free-icons/ongoing)
+Some icons are downloaded from [FlatIcon](https://www.flaticon.com/free-icons/ongoing)
