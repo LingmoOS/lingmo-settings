@@ -112,13 +112,12 @@
     <name>FirstPage</name>
     <message>
         <location filename="../src/qml/SystemUpdate/FirstPage.qml" line="83"/>
-        <location filename="../src/qml/SystemUpdate/FirstPage.qml" line="225"/>
         <source>Has Update</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/qml/SystemUpdate/FirstPage.qml" line="89"/>
-        <location filename="../src/qml/SystemUpdate/FirstPage.qml" line="231"/>
+        <location filename="../src/qml/SystemUpdate/FirstPage.qml" line="202"/>
         <source>Current Version: %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -128,7 +127,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qml/SystemUpdate/FirstPage.qml" line="246"/>
+        <location filename="../src/qml/SystemUpdate/FirstPage.qml" line="196"/>
+        <source>Discover new versions:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qml/SystemUpdate/FirstPage.qml" line="217"/>
         <source>Update now</source>
         <translation type="unfinished"></translation>
     </message>
@@ -162,7 +166,7 @@
 <context>
     <name>Main</name>
     <message>
-        <location filename="../src/qml/About/Main.qml" line="10"/>
+        <location filename="../src/qml/About/Main.qml" line="12"/>
         <source>About</source>
         <translation>Apie</translation>
     </message>
@@ -175,52 +179,52 @@
         <translation type="vanished">Sistemos versija</translation>
     </message>
     <message>
-        <location filename="../src/qml/About/Main.qml" line="46"/>
-        <source>OS Version</source>
+        <location filename="../src/qml/About/Main.qml" line="366"/>
+        <source>PC Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qml/About/Main.qml" line="54"/>
-        <source>System Release</source>
+        <location filename="../src/qml/About/Main.qml" line="374"/>
+        <source>System Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qml/About/Main.qml" line="65"/>
+        <location filename="../src/qml/About/Main.qml" line="385"/>
         <source>Desktop Version</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qml/About/Main.qml" line="72"/>
+        <location filename="../src/qml/About/Main.qml" line="392"/>
         <source>UI Version</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qml/About/Main.qml" line="84"/>
+        <location filename="../src/qml/About/Main.qml" line="404"/>
         <source>System Type</source>
         <translation>Sistemos tipas</translation>
     </message>
     <message>
-        <location filename="../src/qml/About/Main.qml" line="93"/>
+        <location filename="../src/qml/About/Main.qml" line="413"/>
         <source>Kernel Version</source>
         <translation>Branduolio versija</translation>
     </message>
     <message>
-        <location filename="../src/qml/About/Main.qml" line="102"/>
+        <location filename="../src/qml/About/Main.qml" line="422"/>
         <source>Processor</source>
         <translation>Procesorius</translation>
     </message>
     <message>
-        <location filename="../src/qml/About/Main.qml" line="111"/>
+        <location filename="../src/qml/About/Main.qml" line="431"/>
         <source>RAM</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qml/About/Main.qml" line="120"/>
+        <location filename="../src/qml/About/Main.qml" line="440"/>
         <source>Internal Storage</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qml/About/Main.qml" line="132"/>
+        <location filename="../src/qml/About/Main.qml" line="452"/>
         <source>Software Update</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1206,12 +1210,6 @@
         <translation>Pelė</translation>
     </message>
     <message>
-        <location filename="../src/qml/SideBar.qml" line="244"/>
-        <source>System Update</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/qml/SideBar.qml" line="249"/>
         <location filename="../src/qml/SideBar.qml" line="258"/>
         <source>System &amp; Update</source>
         <translation type="unfinished"></translation>

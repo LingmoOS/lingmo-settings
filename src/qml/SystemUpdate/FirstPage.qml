@@ -18,8 +18,8 @@ Item {
         target: updator
     }
 
-    property color flatHoveredColor: Qt.lighter(LingmoUI.Theme.highlightColor, 1.1)
-    property color flatPressedColor: Qt.darker(LingmoUI.Theme.highlightColor, 1.1)
+    // property color flatHoveredColor: Qt.lighter(LingmoUI.Theme.highlightColor, 1.1)
+    // property color flatPressedColor: Qt.darker(LingmoUI.Theme.highlightColor, 1.1)
 
     ColumnLayout {
         anchors.fill: parent
@@ -125,11 +125,9 @@ Item {
                     Layout.fillWidth: true
                 }
 
-                ProgressBar{
+                LingmoUI.ProgressBar {
                     id: _progressBar
                     visible: !control.checked
-                    from: 0
-                    to: 100
                     value: updator.checkProgress
                     width: 130
                     height: 5
@@ -144,34 +142,7 @@ Item {
                     //     font: control.font
                     // }
 
-                    background: Rectangle {   
-                        implicitWidth: _progressBar.width
-                        implicitHeight: _progressBar.height
-                        radius: LingmoUI.Theme.hugeRadius
-                        color: rootWindow.background.color
-                    }
-
-                    contentItem: Item {
-                        Rectangle {
-                            id: _flatBackground
-                            width: _progressBar.visualPosition * _progressBar.width
-                            height: _progressBar.height
-                            radius: LingmoUI.Theme.hugeRadius
-
-                            color: Qt.rgba(LingmoUI.Theme.highlightColor.r,
-                                            LingmoUI.Theme.highlightColor.g,
-                                            LingmoUI.Theme.highlightColor.b, 0.1)
-                            gradient: Gradient {
-                                orientation: Gradient.Vertical
-                                GradientStop { position: 0.0; color: Qt.rgba(_flatBackground.color.r,
-                                                                            _flatBackground.color.g,
-                                                                            _flatBackground.color.b, 0.78) }
-                                GradientStop { position: 1.0; color: Qt.rgba(_flatBackground.color.r,
-                                                                            _flatBackground.color.g,
-                                                                            _flatBackground.color.b, 1) }
-                            }
-                        }
-                    }
+                    
                 }
 
                 // Label {
@@ -222,7 +193,7 @@ Item {
 
                         Label {
                             visible: _listView.count !== 0
-                            text: qsTr("Has Update")
+                            text: qsTr("Discover new versions:").arg(updator.new_version)
                             Layout.fillWidth: true
                         }
 
@@ -272,7 +243,6 @@ Item {
             }
 
             RowLayout {
-                
                 anchors.fill: parent
                 anchors.top: parent.top
                 anchors.topMargin: 100
@@ -284,16 +254,16 @@ Item {
                     Layout.fillWidth: true
                     Layout.fillHeight: true
 
-                    WebEngineView {
-                        id: sitemonitoryView
-                        width:parent.width
-                        height:parent.height
-                        backgroundColor: "transparent"
-                        anchors.centerIn: parent
-                        settings.javascriptEnabled : true
-                        settings.pluginsEnabled:true
-                        url:"file:///var/update/cache/changelog.html"
-                    }
+                    // WebEngineView {
+                    //     id: sitemonitoryView
+                    //     width:parent.width
+                    //     height:parent.height
+                    //     backgroundColor: "transparent"
+                    //     anchors.centerIn: parent
+                    //     settings.javascriptEnabled : true
+                    //     settings.pluginsEnabled:true
+                    //     url:"file:///var/update/cache/changelog.html"
+                    // }
                 }
             }
         }

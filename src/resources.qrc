@@ -3,10 +3,13 @@
         <file>qml/main.qml</file>
         <file>qml/SideBar.qml</file>
         <file>qml/ItemPage.qml</file>
+        <file>qml/SysItem.qml</file>
         <file>images/dark/display-brightness-low-symbolic.svg</file>
         <file>images/dark/display-brightness-symbolic.svg</file>
         <file>images/light/display-brightness-low-symbolic.svg</file>
         <file>images/light/display-brightness-symbolic.svg</file>
+        <file>images/MundoDark.jpeg</file>
+        <file>images/MundoLight.jpeg</file>
         <file>qml/Scrollable.qml</file>
         <file>images/sensors-voltage-symbolic.svg</file>
         <file>qml/StandardItem.qml</file>
@@ -20,7 +23,8 @@
         <file>images/done.svg</file>
         <file>images/dark/nebula.png</file>
         <file>images/light/nebula.png</file>
-        <file>images/video.mp4</file>
+        <file>images/dark/edit.svg</file>
+        <file>images/light/edit.svg</file>
         <file>images/OpenLingmo.png</file>
         <file>images/logo-rad.png</file>
         <file>images/logo.png</file>

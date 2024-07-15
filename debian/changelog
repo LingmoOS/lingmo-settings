@@ -1,3 +1,17 @@
+lingmo-settings (2.1.5-rc1) main; urgency=high
+
+  [Lingmo OS Team]
+  * fix bugs
+
+ -- Lingm OS Team <team@lingmo.org>  Sat, 13 Jul 2024 23:14:00 +0800
+
+lingmo-settings (2.1.5) main; urgency=high
+
+  [Lingmo OS Team]
+  * update GET_VERSION
+
+ -- Lingm OS Team <team@lingmo.org>  Sat, 13 Jul 2024 23:14:00 +0800
+
 lingmo-settings (2.1.3) UNRELEASED; urgency=high
 
   [ Elysia ]

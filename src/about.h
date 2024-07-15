@@ -11,6 +11,7 @@ class About : public QObject
     Q_OBJECT
     Q_PROPERTY(bool isLingmoOS READ isLingmoOS CONSTANT)
     Q_PROPERTY(QString version READ version CONSTANT)
+    Q_PROPERTY(QString hostName READ hostName CONSTANT)
     Q_PROPERTY(QString systemrelease READ systemrelease CONSTANT)
     Q_PROPERTY(QString debianversion READ debianversion CONSTANT)
     Q_PROPERTY(QString desktopversion READ desktopversion CONSTANT)
@@ -34,6 +35,7 @@ public:
     bool isLingmoOS();
 
     QString version();
+    QString hostName();
     QString systemrelease();
     QString debianversion();
     QString desktopversion();
