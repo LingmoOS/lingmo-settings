@@ -223,19 +223,6 @@ ItemPage {
             Item {
                 height: LingmoUI.Units.smallSpacing
             }
-
-            StandardButton {
-                Layout.fillWidth: true
-                //visible: about.isLingmoOS
-                text: qsTr("Software Update")
-                onClicked: {
-                    about.openUpdator()
-                }
-            }
-
-            Item {
-                height: LingmoUI.Units.smallSpacing
-            }
         }
     }
 }
