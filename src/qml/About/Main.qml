@@ -120,229 +120,6 @@ ItemPage {
                             return colorItem
                         }
                     }
-
-                    Rectangle {
-                        id: dockItem
-                        anchors.horizontalCenter: parent.horizontalCenter
-                        anchors.bottom: _image.bottom
-                        anchors.bottomMargin: 4
-                        width: 128 + dockItem.height
-                        height: 10.8
-                        color: LingmoUI.Theme.backgroundColor
-                        opacity: 0.85
-                        border.width: 0.1
-                        border.color: LingmoUI.Theme.textColor
-                        radius: LingmoUI.Theme.bigRadius/3.5
-                    }
-
-                    Rectangle {
-                        id: icon1
-                        anchors.verticalCenter: dockItem.verticalCenter
-                        anchors.left: dockItem.left
-                        anchors.leftMargin: 2
-                        width: dockItem.height-4
-                        height: icon1.width
-                        color: "#D4D4D4"
-                        // opacity: 0.85
-                        // border.width: 0.1
-                        // border.color: LingmoUI.Theme.textColor
-                        radius: 2
-                    }
-
-                    Rectangle {
-                        id: icon2
-                        // anchors.horizontalCenter: dockItem.horizontalCenter
-                        anchors.verticalCenter: dockItem.verticalCenter
-                        anchors.left: icon1.right
-                        anchors.leftMargin: 3
-                        width: dockItem.height-4
-                        height: icon1.width
-                        color: "#DBC81E"
-                        // opacity: 0.85
-                        // border.width: 0.1
-                        // border.color: LingmoUI.Theme.textColor
-                        radius: 2
-                    }
-
-                    Rectangle {
-                        id: icon3
-                        // anchors.horizontalCenter: dockItem.horizontalCenter
-                        anchors.verticalCenter: dockItem.verticalCenter
-                        anchors.left: icon2.right
-                        anchors.leftMargin: 3
-                        width: dockItem.height-4
-                        height: icon1.width
-                        color: "#464444"
-                        // opacity: 0.85
-                        // border.width: 0.1
-                        // border.color: LingmoUI.Theme.textColor
-                        radius: 2
-                    }
-
-                    Rectangle {
-                        id: icon4
-                        // anchors.horizontalCenter: dockItem.horizontalCenter
-                        anchors.verticalCenter: dockItem.verticalCenter
-                        anchors.left: icon3.right
-                        anchors.leftMargin: 3
-                        width: dockItem.height-4
-                        height: icon1.width
-                        color: "#4891FF"
-                        // opacity: 0.85
-                        // border.width: 0.1
-                        // border.color: LingmoUI.Theme.textColor
-                        radius: 2
-                    }
-
-                    Rectangle {
-                        id: icon5
-                        // anchors.horizontalCenter: dockItem.horizontalCenter
-                        anchors.verticalCenter: dockItem.verticalCenter
-                        anchors.left: icon4.right
-                        anchors.leftMargin: 3
-                        width: dockItem.height-4
-                        height: icon1.width
-                        color: "#FD5D93"
-                        // opacity: 0.85
-                        // border.width: 0.1
-                        // border.color: LingmoUI.Theme.textColor
-                        radius: 2
-                    }
-
-                    Rectangle {
-                        id: icon6
-                        // anchors.horizontalCenter: dockItem.horizontalCenter
-                        anchors.verticalCenter: dockItem.verticalCenter
-                        anchors.left: icon5.right
-                        anchors.leftMargin: 3
-                        width: dockItem.height-4
-                        height: icon1.width
-                        color: "#0066FF"
-                        // opacity: 0.85
-                        // border.width: 0.1
-                        // border.color: LingmoUI.Theme.textColor
-                        radius: 2
-                    }
-
-                    Rectangle {
-                        id: icon7
-                        // anchors.horizontalCenter: dockItem.horizontalCenter
-                        anchors.verticalCenter: dockItem.verticalCenter
-                        anchors.left: icon6.right
-                        anchors.leftMargin: 3
-                        width: dockItem.height-4
-                        height: icon1.width
-                        color: "#A537FF"
-                        // opacity: 0.85
-                        // border.width: 0.1
-                        // border.color: LingmoUI.Theme.textColor
-                        radius: 2
-                    }
-
-                    Rectangle {
-                        id: icon8
-                        // anchors.horizontalCenter: dockItem.horizontalCenter
-                        anchors.verticalCenter: dockItem.verticalCenter
-                        anchors.left: icon7.right
-                        anchors.leftMargin: 3
-                        width: dockItem.height-4
-                        height: icon1.width
-                        color: "#FF4995"
-                        // opacity: 0.85
-                        // border.width: 0.1
-                        // border.color: LingmoUI.Theme.textColor
-                        radius: 2
-                    }
-
-                    Rectangle {
-                        id: icon9
-                        // anchors.horizontalCenter: dockItem.horizontalCenter
-                        anchors.verticalCenter: dockItem.verticalCenter
-                        anchors.left: icon8.right
-                        anchors.leftMargin: 3
-                        width: dockItem.height-4
-                        height: icon1.width
-                        color: "#862D04"
-                        // opacity: 0.85
-                        // border.width: 0.1
-                        // border.color: LingmoUI.Theme.textColor
-                        radius: 2
-                    }
-
-                    Rectangle {
-                        id: icon10
-                        // anchors.horizontalCenter: dockItem.horizontalCenter
-                        anchors.verticalCenter: dockItem.verticalCenter
-                        anchors.left: icon9.right
-                        anchors.leftMargin: 3
-                        width: dockItem.height-4
-                        height: icon1.width
-                        color: "#23A829"
-                        // opacity: 0.85
-                        // border.width: 0.1
-                        // border.color: LingmoUI.Theme.textColor
-                        radius: 2
-                    }
-
-                    Rectangle {
-                        id: icon11
-                        // anchors.horizontalCenter: dockItem.horizontalCenter
-                        anchors.verticalCenter: dockItem.verticalCenter
-                        anchors.left: icon10.right
-                        anchors.leftMargin: 3
-                        width: dockItem.height-4
-                        height: icon1.width
-                        color: "#225366"
-                        // opacity: 0.85
-                        // border.width: 0.1
-                        // border.color: LingmoUI.Theme.textColor
-                        radius: 2
-                    }
-
-                    Rectangle {
-                        id: icon12
-                        // anchors.horizontalCenter: dockItem.horizontalCenter
-                        anchors.verticalCenter: dockItem.verticalCenter
-                        anchors.left: icon11.right
-                        anchors.leftMargin: 3
-                        width: dockItem.height-4
-                        height: icon1.width
-                        color: "#DD9426"
-                        // opacity: 0.85
-                        // border.width: 0.1
-                        // border.color: LingmoUI.Theme.textColor
-                        radius: 2
-                    }
-
-                    Rectangle {
-                        id: icon13
-                        // anchors.horizontalCenter: dockItem.horizontalCenter
-                        anchors.verticalCenter: dockItem.verticalCenter
-                        anchors.left: icon12.right
-                        anchors.leftMargin: 3
-                        width: dockItem.height-4
-                        height: icon1.width
-                        color: "#E74343"
-                        // opacity: 0.85
-                        // border.width: 0.1
-                        // border.color: LingmoUI.Theme.textColor
-                        radius: 2
-                    }
-
-                    Rectangle {
-                        id: icon14
-                        // anchors.horizontalCenter: dockItem.horizontalCenter
-                        anchors.verticalCenter: dockItem.verticalCenter
-                        anchors.left: icon13.right
-                        anchors.leftMargin: 3
-                        width: dockItem.height-4
-                        height: icon1.width
-                        color: "#24B4A1"
-                        // opacity: 0.85
-                        // border.width: 0.1
-                        // border.color: LingmoUI.Theme.textColor
-                        radius: 2
-                    }
                 }
             }
 
@@ -362,9 +139,10 @@ ItemPage {
             // }
 
             RoundedItem {
-                StandardItem {
+                id: lf
+                PCname {
+                    id: pcName
                     key: qsTr("PC Name")
-                    // key: qsTr("System Version")
                     value: about.hostName
                 }
 
@@ -374,15 +152,9 @@ ItemPage {
                     key: qsTr("System Name")
                     value: about.version
                 }
-
-                Image {
-                    id: editIcon
-
-                    
-                }
             }
 
-                Item {
+            Item {
                 height: LingmoUI.Units.smallSpacing
             }
 

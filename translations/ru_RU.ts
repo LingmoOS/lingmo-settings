@@ -50,6 +50,29 @@
     </message>
 </context>
 <context>
+    <name>ChangeDialog</name>
+    <message>
+        <location filename="../src/qml/ChangeDialog.qml" line="22"/>
+        <source>Device</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qml/ChangeDialog.qml" line="137"/>
+        <source>Enter your new device name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qml/ChangeDialog.qml" line="148"/>
+        <source>New device name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qml/ChangeDialog.qml" line="159"/>
+        <source>Ok</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>ConnectDialog</name>
     <message>
         <location filename="../src/qml/WLAN/ConnectDialog.qml" line="63"/>
@@ -179,52 +202,52 @@
         <translation type="vanished">Версия системы</translation>
     </message>
     <message>
-        <location filename="../src/qml/About/Main.qml" line="366"/>
+        <location filename="../src/qml/About/Main.qml" line="145"/>
         <source>PC Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qml/About/Main.qml" line="374"/>
+        <location filename="../src/qml/About/Main.qml" line="152"/>
         <source>System Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qml/About/Main.qml" line="385"/>
+        <location filename="../src/qml/About/Main.qml" line="163"/>
         <source>Desktop Version</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qml/About/Main.qml" line="392"/>
+        <location filename="../src/qml/About/Main.qml" line="170"/>
         <source>UI Version</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qml/About/Main.qml" line="404"/>
+        <location filename="../src/qml/About/Main.qml" line="182"/>
         <source>System Type</source>
         <translation>Тип системы</translation>
     </message>
     <message>
-        <location filename="../src/qml/About/Main.qml" line="413"/>
+        <location filename="../src/qml/About/Main.qml" line="191"/>
         <source>Kernel Version</source>
         <translation>Версия ядра</translation>
     </message>
     <message>
-        <location filename="../src/qml/About/Main.qml" line="422"/>
+        <location filename="../src/qml/About/Main.qml" line="200"/>
         <source>Processor</source>
         <translation>Процессор</translation>
     </message>
     <message>
-        <location filename="../src/qml/About/Main.qml" line="431"/>
+        <location filename="../src/qml/About/Main.qml" line="209"/>
         <source>RAM</source>
         <translation>ОЗУ</translation>
     </message>
     <message>
-        <location filename="../src/qml/About/Main.qml" line="440"/>
+        <location filename="../src/qml/About/Main.qml" line="218"/>
         <source>Internal Storage</source>
         <translation>Внутренняя память</translation>
     </message>
     <message>
-        <location filename="../src/qml/About/Main.qml" line="452"/>
+        <location filename="../src/qml/About/Main.qml" line="230"/>
         <source>Software Update</source>
         <translation type="unfinished"></translation>
     </message>

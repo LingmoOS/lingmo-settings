@@ -11,6 +11,8 @@
         <file>images/MundoDark.jpeg</file>
         <file>images/MundoLight.jpeg</file>
         <file>qml/Scrollable.qml</file>
+        <file>qml/PCname.qml</file>
+        <file>qml/ChangeDialog.qml</file>
         <file>images/sensors-voltage-symbolic.svg</file>
         <file>qml/StandardItem.qml</file>
         <file>qml/SystemUpdate/Main.qml</file>
