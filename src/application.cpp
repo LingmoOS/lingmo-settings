@@ -32,7 +32,6 @@
 #include "powermanager.h"
 #include "settingsuiadaptor.h"
 #include "touchpad.h"
-#include "update/updatemanager.h"
 // #include "updatorhelper.h"
 // #include "upgradeablemodel.h"
 
