@@ -57,17 +57,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qml/ChangeDialog.qml" line="137"/>
+        <location filename="../src/qml/ChangeDialog.qml" line="150"/>
         <source>Enter your new device name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qml/ChangeDialog.qml" line="148"/>
+        <location filename="../src/qml/ChangeDialog.qml" line="160"/>
         <source>New device name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qml/ChangeDialog.qml" line="159"/>
+        <location filename="../src/qml/ChangeDialog.qml" line="177"/>
         <source>Ok</source>
         <translation type="unfinished"></translation>
     </message>

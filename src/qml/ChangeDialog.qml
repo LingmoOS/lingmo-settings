@@ -10,11 +10,11 @@ LingmoUI.Window {
     width: 400
     height: 360
 
-    // maximumWidth: control.width
-    // minimumWidth: control.width
+    maximumWidth: control.width
+    minimumWidth: control.width
 
-    // maximumHeight: contentHeight
-    // minimumHeight: contentHeight
+    maximumHeight: control.height
+    minimumHeight: control.height
 
     modality: Qt.WindowModal
     flags: Qt.Dialog | Qt.FramelessWindowHint
@@ -47,10 +47,15 @@ LingmoUI.Window {
         onActiveChanged: if (active) { control.helper.startSystemMove(control) }
     }
 
+    function clear() {
+        deviceChange.clear()
+    }
+
     ColumnLayout {
         id: _mainLayout
         anchors.fill: parent
-        anchors.bottomMargin: control.header.height
+        Layout.alignment: Qt.AlignHCenter
+        Layout.bottomMargin: control.header.height
 
         // Image {
         //     width: 64
@@ -63,10 +68,10 @@ LingmoUI.Window {
         Rectangle {
             id: deviceItem
 
-            // anchors {
-            //     verticalCenter: control.verticalCenter
-            //     horizontalCenter: control.horizontalCenter
-            // }
+            anchors {
+                verticalCenter: control.verticalCenter
+                horizontalCenter: control.horizontalCenter
+            }
             Layout.alignment: Qt.AlignHCenter
             width: 207
             height: 125
@@ -80,8 +85,8 @@ LingmoUI.Window {
                 width: deviceItem.width - 5
                 height: deviceItem.height - 5
                 anchors {
-                    verticalCenter: parent.verticalCenter
-                    horizontalCenter: parent.horizontalCenter
+                    verticalCenter: deviceItem.verticalCenter
+                    horizontalCenter: deviceItem.horizontalCenter
                 }
                 // source: LingmoUI.Theme.darkMode ? "qrc:/images/MundoDark.jpeg" : "qrc:/images/MundoLight.jpeg"
                 source: "file://" + wallpaper.path
@@ -113,16 +118,25 @@ LingmoUI.Window {
                 }
             }
 
-            Loader {
-                id: bgLoader
-                anchors.fill: parent
-                sourceComponent: {
-                    if (background.backgroundType === 0)
-                        return wallpaperItem
+            // Loader {
+            //     id: bgLoader
+            //     anchors.fill: parent
+            //     sourceComponent: {
+            //         if (background.backgroundType === 0)
+            //             return wallpaperItem
 
-                    return colorItem
-                }
-            }
+            //         return colorItem
+            //     }
+            // }
+        }
+
+        Text {
+            id: pcNv
+            Layout.alignment: Qt.AlignHCenter
+            Layout.topMargin: 5
+            text: about.hostName
+            color: LingmoUI.Theme.textColor
+            font.pointSize: 9
         }
 
         Item {
@@ -131,9 +145,8 @@ LingmoUI.Window {
 
         Text {
             id: wsa
-            anchors.horizontalCenter: parent.horizontalCenter
-            anchors.top: deviceItem.bottom
-            anchors.topMargin: 20
+            Layout.alignment: Qt.AlignHCenter
+            Layout.topMargin: 15
             text: qsTr("Enter your new device name")
             color: LingmoUI.Theme.textColor
             font.pointSize: 10
@@ -141,20 +154,25 @@ LingmoUI.Window {
 
         TextField {
             id: deviceChange
-            anchors.horizontalCenter: parent.horizontalCenter
-            anchors.top: wsa.bottom
-            anchors.topMargin: 5
-            width: parent.width - 10
+            Layout.alignment: Qt.AlignHCenter
+            Layout.topMargin: 5
+            width: parent.width - 9
             placeholderText: qsTr("New device name")
             selectByMouse: true
         }
 
+        Item {
+            Layout.fillHeight: true
+            Layout.fillWidth: true
+        }
+
         Button {
             id: btn
+            enabled: deviceChange.text != ""
             // anchors.horizontalCenter: parent.horizontalCenter
-            anchors.right: _mainLayout.right
-            anchors.rightMargin: 20
-            anchors.bottom: _mainLayout.bottom
+            // Layout.right: _mainLayout.right
+            Layout.alignment: Qt.AlignRight
+            Layout.rightMargin: 20
             flat: true
             text: qsTr("Ok")
         }
