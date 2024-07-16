@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2021 Reion Wong <reionwong@gmail.com>                   *
+ *   Copyright (C) 2021 Lingmo OS Team <reionwong@gmail.com>                   *
  *   Copyright (C) 2015 Kai Uwe Broulik <kde@privat.broulik.de>            *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *

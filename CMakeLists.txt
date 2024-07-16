@@ -17,6 +17,7 @@ endif()
 
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake;${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
+# set(QT Core Gui Widgets Network WebEngine Quick QuickControls2 X11Extras DBus Xml Concurrent LinguistTools)
 set(QT Core Gui Widgets Network Quick QuickControls2 X11Extras DBus Xml Concurrent LinguistTools)
 find_package(Qt5 REQUIRED ${QT})
 find_package(X11 REQUIRED)
@@ -27,7 +28,8 @@ find_package(Libcrypt REQUIRED)
 find_package(KF5NetworkManagerQt REQUIRED)
 find_package(KF5ModemManagerQt REQUIRED)
 find_package(KF5Config)
-# find_package(QApt REQUIRED)
+find_package(QApt REQUIRED)
+# find_package(QtWebEngine REQUIRED)
 
 pkg_search_module(FontConfig REQUIRED fontconfig IMPORTED_TARGET)
 pkg_search_module(ICU REQUIRED icu-i18n)
@@ -62,8 +64,10 @@ target_link_libraries(${PROJECT_NAME}
         Qt5::Xml
         Qt5::X11Extras
         Qt5::Concurrent
+        # Qt5::WebEngine
         # ::Main
         Qt5::Network
+        QApt::Main
         # LingmoUI
 
         KF5::NetworkManagerQt

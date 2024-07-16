@@ -6,7 +6,7 @@ import LingmoUI 1.0 as LingmoUI
 Item {
     id: control
 
-    height: mainLayout.implicitHeight + 8 * 2
+    height: mainLayout.implicitHeight + 1 * 2
 
     property alias key: keyLabel.text
     property alias value: valueLabel.text

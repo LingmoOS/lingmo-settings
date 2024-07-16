@@ -5,6 +5,7 @@
 #include <QRegularExpression>
 #include <QSettings>
 #include <QProcess>
+#include <QHostInfo>
 
 #ifdef Q_OS_LINUX
 #include <sys/sysinfo.h>
@@ -67,6 +68,11 @@ bool About::isLingmoOS()
 
     QSettings settings("/etc/lingmoos", QSettings::IniFormat);
     return settings.value("LingmoOS", false).toBool();
+}
+
+QString About::hostName() 
+{
+    return QHostInfo::localHostName();
 }
 
 QString About::version()

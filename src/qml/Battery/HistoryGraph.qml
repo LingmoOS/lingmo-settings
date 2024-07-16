@@ -1,6 +1,6 @@
 /*
  * Copyright (C) 2015  David Edmundson <david@davidedmundson.co.uk>
- * Copyright (C) 2021  Reion Wong <reionwong@gmail.com>
+ * Copyright (C) 2021  Lingmo OS Team <reionwong@gmail.com>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public

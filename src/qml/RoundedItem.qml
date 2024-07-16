@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021 LingmoOS Team.
+ * Copyright (C) 2024 LingmoOS Team.
  *
  * Author:     revenmartin <revenmartin@gmail.com>
  *

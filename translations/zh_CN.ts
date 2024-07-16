@@ -15,6 +15,29 @@
     </message>
 </context>
 <context>
+    <name>ChangeDialog</name>
+    <message>
+        <location filename="../src/qml/ChangeDialog.qml" line="22"/>
+        <source>Device</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qml/ChangeDialog.qml" line="150"/>
+        <source>Enter your new device name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qml/ChangeDialog.qml" line="160"/>
+        <source>New device name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qml/ChangeDialog.qml" line="177"/>
+        <source>Ok</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>ConnectDialog</name>
     <message>
         <location filename="../src/qml/WLAN/ConnectDialog.qml" line="63"/>
@@ -51,6 +74,76 @@
     </message>
 </context>
 <context>
+    <name>FinishedPage</name>
+    <message>
+        <location filename="../src/qml/SystemUpdate/FinishedPage.qml" line="51"/>
+        <source>The update is complete and we recommend that you restart your computer.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qml/SystemUpdate/FinishedPage.qml" line="58"/>
+        <source>Update failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qml/SystemUpdate/FinishedPage.qml" line="70"/>
+        <source>Exit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qml/SystemUpdate/FinishedPage.qml" line="77"/>
+        <source>Reboot</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>FirstPage</name>
+    <message>
+        <location filename="../src/qml/SystemUpdate/FirstPage.qml" line="83"/>
+        <source>Has Update</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qml/SystemUpdate/FirstPage.qml" line="89"/>
+        <location filename="../src/qml/SystemUpdate/FirstPage.qml" line="202"/>
+        <source>Current Version: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qml/SystemUpdate/FirstPage.qml" line="105"/>
+        <source>Check Update</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qml/SystemUpdate/FirstPage.qml" line="196"/>
+        <source>Discover new versions:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qml/SystemUpdate/FirstPage.qml" line="217"/>
+        <source>Update now</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>HomePage</name>
+    <message>
+        <location filename="../src/qml/SystemUpdate/HomePage.qml" line="65"/>
+        <source>Checking for updates...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qml/SystemUpdate/HomePage.qml" line="88"/>
+        <source>Check for update failure</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qml/SystemUpdate/HomePage.qml" line="131"/>
+        <source>Recheck</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>LanguagePage</name>
     <message>
         <location filename="../src/qml/LanguagePage.qml" line="10"/>
@@ -61,57 +154,65 @@
 <context>
     <name>Main</name>
     <message>
-        <location filename="../src/qml/About/Main.qml" line="10"/>
+        <location filename="../src/qml/About/Main.qml" line="12"/>
         <source>About</source>
         <translation>关于</translation>
     </message>
     <message>
-        <location filename="../src/qml/About/Main.qml" line="46"/>
         <source>OS Version</source>
-        <translation>操作系统版本</translation>
+        <translation type="vanished">操作系统版本</translation>
     </message>
     <message>
-        <location filename="../src/qml/About/Main.qml" line="54"/>
         <source>System Release</source>
-        <translation>系统发行类型</translation>
+        <translation type="vanished">系统发行类型</translation>
     </message>
     <message>
-        <location filename="../src/qml/About/Main.qml" line="65"/>
+        <location filename="../src/qml/About/Main.qml" line="145"/>
+        <source>PC Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qml/About/Main.qml" line="152"/>
+        <source>System Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qml/About/Main.qml" line="163"/>
         <source>Desktop Version</source>
         <translation>桌面环境版本</translation>
     </message>
     <message>
-        <location filename="../src/qml/About/Main.qml" line="72"/>
+        <location filename="../src/qml/About/Main.qml" line="170"/>
         <source>UI Version</source>
         <translation>UI版本</translation>
     </message>
     <message>
-        <location filename="../src/qml/About/Main.qml" line="84"/>
+        <location filename="../src/qml/About/Main.qml" line="182"/>
         <source>System Type</source>
         <translation>系统类型</translation>
     </message>
     <message>
-        <location filename="../src/qml/About/Main.qml" line="93"/>
+        <location filename="../src/qml/About/Main.qml" line="191"/>
         <source>Kernel Version</source>
         <translation>内核版本</translation>
     </message>
     <message>
-        <location filename="../src/qml/About/Main.qml" line="102"/>
+        <location filename="../src/qml/About/Main.qml" line="200"/>
         <source>Processor</source>
         <translation>处理器</translation>
     </message>
     <message>
-        <location filename="../src/qml/About/Main.qml" line="111"/>
+        <location filename="../src/qml/About/Main.qml" line="209"/>
         <source>RAM</source>
         <translation>内存大小</translation>
     </message>
     <message>
-        <location filename="../src/qml/About/Main.qml" line="120"/>
+        <location filename="../src/qml/About/Main.qml" line="218"/>
         <source>Internal Storage</source>
         <translation>内部存储</translation>
     </message>
     <message>
-        <location filename="../src/qml/About/Main.qml" line="132"/>
+        <location filename="../src/qml/About/Main.qml" line="230"/>
         <source>Software Update</source>
         <translation>软件更新</translation>
     </message>
@@ -959,6 +1060,11 @@
         <source>System Update</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="../src/qml/SystemUpdate/Main.qml" line="10"/>
+        <source>Update</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>NewNetworkDialog</name>
@@ -1003,6 +1109,13 @@
         <location filename="../src/qml/WLAN/NewNetworkDialog.qml" line="137"/>
         <source>Join</source>
         <translation>添加</translation>
+    </message>
+</context>
+<context>
+    <name>PCname</name>
+    <message>
+        <source>OK</source>
+        <translation type="obsolete">确认</translation>
     </message>
 </context>
 <context>
@@ -1180,17 +1293,11 @@
         <translation>电源</translation>
     </message>
     <message>
-        <location filename="../src/qml/SideBar.qml" line="244"/>
-        <source>System Update</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../src/qml/SideBar.qml" line="253"/>
         <source>About</source>
         <translation>关于</translation>
     </message>
     <message>
-        <location filename="../src/qml/SideBar.qml" line="249"/>
         <location filename="../src/qml/SideBar.qml" line="258"/>
         <source>System &amp; Update</source>
         <translation type="unfinished"></translation>
@@ -1256,6 +1363,24 @@
     </message>
 </context>
 <context>
+    <name>UpdatePage</name>
+    <message>
+        <location filename="../src/qml/SystemUpdate/UpdatePage.qml" line="84"/>
+        <source>Your system is up to date</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qml/SystemUpdate/UpdatePage.qml" line="90"/>
+        <source>Current Version: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qml/SystemUpdate/UpdatePage.qml" line="197"/>
+        <source>Update now</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>UpdateTitleBar</name>
     <message>
         <location filename="../src/qml/Update/UpdateTitleBar.qml" line="52"/>
@@ -1313,6 +1438,14 @@
     <message>
         <location filename="../src/qml/Update/UpdatesPage.qml" line="172"/>
         <source>Update now</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>UpdatingPage</name>
+    <message>
+        <location filename="../src/qml/SystemUpdate/UpdatingPage.qml" line="43"/>
+        <source>Updating, please wait</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
