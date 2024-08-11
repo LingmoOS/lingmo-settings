@@ -28,7 +28,7 @@ find_package(Libcrypt REQUIRED)
 find_package(KF5NetworkManagerQt REQUIRED)
 find_package(KF5ModemManagerQt REQUIRED)
 find_package(KF5Config)
-find_package(QApt REQUIRED)
+# find_package(QApt REQUIRED)
 # find_package(QtWebEngine REQUIRED)
 
 pkg_search_module(FontConfig REQUIRED fontconfig IMPORTED_TARGET)
@@ -67,7 +67,7 @@ target_link_libraries(${PROJECT_NAME}
         # Qt5::WebEngine
         # ::Main
         Qt5::Network
-        QApt::Main
+        # QApt::Main
         # LingmoUI
 
         KF5::NetworkManagerQt
