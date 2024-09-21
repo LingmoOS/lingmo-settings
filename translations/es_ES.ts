@@ -54,22 +54,22 @@
     <message>
         <location filename="../src/qml/ChangeDialog.qml" line="22"/>
         <source>Device</source>
-        <translation type="unfinished"></translation>
+        <translation>Dispositivo</translation>
     </message>
     <message>
         <location filename="../src/qml/ChangeDialog.qml" line="150"/>
         <source>Enter your new device name</source>
-        <translation type="unfinished"></translation>
+        <translation>Introduce el nombre de tu nuevo dispositivo</translation>
     </message>
     <message>
         <location filename="../src/qml/ChangeDialog.qml" line="160"/>
         <source>New device name</source>
-        <translation type="unfinished"></translation>
+        <translation>Nombre del nuevo dispositivo</translation>
     </message>
     <message>
         <location filename="../src/qml/ChangeDialog.qml" line="177"/>
         <source>Ok</source>
-        <translation type="unfinished"></translation>
+        <translation>De acuerdo</translation>
     </message>
 </context>
 <context>
@@ -77,27 +77,27 @@
     <message>
         <location filename="../src/qml/WLAN/ConnectDialog.qml" line="63"/>
         <source>Enter Password</source>
-        <translation type="unfinished"></translation>
+        <translation>Introducir contraseña</translation>
     </message>
     <message>
         <location filename="../src/qml/WLAN/ConnectDialog.qml" line="75"/>
         <source>Enter the password for %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Introduce la contraseña de %1</translation>
     </message>
     <message>
         <location filename="../src/qml/WLAN/ConnectDialog.qml" line="85"/>
         <source>Password</source>
-        <translation type="unfinished">Contraseña</translation>
+        <translation>Contraseña</translation>
     </message>
     <message>
         <location filename="../src/qml/WLAN/ConnectDialog.qml" line="110"/>
         <source>Cancel</source>
-        <translation type="unfinished">Cancelar</translation>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <location filename="../src/qml/WLAN/ConnectDialog.qml" line="116"/>
         <source>Connect</source>
-        <translation type="unfinished">Conectar</translation>
+        <translation>Conectar</translation>
     </message>
 </context>
 <context>
@@ -105,7 +105,7 @@
     <message>
         <location filename="../src/update/downloadworker.cpp" line="146"/>
         <source>Download Failed, please retry :(</source>
-        <translation type="unfinished"></translation>
+        <translation>Descarga fallida, por favor vuelve a instalarlo :(</translation>
     </message>
 </context>
 <context>
@@ -113,22 +113,22 @@
     <message>
         <location filename="../src/qml/SystemUpdate/FinishedPage.qml" line="51"/>
         <source>The update is complete and we recommend that you restart your computer.</source>
-        <translation type="unfinished"></translation>
+        <translation>La actualización se ha completado y te recomendamos que reinicies tu ordenador.</translation>
     </message>
     <message>
         <location filename="../src/qml/SystemUpdate/FinishedPage.qml" line="58"/>
         <source>Update failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Actualización fallida</translation>
     </message>
     <message>
         <location filename="../src/qml/SystemUpdate/FinishedPage.qml" line="70"/>
         <source>Exit</source>
-        <translation type="unfinished"></translation>
+        <translation>Salir</translation>
     </message>
     <message>
         <location filename="../src/qml/SystemUpdate/FinishedPage.qml" line="77"/>
         <source>Reboot</source>
-        <translation type="unfinished"></translation>
+        <translation>Reiniciar</translation>
     </message>
 </context>
 <context>
@@ -136,28 +136,28 @@
     <message>
         <location filename="../src/qml/SystemUpdate/FirstPage.qml" line="83"/>
         <source>Has Update</source>
-        <translation type="unfinished"></translation>
+        <translation>Tienes una actualización</translation>
     </message>
     <message>
         <location filename="../src/qml/SystemUpdate/FirstPage.qml" line="89"/>
         <location filename="../src/qml/SystemUpdate/FirstPage.qml" line="202"/>
         <source>Current Version: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Versión actual: %1</translation>
     </message>
     <message>
         <location filename="../src/qml/SystemUpdate/FirstPage.qml" line="105"/>
         <source>Check Update</source>
-        <translation type="unfinished"></translation>
+        <translation>Buscar actualizaciones</translation>
     </message>
     <message>
         <location filename="../src/qml/SystemUpdate/FirstPage.qml" line="196"/>
         <source>Discover new versions:</source>
-        <translation type="unfinished"></translation>
+        <translation>Descubre las nuevas versiones:</translation>
     </message>
     <message>
         <location filename="../src/qml/SystemUpdate/FirstPage.qml" line="217"/>
         <source>Update now</source>
-        <translation type="unfinished"></translation>
+        <translation>Actualizar ahora</translation>
     </message>
 </context>
 <context>
@@ -165,17 +165,17 @@
     <message>
         <location filename="../src/qml/SystemUpdate/HomePage.qml" line="65"/>
         <source>Checking for updates...</source>
-        <translation type="unfinished"></translation>
+        <translation>Buscando actualizaciones…</translation>
     </message>
     <message>
         <location filename="../src/qml/SystemUpdate/HomePage.qml" line="88"/>
         <source>Check for update failure</source>
-        <translation type="unfinished"></translation>
+        <translation>Comprobar si hay errores en la actualización</translation>
     </message>
     <message>
         <location filename="../src/qml/SystemUpdate/HomePage.qml" line="131"/>
         <source>Recheck</source>
-        <translation type="unfinished"></translation>
+        <translation>Volver a revisar</translation>
     </message>
 </context>
 <context>
@@ -183,7 +183,7 @@
     <message>
         <location filename="../src/qml/LanguagePage.qml" line="10"/>
         <source>Language</source>
-        <translation>Lenguaje</translation>
+        <translation>Idioma</translation>
     </message>
 </context>
 <context>
@@ -204,22 +204,22 @@
     <message>
         <location filename="../src/qml/About/Main.qml" line="145"/>
         <source>PC Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Nombre del ordenador</translation>
     </message>
     <message>
         <location filename="../src/qml/About/Main.qml" line="152"/>
         <source>System Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Denominación del sistema</translation>
     </message>
     <message>
         <location filename="../src/qml/About/Main.qml" line="163"/>
         <source>Desktop Version</source>
-        <translation type="unfinished"></translation>
+        <translation>Versión de escritorio</translation>
     </message>
     <message>
         <location filename="../src/qml/About/Main.qml" line="170"/>
         <source>UI Version</source>
-        <translation type="unfinished"></translation>
+        <translation>Versión de interfaz de usuario</translation>
     </message>
     <message>
         <location filename="../src/qml/About/Main.qml" line="182"/>
@@ -249,7 +249,7 @@
     <message>
         <location filename="../src/qml/About/Main.qml" line="230"/>
         <source>Software Update</source>
-        <translation type="unfinished"></translation>
+        <translation>Actualización de software</translation>
     </message>
     <message>
         <location filename="../src/qml/Appearance/Main.qml" line="11"/>
@@ -275,32 +275,32 @@
     <message>
         <location filename="../src/qml/Appearance/Main.qml" line="89"/>
         <source>Dim the wallpaper in dark theme</source>
-        <translation>Dim el wallpaper en tema oscuro</translation>
+        <translation>Atenúa el fondo de pantalla en tema oscuro</translation>
     </message>
     <message>
         <location filename="../src/qml/Appearance/Main.qml" line="109"/>
         <source>System effects</source>
-        <translation type="unfinished"></translation>
+        <translation>Efectos del sistema</translation>
     </message>
     <message>
         <location filename="../src/qml/Appearance/Main.qml" line="132"/>
         <source>Minimize animation</source>
-        <translation type="unfinished"></translation>
+        <translation>Reducir la animación</translation>
     </message>
     <message>
         <location filename="../src/qml/Appearance/Main.qml" line="141"/>
         <source>Default</source>
-        <translation type="unfinished"></translation>
+        <translation>Por defecto</translation>
     </message>
     <message>
         <location filename="../src/qml/Appearance/Main.qml" line="145"/>
         <source>Magic Lamp</source>
-        <translation type="unfinished"></translation>
+        <translation>Lámpara mágica</translation>
     </message>
     <message>
         <location filename="../src/qml/Appearance/Main.qml" line="153"/>
         <source>Accent color</source>
-        <translation>Color de contraste</translation>
+        <translation>Color del resaltado</translation>
     </message>
     <message>
         <location filename="../src/qml/Appearance/Main.qml" line="229"/>
@@ -315,7 +315,7 @@
     <message>
         <location filename="../src/qml/Appearance/Main.qml" line="257"/>
         <source>Fixed Font</source>
-        <translation>Fuente Fija</translation>
+        <translation>Tipo de letra fijo</translation>
     </message>
     <message>
         <location filename="../src/qml/Appearance/Main.qml" line="274"/>
@@ -330,17 +330,17 @@
     <message>
         <location filename="../src/qml/Appearance/Main.qml" line="348"/>
         <source>Anti-Aliasing</source>
-        <translation>Anti-Aliasing</translation>
+        <translation>Suavizado espacial (antialiasing)</translation>
     </message>
     <message>
         <location filename="../src/qml/Appearance/Main.qml" line="363"/>
         <source>Desktop Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Ajustes del escritorio</translation>
     </message>
     <message>
         <location filename="../src/qml/Appearance/Main.qml" line="374"/>
         <source>Desktop Icons Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Tamaño de los iconos del escritorio</translation>
     </message>
     <message>
         <location filename="../src/qml/Appearance/Main.qml" line="282"/>
@@ -453,12 +453,12 @@
     <message>
         <location filename="../src/qml/Battery/Main.qml" line="295"/>
         <source>No battery found</source>
-        <translation>Ninguna batería encontrada</translation>
+        <translation>Sin batería</translation>
     </message>
     <message>
         <location filename="../src/qml/Display/Main.qml" line="29"/>
         <source>Display</source>
-        <translation>Interfaz</translation>
+        <translation>Pantalla</translation>
     </message>
     <message>
         <location filename="../src/qml/Display/Main.qml" line="67"/>
@@ -483,7 +483,7 @@
     <message>
         <location filename="../src/qml/Display/Main.qml" line="194"/>
         <source>Refresh rate</source>
-        <translation>Velocidad de refresco</translation>
+        <translation>Tasa de refresco</translation>
     </message>
     <message>
         <location filename="../src/qml/Display/Main.qml" line="214"/>
@@ -512,17 +512,17 @@
     <message>
         <location filename="../src/qml/Dock/Main.qml" line="26"/>
         <source>Style</source>
-        <translation type="unfinished"></translation>
+        <translation>Estilo</translation>
     </message>
     <message>
         <location filename="../src/qml/Dock/Main.qml" line="35"/>
         <source>Full</source>
-        <translation type="unfinished">Lleno</translation>
+        <translation>Completo</translation>
     </message>
     <message>
         <location filename="../src/qml/Dock/Main.qml" line="42"/>
         <source>Center</source>
-        <translation type="unfinished"></translation>
+        <translation>Centro</translation>
     </message>
     <message>
         <location filename="../src/qml/Dock/Main.qml" line="52"/>
@@ -557,17 +557,17 @@
     <message>
         <location filename="../src/qml/Dock/Main.qml" line="161"/>
         <source>Always show</source>
-        <translation>Siempre mostrar</translation>
+        <translation>Mostrar siempre</translation>
     </message>
     <message>
         <location filename="../src/qml/Dock/Main.qml" line="165"/>
         <source>Always hide</source>
-        <translation type="unfinished"></translation>
+        <translation>Ocultar siempre</translation>
     </message>
     <message>
         <location filename="../src/qml/Dock/Main.qml" line="169"/>
         <source>Smart hide</source>
-        <translation type="unfinished"></translation>
+        <translation>Ocultación inteligente</translation>
     </message>
     <message>
         <source>Auto hide</source>
@@ -591,52 +591,52 @@
     <message>
         <location filename="../src/qml/Power/Main.qml" line="104"/>
         <source>Performance mode: CPU and GPU frequencies will be increased, while power consumption and heat generation will be increased.</source>
-        <translation type="unfinished"></translation>
+        <translation>Modo de rendimiento: Las frecuencias de la CPU y la GPU aumentarán, mientras que el consumo de energía y la generación de calor se incrementarán.</translation>
     </message>
     <message>
         <location filename="../src/qml/Power/Main.qml" line="116"/>
         <source>Turn off screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Apagar la pantalla</translation>
     </message>
     <message>
         <location filename="../src/qml/Power/Main.qml" line="124"/>
         <source>2 Minutes</source>
-        <translation type="unfinished"></translation>
+        <translation>2 minutos</translation>
     </message>
     <message>
         <location filename="../src/qml/Power/Main.qml" line="125"/>
         <source>5 Minutes</source>
-        <translation type="unfinished"></translation>
+        <translation>5 minutos</translation>
     </message>
     <message>
         <location filename="../src/qml/Power/Main.qml" line="126"/>
         <source>10 Minutes</source>
-        <translation type="unfinished"></translation>
+        <translation>10 minutos</translation>
     </message>
     <message>
         <location filename="../src/qml/Power/Main.qml" line="127"/>
         <source>15 Minutes</source>
-        <translation type="unfinished"></translation>
+        <translation>15 minutos</translation>
     </message>
     <message>
         <location filename="../src/qml/Power/Main.qml" line="128"/>
         <source>30 Minutes</source>
-        <translation type="unfinished"></translation>
+        <translation>30 minutos</translation>
     </message>
     <message>
         <location filename="../src/qml/Power/Main.qml" line="129"/>
         <source>Never</source>
-        <translation type="unfinished"></translation>
+        <translation>Nunca</translation>
     </message>
     <message>
         <location filename="../src/qml/Power/Main.qml" line="161"/>
         <source>Hibernate after screen is turned off</source>
-        <translation type="unfinished"></translation>
+        <translation>Hibernar al apagar la pantalla</translation>
     </message>
     <message>
         <location filename="../src/qml/Power/Main.qml" line="173"/>
         <source>Lock screen after screen is turned off</source>
-        <translation type="unfinished"></translation>
+        <translation>Pantalla de bloqueo después de apagar la pantalla</translation>
     </message>
     <message>
         <source>Balance</source>
@@ -655,44 +655,44 @@
     <message>
         <location filename="../src/qml/User/Main.qml" line="101"/>
         <source>Add new user</source>
-        <translation type="unfinished"></translation>
+        <translation>Añadir nuevo usuario</translation>
     </message>
     <message>
         <location filename="../src/qml/User/Main.qml" line="110"/>
         <location filename="../src/qml/User/Main.qml" line="116"/>
         <source>User name</source>
-        <translation type="unfinished">Nombre de usuario</translation>
+        <translation>Nombre de usuario</translation>
     </message>
     <message>
         <location filename="../src/qml/User/Main.qml" line="136"/>
         <location filename="../src/qml/User/Main.qml" line="142"/>
         <source>Verify password</source>
-        <translation type="unfinished">Verificar contraseña</translation>
+        <translation>Verificar contraseña</translation>
     </message>
     <message>
         <location filename="../src/qml/User/Main.qml" line="149"/>
         <source>Account type</source>
-        <translation type="unfinished">Tipo de cuenta</translation>
+        <translation>Tipo de cuenta</translation>
     </message>
     <message>
         <location filename="../src/qml/User/Main.qml" line="155"/>
         <source>Standard</source>
-        <translation type="unfinished">Estándar</translation>
+        <translation>Estándar</translation>
     </message>
     <message>
         <location filename="../src/qml/User/Main.qml" line="155"/>
         <source>Administrator</source>
-        <translation type="unfinished">Administrador</translation>
+        <translation>Administrador</translation>
     </message>
     <message>
         <location filename="../src/qml/User/Main.qml" line="168"/>
         <source>Cancel</source>
-        <translation type="unfinished">Cancelar</translation>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <location filename="../src/qml/User/Main.qml" line="178"/>
         <source>Add</source>
-        <translation type="unfinished">Agregar</translation>
+        <translation>Añadir</translation>
     </message>
     <message>
         <location filename="../src/qml/User/Main.qml" line="211"/>
@@ -703,7 +703,7 @@
         <location filename="../src/qml/User/Main.qml" line="219"/>
         <location filename="../src/qml/WLAN/Main.qml" line="99"/>
         <source>→</source>
-        <translation type="unfinished"></translation>
+        <translation>→</translation>
     </message>
     <message>
         <location filename="../src/qml/Wallpaper/Main.qml" line="12"/>
@@ -728,12 +728,12 @@
     <message>
         <location filename="../src/qml/Wallpaper/Main.qml" line="74"/>
         <source>Custom Images</source>
-        <translation type="unfinished"></translation>
+        <translation>Imágenes personalizadas</translation>
     </message>
     <message>
         <location filename="../src/qml/Wallpaper/Main.qml" line="322"/>
         <source>Use Custom Images</source>
-        <translation type="unfinished"></translation>
+        <translation>Use imágenes personalizadas</translation>
     </message>
     <message>
         <location filename="../src/qml/WLAN/Main.qml" line="13"/>
@@ -743,7 +743,7 @@
     <message>
         <location filename="../src/qml/WLAN/Main.qml" line="91"/>
         <source>Add other...</source>
-        <translation type="unfinished"></translation>
+        <translation>Añadir otras...</translation>
     </message>
     <message>
         <location filename="../src/qml/Bluetooth/Main.qml" line="11"/>
@@ -754,47 +754,47 @@
     <message>
         <location filename="../src/qml/Bluetooth/Main.qml" line="47"/>
         <source>Pairing unsuccessful</source>
-        <translation type="unfinished"></translation>
+        <translation>Emparejamiento fallido</translation>
     </message>
     <message>
         <location filename="../src/qml/Bluetooth/Main.qml" line="51"/>
         <source>Connecting Unsuccessful</source>
-        <translation type="unfinished"></translation>
+        <translation>Conexión fallida</translation>
     </message>
     <message>
         <location filename="../src/qml/Bluetooth/Main.qml" line="115"/>
         <source>My devices</source>
-        <translation type="unfinished"></translation>
+        <translation>Mis dispositivos</translation>
     </message>
     <message>
         <location filename="../src/qml/Bluetooth/Main.qml" line="116"/>
         <source>Other devices</source>
-        <translation type="unfinished"></translation>
+        <translation>Otros dispositivos</translation>
     </message>
     <message>
         <location filename="../src/qml/Bluetooth/Main.qml" line="187"/>
         <source>Connected</source>
-        <translation type="unfinished"></translation>
+        <translation>Conectado</translation>
     </message>
     <message>
         <location filename="../src/qml/Bluetooth/Main.qml" line="187"/>
         <source>Not Connected</source>
-        <translation type="unfinished"></translation>
+        <translation>Sin conexión</translation>
     </message>
     <message>
         <location filename="../src/qml/Bluetooth/Main.qml" line="206"/>
         <source>Connect</source>
-        <translation type="unfinished">Conectar</translation>
+        <translation>Conectar</translation>
     </message>
     <message>
         <location filename="../src/qml/Bluetooth/Main.qml" line="218"/>
         <source>Disconnect</source>
-        <translation type="unfinished"></translation>
+        <translation>Desconectar</translation>
     </message>
     <message>
         <location filename="../src/qml/Bluetooth/Main.qml" line="227"/>
         <source>Forget This Device</source>
-        <translation type="unfinished"></translation>
+        <translation>Olvidar este dispositivo</translation>
     </message>
     <message>
         <location filename="../src/qml/Wired/Main.qml" line="32"/>
@@ -820,7 +820,7 @@
     <message>
         <location filename="../src/qml/Application/Main.qml" line="41"/>
         <source>File manager</source>
-        <translation>Administrador de Archivos</translation>
+        <translation>Gestor de archivos</translation>
     </message>
     <message>
         <location filename="../src/qml/Application/Main.qml" line="49"/>
@@ -864,221 +864,221 @@
     <message>
         <location filename="../src/qml/Accessibility/Main.qml" line="12"/>
         <source>Accessibility</source>
-        <translation type="unfinished"></translation>
+        <translation>Accesibilidad</translation>
     </message>
     <message>
         <location filename="../src/qml/Accessibility/Main.qml" line="29"/>
         <source>Appearance enhancement</source>
-        <translation type="unfinished"></translation>
+        <translation>Mejorar la apariencia</translation>
     </message>
     <message>
         <location filename="../src/qml/Accessibility/Main.qml" line="36"/>
         <source>Deform windows while they are moving</source>
-        <translation type="unfinished"></translation>
+        <translation>Deformar ventanas en movimiento</translation>
     </message>
     <message>
         <location filename="../src/qml/Accessibility/Main.qml" line="52"/>
         <source>Display window thumbnails on the edge of the screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostrar miniaturas de ventanas en el borde de la pantalla</translation>
     </message>
     <message>
         <location filename="../src/qml/Accessibility/Main.qml" line="68"/>
         <source>Visualize touch points</source>
-        <translation type="unfinished"></translation>
+        <translation>Visualizar puntos de contacto</translation>
     </message>
     <message>
         <location filename="../src/qml/Accessibility/Main.qml" line="85"/>
         <source>Barrier free function</source>
-        <translation type="unfinished"></translation>
+        <translation>Función sin barreras</translation>
     </message>
     <message>
         <location filename="../src/qml/Accessibility/Main.qml" line="92"/>
         <source>Snap Helper</source>
-        <translation type="unfinished"></translation>
+        <translation>Asistente de Snap</translation>
     </message>
     <message>
         <location filename="../src/qml/Accessibility/Main.qml" line="108"/>
         <source>Dim Inactive</source>
-        <translation type="unfinished"></translation>
+        <translation>Atenuar inactiva</translation>
     </message>
     <message>
         <location filename="../src/qml/Cursor/Main.qml" line="12"/>
         <source>Mouse</source>
-        <translation type="unfinished"></translation>
+        <translation>Ratón</translation>
     </message>
     <message>
         <location filename="../src/qml/Cursor/Main.qml" line="42"/>
         <source>Left hand</source>
-        <translation type="unfinished"></translation>
+        <translation>Mano izquierda</translation>
     </message>
     <message>
         <location filename="../src/qml/Cursor/Main.qml" line="55"/>
         <location filename="../src/qml/Touchpad/Main.qml" line="89"/>
         <source>Natural scrolling</source>
-        <translation type="unfinished"></translation>
+        <translation>Desplazamiento natural</translation>
     </message>
     <message>
         <location filename="../src/qml/Cursor/Main.qml" line="95"/>
         <source>Pointer speed</source>
-        <translation type="unfinished"></translation>
+        <translation>Velocidad del puntero</translation>
     </message>
     <message>
         <location filename="../src/qml/DateTime/Main.qml" line="28"/>
         <source>Date &amp; Time</source>
-        <translation type="unfinished"></translation>
+        <translation>Fecha y hora</translation>
     </message>
     <message>
         <location filename="../src/qml/DateTime/Main.qml" line="56"/>
         <source>Auto Sync</source>
-        <translation type="unfinished"></translation>
+        <translation>Sincronización automática</translation>
     </message>
     <message>
         <location filename="../src/qml/DateTime/Main.qml" line="74"/>
         <source>24-Hour Time</source>
-        <translation type="unfinished"></translation>
+        <translation>24 horas</translation>
     </message>
     <message>
         <location filename="../src/qml/DateTime/Main.qml" line="103"/>
         <source>Time Zone</source>
-        <translation type="unfinished"></translation>
+        <translation>Huso horario</translation>
     </message>
     <message>
         <location filename="../src/qml/DefaultApp/Main.qml" line="29"/>
         <source>Default Applications</source>
-        <translation type="unfinished"></translation>
+        <translation>Aplicaciones por defecto</translation>
     </message>
     <message>
         <location filename="../src/qml/DefaultApp/Main.qml" line="49"/>
         <source>Web Browser</source>
-        <translation type="unfinished"></translation>
+        <translation>Navegador web</translation>
     </message>
     <message>
         <location filename="../src/qml/DefaultApp/Main.qml" line="66"/>
         <source>File Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Gestor de archivos</translation>
     </message>
     <message>
         <location filename="../src/qml/DefaultApp/Main.qml" line="83"/>
         <source>Email Client</source>
-        <translation type="unfinished"></translation>
+        <translation>Cliente de correo electrónico</translation>
     </message>
     <message>
         <location filename="../src/qml/DefaultApp/Main.qml" line="100"/>
         <source>Terminal</source>
-        <translation type="unfinished"></translation>
+        <translation>Terminal</translation>
     </message>
     <message>
         <location filename="../src/qml/Notification/Main.qml" line="28"/>
         <source>Notifications</source>
-        <translation type="unfinished"></translation>
+        <translation>Notificaciones</translation>
     </message>
     <message>
         <location filename="../src/qml/Notification/Main.qml" line="45"/>
         <source>Do Not Disturb</source>
-        <translation type="unfinished"></translation>
+        <translation>No molestar</translation>
     </message>
     <message>
         <location filename="../src/qml/Proxy/Main.qml" line="31"/>
         <source>Proxy</source>
-        <translation type="unfinished"></translation>
+        <translation>Proxy</translation>
     </message>
     <message>
         <location filename="../src/qml/Proxy/Main.qml" line="69"/>
         <source>No Proxy</source>
-        <translation type="unfinished"></translation>
+        <translation>Sin proxy</translation>
     </message>
     <message>
         <location filename="../src/qml/Proxy/Main.qml" line="78"/>
         <source>Use proxy auto configuration URL</source>
-        <translation type="unfinished"></translation>
+        <translation>Utilizar URL de configuración automática del proxy</translation>
     </message>
     <message>
         <location filename="../src/qml/Proxy/Main.qml" line="88"/>
         <source>Use manually specified proxy configuration</source>
-        <translation type="unfinished"></translation>
+        <translation>Utilizar la configuración de proxy manualmente</translation>
     </message>
     <message>
         <location filename="../src/qml/Proxy/Main.qml" line="120"/>
         <source>Select file</source>
-        <translation type="unfinished"></translation>
+        <translation>Seleccionar archivo</translation>
     </message>
     <message>
         <location filename="../src/qml/Proxy/Main.qml" line="134"/>
         <source>HTTP Proxy</source>
-        <translation type="unfinished"></translation>
+        <translation>Proxy HTTP</translation>
     </message>
     <message>
         <location filename="../src/qml/Proxy/Main.qml" line="148"/>
         <location filename="../src/qml/Proxy/Main.qml" line="204"/>
         <location filename="../src/qml/Proxy/Main.qml" line="238"/>
         <source>Port</source>
-        <translation type="unfinished"></translation>
+        <translation>Puerto</translation>
     </message>
     <message>
         <location filename="../src/qml/Proxy/Main.qml" line="171"/>
         <source>Also use this proxy for FTP</source>
-        <translation type="unfinished"></translation>
+        <translation>Utilizar también este proxy para FTP</translation>
     </message>
     <message>
         <location filename="../src/qml/Proxy/Main.qml" line="189"/>
         <source>FTP Proxy</source>
-        <translation type="unfinished"></translation>
+        <translation>Proxy FTP</translation>
     </message>
     <message>
         <location filename="../src/qml/Proxy/Main.qml" line="223"/>
         <source>SOCKS Proxy</source>
-        <translation type="unfinished"></translation>
+        <translation>Proxy del SOCKS</translation>
     </message>
     <message>
         <location filename="../src/qml/Sound/Main.qml" line="29"/>
         <source>Sound</source>
-        <translation type="unfinished"></translation>
+        <translation>Sonido</translation>
     </message>
     <message>
         <location filename="../src/qml/Sound/Main.qml" line="84"/>
         <source>Output Devices</source>
-        <translation type="unfinished"></translation>
+        <translation>Dispositivos de salida</translation>
     </message>
     <message>
         <location filename="../src/qml/Sound/Main.qml" line="173"/>
         <source>Input Devices</source>
-        <translation type="unfinished"></translation>
+        <translation>Dispositivos de entrada</translation>
     </message>
     <message>
         <location filename="../src/qml/Touchpad/Main.qml" line="28"/>
         <source>Touchpad</source>
-        <translation type="unfinished"></translation>
+        <translation>Panel táctil</translation>
     </message>
     <message>
         <location filename="../src/qml/Touchpad/Main.qml" line="52"/>
         <source>Enable</source>
-        <translation type="unfinished"></translation>
+        <translation>Activar</translation>
     </message>
     <message>
         <location filename="../src/qml/Touchpad/Main.qml" line="71"/>
         <source>Tap to click</source>
-        <translation type="unfinished"></translation>
+        <translation>Tocar para hacer clic</translation>
     </message>
     <message>
         <location filename="../src/qml/Touchpad/Main.qml" line="107"/>
         <source>Pointer acceleration</source>
-        <translation type="unfinished"></translation>
+        <translation>Aceleración del puntero</translation>
     </message>
     <message>
         <location filename="../src/qml/Update/Main.qml" line="30"/>
         <source>System Update</source>
-        <translation type="unfinished"></translation>
+        <translation>Actualización del sistema</translation>
     </message>
     <message>
         <location filename="../src/qml/VPN/Main.qml" line="28"/>
         <location filename="../src/qml/VPN/Main.qml" line="54"/>
         <source>VPN</source>
-        <translation type="unfinished"></translation>
+        <translation>VPN</translation>
     </message>
     <message>
         <location filename="../src/qml/SystemUpdate/Main.qml" line="10"/>
         <source>Update</source>
-        <translation type="unfinished"></translation>
+        <translation>Actualizar</translation>
     </message>
 </context>
 <context>
@@ -1086,44 +1086,44 @@
     <message>
         <location filename="../src/qml/WLAN/NewNetworkDialog.qml" line="74"/>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Nombre</translation>
     </message>
     <message>
         <location filename="../src/qml/WLAN/NewNetworkDialog.qml" line="79"/>
         <source>Network Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Nombre de la red</translation>
     </message>
     <message>
         <location filename="../src/qml/WLAN/NewNetworkDialog.qml" line="85"/>
         <source>Security</source>
-        <translation type="unfinished">Seguridad</translation>
+        <translation>Seguridad</translation>
     </message>
     <message>
         <location filename="../src/qml/WLAN/NewNetworkDialog.qml" line="92"/>
         <source>None</source>
-        <translation type="unfinished">Ninguno</translation>
+        <translation>Ninguno</translation>
     </message>
     <message>
         <location filename="../src/qml/WLAN/NewNetworkDialog.qml" line="97"/>
         <source>UserName</source>
-        <translation type="unfinished"></translation>
+        <translation>Nombre de usuario</translation>
     </message>
     <message>
         <location filename="../src/qml/WLAN/NewNetworkDialog.qml" line="103"/>
         <location filename="../src/qml/WLAN/NewNetworkDialog.qml" line="111"/>
         <location filename="../src/qml/WLAN/NewNetworkDialog.qml" line="117"/>
         <source>Password</source>
-        <translation type="unfinished">Contraseña</translation>
+        <translation>Contraseña</translation>
     </message>
     <message>
         <location filename="../src/qml/WLAN/NewNetworkDialog.qml" line="128"/>
         <source>Cancel</source>
-        <translation type="unfinished">Cancelar</translation>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <location filename="../src/qml/WLAN/NewNetworkDialog.qml" line="137"/>
         <source>Join</source>
-        <translation type="unfinished"></translation>
+        <translation>Únete a</translation>
     </message>
 </context>
 <context>
@@ -1131,17 +1131,17 @@
     <message>
         <location filename="../src/qml/Bluetooth/PairDialog.qml" line="52"/>
         <source>Bluetooth Pairing Request</source>
-        <translation type="unfinished"></translation>
+        <translation>Solicitud de emparejamiento Bluetooth</translation>
     </message>
     <message>
         <location filename="../src/qml/Bluetooth/PairDialog.qml" line="69"/>
         <source>Cancel</source>
-        <translation type="unfinished">Cancelar</translation>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <location filename="../src/qml/Bluetooth/PairDialog.qml" line="78"/>
         <source>OK</source>
-        <translation type="unfinished"></translation>
+        <translation>De acuerdo</translation>
     </message>
 </context>
 <context>
@@ -1182,7 +1182,7 @@
     <message>
         <location filename="../src/qml/SideBar.qml" line="95"/>
         <source>Display</source>
-        <translation>Interfaz</translation>
+        <translation>Pantalla</translation>
     </message>
     <message>
         <location filename="../src/qml/SideBar.qml" line="55"/>
@@ -1205,12 +1205,12 @@
     <message>
         <location filename="../src/qml/SideBar.qml" line="75"/>
         <source>Bluetooth</source>
-        <translation type="unfinished">Bluetooth</translation>
+        <translation>Bluetooth</translation>
     </message>
     <message>
         <location filename="../src/qml/SideBar.qml" line="85"/>
         <source>Proxy</source>
-        <translation type="unfinished"></translation>
+        <translation>Proxy</translation>
     </message>
     <message>
         <location filename="../src/qml/SideBar.qml" line="101"/>
@@ -1257,42 +1257,42 @@
     <message>
         <location filename="../src/qml/SideBar.qml" line="145"/>
         <source>Notifications</source>
-        <translation type="unfinished"></translation>
+        <translation>Notificaciones</translation>
     </message>
     <message>
         <location filename="../src/qml/SideBar.qml" line="155"/>
         <source>Sound</source>
-        <translation type="unfinished"></translation>
+        <translation>Sonido</translation>
     </message>
     <message>
         <location filename="../src/qml/SideBar.qml" line="165"/>
         <source>Mouse</source>
-        <translation type="unfinished"></translation>
+        <translation>Ratón</translation>
     </message>
     <message>
         <location filename="../src/qml/SideBar.qml" line="175"/>
         <source>Touchpad</source>
-        <translation type="unfinished"></translation>
+        <translation>Panel táctil</translation>
     </message>
     <message>
         <location filename="../src/qml/SideBar.qml" line="185"/>
         <source>Date &amp; Time</source>
-        <translation type="unfinished"></translation>
+        <translation>Fecha y hora</translation>
     </message>
     <message>
         <location filename="../src/qml/SideBar.qml" line="195"/>
         <source>Accessibility</source>
-        <translation type="unfinished"></translation>
+        <translation>Accesibilidad</translation>
     </message>
     <message>
         <location filename="../src/qml/SideBar.qml" line="205"/>
         <source>Default Applications</source>
-        <translation type="unfinished"></translation>
+        <translation>Aplicaciones por defecto</translation>
     </message>
     <message>
         <location filename="../src/qml/SideBar.qml" line="215"/>
         <source>Language</source>
-        <translation>Lenguaje</translation>
+        <translation>Idioma</translation>
     </message>
     <message>
         <location filename="../src/qml/SideBar.qml" line="225"/>
@@ -1302,17 +1302,17 @@
     <message>
         <location filename="../src/qml/SideBar.qml" line="235"/>
         <source>Power</source>
-        <translation type="unfinished">Energía</translation>
+        <translation>Energía</translation>
     </message>
     <message>
         <location filename="../src/qml/SideBar.qml" line="253"/>
         <source>About</source>
-        <translation>Acerca</translation>
+        <translation>Acerca de</translation>
     </message>
     <message>
         <location filename="../src/qml/SideBar.qml" line="258"/>
         <source>System &amp; Update</source>
-        <translation type="unfinished"></translation>
+        <translation>Sistema y actualización</translation>
     </message>
 </context>
 <context>
@@ -1320,12 +1320,12 @@
     <message>
         <location filename="../src/qml/DateTime/TimeZoneDialog.qml" line="142"/>
         <source>Cancel</source>
-        <translation type="unfinished">Cancelar</translation>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <location filename="../src/qml/DateTime/TimeZoneDialog.qml" line="147"/>
         <source>Set</source>
-        <translation type="unfinished"></translation>
+        <translation>Establecer</translation>
     </message>
 </context>
 <context>
@@ -1333,7 +1333,7 @@
     <message>
         <location filename="../src/qml/Update/UpdateItem.qml" line="80"/>
         <source>ChangeLogs</source>
-        <translation type="unfinished"></translation>
+        <translation>Registros de cambios</translation>
     </message>
 </context>
 <context>
@@ -1341,37 +1341,37 @@
     <message>
         <location filename="../src/qml/Update/UpdateItemsView.qml" line="33"/>
         <source>Available Updates</source>
-        <translation type="unfinished"></translation>
+        <translation>Actualizaciones disponibles</translation>
     </message>
     <message>
         <location filename="../src/qml/Update/UpdateItemsView.qml" line="60"/>
         <source>Processing</source>
-        <translation type="unfinished"></translation>
+        <translation>Procesando</translation>
     </message>
     <message>
         <location filename="../src/qml/Update/UpdateItemsView.qml" line="64"/>
         <source>Download error</source>
-        <translation type="unfinished"></translation>
+        <translation>Error en la descarga</translation>
     </message>
     <message>
         <location filename="../src/qml/Update/UpdateItemsView.qml" line="70"/>
         <source>Download finished</source>
-        <translation type="unfinished"></translation>
+        <translation>Descarga finalizada</translation>
     </message>
     <message>
         <location filename="../src/qml/Update/UpdateItemsView.qml" line="74"/>
         <source>Start installing</source>
-        <translation type="unfinished"></translation>
+        <translation>Iniciar la instalación</translation>
     </message>
     <message>
         <location filename="../src/qml/Update/UpdateItemsView.qml" line="78"/>
         <source>Installation error</source>
-        <translation type="unfinished"></translation>
+        <translation>Error en la instalación</translation>
     </message>
     <message>
         <location filename="../src/qml/Update/UpdateItemsView.qml" line="85"/>
         <source>Successfully installed</source>
-        <translation type="unfinished"></translation>
+        <translation>Instalación correcta</translation>
     </message>
 </context>
 <context>
@@ -1379,17 +1379,17 @@
     <message>
         <location filename="../src/qml/SystemUpdate/UpdatePage.qml" line="84"/>
         <source>Your system is up to date</source>
-        <translation type="unfinished"></translation>
+        <translation>Tu sistema está actualizado</translation>
     </message>
     <message>
         <location filename="../src/qml/SystemUpdate/UpdatePage.qml" line="90"/>
         <source>Current Version: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Versión actual: %1</translation>
     </message>
     <message>
         <location filename="../src/qml/SystemUpdate/UpdatePage.qml" line="197"/>
         <source>Update now</source>
-        <translation type="unfinished"></translation>
+        <translation>Actualizar ahora</translation>
     </message>
 </context>
 <context>
@@ -1397,37 +1397,37 @@
     <message>
         <location filename="../src/qml/Update/UpdateTitleBar.qml" line="52"/>
         <source>You&apos;re up to date</source>
-        <translation type="unfinished"></translation>
+        <translation>Estás al día</translation>
     </message>
     <message>
         <location filename="../src/qml/Update/UpdateTitleBar.qml" line="54"/>
         <source>Updates available</source>
-        <translation type="unfinished"></translation>
+        <translation>Actualizaciones disponibles</translation>
     </message>
     <message>
         <location filename="../src/qml/Update/UpdateTitleBar.qml" line="56"/>
         <source>Installing updates</source>
-        <translation type="unfinished"></translation>
+        <translation>Instalando las actualizaciones</translation>
     </message>
     <message>
         <location filename="../src/qml/Update/UpdateTitleBar.qml" line="58"/>
         <source>Checking updates</source>
-        <translation type="unfinished"></translation>
+        <translation>Comprobar las actualizaciones</translation>
     </message>
     <message>
         <location filename="../src/qml/Update/UpdateTitleBar.qml" line="60"/>
         <source>Error occurs in updating</source>
-        <translation type="unfinished"></translation>
+        <translation>Error al actualizar</translation>
     </message>
     <message>
         <location filename="../src/qml/Update/UpdateTitleBar.qml" line="88"/>
         <source>Check for updates</source>
-        <translation type="unfinished"></translation>
+        <translation>Buscar actualizaciones</translation>
     </message>
     <message>
         <location filename="../src/qml/Update/UpdateTitleBar.qml" line="102"/>
         <source>Update Now</source>
-        <translation type="unfinished"></translation>
+        <translation>Actualizar ahora</translation>
     </message>
 </context>
 <context>
@@ -1435,22 +1435,22 @@
     <message>
         <location filename="../src/qml/Update/UpdatesPage.qml" line="41"/>
         <source>Package updates are available</source>
-        <translation type="unfinished"></translation>
+        <translation>Actualizaciones de paquetes disponibles</translation>
     </message>
     <message>
         <location filename="../src/qml/Update/UpdatesPage.qml" line="47"/>
         <source>Your system is up to date</source>
-        <translation type="unfinished"></translation>
+        <translation>El sistema está actualizado</translation>
     </message>
     <message>
         <location filename="../src/qml/Update/UpdatesPage.qml" line="53"/>
         <source>Current Version: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Versión actual: %1</translation>
     </message>
     <message>
         <location filename="../src/qml/Update/UpdatesPage.qml" line="172"/>
         <source>Update now</source>
-        <translation type="unfinished"></translation>
+        <translation>Actualizar ahora</translation>
     </message>
 </context>
 <context>
@@ -1458,7 +1458,7 @@
     <message>
         <location filename="../src/qml/SystemUpdate/UpdatingPage.qml" line="43"/>
         <source>Updating, please wait</source>
-        <translation type="unfinished"></translation>
+        <translation>Actualizando, espere por favor</translation>
     </message>
 </context>
 <context>
@@ -1466,56 +1466,56 @@
     <message>
         <location filename="../src/qml/User/UserDelegateItem.qml" line="134"/>
         <source>Currently logged</source>
-        <translation>Actualmente ingresado</translation>
+        <translation>Actualmente conectado</translation>
     </message>
     <message>
         <location filename="../src/qml/User/UserDelegateItem.qml" line="169"/>
         <source>Account type</source>
-        <translation type="unfinished">Tipo de cuenta</translation>
+        <translation>Tipo de cuenta</translation>
     </message>
     <message>
         <location filename="../src/qml/User/UserDelegateItem.qml" line="173"/>
         <source>Standard</source>
-        <translation type="unfinished">Estándar</translation>
+        <translation>Estándar</translation>
     </message>
     <message>
         <location filename="../src/qml/User/UserDelegateItem.qml" line="174"/>
         <source>Administrator</source>
-        <translation type="unfinished">Administrador</translation>
+        <translation>Administrador</translation>
     </message>
     <message>
         <location filename="../src/qml/User/UserDelegateItem.qml" line="178"/>
         <source>Automatic login</source>
-        <translation>Ingreso automático</translation>
+        <translation>Inicio de sesión automático</translation>
     </message>
     <message>
         <location filename="../src/qml/User/UserDelegateItem.qml" line="204"/>
         <location filename="../src/qml/User/UserDelegateItem.qml" line="253"/>
         <location filename="../src/qml/User/UserDelegateItem.qml" line="272"/>
         <source>Change password</source>
-        <translation type="unfinished"></translation>
+        <translation>Cambiar contraseña</translation>
     </message>
     <message>
         <location filename="../src/qml/User/UserDelegateItem.qml" line="215"/>
         <location filename="../src/qml/User/UserDelegateItem.qml" line="221"/>
         <source>Password</source>
-        <translation type="unfinished">Contraseña</translation>
+        <translation>Contraseña</translation>
     </message>
     <message>
         <location filename="../src/qml/User/UserDelegateItem.qml" line="228"/>
         <location filename="../src/qml/User/UserDelegateItem.qml" line="234"/>
         <source>Verify password</source>
-        <translation type="unfinished">Verificar contraseña</translation>
+        <translation>Verificar contraseña</translation>
     </message>
     <message>
         <location filename="../src/qml/User/UserDelegateItem.qml" line="247"/>
         <source>Cancel</source>
-        <translation type="unfinished">Cancelar</translation>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <location filename="../src/qml/User/UserDelegateItem.qml" line="280"/>
         <source>Delete this user</source>
-        <translation>Borrar este usuario</translation>
+        <translation>Eliminar este usuario</translation>
     </message>
 </context>
 <context>
@@ -1544,7 +1544,7 @@
     <message>
         <location filename="../src/qml/WLAN/WifiItem.qml" line="257"/>
         <source>Disconnect</source>
-        <translation type="unfinished"></translation>
+        <translation>Desconectar</translation>
     </message>
 </context>
 <context>
@@ -1560,7 +1560,7 @@
     <message>
         <location filename="../src/qml/WLAN/WirelessDetailsDialog.qml" line="65"/>
         <source>Auto-Join</source>
-        <translation>Auto-Unirse</translation>
+        <translation>Unirse automáticamente</translation>
     </message>
     <message>
         <location filename="../src/qml/WLAN/WirelessDetailsDialog.qml" line="81"/>
@@ -1613,7 +1613,7 @@
     <message>
         <location filename="../src/qml/main.qml" line="29"/>
         <source>Settings</source>
-        <translation>Configuración</translation>
+        <translation>Ajustes</translation>
     </message>
 </context>
 </TS>
