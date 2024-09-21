@@ -34,7 +34,7 @@
     <message>
         <location filename="../src/qml/ChangeDialog.qml" line="177"/>
         <source>Ok</source>
-        <translation type="unfinished"></translation>
+        <translation>确定</translation>
     </message>
 </context>
 <context>
