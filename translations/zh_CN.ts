@@ -19,17 +19,17 @@
     <message>
         <location filename="../src/qml/ChangeDialog.qml" line="22"/>
         <source>Device</source>
-        <translation type="unfinished"></translation>
+        <translation>设备</translation>
     </message>
     <message>
         <location filename="../src/qml/ChangeDialog.qml" line="150"/>
         <source>Enter your new device name</source>
-        <translation type="unfinished"></translation>
+        <translation>输入新设备名称</translation>
     </message>
     <message>
         <location filename="../src/qml/ChangeDialog.qml" line="160"/>
         <source>New device name</source>
-        <translation type="unfinished"></translation>
+        <translation>新设备名称</translation>
     </message>
     <message>
         <location filename="../src/qml/ChangeDialog.qml" line="177"/>
@@ -70,7 +70,7 @@
     <message>
         <location filename="../src/update/downloadworker.cpp" line="146"/>
         <source>Download Failed, please retry :(</source>
-        <translation type="unfinished"></translation>
+        <translation>下载失败，请重试 :(</translation>
     </message>
 </context>
 <context>
@@ -78,22 +78,22 @@
     <message>
         <location filename="../src/qml/SystemUpdate/FinishedPage.qml" line="51"/>
         <source>The update is complete and we recommend that you restart your computer.</source>
-        <translation type="unfinished"></translation>
+        <translation>更新完成，请重新启动您的计算机。</translation>
     </message>
     <message>
         <location filename="../src/qml/SystemUpdate/FinishedPage.qml" line="58"/>
         <source>Update failed</source>
-        <translation type="unfinished"></translation>
+        <translation>更新失败了</translation>
     </message>
     <message>
         <location filename="../src/qml/SystemUpdate/FinishedPage.qml" line="70"/>
         <source>Exit</source>
-        <translation type="unfinished"></translation>
+        <translation>退出</translation>
     </message>
     <message>
         <location filename="../src/qml/SystemUpdate/FinishedPage.qml" line="77"/>
         <source>Reboot</source>
-        <translation type="unfinished"></translation>
+        <translation>重启</translation>
     </message>
 </context>
 <context>
@@ -101,28 +101,28 @@
     <message>
         <location filename="../src/qml/SystemUpdate/FirstPage.qml" line="83"/>
         <source>Has Update</source>
-        <translation type="unfinished"></translation>
+        <translation>更新可用</translation>
     </message>
     <message>
         <location filename="../src/qml/SystemUpdate/FirstPage.qml" line="89"/>
         <location filename="../src/qml/SystemUpdate/FirstPage.qml" line="202"/>
         <source>Current Version: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>当前版本：%1</translation>
     </message>
     <message>
         <location filename="../src/qml/SystemUpdate/FirstPage.qml" line="105"/>
         <source>Check Update</source>
-        <translation type="unfinished"></translation>
+        <translation>检查更新</translation>
     </message>
     <message>
         <location filename="../src/qml/SystemUpdate/FirstPage.qml" line="196"/>
         <source>Discover new versions:</source>
-        <translation type="unfinished"></translation>
+        <translation>发现新版本：</translation>
     </message>
     <message>
         <location filename="../src/qml/SystemUpdate/FirstPage.qml" line="217"/>
         <source>Update now</source>
-        <translation type="unfinished"></translation>
+        <translation>立即更新</translation>
     </message>
 </context>
 <context>
@@ -130,17 +130,17 @@
     <message>
         <location filename="../src/qml/SystemUpdate/HomePage.qml" line="65"/>
         <source>Checking for updates...</source>
-        <translation type="unfinished"></translation>
+        <translation>检查更新中......</translation>
     </message>
     <message>
         <location filename="../src/qml/SystemUpdate/HomePage.qml" line="88"/>
         <source>Check for update failure</source>
-        <translation type="unfinished"></translation>
+        <translation>更新检查失败</translation>
     </message>
     <message>
         <location filename="../src/qml/SystemUpdate/HomePage.qml" line="131"/>
         <source>Recheck</source>
-        <translation type="unfinished"></translation>
+        <translation>重新检查</translation>
     </message>
 </context>
 <context>
@@ -169,12 +169,12 @@
     <message>
         <location filename="../src/qml/About/Main.qml" line="145"/>
         <source>PC Name</source>
-        <translation type="unfinished"></translation>
+        <translation>设备名称</translation>
     </message>
     <message>
         <location filename="../src/qml/About/Main.qml" line="152"/>
         <source>System Name</source>
-        <translation type="unfinished"></translation>
+        <translation>系统名称</translation>
     </message>
     <message>
         <location filename="../src/qml/About/Main.qml" line="163"/>
@@ -372,12 +372,12 @@
     <message>
         <location filename="../src/qml/Appearance/Main.qml" line="363"/>
         <source>Desktop Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>桌面设置</translation>
     </message>
     <message>
         <location filename="../src/qml/Appearance/Main.qml" line="374"/>
         <source>Desktop Icons Size</source>
-        <translation type="unfinished"></translation>
+        <translation>桌面图标大小</translation>
     </message>
     <message>
         <location filename="../src/qml/Appearance/Main.qml" line="282"/>
@@ -728,7 +728,7 @@
         <location filename="../src/qml/User/Main.qml" line="219"/>
         <location filename="../src/qml/WLAN/Main.qml" line="99"/>
         <source>→</source>
-        <translation type="unfinished"></translation>
+        <translation>→</translation>
     </message>
     <message>
         <location filename="../src/qml/Wallpaper/Main.qml" line="12"/>
@@ -753,12 +753,12 @@
     <message>
         <location filename="../src/qml/Wallpaper/Main.qml" line="74"/>
         <source>Custom Images</source>
-        <translation type="unfinished"></translation>
+        <translation>自定义图片</translation>
     </message>
     <message>
         <location filename="../src/qml/Wallpaper/Main.qml" line="322"/>
         <source>Use Custom Images</source>
-        <translation type="unfinished"></translation>
+        <translation>使用自定义图片</translation>
     </message>
     <message>
         <location filename="../src/qml/WLAN/Main.qml" line="13"/>
@@ -1058,12 +1058,12 @@
     <message>
         <location filename="../src/qml/Update/Main.qml" line="30"/>
         <source>System Update</source>
-        <translation type="unfinished"></translation>
+        <translation>系统更新</translation>
     </message>
     <message>
         <location filename="../src/qml/SystemUpdate/Main.qml" line="10"/>
         <source>Update</source>
-        <translation type="unfinished"></translation>
+        <translation>更新</translation>
     </message>
 </context>
 <context>
@@ -1300,7 +1300,7 @@
     <message>
         <location filename="../src/qml/SideBar.qml" line="258"/>
         <source>System &amp; Update</source>
-        <translation type="unfinished"></translation>
+        <translation>系统&amp;更新</translation>
     </message>
 </context>
 <context>
@@ -1321,7 +1321,7 @@
     <message>
         <location filename="../src/qml/Update/UpdateItem.qml" line="80"/>
         <source>ChangeLogs</source>
-        <translation type="unfinished"></translation>
+        <translation>更新日志</translation>
     </message>
 </context>
 <context>
@@ -1329,37 +1329,37 @@
     <message>
         <location filename="../src/qml/Update/UpdateItemsView.qml" line="33"/>
         <source>Available Updates</source>
-        <translation type="unfinished"></translation>
+        <translation>可用更新</translation>
     </message>
     <message>
         <location filename="../src/qml/Update/UpdateItemsView.qml" line="60"/>
         <source>Processing</source>
-        <translation type="unfinished"></translation>
+        <translation>处理中</translation>
     </message>
     <message>
         <location filename="../src/qml/Update/UpdateItemsView.qml" line="64"/>
         <source>Download error</source>
-        <translation type="unfinished"></translation>
+        <translation>下载出错</translation>
     </message>
     <message>
         <location filename="../src/qml/Update/UpdateItemsView.qml" line="70"/>
         <source>Download finished</source>
-        <translation type="unfinished"></translation>
+        <translation>下载完成</translation>
     </message>
     <message>
         <location filename="../src/qml/Update/UpdateItemsView.qml" line="74"/>
         <source>Start installing</source>
-        <translation type="unfinished"></translation>
+        <translation>开始安装</translation>
     </message>
     <message>
         <location filename="../src/qml/Update/UpdateItemsView.qml" line="78"/>
         <source>Installation error</source>
-        <translation type="unfinished"></translation>
+        <translation>安装出错</translation>
     </message>
     <message>
         <location filename="../src/qml/Update/UpdateItemsView.qml" line="85"/>
         <source>Successfully installed</source>
-        <translation type="unfinished"></translation>
+        <translation>成功安装</translation>
     </message>
 </context>
 <context>
@@ -1367,17 +1367,17 @@
     <message>
         <location filename="../src/qml/SystemUpdate/UpdatePage.qml" line="84"/>
         <source>Your system is up to date</source>
-        <translation type="unfinished"></translation>
+        <translation>您的系统已经是最新的</translation>
     </message>
     <message>
         <location filename="../src/qml/SystemUpdate/UpdatePage.qml" line="90"/>
         <source>Current Version: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>当前版本：%1</translation>
     </message>
     <message>
         <location filename="../src/qml/SystemUpdate/UpdatePage.qml" line="197"/>
         <source>Update now</source>
-        <translation type="unfinished"></translation>
+        <translation>现在更新</translation>
     </message>
 </context>
 <context>
@@ -1385,37 +1385,37 @@
     <message>
         <location filename="../src/qml/Update/UpdateTitleBar.qml" line="52"/>
         <source>You&apos;re up to date</source>
-        <translation type="unfinished"></translation>
+        <translation>你使用的是最新本</translation>
     </message>
     <message>
         <location filename="../src/qml/Update/UpdateTitleBar.qml" line="54"/>
         <source>Updates available</source>
-        <translation type="unfinished"></translation>
+        <translation>更新可用</translation>
     </message>
     <message>
         <location filename="../src/qml/Update/UpdateTitleBar.qml" line="56"/>
         <source>Installing updates</source>
-        <translation type="unfinished"></translation>
+        <translation>安装更新</translation>
     </message>
     <message>
         <location filename="../src/qml/Update/UpdateTitleBar.qml" line="58"/>
         <source>Checking updates</source>
-        <translation type="unfinished"></translation>
+        <translation>检查更新</translation>
     </message>
     <message>
         <location filename="../src/qml/Update/UpdateTitleBar.qml" line="60"/>
         <source>Error occurs in updating</source>
-        <translation type="unfinished"></translation>
+        <translation>更新出错</translation>
     </message>
     <message>
         <location filename="../src/qml/Update/UpdateTitleBar.qml" line="88"/>
         <source>Check for updates</source>
-        <translation type="unfinished"></translation>
+        <translation>检查更新</translation>
     </message>
     <message>
         <location filename="../src/qml/Update/UpdateTitleBar.qml" line="102"/>
         <source>Update Now</source>
-        <translation type="unfinished"></translation>
+        <translation>现在更新</translation>
     </message>
 </context>
 <context>
@@ -1423,22 +1423,22 @@
     <message>
         <location filename="../src/qml/Update/UpdatesPage.qml" line="41"/>
         <source>Package updates are available</source>
-        <translation type="unfinished"></translation>
+        <translation>更新可用</translation>
     </message>
     <message>
         <location filename="../src/qml/Update/UpdatesPage.qml" line="47"/>
         <source>Your system is up to date</source>
-        <translation type="unfinished"></translation>
+        <translation>您的系统是最新版本</translation>
     </message>
     <message>
         <location filename="../src/qml/Update/UpdatesPage.qml" line="53"/>
         <source>Current Version: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>当前版本：%1</translation>
     </message>
     <message>
         <location filename="../src/qml/Update/UpdatesPage.qml" line="172"/>
         <source>Update now</source>
-        <translation type="unfinished"></translation>
+        <translation>现在更新</translation>
     </message>
 </context>
 <context>
@@ -1446,7 +1446,7 @@
     <message>
         <location filename="../src/qml/SystemUpdate/UpdatingPage.qml" line="43"/>
         <source>Updating, please wait</source>
-        <translation type="unfinished"></translation>
+        <translation>更新中，请等待</translation>
     </message>
 </context>
 <context>
