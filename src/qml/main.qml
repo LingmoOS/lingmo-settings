@@ -116,6 +116,6 @@ LingmoUI.Window {
         close.accepted = true
         // close.accepted = false;
         console.log("Close clicked!");
-        Qt.callLater(Qt.quit);
+        Qt.exit();
     }
 }

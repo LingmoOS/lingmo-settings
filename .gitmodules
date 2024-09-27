@@ -1,0 +1,3 @@
+[submodule "3rdparty/cpptrace"]
+	path = 3rdparty/cpptrace
+	url = https://github.com/jeremy-rifkin/cpptrace.git

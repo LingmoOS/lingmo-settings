@@ -103,9 +103,8 @@
 <context>
     <name>DownloadController</name>
     <message>
-        <location filename="../src/update/downloadworker.cpp" line="146"/>
         <source>Download Failed, please retry :(</source>
-        <translation>Descarga fallida, por favor vuelve a instalarlo :(</translation>
+        <translation type="vanished">Descarga fallida, por favor vuelve a instalarlo :(</translation>
     </message>
 </context>
 <context>
@@ -247,9 +246,8 @@
         <translation>Almacenamiento interno</translation>
     </message>
     <message>
-        <location filename="../src/qml/About/Main.qml" line="230"/>
         <source>Software Update</source>
-        <translation>Actualización de software</translation>
+        <translation type="vanished">Actualización de software</translation>
     </message>
     <message>
         <location filename="../src/qml/Appearance/Main.qml" line="11"/>
@@ -1065,9 +1063,8 @@
         <translation>Aceleración del puntero</translation>
     </message>
     <message>
-        <location filename="../src/qml/Update/Main.qml" line="30"/>
         <source>System Update</source>
-        <translation>Actualización del sistema</translation>
+        <translation type="vanished">Actualización del sistema</translation>
     </message>
     <message>
         <location filename="../src/qml/VPN/Main.qml" line="28"/>
@@ -1331,47 +1328,39 @@
 <context>
     <name>UpdateItem</name>
     <message>
-        <location filename="../src/qml/Update/UpdateItem.qml" line="80"/>
         <source>ChangeLogs</source>
-        <translation>Registros de cambios</translation>
+        <translation type="vanished">Registros de cambios</translation>
     </message>
 </context>
 <context>
     <name>UpdateItemsView</name>
     <message>
-        <location filename="../src/qml/Update/UpdateItemsView.qml" line="33"/>
         <source>Available Updates</source>
-        <translation>Actualizaciones disponibles</translation>
+        <translation type="vanished">Actualizaciones disponibles</translation>
     </message>
     <message>
-        <location filename="../src/qml/Update/UpdateItemsView.qml" line="60"/>
         <source>Processing</source>
-        <translation>Procesando</translation>
+        <translation type="vanished">Procesando</translation>
     </message>
     <message>
-        <location filename="../src/qml/Update/UpdateItemsView.qml" line="64"/>
         <source>Download error</source>
-        <translation>Error en la descarga</translation>
+        <translation type="vanished">Error en la descarga</translation>
     </message>
     <message>
-        <location filename="../src/qml/Update/UpdateItemsView.qml" line="70"/>
         <source>Download finished</source>
-        <translation>Descarga finalizada</translation>
+        <translation type="vanished">Descarga finalizada</translation>
     </message>
     <message>
-        <location filename="../src/qml/Update/UpdateItemsView.qml" line="74"/>
         <source>Start installing</source>
-        <translation>Iniciar la instalación</translation>
+        <translation type="vanished">Iniciar la instalación</translation>
     </message>
     <message>
-        <location filename="../src/qml/Update/UpdateItemsView.qml" line="78"/>
         <source>Installation error</source>
-        <translation>Error en la instalación</translation>
+        <translation type="vanished">Error en la instalación</translation>
     </message>
     <message>
-        <location filename="../src/qml/Update/UpdateItemsView.qml" line="85"/>
         <source>Successfully installed</source>
-        <translation>Instalación correcta</translation>
+        <translation type="vanished">Instalación correcta</translation>
     </message>
 </context>
 <context>
@@ -1433,24 +1422,20 @@
 <context>
     <name>UpdatesPage</name>
     <message>
-        <location filename="../src/qml/Update/UpdatesPage.qml" line="41"/>
         <source>Package updates are available</source>
-        <translation>Actualizaciones de paquetes disponibles</translation>
+        <translation type="vanished">Actualizaciones de paquetes disponibles</translation>
     </message>
     <message>
-        <location filename="../src/qml/Update/UpdatesPage.qml" line="47"/>
         <source>Your system is up to date</source>
-        <translation>El sistema está actualizado</translation>
+        <translation type="vanished">El sistema está actualizado</translation>
     </message>
     <message>
-        <location filename="../src/qml/Update/UpdatesPage.qml" line="53"/>
         <source>Current Version: %1</source>
-        <translation>Versión actual: %1</translation>
+        <translation type="vanished">Versión actual: %1</translation>
     </message>
     <message>
-        <location filename="../src/qml/Update/UpdatesPage.qml" line="172"/>
         <source>Update now</source>
-        <translation>Actualizar ahora</translation>
+        <translation type="vanished">Actualizar ahora</translation>
     </message>
 </context>
 <context>

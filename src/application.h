@@ -13,6 +13,8 @@ class Application : public QApplication {
 
  public:
   explicit Application(int &argc, char **argv);
+ ~Application() = default;
+
   void addPage(QString title, QString name, QString page, QString iconSource,
                QString iconColor, QString category);
   void switchToPage(const QString &name);
