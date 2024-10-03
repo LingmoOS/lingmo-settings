@@ -1,7 +1,7 @@
 /*
  * Copyright (C) 2024 LingmoOS Team.
  *
- * Author:     revenmartin <revenmartin@gmail.com>
+ * Author:     Lingmo OS Team <team@lingmo.org>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by

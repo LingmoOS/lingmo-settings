@@ -175,6 +175,7 @@ LingmoUI.Window {
             Layout.rightMargin: 20
             flat: true
             text: qsTr("Ok")
+            
         }
 
         // Label {
