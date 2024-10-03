@@ -45,8 +45,8 @@ Rectangle {
     ColumnLayout {
         id: _mainLayout
         anchors.fill: parent
-        anchors.leftMargin: LingmoUI.Units.largeSpacing * 1.5
-        anchors.rightMargin: LingmoUI.Units.largeSpacing * 1.5
+        anchors.leftMargin: LingmoUI.Units.largeSpacing * 1
+        anchors.rightMargin: LingmoUI.Units.largeSpacing * 1
         anchors.topMargin: LingmoUI.Units.largeSpacing
         anchors.bottomMargin: LingmoUI.Units.largeSpacing
         spacing: LingmoUI.Units.largeSpacing

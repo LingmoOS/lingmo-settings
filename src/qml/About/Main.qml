@@ -48,7 +48,7 @@ ItemPage {
                     id: lbt
                     anchors {
                         centerIn: parent
-                        verticalCenter: parent.verticalCenter
+                        // verticalCenter: parent.verticalCenter
                     }
                     height: sysinf.height/1.2
                     width: 2
@@ -73,8 +73,8 @@ ItemPage {
 
                     Image {
                         id: _image
-                        width: deviceItem.width - 5
-                        height: deviceItem.height - 5
+                        width: deviceItem.width - 6
+                        height: deviceItem.height - 6
                         anchors {
                             verticalCenter: parent.verticalCenter
                             horizontalCenter: parent.horizontalCenter
@@ -149,7 +149,7 @@ ItemPage {
                 Horizontalabt {}
 
                 StandardItem {
-                    key: qsTr("System Name")
+                    key: qsTr("OS Version")
                     value: about.version
                 }
             }
@@ -159,18 +159,130 @@ ItemPage {
             }
 
             RoundedItem {
-                StandardItem {
-                    key: qsTr("Desktop Version")
-                    value: about.desktopversion
+                id: upItem
+
+                Rectangle {
+                    id: recup
+                    anchors.fill: parent
+                    color: "transparent"
+                    radius: LingmoUI.Theme.smallRadius
+                }
+
+                Grid {
+                    Layout.fillWidth: true
+                    spacing: 5
+                    rows: 1
+                    columns: 4
+                    // Rectangle {
+                    //     id: display
+                    //     width: upItem.width/4
+                    //     height: 50
+                    //     color: "transparent"
+                        
+                    //     InfoItem {
+                            
+                    //         key: qsTr("Display")
+                    //         value: about.displayInfo
+                    //     }
+                    // }
+                    Rectangle {
+                        id: cpu
+                        width: upItem.width/4
+                        height: 50
+                        color: "transparent"
+                        InfoItem {
+                            key: qsTr("CPU")
+                            value: about.cpuInfo
+                        }
+                    }
+                    Rectangle {
+                        id: systype
+                        width: upItem.width/4
+                        height: 50
+                        color: "transparent"
+                        InfoItem {
+                            key: qsTr("System Type")
+                            value: about.architecture
+                        }
+                    }
+                    
+                    Rectangle {
+                        id: ram
+                        width: upItem.width/4
+                        height: 50
+                        color: "transparent"
+                        InfoItem {
+                            key: qsTr("RAM")
+                            value: about.memorySize
+                        }
+                    }
+                    Rectangle {
+                        id: disk
+                        width: upItem.width/4
+                        height: 50
+                        color: "transparent"
+                        InfoItem {
+                            key: qsTr("Disk")
+                            value: about.internalStorage
+                        }
+                    }
                 }
 
                 Horizontalabt {}
 
-                StandardItem {
-                    key: qsTr("UI Version")
-                    value: about.uiversion
+                Rectangle {
+                    id: recdown
+                    anchors.fill: parent
+                    color: "transparent"
+                    radius: LingmoUI.Theme.smallRadius
                 }
 
+                Grid {
+                    Layout.fillWidth: true
+                    spacing: 3
+                    rows: 1
+                    columns: 4
+                    Rectangle {
+                        id: debianversion
+                        width: upItem.width/4
+                        height: 50
+                        color: "transparent"
+                        InfoItem {
+                            key: qsTr("Debian Version")
+                            value: qsTr("13 Trixie")
+                        }
+                    }
+                    Rectangle {
+                        id: kernel
+                        width: upItem.width/4
+                        height: 50
+                        color: "transparent"
+                        InfoItem {
+                            key: qsTr("Linux Kernel Version")
+                            value: qsTr("Linux ") + about.kernelVersion
+                        }
+                    }
+                    Rectangle {
+                        id: uiversion
+                        width: upItem.width/4
+                        height: 50
+                        color: "transparent"
+                        InfoItem {
+                            key: qsTr("Lingmo UI Version")
+                            value: about.uiversion
+                        }
+                    }
+                    // Rectangle {
+                    //     id: merit
+                    //     width: upItem.width/4
+                    //     height: 50
+                    //     color: "transparent"
+                    //     InfoItem {
+                    //         key: qsTr("Lingmo OS Merit Wall")
+                    //         value: qsTr("Click here to visit")
+                    //     }
+                    // }
+                }
             }
 
             Item {
@@ -178,47 +290,81 @@ ItemPage {
             }
 
             RoundedItem {
+                
                 StandardItem {
-                    key: qsTr("System Type")
-                    value: about.architecture
+                    key: qsTr("System Update")
+                    value: qsTr("null")
                 }
 
-                Horizontalabt {
-                    
-                }
-
-                StandardItem {
-                    key: qsTr("Kernel Version")
-                    value: about.kernelVersion
-                }
-
-                Horizontalabt {
-
-                }
+                Horizontalabt {}
 
                 StandardItem {
-                    key: qsTr("Processor")
-                    value: about.cpuInfo
+                    key: qsTr("Open Source Software Statement")
                 }
 
-                Horizontalabt {
-
-                }
-
-                StandardItem {
-                    key: qsTr("RAM")
-                    value: about.memorySize
-                }
-
-                Horizontalabt {
-
-                }
-
-                StandardItem {
-                    key: qsTr("Internal Storage")
-                    value: about.internalStorage
-                }
             }
+
+            // RoundedItem {
+            //     StandardItem {
+            //         key: qsTr("Desktop Version")
+            //         value: about.desktopversion
+            //     }
+
+            //     Horizontalabt {}
+
+            //     StandardItem {
+            //         key: qsTr("UI Version")
+            //         value: about.uiversion
+            //     }
+
+            // }
+
+            // Item {
+            //     height: LingmoUI.Units.smallSpacing
+            // }
+
+            // RoundedItem {
+            //     StandardItem {
+            //         key: qsTr("System Type")
+            //         value: about.architecture
+            //     }
+
+            //     Horizontalabt {
+                    
+            //     }
+
+            //     StandardItem {
+            //         key: qsTr("Kernel Version")
+            //         value: about.kernelVersion
+            //     }
+
+            //     Horizontalabt {
+
+            //     }
+
+            //     StandardItem {
+            //         key: qsTr("Processor")
+            //         value: about.cpuInfo
+            //     }
+
+            //     Horizontalabt {
+
+            //     }
+
+            //     StandardItem {
+            //         key: qsTr("RAM")
+            //         value: about.memorySize
+            //     }
+
+            //     Horizontalabt {
+
+            //     }
+
+            //     StandardItem {
+            //         key: qsTr("Internal Storage")
+            //         value: about.internalStorage
+            //     }
+            // }
 
             Item {
                 height: LingmoUI.Units.smallSpacing

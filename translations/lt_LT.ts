@@ -101,14 +101,6 @@
     </message>
 </context>
 <context>
-    <name>DownloadController</name>
-    <message>
-        <location filename="../src/update/downloadworker.cpp" line="146"/>
-        <source>Download Failed, please retry :(</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>FinishedPage</name>
     <message>
         <location filename="../src/qml/SystemUpdate/FinishedPage.qml" line="51"/>
@@ -194,6 +186,66 @@
         <translation>Apie</translation>
     </message>
     <message>
+        <location filename="../src/qml/About/Main.qml" line="152"/>
+        <source>OS Version</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qml/About/Main.qml" line="194"/>
+        <source>CPU</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qml/About/Main.qml" line="215"/>
+        <source>RAM</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qml/About/Main.qml" line="225"/>
+        <source>Disk</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qml/About/Main.qml" line="251"/>
+        <source>Debian Version</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qml/About/Main.qml" line="252"/>
+        <source>13 Trixie</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qml/About/Main.qml" line="261"/>
+        <source>Linux Kernel Version</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qml/About/Main.qml" line="262"/>
+        <source>Linux </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qml/About/Main.qml" line="271"/>
+        <source>Lingmo UI Version</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qml/About/Main.qml" line="295"/>
+        <source>System Update</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qml/About/Main.qml" line="296"/>
+        <source>null</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qml/About/Main.qml" line="302"/>
+        <source>Open Source Software Statement</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Built on %1</source>
         <translation type="vanished">Sudaryta ties %1</translation>
     </message>
@@ -207,49 +259,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qml/About/Main.qml" line="152"/>
-        <source>System Name</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/qml/About/Main.qml" line="163"/>
-        <source>Desktop Version</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/qml/About/Main.qml" line="170"/>
-        <source>UI Version</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/qml/About/Main.qml" line="182"/>
+        <location filename="../src/qml/About/Main.qml" line="204"/>
         <source>System Type</source>
         <translation>Sistemos tipas</translation>
     </message>
     <message>
-        <location filename="../src/qml/About/Main.qml" line="191"/>
         <source>Kernel Version</source>
-        <translation>Branduolio versija</translation>
+        <translation type="vanished">Branduolio versija</translation>
     </message>
     <message>
-        <location filename="../src/qml/About/Main.qml" line="200"/>
         <source>Processor</source>
-        <translation>Procesorius</translation>
-    </message>
-    <message>
-        <location filename="../src/qml/About/Main.qml" line="209"/>
-        <source>RAM</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/qml/About/Main.qml" line="218"/>
-        <source>Internal Storage</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/qml/About/Main.qml" line="230"/>
-        <source>Software Update</source>
-        <translation type="unfinished"></translation>
+        <translation type="vanished">Procesorius</translation>
     </message>
     <message>
         <location filename="../src/qml/Appearance/Main.qml" line="11"/>
@@ -1057,11 +1077,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qml/Update/Main.qml" line="30"/>
-        <source>System Update</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../src/qml/VPN/Main.qml" line="28"/>
         <location filename="../src/qml/VPN/Main.qml" line="54"/>
         <source>VPN</source>
@@ -1172,22 +1187,17 @@
         <translation>Naudotojas</translation>
     </message>
     <message>
-        <location filename="../src/qml/SideBar.qml" line="95"/>
-        <source>Display</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/qml/SideBar.qml" line="55"/>
-        <source>WLAN</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../src/qml/SideBar.qml" line="61"/>
         <location filename="../src/qml/SideBar.qml" line="71"/>
         <location filename="../src/qml/SideBar.qml" line="81"/>
         <location filename="../src/qml/SideBar.qml" line="91"/>
         <source>Network and connection</source>
         <translation>Tinklas ir ryšys</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/SideBar.qml" line="55"/>
+        <source>WLAN</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/qml/SideBar.qml" line="65"/>
@@ -1205,6 +1215,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../src/qml/SideBar.qml" line="95"/>
+        <source>Display</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../src/qml/SideBar.qml" line="101"/>
         <location filename="../src/qml/SideBar.qml" line="111"/>
         <location filename="../src/qml/SideBar.qml" line="121"/>
@@ -1216,6 +1231,11 @@
         <location filename="../src/qml/SideBar.qml" line="105"/>
         <source>Appearance</source>
         <translation>Išvaizda</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/SideBar.qml" line="125"/>
+        <source>Dock</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/qml/SideBar.qml" line="145"/>
@@ -1233,6 +1253,12 @@
         <translation>Pelė</translation>
     </message>
     <message>
+        <location filename="../src/qml/SideBar.qml" line="244"/>
+        <source>System Update</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qml/SideBar.qml" line="249"/>
         <location filename="../src/qml/SideBar.qml" line="258"/>
         <source>System &amp; Update</source>
         <translation type="unfinished"></translation>
@@ -1245,11 +1271,6 @@
         <location filename="../src/qml/SideBar.qml" line="115"/>
         <source>Background</source>
         <translation>Fonas</translation>
-    </message>
-    <message>
-        <location filename="../src/qml/SideBar.qml" line="125"/>
-        <source>Dock</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/qml/SideBar.qml" line="141"/>
@@ -1321,52 +1342,6 @@
     </message>
 </context>
 <context>
-    <name>UpdateItem</name>
-    <message>
-        <location filename="../src/qml/Update/UpdateItem.qml" line="80"/>
-        <source>ChangeLogs</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>UpdateItemsView</name>
-    <message>
-        <location filename="../src/qml/Update/UpdateItemsView.qml" line="33"/>
-        <source>Available Updates</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/qml/Update/UpdateItemsView.qml" line="60"/>
-        <source>Processing</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/qml/Update/UpdateItemsView.qml" line="64"/>
-        <source>Download error</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/qml/Update/UpdateItemsView.qml" line="70"/>
-        <source>Download finished</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/qml/Update/UpdateItemsView.qml" line="74"/>
-        <source>Start installing</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/qml/Update/UpdateItemsView.qml" line="78"/>
-        <source>Installation error</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/qml/Update/UpdateItemsView.qml" line="85"/>
-        <source>Successfully installed</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>UpdatePage</name>
     <message>
         <location filename="../src/qml/SystemUpdate/UpdatePage.qml" line="84"/>
@@ -1419,29 +1394,6 @@
     <message>
         <location filename="../src/qml/Update/UpdateTitleBar.qml" line="102"/>
         <source>Update Now</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>UpdatesPage</name>
-    <message>
-        <location filename="../src/qml/Update/UpdatesPage.qml" line="41"/>
-        <source>Package updates are available</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/qml/Update/UpdatesPage.qml" line="47"/>
-        <source>Your system is up to date</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/qml/Update/UpdatesPage.qml" line="53"/>
-        <source>Current Version: %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/qml/Update/UpdatesPage.qml" line="172"/>
-        <source>Update now</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

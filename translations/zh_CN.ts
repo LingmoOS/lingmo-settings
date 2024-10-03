@@ -68,9 +68,8 @@
 <context>
     <name>DownloadController</name>
     <message>
-        <location filename="../src/update/downloadworker.cpp" line="146"/>
         <source>Download Failed, please retry :(</source>
-        <translation>下载失败，请重试 :(</translation>
+        <translation type="vanished">下载失败，请重试 :(</translation>
     </message>
 </context>
 <context>
@@ -159,8 +158,54 @@
         <translation>关于</translation>
     </message>
     <message>
+        <location filename="../src/qml/About/Main.qml" line="152"/>
         <source>OS Version</source>
-        <translation type="vanished">操作系统版本</translation>
+        <translation>操作系统版本</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/About/Main.qml" line="194"/>
+        <source>CPU</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qml/About/Main.qml" line="225"/>
+        <source>Disk</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qml/About/Main.qml" line="251"/>
+        <source>Debian Version</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qml/About/Main.qml" line="252"/>
+        <source>13 Trixie</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qml/About/Main.qml" line="261"/>
+        <source>Linux Kernel Version</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qml/About/Main.qml" line="262"/>
+        <source>Linux </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qml/About/Main.qml" line="271"/>
+        <source>Lingmo UI Version</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qml/About/Main.qml" line="296"/>
+        <source>null</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qml/About/Main.qml" line="302"/>
+        <source>Open Source Software Statement</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>System Release</source>
@@ -172,49 +217,42 @@
         <translation>设备名称</translation>
     </message>
     <message>
-        <location filename="../src/qml/About/Main.qml" line="152"/>
         <source>System Name</source>
-        <translation>系统名称</translation>
+        <translation type="vanished">系统名称</translation>
     </message>
     <message>
-        <location filename="../src/qml/About/Main.qml" line="163"/>
         <source>Desktop Version</source>
-        <translation>桌面环境版本</translation>
+        <translation type="vanished">桌面环境版本</translation>
     </message>
     <message>
-        <location filename="../src/qml/About/Main.qml" line="170"/>
         <source>UI Version</source>
-        <translation>UI版本</translation>
+        <translation type="vanished">UI版本</translation>
     </message>
     <message>
-        <location filename="../src/qml/About/Main.qml" line="182"/>
+        <location filename="../src/qml/About/Main.qml" line="204"/>
         <source>System Type</source>
         <translation>系统类型</translation>
     </message>
     <message>
-        <location filename="../src/qml/About/Main.qml" line="191"/>
         <source>Kernel Version</source>
-        <translation>内核版本</translation>
+        <translation type="vanished">内核版本</translation>
     </message>
     <message>
-        <location filename="../src/qml/About/Main.qml" line="200"/>
         <source>Processor</source>
-        <translation>处理器</translation>
+        <translation type="vanished">处理器</translation>
     </message>
     <message>
-        <location filename="../src/qml/About/Main.qml" line="209"/>
+        <location filename="../src/qml/About/Main.qml" line="215"/>
         <source>RAM</source>
         <translation>内存大小</translation>
     </message>
     <message>
-        <location filename="../src/qml/About/Main.qml" line="218"/>
         <source>Internal Storage</source>
-        <translation>内部存储</translation>
+        <translation type="vanished">内部存储</translation>
     </message>
     <message>
-        <location filename="../src/qml/About/Main.qml" line="230"/>
         <source>Software Update</source>
-        <translation>软件更新</translation>
+        <translation type="vanished">软件更新</translation>
     </message>
     <message>
         <source>h</source>
@@ -1056,7 +1094,7 @@
         <translation>勿扰模式</translation>
     </message>
     <message>
-        <location filename="../src/qml/Update/Main.qml" line="30"/>
+        <location filename="../src/qml/About/Main.qml" line="295"/>
         <source>System Update</source>
         <translation>系统更新</translation>
     </message>
@@ -1293,11 +1331,17 @@
         <translation>电源</translation>
     </message>
     <message>
+        <location filename="../src/qml/SideBar.qml" line="244"/>
+        <source>System Update</source>
+        <translation type="unfinished">系统更新</translation>
+    </message>
+    <message>
         <location filename="../src/qml/SideBar.qml" line="253"/>
         <source>About</source>
         <translation>关于</translation>
     </message>
     <message>
+        <location filename="../src/qml/SideBar.qml" line="249"/>
         <location filename="../src/qml/SideBar.qml" line="258"/>
         <source>System &amp; Update</source>
         <translation>系统&amp;更新</translation>
@@ -1319,47 +1363,39 @@
 <context>
     <name>UpdateItem</name>
     <message>
-        <location filename="../src/qml/Update/UpdateItem.qml" line="80"/>
         <source>ChangeLogs</source>
-        <translation>更新日志</translation>
+        <translation type="vanished">更新日志</translation>
     </message>
 </context>
 <context>
     <name>UpdateItemsView</name>
     <message>
-        <location filename="../src/qml/Update/UpdateItemsView.qml" line="33"/>
         <source>Available Updates</source>
-        <translation>可用更新</translation>
+        <translation type="vanished">可用更新</translation>
     </message>
     <message>
-        <location filename="../src/qml/Update/UpdateItemsView.qml" line="60"/>
         <source>Processing</source>
-        <translation>处理中</translation>
+        <translation type="vanished">处理中</translation>
     </message>
     <message>
-        <location filename="../src/qml/Update/UpdateItemsView.qml" line="64"/>
         <source>Download error</source>
-        <translation>下载出错</translation>
+        <translation type="vanished">下载出错</translation>
     </message>
     <message>
-        <location filename="../src/qml/Update/UpdateItemsView.qml" line="70"/>
         <source>Download finished</source>
-        <translation>下载完成</translation>
+        <translation type="vanished">下载完成</translation>
     </message>
     <message>
-        <location filename="../src/qml/Update/UpdateItemsView.qml" line="74"/>
         <source>Start installing</source>
-        <translation>开始安装</translation>
+        <translation type="vanished">开始安装</translation>
     </message>
     <message>
-        <location filename="../src/qml/Update/UpdateItemsView.qml" line="78"/>
         <source>Installation error</source>
-        <translation>安装出错</translation>
+        <translation type="vanished">安装出错</translation>
     </message>
     <message>
-        <location filename="../src/qml/Update/UpdateItemsView.qml" line="85"/>
         <source>Successfully installed</source>
-        <translation>成功安装</translation>
+        <translation type="vanished">成功安装</translation>
     </message>
 </context>
 <context>
@@ -1421,24 +1457,20 @@
 <context>
     <name>UpdatesPage</name>
     <message>
-        <location filename="../src/qml/Update/UpdatesPage.qml" line="41"/>
         <source>Package updates are available</source>
-        <translation>更新可用</translation>
+        <translation type="vanished">更新可用</translation>
     </message>
     <message>
-        <location filename="../src/qml/Update/UpdatesPage.qml" line="47"/>
         <source>Your system is up to date</source>
-        <translation>您的系统是最新版本</translation>
+        <translation type="vanished">您的系统是最新版本</translation>
     </message>
     <message>
-        <location filename="../src/qml/Update/UpdatesPage.qml" line="53"/>
         <source>Current Version: %1</source>
-        <translation>当前版本：%1</translation>
+        <translation type="vanished">当前版本：%1</translation>
     </message>
     <message>
-        <location filename="../src/qml/Update/UpdatesPage.qml" line="172"/>
         <source>Update now</source>
-        <translation>现在更新</translation>
+        <translation type="vanished">现在更新</translation>
     </message>
 </context>
 <context>

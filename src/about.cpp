@@ -6,6 +6,7 @@
 #include <QSettings>
 #include <QProcess>
 #include <QHostInfo>
+#include <QOpenGLContext>
 
 #ifdef Q_OS_LINUX
 #include <sys/sysinfo.h>
@@ -122,6 +123,16 @@ QString About::updateversion()
     QSettings settings("/etc/update/time", QSettings::IniFormat);
     return settings.value("TIME").toString();
 }
+
+// QString About::displayInfo()
+// {
+//     QString dinfo;
+//     QOpenGLContext context;
+//     // QSurfaceFormat format = context.format();
+//     context.create();
+//     dinfo = context.format().rendererString();
+//     return dinfo;
+// }
 
 QString About::osName()
 {
