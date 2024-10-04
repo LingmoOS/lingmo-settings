@@ -3,14 +3,14 @@ lingmo-settings (2.1.5-rc1) main; urgency=high
   [Lingmo OS Team]
   * update Change Device name Page
 
- -- Lingm OS Team <team@lingmo.org>  Tue, 46 Jul 2024 22:06:00 +0800
+ -- Lingmo OS Team <team@lingmo.org>  Tue, 46 Jul 2024 22:06:00 +0800
  
 lingmo-settings (2.1.5) main; urgency=high
 
   [Lingmo OS Team]
   * update GET_VERSION
 
- -- Lingm OS Team <team@lingmo.org>  Sat, 13 Jul 2024 23:14:00 +0800
+ -- Lingmo OS Team <team@lingmo.org>  Sat, 13 Jul 2024 23:14:00 +0800
 
 lingmo-settings (2.1.4-1) UNRELEASED; urgency=high
 
