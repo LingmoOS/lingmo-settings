@@ -57,17 +57,17 @@
         <translation>Dispositivo</translation>
     </message>
     <message>
-        <location filename="../src/qml/ChangeDialog.qml" line="150"/>
+        <location filename="../src/qml/ChangeDialog.qml" line="154"/>
         <source>Enter your new device name</source>
         <translation>Introduce el nombre de tu nuevo dispositivo</translation>
     </message>
     <message>
-        <location filename="../src/qml/ChangeDialog.qml" line="160"/>
+        <location filename="../src/qml/ChangeDialog.qml" line="164"/>
         <source>New device name</source>
         <translation>Nombre del nuevo dispositivo</translation>
     </message>
     <message>
-        <location filename="../src/qml/ChangeDialog.qml" line="177"/>
+        <location filename="../src/qml/ChangeDialog.qml" line="181"/>
         <source>Ok</source>
         <translation>De acuerdo</translation>
     </message>
