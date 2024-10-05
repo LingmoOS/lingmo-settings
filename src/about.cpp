@@ -4,6 +4,7 @@
 #include <QStorageInfo>
 #include <QRegularExpression>
 #include <QSettings>
+#include <QDebug>
 #include <QProcess>
 #include <QHostInfo>
 #include <QOpenGLContext>

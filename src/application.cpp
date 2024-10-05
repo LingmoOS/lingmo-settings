@@ -12,6 +12,7 @@
 // #include <QtWebEngine>
 
 #include "about.h"
+// #include "hostname.h"
 #include "accessibility.h"
 #include "appearance.h"
 #include "background.h"
@@ -83,6 +84,7 @@ Application::Application(int &argc, char **argv) : QApplication(argc, argv) {
   qmlRegisterType<Background>(uri, 1, 0, "Background");
   qmlRegisterType<Language>(uri, 1, 0, "Language");
   qmlRegisterType<Fonts>(uri, 1, 0, "Fonts");
+//  qmlRegisterType<HostNameChanger>(uri, 1, 0, "HostNameChanger");
   qmlRegisterType<PowerManager>(uri, 1, 0, "PowerManager");
   qmlRegisterType<Mouse>(uri, 1, 0, "Mouse");
   qmlRegisterType<Time>(uri, 1, 0, "Time");

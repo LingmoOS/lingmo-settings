@@ -74,8 +74,8 @@ Item {
         }
 
         Label {
-            // text: "<b>" + qsTr("Package updates are available") + "</b>"
-            text: "ChangeLogs: " + updator.changelogs
+            text: "<b>" + qsTr("Package updates are available") + "</b>"
+            // text: "ChangeLogs: " + updator.changelogs
             visible: _updateInfo.count !== 0
             Layout.alignment: Qt.AlignHCenter
         }
@@ -126,7 +126,7 @@ Item {
 
             delegate: Item {
                 width: ListView.view.width
-                height: 50
+                height: 55
 
                 Rectangle {
                     anchors.fill: parent
@@ -146,7 +146,9 @@ Item {
                         height: 32
                         width: 32
                         sourceSize: Qt.size(width, height)
-                        source: "image://icontheme/" + model.name
+                        // source: "image://icontheme/" + model.name
+                        // source: "image://icontheme/" + "lingmo-core"
+                        source: "qrc:/images/lingmo.svg"
                         smooth: true
                         antialiasing: true
                     }
@@ -165,13 +167,16 @@ Item {
                             }
 
                             Label {
-                                text: model.name
+                                // text: model.name
+                                text: qsTr("Lingmo OS")
                                 Layout.fillWidth: true
+                                font.pointSize: 11
                             }
 
                             Label {
                                 text: model.version
                                 color: LingmoUI.Theme.disabledTextColor
+                                font.pointSize: 9
                             }
 
                             Item {
@@ -182,10 +187,66 @@ Item {
 
                     // Size
                     Label {
-                        text: model.downloadSize
+                        text: model.installedSize
                         color: LingmoUI.Theme.disabledTextColor
+                        font.pointSize: 10
                     }
+                }              
+            }
+
+            Rectangle {
+                id: _logView
+                anchors.fill: parent
+                anchors.topMargin: LingmoUI.Units.largeSpacing * 5
+                anchors.leftMargin: LingmoUI.Units.largeSpacing
+                anchors.rightMargin: LingmoUI.Units.largeSpacing
+                anchors.bottomMargin: LingmoUI.Units.largeSpacing
+                radius: LingmoUI.Theme.mediumRadius
+                color: LingmoUI.Theme.secondBackgroundColor
+
+                ColumnLayout {
+                    anchors.fill: parent
+                    spacing: LingmoUI.Units.smallSpacing
+
+                    Item {
+                        Layout.fillHeight: true
+                    }
+
+                    ScrollView {
+                        id: view
+                        anchors.fill: parent        // Define the ScrollView's size
+                        ScrollBar.vertical.policy: ScrollBar.AsNeeded
+                        ScrollBar.horizontal.policy: ScrollBar.AsNeeded
+
+                        TextArea {
+                            id: textArea
+                            text: updator.updateInfo
+                            textFormat: TextArea.RichText
+                            color: LingmoUI.Theme.disabledTextColor
+                            readOnly: true // 设置为只读模式，因为是用于显示日志
+                            wrapMode: Text.WordWrap // 确保文本可以换行
+                        }
+                    }
+                    // WebView {
+                    //     id: webview
+                    //     Layout.fillWidth: true
+                    //     Layout.fillHeight: true
+                    //     url: "about:blank" // 初始为空白页面
+                    // }
+                    // Text {
+                    //     id: updateText
+                    //     anchors.fill: parent
+                    //     text: "" // 初始为空字符串
+                    //     horizontalAlignment: Text.AlignHCenter
+                    //     verticalAlignment: Text.AlignVCenter
+                    //     elide: Text.ElideRight
+                    //     wrapMode: Text.WordWrap
+                    // }
                 }
+            }
+
+            Item {
+                Layout.fillHeight: true
             }
         }
 

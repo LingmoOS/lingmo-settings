@@ -175,7 +175,9 @@ LingmoUI.Window {
             Layout.rightMargin: 20
             flat: true
             text: qsTr("Ok")
-            
+            onClicked: {
+                hostnamechanger.changeHostName(deviceChange.text);
+            }
         }
 
         // Label {
