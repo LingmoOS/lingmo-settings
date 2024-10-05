@@ -57,17 +57,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qml/ChangeDialog.qml" line="154"/>
+        <location filename="../src/qml/ChangeDialog.qml" line="150"/>
         <source>Enter your new device name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qml/ChangeDialog.qml" line="164"/>
+        <location filename="../src/qml/ChangeDialog.qml" line="160"/>
         <source>New device name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qml/ChangeDialog.qml" line="181"/>
+        <location filename="../src/qml/ChangeDialog.qml" line="177"/>
         <source>Ok</source>
         <translation type="unfinished"></translation>
     </message>
@@ -151,6 +151,11 @@
         <source>Update now</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="../src/qml/SystemUpdate/FirstPage.qml" line="327"/>
+        <source>Lingmo OS</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>HomePage</name>
@@ -186,57 +191,52 @@
         <translation>Tentang</translation>
     </message>
     <message>
-        <location filename="../src/qml/About/Main.qml" line="152"/>
+        <location filename="../src/qml/About/Main.qml" line="154"/>
         <source>OS Version</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qml/About/Main.qml" line="194"/>
+        <location filename="../src/qml/About/Main.qml" line="276"/>
         <source>CPU</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qml/About/Main.qml" line="225"/>
+        <location filename="../src/qml/About/Main.qml" line="265"/>
         <source>Disk</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qml/About/Main.qml" line="251"/>
+        <location filename="../src/qml/About/Main.qml" line="197"/>
         <source>Debian Version</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qml/About/Main.qml" line="252"/>
+        <location filename="../src/qml/About/Main.qml" line="198"/>
         <source>13 Trixie</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qml/About/Main.qml" line="261"/>
+        <location filename="../src/qml/About/Main.qml" line="207"/>
         <source>Linux Kernel Version</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qml/About/Main.qml" line="262"/>
+        <location filename="../src/qml/About/Main.qml" line="208"/>
         <source>Linux </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qml/About/Main.qml" line="271"/>
+        <location filename="../src/qml/About/Main.qml" line="217"/>
         <source>Lingmo UI Version</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qml/About/Main.qml" line="295"/>
+        <location filename="../src/qml/About/Main.qml" line="312"/>
         <source>System Update</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qml/About/Main.qml" line="296"/>
-        <source>null</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/qml/About/Main.qml" line="302"/>
+        <location filename="../src/qml/About/Main.qml" line="328"/>
         <source>Open Source Software Statement</source>
         <translation type="unfinished"></translation>
     </message>
@@ -249,12 +249,12 @@
         <translation type="vanished">Versi Sistem</translation>
     </message>
     <message>
-        <location filename="../src/qml/About/Main.qml" line="145"/>
+        <location filename="../src/qml/About/Main.qml" line="147"/>
         <source>PC Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qml/About/Main.qml" line="204"/>
+        <location filename="../src/qml/About/Main.qml" line="228"/>
         <source>System Type</source>
         <translation>Tipe Sistem</translation>
     </message>
@@ -267,7 +267,7 @@
         <translation type="vanished">Prosesor</translation>
     </message>
     <message>
-        <location filename="../src/qml/About/Main.qml" line="215"/>
+        <location filename="../src/qml/About/Main.qml" line="255"/>
         <source>RAM</source>
         <translation>RAM</translation>
     </message>
@@ -724,6 +724,7 @@
         <translation>Tambah pengguna</translation>
     </message>
     <message>
+        <location filename="../src/qml/About/Main.qml" line="320"/>
         <location filename="../src/qml/User/Main.qml" line="219"/>
         <location filename="../src/qml/WLAN/Main.qml" line="99"/>
         <source>→</source>
@@ -1356,6 +1357,11 @@
 <context>
     <name>UpdatePage</name>
     <message>
+        <location filename="../src/qml/SystemUpdate/UpdatePage.qml" line="77"/>
+        <source>Package updates are available</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../src/qml/SystemUpdate/UpdatePage.qml" line="84"/>
         <source>Your system is up to date</source>
         <translation type="unfinished"></translation>
@@ -1366,7 +1372,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qml/SystemUpdate/UpdatePage.qml" line="197"/>
+        <location filename="../src/qml/SystemUpdate/UpdatePage.qml" line="171"/>
+        <source>Lingmo OS</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qml/SystemUpdate/UpdatePage.qml" line="258"/>
         <source>Update now</source>
         <translation type="unfinished"></translation>
     </message>

@@ -41,19 +41,19 @@ ItemPage {
                     }
                     width: 250
                     sourceSize: Qt.size(width, height)
-                    source: LingmoUI.Theme.darkMode ? "qrc:/images/logo.svg" : "qrc:/images/logo.svg"
+                    source: LingmoUI.Theme.darkMode ? "qrc:/images/logo-2.svg" : "qrc:/images/logo-2.svg"
                 }
 
                 Rectangle {
                     id: lbt
                     anchors {
                         centerIn: parent
-                        // verticalCenter: parent.verticalCenter
+                        // verticalCenter: parent.verticalCenter                     
                     }
                     height: sysinf.height/1.2
                     width: 2
                     color: LingmoUI.Theme.disabledTextColor
-                    opacity: LingmoUI.Theme.darkMode ? 0.7 : 0.5
+                    opacity: LingmoUI.Theme.darkMode ? 0.5 : 0.5
                 }
 
                 Rectangle {
@@ -64,6 +64,8 @@ ItemPage {
                         verticalCenter: parent.verticalCenter
                         leftMargin: sysinf.width/30
                     }
+                    // width: logo.width/1.2
+                    // height: logo.width/2
                     width: logo.width/1.2
                     height: logo.width/2
                     color: LingmoUI.Theme.backgroundColor
@@ -185,63 +187,7 @@ ItemPage {
                     //         value: about.displayInfo
                     //     }
                     // }
-                    Rectangle {
-                        id: cpu
-                        width: upItem.width/4
-                        height: 50
-                        color: "transparent"
-                        InfoItem {
-                            key: qsTr("CPU")
-                            value: about.cpuInfo
-                        }
-                    }
-                    Rectangle {
-                        id: systype
-                        width: upItem.width/4
-                        height: 50
-                        color: "transparent"
-                        InfoItem {
-                            key: qsTr("System Type")
-                            value: about.architecture
-                        }
-                    }
-                    
-                    Rectangle {
-                        id: ram
-                        width: upItem.width/4
-                        height: 50
-                        color: "transparent"
-                        InfoItem {
-                            key: qsTr("RAM")
-                            value: about.memorySize
-                        }
-                    }
-                    Rectangle {
-                        id: disk
-                        width: upItem.width/4
-                        height: 50
-                        color: "transparent"
-                        InfoItem {
-                            key: qsTr("Disk")
-                            value: about.internalStorage
-                        }
-                    }
-                }
 
-                Horizontalabt {}
-
-                Rectangle {
-                    id: recdown
-                    anchors.fill: parent
-                    color: "transparent"
-                    radius: LingmoUI.Theme.smallRadius
-                }
-
-                Grid {
-                    Layout.fillWidth: true
-                    spacing: 3
-                    rows: 1
-                    columns: 4
                     Rectangle {
                         id: debianversion
                         width: upItem.width/4
@@ -272,6 +218,65 @@ ItemPage {
                             value: about.uiversion
                         }
                     }
+                    
+                    Rectangle {
+                        id: systype
+                        width: upItem.width/4
+                        height: 50
+                        color: "transparent"
+                        InfoItem {
+                            key: qsTr("System Type")
+                            value: about.architecture
+                        }
+                    }
+                }
+
+                Horizontalabt {}
+
+                Rectangle {
+                    id: recdown
+                    anchors.fill: parent
+                    color: "transparent"
+                    radius: LingmoUI.Theme.smallRadius
+                }
+
+                Grid {
+                    Layout.fillWidth: true
+                    spacing: 3
+                    rows: 1
+                    columns: 4
+                    
+                    Rectangle {
+                        id: ram
+                        width: upItem.width/4
+                        height: 50
+                        color: "transparent"
+                        InfoItem {
+                            key: qsTr("RAM")
+                            value: about.memorySize
+                        }
+                    }
+                    Rectangle {
+                        id: disk
+                        width: upItem.width/4
+                        height: 50
+                        color: "transparent"
+                        InfoItem {
+                            key: qsTr("Disk")
+                            value: about.internalStorage
+                        }
+                    }
+
+                    Rectangle {
+                        id: cpu
+                        width: upItem.width/4
+                        height: 50
+                        color: "transparent"
+                        InfoItem {
+                            key: qsTr("CPU")
+                            value: about.cpuInfo
+                        }
+                    }
                     // Rectangle {
                     //     id: merit
                     //     width: upItem.width/4
@@ -291,9 +296,30 @@ ItemPage {
 
             RoundedItem {
                 
-                StandardItem {
-                    key: qsTr("System Update")
-                    value: qsTr("null")
+                StandardButton {
+                    text: ""
+                    Layout.fillWidth: true
+                    onClicked: {
+                        about.openUpdator()
+                    }
+
+                    RowLayout {
+                        anchors.fill: parent
+                        anchors.leftMargin: LingmoUI.Units.largeSpacing * 1.5
+                        anchors.rightMargin: LingmoUI.Units.largeSpacing * 1.5
+
+                        Label {
+                            text: qsTr("System Update")
+                        }
+
+                        Item {
+                            Layout.fillWidth: true
+                        }
+
+                        Label {
+                            text: qsTr("→")
+                        }
+                    }
                 }
 
                 Horizontalabt {}
