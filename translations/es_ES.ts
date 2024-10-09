@@ -161,7 +161,7 @@
     <message>
         <location filename="../src/qml/SystemUpdate/FirstPage.qml" line="327"/>
         <source>Lingmo OS</source>
-        <translation type="unfinished"></translation>
+        <translation>Lingmo OS</translation>
     </message>
 </context>
 <context>
@@ -200,47 +200,47 @@
     <message>
         <location filename="../src/qml/About/Main.qml" line="154"/>
         <source>OS Version</source>
-        <translation type="unfinished"></translation>
+        <translation>Versión del sistema operativo</translation>
     </message>
     <message>
         <location filename="../src/qml/About/Main.qml" line="276"/>
         <source>CPU</source>
-        <translation type="unfinished"></translation>
+        <translation>CPU</translation>
     </message>
     <message>
         <location filename="../src/qml/About/Main.qml" line="265"/>
         <source>Disk</source>
-        <translation type="unfinished"></translation>
+        <translation>Disco</translation>
     </message>
     <message>
         <location filename="../src/qml/About/Main.qml" line="197"/>
         <source>Debian Version</source>
-        <translation type="unfinished"></translation>
+        <translation>Versión de Debian</translation>
     </message>
     <message>
         <location filename="../src/qml/About/Main.qml" line="198"/>
         <source>13 Trixie</source>
-        <translation type="unfinished"></translation>
+        <translation>Debian 13 (trixie)</translation>
     </message>
     <message>
         <location filename="../src/qml/About/Main.qml" line="207"/>
         <source>Linux Kernel Version</source>
-        <translation type="unfinished"></translation>
+        <translation>Versión del kernel de Linux</translation>
     </message>
     <message>
         <location filename="../src/qml/About/Main.qml" line="208"/>
         <source>Linux </source>
-        <translation type="unfinished"></translation>
+        <translation>Linux </translation>
     </message>
     <message>
         <location filename="../src/qml/About/Main.qml" line="217"/>
         <source>Lingmo UI Version</source>
-        <translation type="unfinished"></translation>
+        <translation>Versión de la interfaz de usuario de Lingmo</translation>
     </message>
     <message>
         <location filename="../src/qml/About/Main.qml" line="328"/>
         <source>Open Source Software Statement</source>
-        <translation type="unfinished"></translation>
+        <translation>Declaración sobre software de código abierto</translation>
     </message>
     <message>
         <source>Built on %1</source>
@@ -1350,7 +1350,7 @@
     <message>
         <location filename="../src/qml/SideBar.qml" line="244"/>
         <source>System Update</source>
-        <translation type="unfinished">Actualización del sistema</translation>
+        <translation>Actualización del sistema</translation>
     </message>
     <message>
         <location filename="../src/qml/SideBar.qml" line="253"/>
@@ -1420,7 +1420,7 @@
     <message>
         <location filename="../src/qml/SystemUpdate/UpdatePage.qml" line="77"/>
         <source>Package updates are available</source>
-        <translation type="unfinished">Actualizaciones de paquetes disponibles</translation>
+        <translation>Actualizaciones de paquetes disponibles</translation>
     </message>
     <message>
         <location filename="../src/qml/SystemUpdate/UpdatePage.qml" line="84"/>
@@ -1435,7 +1435,7 @@
     <message>
         <location filename="../src/qml/SystemUpdate/UpdatePage.qml" line="171"/>
         <source>Lingmo OS</source>
-        <translation type="unfinished"></translation>
+        <translation>Lingmo OS</translation>
     </message>
     <message>
         <location filename="../src/qml/SystemUpdate/UpdatePage.qml" line="258"/>
