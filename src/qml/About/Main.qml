@@ -299,7 +299,7 @@ ItemPage {
                 StandardButton {
                     text: ""
                     Layout.fillWidth: true
-                    visible: about.isLingmoOS()
+                    visible: about.isLingmoOS
                     onClicked: {
                         about.openUpdator()
                     }
