@@ -1,3 +1,11 @@
+lingmo-settings (3.0.0~rc2) UNRELEASED; urgency=low
+
+  [Elysia]
+  * Only show System Update Button when we are on LingmoOS
+  * Delete unused QApt dependency
+
+ -- Lingmo OS Team <team@lingmo.org>  Fri, 18 Oct 2024 19:26:23 +0800
+
 lingmo-settings (3.0.0~rc1) unstable; urgency=high
 
   [Lingmo OS Team]
