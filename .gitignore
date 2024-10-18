@@ -110,3 +110,5 @@ obj-*linux-gnu/
 /.idea/modules.xml
 /.idea/QtSettings.xml
 /.idea/vcs.xml
+
+/.cache/

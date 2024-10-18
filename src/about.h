@@ -33,6 +33,7 @@ public:
     explicit About(QObject *parent = nullptr);
 
     bool isLingmoOS();
+    Q_INVOKABLE bool checkForLingmoOS();
 
     QString version();
     QString hostName();

@@ -25,7 +25,6 @@ Build-Depends: cmake,
                qtquickcontrols2-5-dev,
                qttools5-dev,
                qttools5-dev-tools,
-               libqapt-dev,
                libpackagekitqt5-dev,
                libkf5bluezqt-dev (>= 5.50.0~)
 Standards-Version: 4.5.0
