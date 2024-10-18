@@ -65,6 +65,10 @@ About::About(QObject *parent)
 
 bool About::isLingmoOS()
 {
+    return About::checkForLingmoOS();
+}
+
+bool About::checkForLingmoOS() {
     if (QFile::exists("/etc/lingmo_version"))
         return true;
     else

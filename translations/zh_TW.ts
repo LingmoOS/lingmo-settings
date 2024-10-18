@@ -231,12 +231,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qml/About/Main.qml" line="312"/>
+        <location filename="../src/qml/About/Main.qml" line="313"/>
         <source>System Update</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qml/About/Main.qml" line="328"/>
+        <location filename="../src/qml/About/Main.qml" line="329"/>
         <source>Open Source Software Statement</source>
         <translation type="unfinished"></translation>
     </message>
@@ -720,7 +720,7 @@
         <translation>增加使用者</translation>
     </message>
     <message>
-        <location filename="../src/qml/About/Main.qml" line="320"/>
+        <location filename="../src/qml/About/Main.qml" line="321"/>
         <location filename="../src/qml/User/Main.qml" line="219"/>
         <location filename="../src/qml/WLAN/Main.qml" line="99"/>
         <source>→</source>
@@ -1317,17 +1317,11 @@
         <translation type="unfinished">電源</translation>
     </message>
     <message>
-        <location filename="../src/qml/SideBar.qml" line="244"/>
-        <source>System Update</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../src/qml/SideBar.qml" line="253"/>
         <source>About</source>
         <translation>關於</translation>
     </message>
     <message>
-        <location filename="../src/qml/SideBar.qml" line="249"/>
         <location filename="../src/qml/SideBar.qml" line="258"/>
         <source>System &amp; Update</source>
         <translation type="unfinished"></translation>

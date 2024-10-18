@@ -203,7 +203,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qml/About/Main.qml" line="328"/>
+        <location filename="../src/qml/About/Main.qml" line="329"/>
         <source>Open Source Software Statement</source>
         <translation type="unfinished"></translation>
     </message>
@@ -763,7 +763,7 @@
         <translation>添加用户</translation>
     </message>
     <message>
-        <location filename="../src/qml/About/Main.qml" line="320"/>
+        <location filename="../src/qml/About/Main.qml" line="321"/>
         <location filename="../src/qml/User/Main.qml" line="219"/>
         <location filename="../src/qml/WLAN/Main.qml" line="99"/>
         <source>→</source>
@@ -1095,7 +1095,7 @@
         <translation>勿扰模式</translation>
     </message>
     <message>
-        <location filename="../src/qml/About/Main.qml" line="312"/>
+        <location filename="../src/qml/About/Main.qml" line="313"/>
         <source>System Update</source>
         <translation>系统更新</translation>
     </message>
@@ -1332,9 +1332,8 @@
         <translation>电源</translation>
     </message>
     <message>
-        <location filename="../src/qml/SideBar.qml" line="244"/>
         <source>System Update</source>
-        <translation type="unfinished">系统更新</translation>
+        <translation type="obsolete">系统更新</translation>
     </message>
     <message>
         <location filename="../src/qml/SideBar.qml" line="253"/>
@@ -1342,7 +1341,6 @@
         <translation>关于</translation>
     </message>
     <message>
-        <location filename="../src/qml/SideBar.qml" line="249"/>
         <location filename="../src/qml/SideBar.qml" line="258"/>
         <source>System &amp; Update</source>
         <translation>系统&amp;更新</translation>

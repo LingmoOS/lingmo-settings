@@ -32,7 +32,8 @@ class About : public QObject
 public:
     explicit About(QObject *parent = nullptr);
 
-    Q_INVOKABLE bool isLingmoOS();
+    bool isLingmoOS();
+    Q_INVOKABLE bool checkForLingmoOS();
 
     QString version();
     QString hostName();
