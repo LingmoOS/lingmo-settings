@@ -65,11 +65,10 @@ About::About(QObject *parent)
 
 bool About::isLingmoOS()
 {
-    if (!QFile::exists("/etc/lingmoos"))
+    if (QFile::exists("/etc/lingmo_version"))
+        return true;
+    else
         return false;
-
-    QSettings settings("/etc/lingmoos", QSettings::IniFormat);
-    return settings.value("LingmoOS", false).toBool();
 }
 
 QString About::hostName() 
