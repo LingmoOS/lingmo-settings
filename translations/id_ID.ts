@@ -54,22 +54,22 @@
     <message>
         <location filename="../src/qml/ChangeDialog.qml" line="22"/>
         <source>Device</source>
-        <translation type="unfinished"></translation>
+        <translation>Perangkat</translation>
     </message>
     <message>
         <location filename="../src/qml/ChangeDialog.qml" line="150"/>
         <source>Enter your new device name</source>
-        <translation type="unfinished"></translation>
+        <translation>Masukkan nama perangkat baru Anda</translation>
     </message>
     <message>
         <location filename="../src/qml/ChangeDialog.qml" line="160"/>
         <source>New device name</source>
-        <translation type="unfinished"></translation>
+        <translation>Nama perangkat baru</translation>
     </message>
     <message>
         <location filename="../src/qml/ChangeDialog.qml" line="177"/>
         <source>Ok</source>
-        <translation type="unfinished"></translation>
+        <translation>Oke</translation>
     </message>
 </context>
 <context>
@@ -77,27 +77,27 @@
     <message>
         <location filename="../src/qml/WLAN/ConnectDialog.qml" line="63"/>
         <source>Enter Password</source>
-        <translation type="unfinished"></translation>
+        <translation>Masukkan Kata Sandi</translation>
     </message>
     <message>
         <location filename="../src/qml/WLAN/ConnectDialog.qml" line="75"/>
         <source>Enter the password for %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Masukkan kata sandi untuk %1</translation>
     </message>
     <message>
         <location filename="../src/qml/WLAN/ConnectDialog.qml" line="85"/>
         <source>Password</source>
-        <translation type="unfinished">Kata sandi</translation>
+        <translation>Kata sandi</translation>
     </message>
     <message>
         <location filename="../src/qml/WLAN/ConnectDialog.qml" line="110"/>
         <source>Cancel</source>
-        <translation type="unfinished">Batal</translation>
+        <translation>Batal</translation>
     </message>
     <message>
         <location filename="../src/qml/WLAN/ConnectDialog.qml" line="116"/>
         <source>Connect</source>
-        <translation type="unfinished">Hubungkan</translation>
+        <translation>Hubungkan</translation>
     </message>
 </context>
 <context>
@@ -105,7 +105,7 @@
     <message>
         <location filename="../src/qml/SystemUpdate/FinishedPage.qml" line="51"/>
         <source>The update is complete and we recommend that you restart your computer.</source>
-        <translation type="unfinished"></translation>
+        <translation>Pembaruan telah selesai dan kami sarankan agar Anda menghidupkan ulang komputer Anda.</translation>
     </message>
     <message>
         <location filename="../src/qml/SystemUpdate/FinishedPage.qml" line="58"/>
