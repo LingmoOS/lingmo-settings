@@ -1,3 +1,10 @@
+lingmo-settings (3.0.0~rc3) UNRELEASED; urgency=high
+
+  [Elysia]
+  * Fix a critical core dump when existing app. See https://github.com/LingmoOS/lingmo-settings/issues/24
+
+ -- Lingmo OS Team <team@lingmo.org>  Fri, 18 Oct 2024 19:26:23 +0800
+
 lingmo-settings (3.0.0~rc2) UNRELEASED; urgency=low
 
   [Elysia]

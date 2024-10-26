@@ -1656,7 +1656,7 @@
 <context>
     <name>main</name>
     <message>
-        <location filename="../src/qml/main.qml" line="29"/>
+        <location filename="../src/qml/main.qml" line="30"/>
         <source>Settings</source>
         <translation>Ajustes</translation>
     </message>
