@@ -45,8 +45,7 @@ int main(int argc, char* argv[])
 
     QGuiApplication app(argc, argv);
 
-    // app.setWindowIcon(QIcon::fromTheme("lingmo-settings"));
-    app.setWindowIcon(QIcon::fromTheme("preferences-system"));
+    app.setWindowIcon(QIcon::fromTheme("lingmo-settings"));
     app.setOrganizationName("Lingmo Community");
 
     QCommandLineParser parser;
