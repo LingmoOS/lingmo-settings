@@ -13,6 +13,7 @@ ItemPage {
 
     About {
         id: about
+        signal hostNameChanged(string newHostName)
     }
 
     System.Wallpaper {
@@ -147,6 +148,14 @@ ItemPage {
                     key: qsTr("PC Name")
                     value: about.hostName
                 }
+
+                Binding {
+                    target: pcName
+                    property: "text"
+                    value: about.hostName
+                }
+
+                Component.onCompleted: about.updateHostName()
 
                 Horizontalabt {}
 

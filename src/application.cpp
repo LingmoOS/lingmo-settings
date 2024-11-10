@@ -15,7 +15,7 @@
 #include <elog.h>
 
 #include "about.h"
-// #include "hostname.h"
+#include "hostname.h"
 #include "accessibility.h"
 #include "appearance.h"
 #include "background.h"
@@ -67,6 +67,7 @@ Application::Application(std::shared_ptr<QQmlApplicationEngine> engine)
     qmlRegisterType<BatteryHistoryModel>(uri, 1, 0, "BatteryHistoryModel");
     qmlRegisterType<CursorThemeModel>(uri, 1, 0, "CursorThemeModel");
     qmlRegisterType<About>(uri, 1, 0, "About");
+    qmlRegisterType<HostNameChanger>(uri, 1, 0, "HostNameChanger");
     qmlRegisterType<Background>(uri, 1, 0, "Background");
     qmlRegisterType<Language>(uri, 1, 0, "Language");
     qmlRegisterType<Fonts>(uri, 1, 0, "Fonts");
