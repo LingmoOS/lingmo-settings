@@ -149,14 +149,6 @@ ItemPage {
                     value: about.hostName
                 }
 
-                Binding {
-                    target: pcName
-                    property: "text"
-                    value: about.hostName
-                }
-
-                Component.onCompleted: about.updateHostName()
-
                 Horizontalabt {}
 
                 StandardItem {
