@@ -1,3 +1,10 @@
+lingmo-settings (3.0.0~rc5) UNRELEASED; urgency=high
+
+  [lingmo]
+  * Fix the issue where the host name cannot be modified, adjust the UI
+
+ -- Lingmo OS Team <team@lingmo.org>  Sun, 10 Nov 2024 09:30:00 +0800
+
 lingmo-settings (3.0.0~rc3) UNRELEASED; urgency=high
 
   [Elysia]
