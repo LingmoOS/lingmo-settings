@@ -4,11 +4,11 @@ permissions: write-all
 
 on:
   push:
-    branches: [ main ]
+    branches: [ "main", "*.*" ]
     tags:
       - "v*.*.*"
   pull_request:
-    branches: [ main ]
+    branches: [ "main", "*.*" ]
 
 jobs:
   debian:

@@ -148,7 +148,7 @@ void Application::insertPlugin() {
 void Application::addPage(QString title, QString name, QString page,
                           QString iconSource, QString iconColor,
                           QString category) {
-  QObject *mainObject = m_engine.rootObjects().first();
+  QObject *mainObject = m_engine->rootObjects().first();
 
   if (mainObject) {
     QMetaObject::invokeMethod(
@@ -159,7 +159,7 @@ void Application::addPage(QString title, QString name, QString page,
 }
 
 void Application::switchToPage(const QString &name) {
-  QObject *mainObject = m_engine.rootObjects().first();
+  QObject *mainObject = m_engine->rootObjects().first();
 
   if (mainObject) {
     QMetaObject::invokeMethod(mainObject, "switchPageFromName",
