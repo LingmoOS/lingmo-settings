@@ -5,21 +5,24 @@
 #include <QDBusConnection>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
+#include <memory>
+#include <qguiapplication.h>
+#include <qobject.h>
 
 #include "include/interface/moduleinterface.h"
 
-class Application : public QApplication {
+class Application : public QObject {
   Q_OBJECT
 
  public:
-  explicit Application(int &argc, char **argv);
+  explicit Application(std::shared_ptr<QQmlApplicationEngine> engine);
   void addPage(QString title, QString name, QString page, QString iconSource,
                QString iconColor, QString category);
   void switchToPage(const QString &name);
 
  private:
   void insertPlugin();
-  QQmlApplicationEngine m_engine;
+  std::shared_ptr<QQmlApplicationEngine> m_engine;
 };
 
 #endif  // APPLICATION_H

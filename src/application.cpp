@@ -1,6 +1,5 @@
 #include "application.h"
 
-#include <QCommandLineParser>
 #include <QDBusConnection>
 #include <QDBusPendingCall>
 #include <QGuiApplication>
@@ -45,27 +44,7 @@ static QObject *passwordSingleton(QQmlEngine *engine, QJSEngine *scriptEngine) {
   return object;
 }
 
-Application::Application(int &argc, char **argv) : QApplication(argc, argv) {
-  setWindowIcon(QIcon::fromTheme("preferences-system"));
-  setOrganizationName("lingmoos");
-
-  QCommandLineParser parser;
-  parser.setApplicationDescription(QStringLiteral("Lingmo Settings"));
-  parser.addHelpOption();
-
-  QCommandLineOption moduleOption("m", "Switch to module", "module");
-  parser.addOption(moduleOption);
-  parser.process(*this);
-
-  const QString module = parser.value(moduleOption);
-
-  if (!QDBusConnection::sessionBus().registerService("com.lingmo.SettingsUI")) {
-    QDBusInterface iface("com.lingmo.SettingsUI", "/SettingsUI",
-                         "com.lingmo.SettingsUI",
-                         QDBusConnection::sessionBus());
-    if (iface.isValid()) iface.call("switchToPage", module);
-    return;
-  }
+Application::Application(std::shared_ptr<QQmlApplicationEngine> engine) : m_engine(engine) {
 
   new SettingsUIAdaptor(this);
   QDBusConnection::sessionBus().registerObject(QStringLiteral("/SettingsUI"),
@@ -106,8 +85,6 @@ Application::Application(int &argc, char **argv) : QApplication(argc, argv) {
   qmlRegisterAnonymousType<QAbstractItemModel>(uri, 1);
 #endif
 
-  QGuiApplication app(argc, argv);
-
   // Translations
   QLocale locale;
   QString qmFilePath = QString("%1/%2.qm")
@@ -122,18 +99,10 @@ Application::Application(int &argc, char **argv) : QApplication(argc, argv) {
     }
   }
 
-  m_engine.addImportPath(QStringLiteral("qrc:/"));
-  m_engine.load(QUrl(QStringLiteral("qrc:/qml/main.qml")));
-
-  // m_engine.rootContext()->setContextProperty("upgradeableModel", UpgradeableModel::self());
-
-  if (!module.isEmpty()) {
-    switchToPage(module);
-  }
-
   insertPlugin();
 
-  QApplication::exec();
+  m_engine->addImportPath(QStringLiteral("qrc:/"));
+  m_engine->load(QUrl(QStringLiteral("qrc:/qml/main.qml")));
 }
 
 void Application::insertPlugin() {
