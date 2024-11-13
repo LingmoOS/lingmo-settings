@@ -1,3 +1,10 @@
+lingmo-settings (2.1.5+backport1) main; urgency=high
+
+  [Elysia]
+  * Fix core dump issue
+
+ -- Lingm OS Team <team@lingmo.org>  Wed, 13 Nov 2024 15:45:05 +0000
+
 lingmo-settings (2.1.5-rc1) main; urgency=high
 
   [Lingmo OS Team]
