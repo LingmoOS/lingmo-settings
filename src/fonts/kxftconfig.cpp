@@ -14,7 +14,7 @@
 #include <QFile>
 #include <QFileInfo>
 #include <QStandardPaths>
-#include <QX11Info>
+#include <QtGui/private/qtx11extras_p.h>
 
 #include <fontconfig/fontconfig.h>
 
@@ -181,7 +181,7 @@ QString KXftConfig::getConfigFile()
     //
     // Go through list of localFiles, looking for the preferred one...
     if (!localFiles.isEmpty()) {
-        for (const QString &file : qAsConst(localFiles)) {
+        for (const QString &file : std::as_const(localFiles)) {
             if (file.endsWith(QLatin1String("/fonts.conf")) || file.endsWith(QLatin1String("/.fonts.conf"))) {
                 return file;
             }

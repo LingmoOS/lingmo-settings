@@ -3,14 +3,14 @@
 
 static QVariantList getBackgroundPaths()
 {
-    QVariantList list;
+    QStringList list;
     QDirIterator it("/usr/share/backgrounds/lingmoos", QStringList() << "*.jpg" << "*.png", QDir::Files, QDirIterator::Subdirectories);
     while (it.hasNext()) {
         QString bg = it.next();
-        list.append(QVariant(bg));
+        list.append(bg);
     }
     std::sort(list.begin(), list.end());
-    return list;
+    return QVariantList{list};
 }
 
 Background::Background(QObject *parent)

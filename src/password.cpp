@@ -14,7 +14,7 @@ QString Password::cryptPassword(const QString &password) const
     QByteArray alpha = "0123456789ABCDEFGHIJKLMNOPQRSTUVXYZ"
                        "abcdefghijklmnopqrstuvxyz./";
     QByteArray salt("$6$");
-    int len = alpha.count();
+    int len = alpha.size();
     for (int i = 0; i < 16; i++)
         salt.append(alpha.at(QRandomGenerator::global()->bounded(len)));
 
