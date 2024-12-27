@@ -1,3 +1,5 @@
+
+
 /*
  * Copyright (C) 2021 LingmoOS Team.
  *
@@ -16,11 +18,11 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+import QtQuick
+import QtQuick.Controls
+import QtQuick.Layouts
+import LingmoUI.CompatibleModule 3.0 as LingmoUI
 
-import QtQuick 2.12
-import QtQuick.Controls 2.12
-import QtQuick.Layouts 1.12
-import LingmoUI 1.0 as LingmoUI
 import Lingmo.NetworkManagement 1.0 as NM
 
 LingmoUI.Window {
@@ -33,8 +35,10 @@ LingmoUI.Window {
     maximumWidth: contentWidth
     maximumHeight: contentHeight
 
-    property int contentWidth: _mainLayout.implicitWidth + header.height + LingmoUI.Units.largeSpacing * 2
-    property int contentHeight: _mainLayout.implicitHeight + header.height + LingmoUI.Units.largeSpacing * 2
+    property int contentWidth: _mainLayout.implicitWidth + header.height
+                               + LingmoUI.Units.largeSpacing * 2
+    property int contentHeight: _mainLayout.implicitHeight + header.height
+                                + LingmoUI.Units.largeSpacing * 2
 
     visible: false
     minimizeButtonVisible: false
@@ -84,11 +88,11 @@ LingmoUI.Window {
             selectByMouse: true
             placeholderText: qsTr("Password")
 
-            validator: RegExpValidator {
-                regExp: {
+            validator: RegularExpressionValidator {
+                regularExpression: {
                     if (control.securityType === NM.Enums.StaticWep)
-                        return /^(?:[\x20-\x7F]{5}|[0-9a-fA-F]{10}|[\x20-\x7F]{13}|[0-9a-fA-F]{26}){1}$/;
-                    return /^(?:[\x20-\x7F]{8,64}){1}$/;
+                        return /^(?:[\x20-\x7F]{5}|[0-9a-fA-F]{10}|[\x20-\x7F]{13}|[0-9a-fA-F]{26}){1}$/
+                                                                                                      return /^(?:[\x20-\x7F]{8,64}){1}$/
                 }
             }
 
@@ -123,7 +127,8 @@ LingmoUI.Window {
     }
 
     function emitSignal() {
-        control.connect(control.devicePath, control.specificPath, passwordField.text)
+        control.connect(control.devicePath, control.specificPath,
+                        passwordField.text)
         control.visible = false
     }
 }

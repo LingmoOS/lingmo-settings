@@ -17,13 +17,15 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import QtQuick 2.4
-import QtQuick.Controls 2.4
-import QtQuick.Layouts 1.3
-import QtGraphicalEffects 1.0
-import QtQuick.Window 2.3
+import QtQuick
+import QtQuick.Controls
+import QtQuick.Layouts
+import Qt5Compat.GraphicalEffects
 
-import LingmoUI 1.0 as LingmoUI
+import QtQuick.Window
+
+import LingmoUI.CompatibleModule 3.0 as LingmoUI
+
 import Lingmo.NetworkManagement 1.0 as NM
 import "../"
 
@@ -210,8 +212,8 @@ Item {
                     echoMode: TextInput.Password
                     selectByMouse: true
                     placeholderText: qsTr("Password")
-                    validator: RegExpValidator {
-                        regExp: {
+                    validator: RegularExpressionValidator {
+                        regularExpression: {
                             if (model.securityType === NM.Enums.StaticWep)
                                 return /^(?:[\x20-\x7F]{5}|[0-9a-fA-F]{10}|[\x20-\x7F]{13}|[0-9a-fA-F]{26}){1}$/;
                             return /^(?:[\x20-\x7F]{8,64}){1}$/;
