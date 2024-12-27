@@ -19,7 +19,8 @@
 
 import QtQuick 2.4
 import QtQuick.Controls 2.4
-import LingmoUI 1.0 as LingmoUI
+import LingmoUI.CompatibleModule 3.0 as LingmoUI
+
 
 Flickable {
     id: root
