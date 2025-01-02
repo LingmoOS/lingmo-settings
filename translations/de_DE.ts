@@ -54,7 +54,7 @@
     <message>
         <location filename="../src/qml/ChangeDialog.qml" line="25"/>
         <source>Device</source>
-        <translation type="unfinished"></translation>
+        <translation>Gerät</translation>
     </message>
     <message>
         <location filename="../src/qml/ChangeDialog.qml" line="163"/>
