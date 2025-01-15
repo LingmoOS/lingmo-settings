@@ -213,7 +213,7 @@
     <message>
         <location filename="../src/qml/About/Main.qml" line="201"/>
         <source>13 Trixie</source>
-        <translation type="unfinished"></translation>
+        <translation>13 Trixie</translation>
     </message>
     <message>
         <location filename="../src/qml/About/Main.qml" line="210"/>
@@ -621,27 +621,27 @@
     <message>
         <location filename="../src/qml/Power/Main.qml" line="126"/>
         <source>2 Minutes</source>
-        <translation type="unfinished"></translation>
+        <translation>2 分锺</translation>
     </message>
     <message>
         <location filename="../src/qml/Power/Main.qml" line="127"/>
         <source>5 Minutes</source>
-        <translation type="unfinished"></translation>
+        <translation>5 分锺</translation>
     </message>
     <message>
         <location filename="../src/qml/Power/Main.qml" line="128"/>
         <source>10 Minutes</source>
-        <translation type="unfinished"></translation>
+        <translation>10 分鐘</translation>
     </message>
     <message>
         <location filename="../src/qml/Power/Main.qml" line="129"/>
         <source>15 Minutes</source>
-        <translation type="unfinished"></translation>
+        <translation>15 分鐘</translation>
     </message>
     <message>
         <location filename="../src/qml/Power/Main.qml" line="130"/>
         <source>30 Minutes</source>
-        <translation type="unfinished"></translation>
+        <translation>30 分锺</translation>
     </message>
     <message>
         <location filename="../src/qml/Power/Main.qml" line="131"/>
@@ -675,7 +675,7 @@
     <message>
         <location filename="../src/qml/User/Main.qml" line="103"/>
         <source>Add new user</source>
-        <translation type="unfinished"></translation>
+        <translation>新增用戶</translation>
     </message>
     <message>
         <location filename="../src/qml/User/Main.qml" line="112"/>
@@ -724,7 +724,7 @@
         <location filename="../src/qml/User/Main.qml" line="221"/>
         <location filename="../src/qml/WLAN/Main.qml" line="101"/>
         <source>→</source>
-        <translation type="unfinished"></translation>
+        <translation>→</translation>
     </message>
     <message>
         <location filename="../src/qml/Wallpaper/Main.qml" line="14"/>
@@ -885,7 +885,7 @@
     <message>
         <location filename="../src/qml/Accessibility/Main.qml" line="14"/>
         <source>Accessibility</source>
-        <translation type="unfinished"></translation>
+        <translation>無障礙</translation>
     </message>
     <message>
         <location filename="../src/qml/Accessibility/Main.qml" line="31"/>
@@ -956,7 +956,7 @@
     <message>
         <location filename="../src/qml/DateTime/Main.qml" line="75"/>
         <source>24-Hour Time</source>
-        <translation type="unfinished"></translation>
+        <translation>24 小時制</translation>
     </message>
     <message>
         <location filename="../src/qml/DateTime/Main.qml" line="104"/>
@@ -1294,7 +1294,7 @@
     <message>
         <location filename="../src/qml/SideBar.qml" line="197"/>
         <source>Accessibility</source>
-        <translation type="unfinished"></translation>
+        <translation>無障礙</translation>
     </message>
     <message>
         <location filename="../src/qml/SideBar.qml" line="207"/>
