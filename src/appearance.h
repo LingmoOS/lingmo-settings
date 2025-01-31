@@ -82,6 +82,8 @@ public:
     int minimiumAnimation() const;
     void setMinimiumAnimation(int minimiumAnimation);
 
+    Q_INVOKABLE void openAdvancedSettings();
+
 signals:
     void dockIconSizeChanged();
     void dockDirectionChanged();

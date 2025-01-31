@@ -3,6 +3,7 @@
 #include <QDBusArgument>
 #include <QDBusReply>
 #include <QDebug>
+#include <QProcess>
 
 Accessibility::Accessibility(QObject *parent)
     : QObject(parent)
@@ -115,4 +116,9 @@ void Accessibility::setDiminactive(bool enabled)
         QDBusInterface("org.kde.KWin", "/KWin").call("reconfigure");
         emit diminactiveChanged();
     }
+}
+
+void Accessibility::openHotkeysSettings()
+{
+    QProcess::startDetached("lingmo-control-panel", QStringList() << "kcm_hotkeys");
 }

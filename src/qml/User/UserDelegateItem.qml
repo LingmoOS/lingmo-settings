@@ -1,7 +1,8 @@
 /*
- * Copyright (C) 2021 LingmoOS Team.
+ * Copyright (C) 2025 Lingmo OS Team.
  *
  * Author:     revenmartin <revenmartin@gmail.com>
+ * Author:     Lingmo OS Team <team@lingmo.org>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -41,7 +42,8 @@ RoundedItem {
 
     FileDialog {
         id: fileDialog
-        folder: shortcuts.pictures
+        // folder: shortcuts.pictures
+        title: qsTr("Choose an image")
         nameFilters: ["Image files (*.jpg *.png)", "All files (*)"]
         onAccepted: {
             currentUser.iconFileName = fileDialog.fileUrl.toString().replace("file://", "")

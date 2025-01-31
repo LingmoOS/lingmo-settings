@@ -24,6 +24,7 @@
 #include <QDBusReply>
 #include <QDBusServiceWatcher>
 #include <QDBusPendingCall>
+#include <QProcess>
 
 #include <QStandardPaths>
 #include <QDebug>
@@ -306,4 +307,9 @@ void Appearance::setMinimiumAnimation(int minimiumAnimation)
         QDBusInterface("org.kde.KWin", "/KWin").call("reconfigure");
         emit minimiumAnimationChanged();
     }
+}
+
+void Appearance::openAdvancedSettings()
+{
+    QProcess::startDetached("lingmo-control-panel", QStringList() << "kcm_kscreen");
 }

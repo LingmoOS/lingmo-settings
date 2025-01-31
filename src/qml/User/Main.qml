@@ -1,7 +1,8 @@
 /*
- * Copyright (C) 2021 LingmoOS Team.
+ * Copyright (C) 2025 Lingmo OS Team.
  *
  * Author:     revenmartin <revenmartin@gmail.com>
+ * Author:     Lingmo OS Team <team@lingmo.org>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -183,7 +184,7 @@ ItemPage {
                             flat: true
                             onClicked: {
                                 if (accountsManager.createUser(userNameField.text, "", accountTypeCombo.currentIndex)) {
-                                    newUserItem.visible = true
+                                    newUserItem.visible = false
                                 }
                             }
                         }
@@ -193,31 +194,14 @@ ItemPage {
 
             StandardButton {
                 id: _addUserButton
-                text: ""
+                text: qsTr("Add user")
                 Layout.fillWidth: true
+                visible: !newUserItem.visible
                 onClicked: {
                     newUserItem.visible = true
                     userNameField.forceActiveFocus()
                     _scrollable.contentY = Math.max(newUserItem.y,
                                                     _scrollable.contentHeight)
-                }
-
-                RowLayout {
-                    anchors.fill: parent
-                    anchors.leftMargin: LingmoUI.Units.largeSpacing * 1.5
-                    anchors.rightMargin: LingmoUI.Units.largeSpacing * 1.5
-
-                    Label {
-                        text: qsTr("Add user")
-                    }
-
-                    Item {
-                        Layout.fillWidth: true
-                    }
-
-                    Label {
-                        text: qsTr("→")
-                    }
                 }
             }
 

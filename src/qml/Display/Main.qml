@@ -360,6 +360,34 @@ ItemPage {
                 }
             }
 
+            StandardButton {
+                text: ""
+                Layout.fillWidth: true
+                onClicked: {
+                    appearance.openAdvancedSettings()
+                }
+
+                RowLayout {
+                    anchors.fill: parent
+                    anchors.leftMargin: LingmoUI.Units.largeSpacing * 1.5
+                    anchors.rightMargin: LingmoUI.Units.largeSpacing * 1.5
+
+                    Label {
+                        text: qsTr("Advanced Options")
+                    }
+
+                    Item {
+                        Layout.fillWidth: true
+                    }
+
+                    Image {
+                        source: LingmoUI.Theme.darkMode ? "qrc:/images/dark/elinks.svg" : "qrc:/images/light/elinks.svg"
+                        width: 12
+                        sourceSize: Qt.size(width, height)
+                    }
+                }
+            }
+
             Item {
                 Layout.fillHeight: true
             }

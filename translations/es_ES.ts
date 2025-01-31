@@ -203,6 +203,11 @@
         <translation>Versión del sistema operativo</translation>
     </message>
     <message>
+        <location filename="../src/qml/About/Main.qml" line="209"/>
+        <source>12 Bookworm</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../src/qml/About/Main.qml" line="287"/>
         <source>CPU</source>
         <translation>CPU</translation>
@@ -218,9 +223,8 @@
         <translation>Versión de Debian</translation>
     </message>
     <message>
-        <location filename="../src/qml/About/Main.qml" line="209"/>
         <source>13 Trixie</source>
-        <translation>Debian 13 (trixie)</translation>
+        <translation type="vanished">Debian 13 (trixie)</translation>
     </message>
     <message>
         <location filename="../src/qml/About/Main.qml" line="218"/>
@@ -238,7 +242,7 @@
         <translation>Versión de la interfaz de usuario de Lingmo</translation>
     </message>
     <message>
-        <location filename="../src/qml/About/Main.qml" line="340"/>
+        <location filename="../src/qml/About/Main.qml" line="355"/>
         <source>Open Source Software Statement</source>
         <translation>Declaración sobre software de código abierto</translation>
     </message>
@@ -543,6 +547,11 @@
         <translation>Escala</translation>
     </message>
     <message>
+        <location filename="../src/qml/Display/Main.qml" line="376"/>
+        <source>Advanced Options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Need to log in again to take effect</source>
         <translation type="vanished">Es necesario reiniciar sesión para aplicar los cambios</translation>
     </message>
@@ -690,60 +699,58 @@
         <translation>Rendimiento</translation>
     </message>
     <message>
-        <location filename="../src/qml/User/Main.qml" line="31"/>
+        <location filename="../src/qml/User/Main.qml" line="32"/>
         <source>User</source>
         <translation>Usuario</translation>
     </message>
     <message>
-        <location filename="../src/qml/User/Main.qml" line="101"/>
+        <location filename="../src/qml/User/Main.qml" line="102"/>
         <source>Add new user</source>
         <translation>Añadir nuevo usuario</translation>
     </message>
     <message>
-        <location filename="../src/qml/User/Main.qml" line="110"/>
-        <location filename="../src/qml/User/Main.qml" line="116"/>
+        <location filename="../src/qml/User/Main.qml" line="111"/>
+        <location filename="../src/qml/User/Main.qml" line="117"/>
         <source>User name</source>
         <translation>Nombre de usuario</translation>
     </message>
     <message>
-        <location filename="../src/qml/User/Main.qml" line="136"/>
-        <location filename="../src/qml/User/Main.qml" line="142"/>
+        <location filename="../src/qml/User/Main.qml" line="137"/>
+        <location filename="../src/qml/User/Main.qml" line="143"/>
         <source>Verify password</source>
         <translation>Verificar contraseña</translation>
     </message>
     <message>
-        <location filename="../src/qml/User/Main.qml" line="149"/>
+        <location filename="../src/qml/User/Main.qml" line="150"/>
         <source>Account type</source>
         <translation>Tipo de cuenta</translation>
     </message>
     <message>
-        <location filename="../src/qml/User/Main.qml" line="155"/>
+        <location filename="../src/qml/User/Main.qml" line="156"/>
         <source>Standard</source>
         <translation>Estándar</translation>
     </message>
     <message>
-        <location filename="../src/qml/User/Main.qml" line="155"/>
+        <location filename="../src/qml/User/Main.qml" line="156"/>
         <source>Administrator</source>
         <translation>Administrador</translation>
     </message>
     <message>
-        <location filename="../src/qml/User/Main.qml" line="168"/>
+        <location filename="../src/qml/User/Main.qml" line="169"/>
         <source>Cancel</source>
         <translation>Cancelar</translation>
     </message>
     <message>
-        <location filename="../src/qml/User/Main.qml" line="178"/>
+        <location filename="../src/qml/User/Main.qml" line="179"/>
         <source>Add</source>
         <translation>Añadir</translation>
     </message>
     <message>
-        <location filename="../src/qml/User/Main.qml" line="211"/>
+        <location filename="../src/qml/User/Main.qml" line="197"/>
         <source>Add user</source>
         <translation>Agregar usuario</translation>
     </message>
     <message>
-        <location filename="../src/qml/About/Main.qml" line="332"/>
-        <location filename="../src/qml/User/Main.qml" line="219"/>
         <location filename="../src/qml/WLAN/Main.qml" line="99"/>
         <source>→</source>
         <translation>→</translation>
@@ -893,8 +900,8 @@
     </message>
     <message>
         <location filename="../src/qml/Hotspot/Main.qml" line="113"/>
-        <location filename="../src/qml/User/Main.qml" line="123"/>
-        <location filename="../src/qml/User/Main.qml" line="129"/>
+        <location filename="../src/qml/User/Main.qml" line="124"/>
+        <location filename="../src/qml/User/Main.qml" line="130"/>
         <source>Password</source>
         <translation>Contraseña</translation>
     </message>
@@ -945,6 +952,11 @@
         <translation>Atenuar inactiva</translation>
     </message>
     <message>
+        <location filename="../src/qml/Accessibility/Main.qml" line="136"/>
+        <source>Shortcut Key</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../src/qml/Cursor/Main.qml" line="12"/>
         <source>Mouse</source>
         <translation>Ratón</translation>
@@ -966,22 +978,22 @@
         <translation>Velocidad del puntero</translation>
     </message>
     <message>
-        <location filename="../src/qml/DateTime/Main.qml" line="28"/>
+        <location filename="../src/qml/DateTime/Main.qml" line="29"/>
         <source>Date &amp; Time</source>
         <translation>Fecha y hora</translation>
     </message>
     <message>
-        <location filename="../src/qml/DateTime/Main.qml" line="172"/>
+        <location filename="../src/qml/DateTime/Main.qml" line="360"/>
         <source>Auto Sync</source>
         <translation>Sincronización automática</translation>
     </message>
     <message>
-        <location filename="../src/qml/DateTime/Main.qml" line="190"/>
+        <location filename="../src/qml/DateTime/Main.qml" line="378"/>
         <source>24-Hour Time</source>
         <translation>24 horas</translation>
     </message>
     <message>
-        <location filename="../src/qml/DateTime/Main.qml" line="219"/>
+        <location filename="../src/qml/DateTime/Main.qml" line="407"/>
         <source>Time Zone</source>
         <translation>Huso horario</translation>
     </message>
@@ -1108,7 +1120,7 @@
         <translation>Aceleración del puntero</translation>
     </message>
     <message>
-        <location filename="../src/qml/About/Main.qml" line="324"/>
+        <location filename="../src/qml/About/Main.qml" line="322"/>
         <source>System Update</source>
         <translation>Actualización del sistema</translation>
     </message>
@@ -1509,56 +1521,61 @@
 <context>
     <name>UserDelegateItem</name>
     <message>
-        <location filename="../src/qml/User/UserDelegateItem.qml" line="134"/>
+        <location filename="../src/qml/User/UserDelegateItem.qml" line="46"/>
+        <source>Choose an image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qml/User/UserDelegateItem.qml" line="136"/>
         <source>Currently logged</source>
         <translation>Actualmente conectado</translation>
     </message>
     <message>
-        <location filename="../src/qml/User/UserDelegateItem.qml" line="169"/>
+        <location filename="../src/qml/User/UserDelegateItem.qml" line="171"/>
         <source>Account type</source>
         <translation>Tipo de cuenta</translation>
     </message>
     <message>
-        <location filename="../src/qml/User/UserDelegateItem.qml" line="173"/>
+        <location filename="../src/qml/User/UserDelegateItem.qml" line="175"/>
         <source>Standard</source>
         <translation>Estándar</translation>
     </message>
     <message>
-        <location filename="../src/qml/User/UserDelegateItem.qml" line="174"/>
+        <location filename="../src/qml/User/UserDelegateItem.qml" line="176"/>
         <source>Administrator</source>
         <translation>Administrador</translation>
     </message>
     <message>
-        <location filename="../src/qml/User/UserDelegateItem.qml" line="178"/>
+        <location filename="../src/qml/User/UserDelegateItem.qml" line="180"/>
         <source>Automatic login</source>
         <translation>Inicio de sesión automático</translation>
     </message>
     <message>
-        <location filename="../src/qml/User/UserDelegateItem.qml" line="204"/>
-        <location filename="../src/qml/User/UserDelegateItem.qml" line="253"/>
-        <location filename="../src/qml/User/UserDelegateItem.qml" line="272"/>
+        <location filename="../src/qml/User/UserDelegateItem.qml" line="206"/>
+        <location filename="../src/qml/User/UserDelegateItem.qml" line="255"/>
+        <location filename="../src/qml/User/UserDelegateItem.qml" line="274"/>
         <source>Change password</source>
         <translation>Cambiar contraseña</translation>
     </message>
     <message>
-        <location filename="../src/qml/User/UserDelegateItem.qml" line="215"/>
-        <location filename="../src/qml/User/UserDelegateItem.qml" line="221"/>
+        <location filename="../src/qml/User/UserDelegateItem.qml" line="217"/>
+        <location filename="../src/qml/User/UserDelegateItem.qml" line="223"/>
         <source>Password</source>
         <translation>Contraseña</translation>
     </message>
     <message>
-        <location filename="../src/qml/User/UserDelegateItem.qml" line="228"/>
-        <location filename="../src/qml/User/UserDelegateItem.qml" line="234"/>
+        <location filename="../src/qml/User/UserDelegateItem.qml" line="230"/>
+        <location filename="../src/qml/User/UserDelegateItem.qml" line="236"/>
         <source>Verify password</source>
         <translation>Verificar contraseña</translation>
     </message>
     <message>
-        <location filename="../src/qml/User/UserDelegateItem.qml" line="247"/>
+        <location filename="../src/qml/User/UserDelegateItem.qml" line="249"/>
         <source>Cancel</source>
         <translation>Cancelar</translation>
     </message>
     <message>
-        <location filename="../src/qml/User/UserDelegateItem.qml" line="280"/>
+        <location filename="../src/qml/User/UserDelegateItem.qml" line="282"/>
         <source>Delete this user</source>
         <translation>Eliminar este usuario</translation>
     </message>

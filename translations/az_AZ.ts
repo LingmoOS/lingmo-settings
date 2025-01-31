@@ -435,6 +435,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../src/qml/Display/Main.qml" line="376"/>
+        <source>Advanced Options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../src/qml/Dock/Main.qml" line="9"/>
         <source>Dock</source>
         <translation type="unfinished"></translation>
@@ -570,60 +575,58 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qml/User/Main.qml" line="31"/>
+        <location filename="../src/qml/User/Main.qml" line="32"/>
         <source>User</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qml/User/Main.qml" line="101"/>
+        <location filename="../src/qml/User/Main.qml" line="102"/>
         <source>Add new user</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qml/User/Main.qml" line="110"/>
-        <location filename="../src/qml/User/Main.qml" line="116"/>
+        <location filename="../src/qml/User/Main.qml" line="111"/>
+        <location filename="../src/qml/User/Main.qml" line="117"/>
         <source>User name</source>
         <translation type="unfinished">İstifadəçi Adı</translation>
     </message>
     <message>
-        <location filename="../src/qml/User/Main.qml" line="136"/>
-        <location filename="../src/qml/User/Main.qml" line="142"/>
+        <location filename="../src/qml/User/Main.qml" line="137"/>
+        <location filename="../src/qml/User/Main.qml" line="143"/>
         <source>Verify password</source>
         <translation type="unfinished">Şifrəni yoxlayın</translation>
     </message>
     <message>
-        <location filename="../src/qml/User/Main.qml" line="149"/>
+        <location filename="../src/qml/User/Main.qml" line="150"/>
         <source>Account type</source>
         <translation type="unfinished">Hesab Növü</translation>
     </message>
     <message>
-        <location filename="../src/qml/User/Main.qml" line="155"/>
+        <location filename="../src/qml/User/Main.qml" line="156"/>
         <source>Standard</source>
         <translation type="unfinished">Standart</translation>
     </message>
     <message>
-        <location filename="../src/qml/User/Main.qml" line="155"/>
+        <location filename="../src/qml/User/Main.qml" line="156"/>
         <source>Administrator</source>
         <translation type="unfinished">Administrator</translation>
     </message>
     <message>
-        <location filename="../src/qml/User/Main.qml" line="168"/>
+        <location filename="../src/qml/User/Main.qml" line="169"/>
         <source>Cancel</source>
         <translation type="unfinished">Ləğv</translation>
     </message>
     <message>
-        <location filename="../src/qml/User/Main.qml" line="178"/>
+        <location filename="../src/qml/User/Main.qml" line="179"/>
         <source>Add</source>
         <translation type="unfinished">Əlavə</translation>
     </message>
     <message>
-        <location filename="../src/qml/User/Main.qml" line="211"/>
+        <location filename="../src/qml/User/Main.qml" line="197"/>
         <source>Add user</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qml/About/Main.qml" line="332"/>
-        <location filename="../src/qml/User/Main.qml" line="219"/>
         <location filename="../src/qml/WLAN/Main.qml" line="99"/>
         <source>→</source>
         <translation type="unfinished"></translation>
@@ -773,8 +776,8 @@
     </message>
     <message>
         <location filename="../src/qml/Hotspot/Main.qml" line="113"/>
-        <location filename="../src/qml/User/Main.qml" line="123"/>
-        <location filename="../src/qml/User/Main.qml" line="129"/>
+        <location filename="../src/qml/User/Main.qml" line="124"/>
+        <location filename="../src/qml/User/Main.qml" line="130"/>
         <source>Password</source>
         <translation type="unfinished">Şifrə</translation>
     </message>
@@ -782,46 +785,6 @@
         <location filename="../src/qml/Hotspot/Main.qml" line="129"/>
         <location filename="../src/qml/Proxy/Main.qml" line="267"/>
         <source>Save</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/qml/Accessibility/Main.qml" line="12"/>
-        <source>Accessibility</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/qml/Accessibility/Main.qml" line="29"/>
-        <source>Appearance enhancement</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/qml/Accessibility/Main.qml" line="36"/>
-        <source>Deform windows while they are moving</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/qml/Accessibility/Main.qml" line="52"/>
-        <source>Display window thumbnails on the edge of the screen</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/qml/Accessibility/Main.qml" line="68"/>
-        <source>Visualize touch points</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/qml/Accessibility/Main.qml" line="85"/>
-        <source>Barrier free function</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/qml/Accessibility/Main.qml" line="92"/>
-        <source>Snap Helper</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/qml/Accessibility/Main.qml" line="108"/>
-        <source>Dim Inactive</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -843,26 +806,6 @@
     <message>
         <location filename="../src/qml/Cursor/Main.qml" line="95"/>
         <source>Pointer speed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/qml/DateTime/Main.qml" line="28"/>
-        <source>Date &amp; Time</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/qml/DateTime/Main.qml" line="172"/>
-        <source>Auto Sync</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/qml/DateTime/Main.qml" line="190"/>
-        <source>24-Hour Time</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/qml/DateTime/Main.qml" line="219"/>
-        <source>Time Zone</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1014,6 +957,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../src/qml/About/Main.qml" line="209"/>
+        <source>12 Bookworm</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../src/qml/About/Main.qml" line="287"/>
         <source>CPU</source>
         <translation type="unfinished"></translation>
@@ -1039,11 +987,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qml/About/Main.qml" line="209"/>
-        <source>13 Trixie</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../src/qml/About/Main.qml" line="218"/>
         <source>Linux Kernel Version</source>
         <translation type="unfinished"></translation>
@@ -1059,13 +1002,78 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qml/About/Main.qml" line="324"/>
+        <location filename="../src/qml/About/Main.qml" line="322"/>
         <source>System Update</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qml/About/Main.qml" line="340"/>
+        <location filename="../src/qml/About/Main.qml" line="355"/>
         <source>Open Source Software Statement</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qml/Accessibility/Main.qml" line="12"/>
+        <source>Accessibility</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qml/Accessibility/Main.qml" line="29"/>
+        <source>Appearance enhancement</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qml/Accessibility/Main.qml" line="36"/>
+        <source>Deform windows while they are moving</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qml/Accessibility/Main.qml" line="52"/>
+        <source>Display window thumbnails on the edge of the screen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qml/Accessibility/Main.qml" line="68"/>
+        <source>Visualize touch points</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qml/Accessibility/Main.qml" line="85"/>
+        <source>Barrier free function</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qml/Accessibility/Main.qml" line="92"/>
+        <source>Snap Helper</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qml/Accessibility/Main.qml" line="108"/>
+        <source>Dim Inactive</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qml/Accessibility/Main.qml" line="136"/>
+        <source>Shortcut Key</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qml/DateTime/Main.qml" line="29"/>
+        <source>Date &amp; Time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qml/DateTime/Main.qml" line="360"/>
+        <source>Auto Sync</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qml/DateTime/Main.qml" line="378"/>
+        <source>24-Hour Time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qml/DateTime/Main.qml" line="407"/>
+        <source>Time Zone</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1389,56 +1397,61 @@
 <context>
     <name>UserDelegateItem</name>
     <message>
-        <location filename="../src/qml/User/UserDelegateItem.qml" line="134"/>
+        <location filename="../src/qml/User/UserDelegateItem.qml" line="46"/>
+        <source>Choose an image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qml/User/UserDelegateItem.qml" line="136"/>
         <source>Currently logged</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qml/User/UserDelegateItem.qml" line="169"/>
+        <location filename="../src/qml/User/UserDelegateItem.qml" line="171"/>
         <source>Account type</source>
         <translation type="unfinished">Hesab Növü</translation>
     </message>
     <message>
-        <location filename="../src/qml/User/UserDelegateItem.qml" line="173"/>
+        <location filename="../src/qml/User/UserDelegateItem.qml" line="175"/>
         <source>Standard</source>
         <translation type="unfinished">Standart</translation>
     </message>
     <message>
-        <location filename="../src/qml/User/UserDelegateItem.qml" line="174"/>
+        <location filename="../src/qml/User/UserDelegateItem.qml" line="176"/>
         <source>Administrator</source>
         <translation type="unfinished">Administrator</translation>
     </message>
     <message>
-        <location filename="../src/qml/User/UserDelegateItem.qml" line="178"/>
+        <location filename="../src/qml/User/UserDelegateItem.qml" line="180"/>
         <source>Automatic login</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qml/User/UserDelegateItem.qml" line="204"/>
-        <location filename="../src/qml/User/UserDelegateItem.qml" line="253"/>
-        <location filename="../src/qml/User/UserDelegateItem.qml" line="272"/>
+        <location filename="../src/qml/User/UserDelegateItem.qml" line="206"/>
+        <location filename="../src/qml/User/UserDelegateItem.qml" line="255"/>
+        <location filename="../src/qml/User/UserDelegateItem.qml" line="274"/>
         <source>Change password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qml/User/UserDelegateItem.qml" line="215"/>
-        <location filename="../src/qml/User/UserDelegateItem.qml" line="221"/>
+        <location filename="../src/qml/User/UserDelegateItem.qml" line="217"/>
+        <location filename="../src/qml/User/UserDelegateItem.qml" line="223"/>
         <source>Password</source>
         <translation type="unfinished">Şifrə</translation>
     </message>
     <message>
-        <location filename="../src/qml/User/UserDelegateItem.qml" line="228"/>
-        <location filename="../src/qml/User/UserDelegateItem.qml" line="234"/>
+        <location filename="../src/qml/User/UserDelegateItem.qml" line="230"/>
+        <location filename="../src/qml/User/UserDelegateItem.qml" line="236"/>
         <source>Verify password</source>
         <translation type="unfinished">Şifrəni yoxlayın</translation>
     </message>
     <message>
-        <location filename="../src/qml/User/UserDelegateItem.qml" line="247"/>
+        <location filename="../src/qml/User/UserDelegateItem.qml" line="249"/>
         <source>Cancel</source>
         <translation type="unfinished">Ləğv</translation>
     </message>
     <message>
-        <location filename="../src/qml/User/UserDelegateItem.qml" line="280"/>
+        <location filename="../src/qml/User/UserDelegateItem.qml" line="282"/>
         <source>Delete this user</source>
         <translation type="unfinished"></translation>
     </message>

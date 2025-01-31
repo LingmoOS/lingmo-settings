@@ -27,6 +27,9 @@ public:
     void setSnaphelper(bool enabled);
     bool diminactive() const;
     void setDiminactive(bool enabled);
+
+    Q_INVOKABLE void openHotkeysSettings();
+
 signals:
     void wobblyWindowsChanged();
     void thumbnailasideChanged();

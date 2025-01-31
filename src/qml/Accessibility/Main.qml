@@ -120,6 +120,34 @@ ItemPage {
                 }
             }
 
+            StandardButton {
+                text: ""
+                Layout.fillWidth: true
+                onClicked: {
+                    accessibility.openHotkeysSettings()
+                }
+
+                RowLayout {
+                    anchors.fill: parent
+                    anchors.leftMargin: LingmoUI.Units.largeSpacing * 1.5
+                    anchors.rightMargin: LingmoUI.Units.largeSpacing * 1.5
+
+                    Label {
+                        text: qsTr("Shortcut Key")
+                    }
+
+                    Item {
+                        Layout.fillWidth: true
+                    }
+
+                    Image {
+                        source: LingmoUI.Theme.darkMode ? "qrc:/images/dark/elinks.svg" : "qrc:/images/light/elinks.svg"
+                        width: 12
+                        sourceSize: Qt.size(width, height)
+                    }
+                }
+            }
+
             Item {
                 height: LingmoUI.Units.smallSpacing
             }

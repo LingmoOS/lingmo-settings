@@ -304,105 +304,69 @@ ItemPage {
             Item {
                 height: LingmoUI.Units.smallSpacing
             }
-
-            RoundedItem {
                 
-                StandardButton {
-                    text: ""
-                    Layout.fillWidth: true
-                    visible: about.checkForLingmoOS()
-                    onClicked: {
-                        about.openUpdator()
-                    }
-
-                    RowLayout {
-                        anchors.fill: parent
-                        anchors.leftMargin: LingmoUI.Units.largeSpacing * 1.5
-                        anchors.rightMargin: LingmoUI.Units.largeSpacing * 1.5
-
-                        Label {
-                            text: qsTr("System Update")
-                        }
-
-                        Item {
-                            Layout.fillWidth: true
-                        }
-
-                        Label {
-                            text: qsTr("→")
-                        }
-                    }
+            StandardButton {
+                text: ""
+                Layout.fillWidth: true
+                visible: about.checkForLingmoOS()
+                onClicked: {
+                    about.openUpdator()
                 }
 
-                Horizontalabt {}
+                RowLayout {
+                    anchors.fill: parent
+                    anchors.leftMargin: LingmoUI.Units.largeSpacing * 1.5
+                    anchors.rightMargin: LingmoUI.Units.largeSpacing * 1.5
 
-                StandardItem {
-                    key: qsTr("Open Source Software Statement")
+                    Label {
+                        text: qsTr("System Update")
+                    }
+
+                    Item {
+                        Layout.fillWidth: true
+                    }
+
+                    Image {
+                        source: LingmoUI.Theme.darkMode ? "qrc:/images/dark/elinks.svg" : "qrc:/images/light/elinks.svg"
+                        width: 12
+                        sourceSize: Qt.size(width, height)
+                    }
                 }
-
             }
 
-            // RoundedItem {
-            //     StandardItem {
-            //         key: qsTr("Desktop Version")
-            //         value: about.desktopversion
-            //     }
+            Item {
+                height: LingmoUI.Units.smallSpacing
+            }
 
-            //     Horizontalabt {}
+            StandardButton {
+                text: ""
+                Layout.fillWidth: true
+                visible: about.checkForLingmoOS()
+                onClicked: {
+                    Qt.openUrlExternally("https://wiki.lingmo.org/wiki/develop-guide")
+                }
 
-            //     StandardItem {
-            //         key: qsTr("UI Version")
-            //         value: about.uiversion
-            //     }
+                RowLayout {
+                    anchors.fill: parent
+                    anchors.leftMargin: LingmoUI.Units.largeSpacing * 1.5
+                    anchors.rightMargin: LingmoUI.Units.largeSpacing * 1.5
 
-            // }
+                    Label {
+                        text: qsTr("Open Source Software Statement")
+                    }
 
-            // Item {
-            //     height: LingmoUI.Units.smallSpacing
-            // }
+                    Item {
+                        Layout.fillWidth: true
+                    }
 
-            // RoundedItem {
-            //     StandardItem {
-            //         key: qsTr("System Type")
-            //         value: about.architecture
-            //     }
-
-            //     Horizontalabt {
-                    
-            //     }
-
-            //     StandardItem {
-            //         key: qsTr("Kernel Version")
-            //         value: about.kernelVersion
-            //     }
-
-            //     Horizontalabt {
-
-            //     }
-
-            //     StandardItem {
-            //         key: qsTr("Processor")
-            //         value: about.cpuInfo
-            //     }
-
-            //     Horizontalabt {
-
-            //     }
-
-            //     StandardItem {
-            //         key: qsTr("RAM")
-            //         value: about.memorySize
-            //     }
-
-            //     Horizontalabt {
-
-            //     }
-
-            //     StandardItem {
-            //         key: qsTr("Internal Storage")
-            //         value: about.internalStorage
-            //     }
-            // }
+                    Image {
+                        source: LingmoUI.Theme.darkMode ? "qrc:/images/dark/elinks.svg" : "qrc:/images/light/elinks.svg"
+                        width: 12
+                        sourceSize: Qt.size(width, height)
+                    }
+                }
+            }
+            
 
             Item {
                 height: LingmoUI.Units.smallSpacing

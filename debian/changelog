@@ -1,3 +1,10 @@
+lingmo-settings (3.0.0-3~lingmo3) helium; urgency=high
+
+  [lingmo]
+  * Update
+
+ -- Lingmo OS Team <team@lingmo.org>  Fri, 31 Jan 2025 18:00:00 +0800
+
 lingmo-settings (3.0.0~rc7) helium; urgency=high
 
   [lingmo]
