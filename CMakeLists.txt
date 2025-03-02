@@ -31,8 +31,7 @@ find_package(KF5Config)
 
 pkg_search_module(FontConfig REQUIRED fontconfig IMPORTED_TARGET)
 
-find_package(ICU COMPONENTS i18n REQUIRED)
-include_directories(${ICU_INCLUDE_DIRS})
+find_package(ICU COMPONENTS i18n uc REQUIRED)
 
 file(GLOB_RECURSE SRCS_R "include/*.h" "src/*.c" "src/*.cpp" "src/*.h")
 foreach(filepath ${SRCS_R})
@@ -70,7 +69,8 @@ target_link_libraries(${PROJECT_NAME}
 
         PkgConfig::FontConfig
         ${FREETYPE_LIBRARIES}
-        ${ICU_LIBRARIES}
+        ICU::uc 
+        ICU::i18n
         Libcrypt::Libcrypt
 
         ${X11_LIBRARIES}
