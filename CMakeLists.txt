@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.7)
+cmake_minimum_required(VERSION 3.13)
 
 # set(PROJECT_NAME lingmo-control-center)
 set(PROJECT_NAME lingmo-settings)
@@ -31,7 +31,7 @@ find_package(KF5Config)
 
 pkg_search_module(FontConfig REQUIRED fontconfig IMPORTED_TARGET)
 
-include(FindICU)
+find_package(ICU COMPONENTS i18n REQUIRED)
 include_directories(${ICU_INCLUDE_DIRS})
 
 file(GLOB_RECURSE SRCS_R "include/*.h" "src/*.c" "src/*.cpp" "src/*.h")
