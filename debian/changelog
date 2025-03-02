@@ -1,3 +1,10 @@
+lingmo-settings (2.1.6) main; urgency=high
+
+  [Elysia]
+  * Fix ICU build error.
+
+ -- Lingm OS Team <team@lingmo.org>  Sun, 2 Mar 2025 21:38:49 +0800
+
 lingmo-settings (2.1.5+backport1) main; urgency=high
 
   [Elysia]
