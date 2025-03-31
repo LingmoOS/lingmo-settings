@@ -1,3 +1,5 @@
+#include <LingmoLogger/QsLogDest.h>
+#include <LingmoLogger/QsLogLevel.h>
 #define LOG_TAG "Settings::Application"
 
 #include "application.h"
@@ -12,10 +14,9 @@
 #include <QTranslator>
 // #include <QtWebEngine>
 
-#include <elog.h>
+#include <LingmoLogger/QsLog.h>
 
 #include "about.h"
-#include "hostname.h"
 #include "accessibility.h"
 #include "appearance.h"
 #include "background.h"
@@ -29,6 +30,7 @@
 #include "defaultapplications.h"
 #include "fonts/fonts.h"
 #include "fontsmodel.h"
+#include "hostname.h"
 #include "language.h"
 #include "networkproxy.h"
 #include "notifications.h"
@@ -106,29 +108,21 @@ Application::Application(std::shared_ptr<QQmlApplicationEngine> engine)
 
     m_engine->addImportPath(QStringLiteral("qrc:/"));
     m_engine->load(QUrl(QStringLiteral("qrc:/qml/main.qml")));
-
 }
 
 void Application::initLogger()
 {
     /* initialize EasyLogger */
-    elog_init();
-    /* set EasyLogger log format */
-    elog_set_fmt(ELOG_LVL_ASSERT, ELOG_FMT_ALL);
-    elog_set_fmt(ELOG_LVL_ERROR, ELOG_FMT_LVL | ELOG_FMT_TAG | ELOG_FMT_TIME);
-    elog_set_fmt(ELOG_LVL_WARN, ELOG_FMT_LVL | ELOG_FMT_TAG | ELOG_FMT_TIME);
-    elog_set_fmt(ELOG_LVL_INFO, ELOG_FMT_LVL | ELOG_FMT_TAG | ELOG_FMT_TIME);
-    elog_set_fmt(ELOG_LVL_DEBUG, ELOG_FMT_ALL & ~ELOG_FMT_FUNC);
-    elog_set_fmt(ELOG_LVL_VERBOSE, ELOG_FMT_ALL & ~ELOG_FMT_FUNC);
-    /* start EasyLogger */
-    elog_start();
+    auto& logger = QsLogging::Logger::instance();
+    logger.addDestination(QsLogging::DestinationFactory::MakeDebugOutputDestination());
+    logger.setLoggingLevel(QsLogging::DebugLevel);
 }
 
 void Application::insertPlugin()
 {
     QDir moduleDir(ModuleDirectory);
     if (!moduleDir.exists()) {
-        log_d("module directory not exists");
+        QLOG_DEBUG() << ("module directory not exists");
         return;
     }
     auto moduleList = moduleDir.entryInfoList();
@@ -138,7 +132,7 @@ void Application::insertPlugin()
         if (!QLibrary::isLibrary(path))
             continue;
 
-        log_d("loading module: %s", i.absoluteFilePath().toStdString().c_str());
+        QLOG_DEBUG() << "loading module: " + i.absoluteFilePath().toStdString();
         QElapsedTimer et;
         et.start();
         QPluginLoader loader(path);
@@ -155,8 +149,8 @@ void Application::insertPlugin()
         if (!module) {
             return;
         }
-        log_d("load plugin Name: %s %s", module->name().toStdString().c_str(), module->title().toStdString().c_str());
-        log_d("load this plugin using time: %d ms", et.elapsed());
+        QLOG_DEBUG() << "load plugin Name: " +  module->name().toStdString() + " " +  module->title().toStdString();
+        QLOG_DEBUG() << "load this plugin using time: " + QString::number(et.elapsed()) + " ms";
 
         if (module->enabled()) {
             addPage(module->title(), module->name(), module->qmlPath(),
