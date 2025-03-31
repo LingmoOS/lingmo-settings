@@ -1,3 +1,10 @@
+lingmo-settings (3.0.1~1) UNRELEASED; urgency=high
+
+  [Elysia]
+  * Change elog to new lingmo logger module in liblingmo.
+
+ -- Lingmo OS Team <team@lingmo.org>  Mon, 31 Mar 2025 21:59:30 +0800
+
 lingmo-settings (3.0.0~rc5) UNRELEASED; urgency=high
 
   [lingmo]
