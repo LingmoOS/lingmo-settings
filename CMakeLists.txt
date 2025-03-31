@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.5)
+cmake_minimum_required(VERSION 3.18)
 
 # set(PROJECT_NAME lingmo-control-center)
 set(PROJECT_NAME lingmo-settings)
@@ -92,12 +92,6 @@ endforeach()
 qt6_create_translation(QM_FILES ${CMAKE_CURRENT_SOURCE_DIR} ${ts_files_replaced})
 
 add_custom_target(translations ALL DEPENDS ${QM_FILES} SOURCES ${TS_FILES})
-
-foreach(_ts_file ${TS_FILES})
-    execute_process(
-        COMMAND ${LUPDATE_EXECUTABLE} -recursive ${CMAKE_SOURCE_DIR} -ts ${_ts_file})
-    execute_process(COMMAND lrelease ${_ts_file})
-endforeach()
 
 include(GNUInstallDirs)
 
