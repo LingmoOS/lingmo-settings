@@ -25,7 +25,7 @@ import Qt5Compat.GraphicalEffects
 
 import LingmoUI.CompatibleModule 3.0 as LingmoUI
 
-import Lingmo.Logger as LingmoLogger
+import Lingmo.Logger 1.0
 
 LingmoUI.Window {
     id: rootWindow
@@ -45,6 +45,8 @@ LingmoUI.Window {
 
     LayoutMirroring.enabled: Qt.application.layoutDirection === Qt.RightToLeft
     LayoutMirroring.childrenInherit: true
+
+    LingmoLogger {id: logger}
 
     LingmoUI.WindowBlur {
         view: rootWindow
@@ -117,7 +119,8 @@ LingmoUI.Window {
         }
 
         close.accepted = true
-        LingmoLogger.Logger.log_info("main.qml: Close clicked!")
+        // close.accepted = false;
+        logger.lInfoTag("main.qml", "Close clicked!");
         Qt.callLater(Qt.quit);
     }
 }
