@@ -44,9 +44,7 @@ Depends: qml6-module-qtquick-controls,
          qml6-module-qtquick-particles,
          curl,
          openssl,
-         aria2,
          gnupg,
-         zenity,
          pkexec,
          polkitd,
          network-manager,
@@ -57,6 +55,8 @@ Depends: qml6-module-qtquick-controls,
          kscreen,
          ${misc:Depends},
          ${shlibs:Depends}
+Recommends: zenity,
+            aria2
 Description: Lingmo OS
 
 Package: lingmo-settings-dev
