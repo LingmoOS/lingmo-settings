@@ -1,10 +1,8 @@
 import QtQuick 2.4
 import QtQuick.Controls 2.4
 import QtQuick.Layouts 1.3
-import Qt5Compat.GraphicalEffects
-
-import LingmoUI.CompatibleModule 3.0 as LingmoUI
-
+import QtGraphicalEffects 1.0
+import LingmoUI 1.0 as LingmoUI
 
 Item {
     id: control

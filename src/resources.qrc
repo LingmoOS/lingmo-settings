@@ -12,6 +12,7 @@
         <file>images/MundoLight.jpeg</file>
         <file>qml/Scrollable.qml</file>
         <file>qml/PCname.qml</file>
+        <file>qml/IconCheckBoxTheme.qml</file>
         <file>qml/InfoItem.qml</file>
         <file>qml/ChangeDialog.qml</file>
         <file>images/sensors-voltage-symbolic.svg</file>
@@ -35,6 +36,8 @@
         <file>images/logo-2.svg</file>
         <file>images/dark/LingmoOS-500.png</file>
         <file>images/dark/LingmoOS-64.png</file>
+        <file>images/dark/elinks.svg</file>
+        <file>images/light/elinks.svg</file>
         <file>images/light/LingmoOS-500.png</file>
         <file>images/light/Logo-computer-500-2.png</file>
         <file>images/dark/Logo-computer-500-2.png</file>
@@ -42,6 +45,8 @@
         <file>images/dark/Logo-computer-400.png</file>
         <file>images/dark_mode.svg</file>
         <file>images/light_mode.svg</file>
+        <file>images/dark_mode.png</file>
+        <file>images/light_mode.png</file>
         <file>images/dock_bottom.svg</file>
         <file>images/dock_left.svg</file>
         <file>qml/IconCheckBox.qml</file>
@@ -79,6 +84,7 @@
         <file>images/dark/down.svg</file>
         <file>images/dark/up.svg</file>
         <file>qml/Wallpaper/Main.qml</file>
+        <file>qml/WorkSpace/Main.qml</file>
         <file>qml/Wallpaper/DesktopPreview.qml</file>
         <file>images/sidebar/all/info.svg</file>
         <file>images/sidebar/all/accounts.svg</file>
@@ -132,6 +138,8 @@
         <file>images/sidebar/all/datetime.svg</file>
         <file>images/sidebar/all/update.svg</file>
         <file>images/logo.svg</file>
+        <file>images/dark/logo.svg</file>
+        <file>images/light/logo.svg</file>
         <file>qml/Touchpad/Main.qml</file>
         <file>images/sidebar/all/touchpad.svg</file>
         <file>images/dark/logo.png</file>

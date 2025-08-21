@@ -1,12 +1,10 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
-import Qt5Compat.GraphicalEffects
-
+import QtGraphicalEffects 1.0
 import QtQuick.Dialogs 1.2
 import Lingmo.Settings 1.0
-import LingmoUI.CompatibleModule 3.0 as LingmoUI
-
+import LingmoUI 1.0 as LingmoUI
 
 import "../"
 
@@ -26,22 +24,191 @@ ItemPage {
             anchors.fill: parent
             spacing: LingmoUI.Units.largeSpacing
 
-            FileDialog {
-                id: fileDialog
-                folder: shortcuts.pictures
-                nameFilters: ["Image files (*.jpg *.png)", "All files (*)"]
-                selectFolder: fales
-                onAccepted: {
-                    _image.sources = fileDialog.fileUrl
-                    fileDialog.baseData = fileDialog.fileUrl
-                    background.setBackground(baseData)
-                }
-            }
+            // FileDialog {
+            //     id: fileDialog
+            //     folder: shortcuts.pictures
+            //     nameFilters: ["Image files (*.jpg *.png)", "All files (*)"]
+            //     selectFolder: fales
+            //     onAccepted: {
+            //         _image.sources = fileDialog.fileUrl
+            //         fileDialog.baseData = fileDialog.fileUrl
+            //         background.setBackground(baseData)
+            //     }
+            // }
 
-            DesktopPreview {
-               Layout.alignment: Qt.AlignHCenter
-               width: 500
-               height: 300
+            // DesktopPreview {
+            //    Layout.alignment: Qt.AlignHCenter
+            //    width: 500
+            //    height: 300
+            // }
+            Rectangle {
+                id: deviceItem
+
+                Layout.alignment: Qt.AlignHCenter
+                // width: logo.width/1.2
+                // height: logo.width/2
+                width: 350
+                height: 220
+                color: LingmoUI.Theme.backgroundColor
+                border.width: 5
+                border.color: LingmoUI.Theme.textColor
+                radius: LingmoUI.Theme.bigRadius
+
+                Image {
+                    id: _image
+                    width: deviceItem.width - 6
+                    height: deviceItem.height - 6
+                    anchors {
+                        verticalCenter: parent.verticalCenter
+                        horizontalCenter: parent.horizontalCenter
+                    }
+                    // source: LingmoUI.Theme.darkMode ? "qrc:/images/MundoDark.jpeg" : "qrc:/images/MundoLight.jpeg"
+                    source: "file://" + background.currentBackgroundPath
+                    sourceSize: Qt.size(width, height)
+                    fillMode: Image.PreserveAspectCrop
+                    asynchronous: true
+                    mipmap: true
+                    cache: true
+                    smooth: true
+                    opacity: 1.0
+
+                    Behavior on opacity {
+                        NumberAnimation {
+                            duration: 100
+                            easing.type: Easing.InOutCubic
+                        }
+                    }
+
+                    layer.enabled: true
+                    layer.effect: OpacityMask {
+                        maskSource: Item {
+                            width: _image.width
+                            height: _image.height
+                            Rectangle {
+                                anchors.fill: parent
+                                radius: LingmoUI.Theme.bigRadius
+                            }
+                        }
+                    }
+                }
+
+                Rectangle {
+                    id: dockItem
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.bottom: _image.bottom
+                    anchors.bottomMargin: 4
+                    width: 120
+                    height: 20
+                    color: LingmoUI.Theme.backgroundColor
+                    opacity: 0.85
+                    border.width: 0.1
+                    border.color: LingmoUI.Theme.textColor
+                    radius: LingmoUI.Theme.bigRadius/2.5
+                }
+
+                Rectangle {
+                    id: icon1
+                    anchors.verticalCenter: dockItem.verticalCenter
+                    anchors.left: dockItem.left
+                    anchors.leftMargin: 2
+                    width: dockItem.height-6
+                    height: icon1.width
+                    color: "#D4D4D4"
+                    // opacity: 0.85
+                    // border.width: 0.1
+                    // border.color: LingmoUI.Theme.textColor
+                    radius: 3
+                }
+
+                Rectangle {
+                    id: icon2
+                    // anchors.horizontalCenter: dockItem.horizontalCenter
+                    anchors.verticalCenter: dockItem.verticalCenter
+                    anchors.left: icon1.right
+                    anchors.leftMargin: 3
+                    width: dockItem.height-6
+                    height: icon1.width
+                    color: "#DBC81E"
+                    // opacity: 0.85
+                    // border.width: 0.1
+                    // border.color: LingmoUI.Theme.textColor
+                    radius: 3
+                }
+
+                Rectangle {
+                    id: icon3
+                    // anchors.horizontalCenter: dockItem.horizontalCenter
+                    anchors.verticalCenter: dockItem.verticalCenter
+                    anchors.left: icon2.right
+                    anchors.leftMargin: 3
+                    width: dockItem.height-6
+                    height: icon1.width
+                    color: "#464444"
+                    // opacity: 0.85
+                    // border.width: 0.1
+                    // border.color: LingmoUI.Theme.textColor
+                    radius: 3
+                }
+
+                Rectangle {
+                    id: icon4
+                    // anchors.horizontalCenter: dockItem.horizontalCenter
+                    anchors.verticalCenter: dockItem.verticalCenter
+                    anchors.left: icon3.right
+                    anchors.leftMargin: 3
+                    width: dockItem.height-6
+                    height: icon1.width
+                    color: "#4891FF"
+                    // opacity: 0.85
+                    // border.width: 0.1
+                    // border.color: LingmoUI.Theme.textColor
+                    radius: 3
+                }
+
+                Rectangle {
+                    id: icon5
+                    // anchors.horizontalCenter: dockItem.horizontalCenter
+                    anchors.verticalCenter: dockItem.verticalCenter
+                    anchors.left: icon4.right
+                    anchors.leftMargin: 3
+                    width: dockItem.height-6
+                    height: icon1.width
+                    color: "#FD5D93"
+                    // opacity: 0.85
+                    // border.width: 0.1
+                    // border.color: LingmoUI.Theme.textColor
+                    radius: 3
+                }
+
+                Rectangle {
+                    id: icon6
+                    // anchors.horizontalCenter: dockItem.horizontalCenter
+                    anchors.verticalCenter: dockItem.verticalCenter
+                    anchors.left: icon5.right
+                    anchors.leftMargin: 3
+                    width: dockItem.height-6
+                    height: icon1.width
+                    color: "#FFA08A"
+                    // opacity: 0.85
+                    // border.width: 0.1
+                    // border.color: LingmoUI.Theme.textColor
+                    radius: 3
+                }
+
+                Rectangle {
+                    id: icon7
+                    // anchors.horizontalCenter: dockItem.horizontalCenter
+                    anchors.verticalCenter: dockItem.verticalCenter
+                    anchors.left: icon6.right
+                    anchors.leftMargin: 3
+                    width: dockItem.height-6
+                    height: icon1.width
+                    color: "#FF8AFF"
+                    // opacity: 0.85
+                    // border.width: 0.1
+                    // border.color: LingmoUI.Theme.textColor
+                    radius: 3
+                }
             }
 
             RoundedItem {
@@ -70,10 +237,6 @@ ItemPage {
 
                         TabButton {
                             text: qsTr("Color")
-                        }
-
-                        TabButton {
-                            text: qsTr("Custom Images")
                         }
                     }
                 }
@@ -296,39 +459,5 @@ ItemPage {
                 }
             }
         }
-    }
-
-    Component {
-        id: customView
-
-        GridView {
-            id: _customView
-            Layout.fillWidth: true
-
-            property int rowCount: _customView.width / cellWidth
-
-            implicitHeight: Math.ceil(_customView.count / _customView.rowCount) * cellHeight + LingmoUI.Units.largeSpacing
-
-            cellWidth: 50
-            cellHeight: 50
-
-            interactive: false
-            model: ListModel {}
-
-            Item {
-                height: LingmoUI.Units.largeSpacing
-            }
-
-            StandardButton {
-                Layout.alignment: Qt.AlignTop | Qt.AlignHCenter
-                text: qsTr("Use Custom Images")
-                onClicked: {
-                    fileDialog.open()
-                }
-            }
-            Item {
-                height: LingmoUI.Units.largeSpacing
-            }
-        }      
     }
 }

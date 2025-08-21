@@ -1,7 +1,8 @@
 /*
- * Copyright (C) 2021 LingmoOS Team.
+ * Copyright (C) 2025 Lingmo OS Team.
  *
  * Author:     revenmartin <revenmartin@gmail.com>
+ * Author:     Lingmo OS Team <team@lingmo.org>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -21,13 +22,11 @@ import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
 import QtQuick.Dialogs 1.2
-import Qt5Compat.GraphicalEffects
-
+import QtGraphicalEffects 1.0
 
 import Lingmo.Settings 1.0
 import Lingmo.Accounts 1.0
-import LingmoUI.CompatibleModule 3.0 as LingmoUI
-
+import LingmoUI 1.0 as LingmoUI
 
 import "../"
 
@@ -43,7 +42,8 @@ RoundedItem {
 
     FileDialog {
         id: fileDialog
-        folder: shortcuts.pictures
+        // folder: shortcuts.pictures
+        title: qsTr("Choose an image")
         nameFilters: ["Image files (*.jpg *.png)", "All files (*)"]
         onAccepted: {
             currentUser.iconFileName = fileDialog.fileUrl.toString().replace("file://", "")

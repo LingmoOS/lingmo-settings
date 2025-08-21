@@ -7,7 +7,7 @@
 #include <QDebug>
 #include <QDir>
 
-#include <QtGui/private/qtx11extras_p.h>
+#include <QX11Info>
 #include <X11/Xcursor/Xcursor.h>
 #include <X11/extensions/Xfixes.h>
 

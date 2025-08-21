@@ -3,7 +3,7 @@
 #include <QSettings>
 #include <QCursor>
 #include <QDebug>
-#include <QtGui/private/qtx11extras_p.h>
+#include <QX11Info>
 #include <QImage>
 
 #include <X11/Xlib.h>

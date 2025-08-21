@@ -21,8 +21,7 @@ import QtQuick 2.4
 import QtQuick.Window 2.3
 import QtQuick.Controls 2.4
 import QtQuick.Layouts 1.3
-import LingmoUI.CompatibleModule 3.0 as LingmoUI
-
+import LingmoUI 1.0 as LingmoUI
 import Lingmo.NetworkManagement 1.0 as NM
 
 Dialog {

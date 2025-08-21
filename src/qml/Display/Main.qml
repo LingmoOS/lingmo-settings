@@ -22,8 +22,7 @@ import QtQuick.Controls 2.4
 import QtQuick.Layouts 1.3
 import Lingmo.Settings 1.0
 import Lingmo.Screen 1.0 as CS
-import LingmoUI.CompatibleModule 3.0 as LingmoUI
-
+import LingmoUI 1.0 as LingmoUI
 import "../"
 
 ItemPage {
@@ -357,6 +356,34 @@ ItemPage {
                         if (appearance.devicePixelRatio !== value) {
                             appearance.setDevicePixelRatio(value)
                         }
+                    }
+                }
+            }
+
+            StandardButton {
+                text: ""
+                Layout.fillWidth: true
+                onClicked: {
+                    appearance.openAdvancedSettings()
+                }
+
+                RowLayout {
+                    anchors.fill: parent
+                    anchors.leftMargin: LingmoUI.Units.largeSpacing * 1.5
+                    anchors.rightMargin: LingmoUI.Units.largeSpacing * 1.5
+
+                    Label {
+                        text: qsTr("Advanced Options")
+                    }
+
+                    Item {
+                        Layout.fillWidth: true
+                    }
+
+                    Image {
+                        source: LingmoUI.Theme.darkMode ? "qrc:/images/dark/elinks.svg" : "qrc:/images/light/elinks.svg"
+                        width: 12
+                        sourceSize: Qt.size(width, height)
                     }
                 }
             }

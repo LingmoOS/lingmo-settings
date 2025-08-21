@@ -17,14 +17,13 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import QtQuick
-import QtQml
-import QtQuick.Controls
-import QtQuick.Layouts
-import QtQuick.Dialogs
+import QtQuick 2.12
+import QtQml 2.15
+import QtQuick.Controls 2.12
+import QtQuick.Layouts 1.12
+import QtQuick.Dialogs 1.2
 
-import LingmoUI.CompatibleModule 3.0 as LingmoUI
-
+import LingmoUI 1.0 as LingmoUI
 import Lingmo.Settings 1.0
 import "../"
 

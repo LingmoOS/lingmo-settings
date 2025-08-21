@@ -94,8 +94,12 @@ QString About::systemrelease()
 
 QString About::debianversion()
 {
-    QSettings settings("/etc/debian_version",QSettings::IniFormat);
-    return settings.value("Version").toString();
+    QFile file("/etc/debian_version");
+    if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        QTextStream in(&file);
+        return in.readAll().trimmed();  // 读取并去掉末尾的换行符
+    }
+    return QString();  // 如果无法读取文件，返回空字符串
 }
 
 QString About::desktopversion()

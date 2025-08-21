@@ -1,7 +1,8 @@
 /*
- * Copyright (C) 2021 LingmoOS Team.
+ * Copyright (C) 2025 Lingmo OS Team.
  *
  * Author:     revenmartin <revenmartin@gmail.com>
+ * Author:     Lingmo OS Team <team@lingmo.org>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -20,11 +21,9 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
-import Qt5Compat.GraphicalEffects
+import QtGraphicalEffects 1.0
 
-
-import LingmoUI.CompatibleModule 3.0 as LingmoUI
-
+import LingmoUI 1.0 as LingmoUI
 import Lingmo.Settings 1.0
 import Lingmo.Accounts 1.0
 import "../"
@@ -185,7 +184,7 @@ ItemPage {
                             flat: true
                             onClicked: {
                                 if (accountsManager.createUser(userNameField.text, "", accountTypeCombo.currentIndex)) {
-                                    newUserItem.visible = true
+                                    newUserItem.visible = false
                                 }
                             }
                         }
@@ -195,31 +194,14 @@ ItemPage {
 
             StandardButton {
                 id: _addUserButton
-                text: ""
+                text: qsTr("Add user")
                 Layout.fillWidth: true
+                visible: !newUserItem.visible
                 onClicked: {
                     newUserItem.visible = true
                     userNameField.forceActiveFocus()
                     _scrollable.contentY = Math.max(newUserItem.y,
                                                     _scrollable.contentHeight)
-                }
-
-                RowLayout {
-                    anchors.fill: parent
-                    anchors.leftMargin: LingmoUI.Units.largeSpacing * 1.5
-                    anchors.rightMargin: LingmoUI.Units.largeSpacing * 1.5
-
-                    Label {
-                        text: qsTr("Add user")
-                    }
-
-                    Item {
-                        Layout.fillWidth: true
-                    }
-
-                    Label {
-                        text: qsTr("→")
-                    }
                 }
             }
 

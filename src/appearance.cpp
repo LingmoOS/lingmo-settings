@@ -1,7 +1,8 @@
 /*
- * Copyright (C) 2021 LingmoOS Team.
+ * Copyright (C) 2025 Lingmo OS Team.
  *
  * Author:     revenmartin <revenmartin@gmail.com>
+ * Author:     Lingmo OS Team <team@lingmo.org>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -24,6 +25,7 @@
 #include <QDBusReply>
 #include <QDBusServiceWatcher>
 #include <QDBusPendingCall>
+#include <QProcess>
 
 #include <QStandardPaths>
 #include <QDebug>
@@ -306,4 +308,21 @@ void Appearance::setMinimiumAnimation(int minimiumAnimation)
         QDBusInterface("org.kde.KWin", "/KWin").call("reconfigure");
         emit minimiumAnimationChanged();
     }
+}
+
+void Appearance::openAdvancedSettings()
+{
+    QProcess::startDetached("lingmo-control-panel", QStringList() << "kcm_kscreen");
+}
+
+void Appearance::lightThemeChanged()
+{
+    QProcess::startDetached("lookandfeeltool", QStringList() << "-a" << "org.lingmo.ocean.desktop");
+    QProcess::startDetached("gsettings", QStringList() << "set" << "org.gnome.desktop.interface" << "color-scheme" << "prefer-light");
+}
+
+void Appearance::darkThemeChanged()
+{
+    QProcess::startDetached("lookandfeeltool", QStringList() << "-a" << "org.lingmo.oceandark.desktop");
+    QProcess::startDetached("gsettings", QStringList() << "set" << "org.gnome.desktop.interface" << "color-scheme" << "prefer-dark");
 }

@@ -12,9 +12,9 @@ Password::Password(QObject *parent)
 QString Password::cryptPassword(const QString &password) const
 {
     QByteArray alpha = "0123456789ABCDEFGHIJKLMNOPQRSTUVXYZ"
-                       "abcdefghijklmnopqrstuvxyz./";
+                       "abcdefghijklmnopqrstuvwxyz./";
     QByteArray salt("$6$");
-    int len = alpha.size();
+    int len = alpha.count();
     for (int i = 0; i < 16; i++)
         salt.append(alpha.at(QRandomGenerator::global()->bounded(len)));
 

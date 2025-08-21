@@ -1,12 +1,10 @@
 import QtQuick 2.4
 import QtQuick.Controls 2.4
 import QtQuick.Layouts 1.3
-import Qt5Compat.GraphicalEffects
-
+import QtGraphicalEffects 1.0
 
 import Lingmo.Settings 1.0
-import LingmoUI.CompatibleModule 3.0 as LingmoUI
-
+import LingmoUI 1.0 as LingmoUI
 import "../"
 
 ItemPage {
@@ -66,18 +64,24 @@ ItemPage {
                 RowLayout {
                     spacing: LingmoUI.Units.largeSpacing * 2
 
-                    IconCheckBox {
-                        source: "qrc:/images/light_mode.svg"
+                    IconCheckBoxTheme {
+                        source: "qrc:/images/light_mode.png"
                         text: qsTr("Light")
                         checked: !LingmoUI.Theme.darkMode
-                        onClicked: appearance.switchDarkMode(false)
+                        onClicked: {
+                            appearance.switchDarkMode(false)
+                            appearance.lightThemeChanged()
+                        }
                     }
 
-                    IconCheckBox {
-                        source: "qrc:/images/dark_mode.svg"
+                    IconCheckBoxTheme {
+                        source: "qrc:/images/dark_mode.png"
                         text: qsTr("Dark")
                         checked: LingmoUI.Theme.darkMode
-                        onClicked: appearance.switchDarkMode(true)
+                        onClicked: {
+                            appearance.switchDarkMode(true)
+                            appearance.darkThemeChanged()
+                        }
                     }
                 }
 
@@ -190,7 +194,16 @@ ItemPage {
                             id: _mouseArea
                             anchors.fill: parent
                             hoverEnabled: true
-                            onClicked: appearance.setAccentColor(index)
+                            onClicked: {
+                                appearance.setAccentColor(index)
+                                if (LingmoUI.Theme.darkMode) {
+                                    appearance.switchDarkMode(false)
+                                    appearance.switchDarkMode(true)
+                                } else {
+                                    appearance.switchDarkMode(true)
+                                    appearance.switchDarkMode(false)
+                                }
+                            }
                         }
 
                         Rectangle {
@@ -360,80 +373,7 @@ ItemPage {
 
                 }
             }
-            RoundedItem {
-                Label {
-                    text: qsTr("Desktop Settings")
-                    color: LingmoUI.Theme.disabledTextColor
-                }
-                GridLayout {
-                    rows: 3
-                    columns: 2
 
-                    columnSpacing: LingmoUI.Units.largeSpacing * 1.5
-                    rowSpacing: LingmoUI.Units.largeSpacing * 1.5
-
-                    Label {
-                        text: qsTr("Desktop Icons Size")
-                        bottomPadding: LingmoUI.Units.smallSpacing
-                    }
-
-                    TabBar {
-                        Layout.fillWidth: true
-
-                        TabButton {
-                            text: qsTr("Small")
-                        }
-
-                        TabButton {
-                            text: qsTr("Medium")
-                        }
-
-                        TabButton {
-                            text: qsTr("Large")
-                        }
-
-                        TabButton {
-                            text: qsTr("Huge")
-                        }
-
-                        currentIndex: {
-                            var index = 0
-
-                            if (appearance.desktopIconSize <= 55)
-                                index = 0
-                            else if (appearance.desktopIconSize <= 79)
-                                index = 1
-                            else if (appearance.desktopIconSize <= 95)
-                                index = 2
-                            else if (appearance.desktopIconSize <= 105)
-                                index = 3
-
-                            return index
-                        }
-
-                        onCurrentIndexChanged: {
-                            var desktopIconSize = 0
-
-                            switch (currentIndex) {
-                            case 0:
-                                desktopIconSize = 55
-                                break;
-                            case 1:
-                                desktopIconSize = 79
-                                break;
-                            case 2:
-                                desktopIconSize = 95
-                                break;
-                            case 3:
-                                desktopIconSize = 105
-                                break;
-                            }
-
-                            appearance.setDesktopIcons(desktopIconSize)
-                        }
-                    }
-                }
-            }
             Item {
                 Layout.fillHeight: true
             }

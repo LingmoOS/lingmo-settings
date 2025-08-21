@@ -21,20 +21,18 @@ import QtQuick 2.4
 import QtQuick.Controls 2.4
 import QtQuick.Layouts 1.3
 import QtQuick.Window 2.3
-import Qt5Compat.GraphicalEffects
-
-import LingmoUI.CompatibleModule 3.0 as LingmoUI
-
-import Lingmo.Logger as LingmoLogger
+import QtGraphicalEffects 1.0
+import LingmoUI 1.0 as LingmoUI
+import Lingmo.Logger 1.0
 
 LingmoUI.Window {
     id: rootWindow
     title: qsTr("Settings")
     visible: true
-    width: 900
+    width: 910
     height: 610
 
-    minimumWidth: 900
+    minimumWidth: 910
     minimumHeight: 600
 
     property alias stackView: _stackView
@@ -45,6 +43,8 @@ LingmoUI.Window {
 
     LayoutMirroring.enabled: Qt.application.layoutDirection === Qt.RightToLeft
     LayoutMirroring.childrenInherit: true
+
+    LingmoLogger {id: logger}
 
     LingmoUI.WindowBlur {
         view: rootWindow
@@ -65,6 +65,7 @@ LingmoUI.Window {
                 switchPageFromIndex(currentIndex)
             }
         }
+        
 
         StackView {
             id: _stackView
@@ -117,7 +118,8 @@ LingmoUI.Window {
         }
 
         close.accepted = true
-        LingmoLogger.Logger.log_info("main.qml: Close clicked!")
+        // close.accepted = false;
+        logger.lInfoTag("main.qml", "Close clicked!");
         Qt.callLater(Qt.quit);
     }
 }

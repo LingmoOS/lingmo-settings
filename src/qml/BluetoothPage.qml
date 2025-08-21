@@ -2,8 +2,7 @@ import QtQuick 2.4
 import QtQuick.Controls 2.4
 import QtQuick.Layouts 1.3
 import Lingmo.Settings 1.0
-import LingmoUI.CompatibleModule 3.0 as LingmoUI
-
+import LingmoUI 1.0 as LingmoUI
 import org.kde.bluezqt 1.0 as BluezQt
 import org.kde.plasma.private.bluetooth 1.0
 

@@ -1,11 +1,9 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
-import Qt5Compat.GraphicalEffects
+import QtGraphicalEffects 1.0
 
-
-import LingmoUI.CompatibleModule 3.0 as LingmoUI
-
+import LingmoUI 1.0 as LingmoUI
 import Lingmo.Settings 1.0
 import Lingmo.Accounts 1.0
 import "../"
@@ -118,6 +116,34 @@ ItemPage {
                         checked: accessibility.diminactive
                         Layout.fillHeight: true
                         onClicked: accessibility.diminactive = checked
+                    }
+                }
+            }
+
+            StandardButton {
+                text: ""
+                Layout.fillWidth: true
+                onClicked: {
+                    accessibility.openHotkeysSettings()
+                }
+
+                RowLayout {
+                    anchors.fill: parent
+                    anchors.leftMargin: LingmoUI.Units.largeSpacing * 1.5
+                    anchors.rightMargin: LingmoUI.Units.largeSpacing * 1.5
+
+                    Label {
+                        text: qsTr("Shortcut Key")
+                    }
+
+                    Item {
+                        Layout.fillWidth: true
+                    }
+
+                    Image {
+                        source: LingmoUI.Theme.darkMode ? "qrc:/images/dark/elinks.svg" : "qrc:/images/light/elinks.svg"
+                        width: 12
+                        sourceSize: Qt.size(width, height)
                     }
                 }
             }
