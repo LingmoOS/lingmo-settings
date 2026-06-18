@@ -620,37 +620,37 @@
     <message>
         <location filename="../src/qml/Power/Main.qml" line="118"/>
         <source>Turn off screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Выключение экрана при бездействии</translation>
     </message>
     <message>
         <location filename="../src/qml/Power/Main.qml" line="126"/>
         <source>2 Minutes</source>
-        <translation type="unfinished"></translation>
+        <translation>2 минуты</translation>
     </message>
     <message>
         <location filename="../src/qml/Power/Main.qml" line="127"/>
         <source>5 Minutes</source>
-        <translation type="unfinished"></translation>
+        <translation>5 минут</translation>
     </message>
     <message>
         <location filename="../src/qml/Power/Main.qml" line="128"/>
         <source>10 Minutes</source>
-        <translation type="unfinished"></translation>
+        <translation>10 минут</translation>
     </message>
     <message>
         <location filename="../src/qml/Power/Main.qml" line="129"/>
         <source>15 Minutes</source>
-        <translation type="unfinished"></translation>
+        <translation>15 минут</translation>
     </message>
     <message>
         <location filename="../src/qml/Power/Main.qml" line="130"/>
         <source>30 Minutes</source>
-        <translation type="unfinished"></translation>
+        <translation>30 минут</translation>
     </message>
     <message>
         <location filename="../src/qml/Power/Main.qml" line="131"/>
         <source>Never</source>
-        <translation type="unfinished"></translation>
+        <translation>Никогда</translation>
     </message>
     <message>
         <location filename="../src/qml/Power/Main.qml" line="163"/>
@@ -679,7 +679,7 @@
     <message>
         <location filename="../src/qml/User/Main.qml" line="103"/>
         <source>Add new user</source>
-        <translation type="unfinished"></translation>
+        <translation>Добавить нового пользователя</translation>
     </message>
     <message>
         <location filename="../src/qml/User/Main.qml" line="112"/>
@@ -950,7 +950,7 @@
     <message>
         <location filename="../src/qml/DateTime/Main.qml" line="29"/>
         <source>Date &amp; Time</source>
-        <translation type="unfinished"></translation>
+        <translation>Дата и время</translation>
     </message>
     <message>
         <location filename="../src/qml/DateTime/Main.qml" line="57"/>
@@ -960,12 +960,12 @@
     <message>
         <location filename="../src/qml/DateTime/Main.qml" line="75"/>
         <source>24-Hour Time</source>
-        <translation type="unfinished"></translation>
+        <translation>24-часовой формат времени</translation>
     </message>
     <message>
         <location filename="../src/qml/DateTime/Main.qml" line="104"/>
         <source>Time Zone</source>
-        <translation type="unfinished"></translation>
+        <translation>Часовой пояс</translation>
     </message>
     <message>
         <location filename="../src/qml/DefaultApp/Main.qml" line="30"/>

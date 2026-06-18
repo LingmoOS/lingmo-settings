@@ -728,7 +728,7 @@
         <location filename="../src/qml/User/Main.qml" line="221"/>
         <location filename="../src/qml/WLAN/Main.qml" line="101"/>
         <source>→</source>
-        <translation type="unfinished"></translation>
+        <translation>→</translation>
     </message>
     <message>
         <location filename="../src/qml/Wallpaper/Main.qml" line="14"/>

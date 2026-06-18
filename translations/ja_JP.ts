@@ -59,17 +59,17 @@
     <message>
         <location filename="../src/qml/ChangeDialog.qml" line="163"/>
         <source>Enter your new device name</source>
-        <translation type="unfinished"></translation>
+        <translation>あなたの新しいデバイス名を入力してください</translation>
     </message>
     <message>
         <location filename="../src/qml/ChangeDialog.qml" line="173"/>
         <source>New device name</source>
-        <translation type="unfinished"></translation>
+        <translation>新しいデバイス名</translation>
     </message>
     <message>
         <location filename="../src/qml/ChangeDialog.qml" line="190"/>
         <source>Ok</source>
-        <translation type="unfinished"></translation>
+        <translation>はい</translation>
     </message>
 </context>
 <context>
@@ -77,12 +77,12 @@
     <message>
         <location filename="../src/qml/WLAN/ConnectDialog.qml" line="67"/>
         <source>Enter Password</source>
-        <translation type="unfinished"></translation>
+        <translation>パスワードを入力</translation>
     </message>
     <message>
         <location filename="../src/qml/WLAN/ConnectDialog.qml" line="79"/>
         <source>Enter the password for %1</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 のパスワードを入力してください</translation>
     </message>
     <message>
         <location filename="../src/qml/WLAN/ConnectDialog.qml" line="89"/>
@@ -134,27 +134,27 @@
         <location filename="../src/qml/SystemUpdate/FirstPage.qml" line="91"/>
         <location filename="../src/qml/SystemUpdate/FirstPage.qml" line="204"/>
         <source>Current Version: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>最新バージョン: %1</translation>
     </message>
     <message>
         <location filename="../src/qml/SystemUpdate/FirstPage.qml" line="107"/>
         <source>Check Update</source>
-        <translation type="unfinished"></translation>
+        <translation>アップデートのチェック</translation>
     </message>
     <message>
         <location filename="../src/qml/SystemUpdate/FirstPage.qml" line="198"/>
         <source>Discover new versions:</source>
-        <translation type="unfinished"></translation>
+        <translation>最新バージョンに更新する</translation>
     </message>
     <message>
         <location filename="../src/qml/SystemUpdate/FirstPage.qml" line="219"/>
         <source>Update now</source>
-        <translation type="unfinished"></translation>
+        <translation>今すぐアップデートする</translation>
     </message>
     <message>
         <location filename="../src/qml/SystemUpdate/FirstPage.qml" line="329"/>
         <source>Lingmo OS</source>
-        <translation type="unfinished"></translation>
+        <translation>Lingmo OS</translation>
     </message>
 </context>
 <context>
@@ -162,17 +162,17 @@
     <message>
         <location filename="../src/qml/SystemUpdate/HomePage.qml" line="65"/>
         <source>Checking for updates...</source>
-        <translation type="unfinished"></translation>
+        <translation>アップデートをチェック中...</translation>
     </message>
     <message>
         <location filename="../src/qml/SystemUpdate/HomePage.qml" line="88"/>
         <source>Check for update failure</source>
-        <translation type="unfinished"></translation>
+        <translation>アップデートの確認に失敗しました</translation>
     </message>
     <message>
         <location filename="../src/qml/SystemUpdate/HomePage.qml" line="131"/>
         <source>Recheck</source>
-        <translation type="unfinished"></translation>
+        <translation>再確認</translation>
     </message>
 </context>
 <context>
@@ -193,52 +193,52 @@
     <message>
         <location filename="../src/qml/About/Main.qml" line="157"/>
         <source>OS Version</source>
-        <translation type="unfinished"></translation>
+        <translation>OSバージョン</translation>
     </message>
     <message>
         <location filename="../src/qml/About/Main.qml" line="279"/>
         <source>CPU</source>
-        <translation type="unfinished"></translation>
+        <translation>CPU</translation>
     </message>
     <message>
         <location filename="../src/qml/About/Main.qml" line="268"/>
         <source>Disk</source>
-        <translation type="unfinished"></translation>
+        <translation>ディスク</translation>
     </message>
     <message>
         <location filename="../src/qml/About/Main.qml" line="200"/>
         <source>Debian Version</source>
-        <translation type="unfinished"></translation>
+        <translation>Debianのバージョン</translation>
     </message>
     <message>
         <location filename="../src/qml/About/Main.qml" line="201"/>
         <source>13 Trixie</source>
-        <translation type="unfinished"></translation>
+        <translation>13 Trixie</translation>
     </message>
     <message>
         <location filename="../src/qml/About/Main.qml" line="210"/>
         <source>Linux Kernel Version</source>
-        <translation type="unfinished"></translation>
+        <translation>Linuxカーネルのバージョン</translation>
     </message>
     <message>
         <location filename="../src/qml/About/Main.qml" line="211"/>
         <source>Linux </source>
-        <translation type="unfinished"></translation>
+        <translation>Linux </translation>
     </message>
     <message>
         <location filename="../src/qml/About/Main.qml" line="220"/>
         <source>Lingmo UI Version</source>
-        <translation type="unfinished"></translation>
+        <translation>Lingmo UIのバージョン</translation>
     </message>
     <message>
         <location filename="../src/qml/About/Main.qml" line="316"/>
         <source>System Update</source>
-        <translation type="unfinished"></translation>
+        <translation>システムアップデート</translation>
     </message>
     <message>
         <location filename="../src/qml/About/Main.qml" line="332"/>
         <source>Open Source Software Statement</source>
-        <translation type="unfinished"></translation>
+        <translation>OSSライセンス表記</translation>
     </message>
     <message>
         <source>Built on %1</source>
@@ -251,7 +251,7 @@
     <message>
         <location filename="../src/qml/About/Main.qml" line="150"/>
         <source>PC Name</source>
-        <translation type="unfinished"></translation>
+        <translation>PCの名前</translation>
     </message>
     <message>
         <location filename="../src/qml/About/Main.qml" line="231"/>
@@ -787,12 +787,12 @@
     <message>
         <location filename="../src/qml/Bluetooth/Main.qml" line="188"/>
         <source>Connected</source>
-        <translation type="unfinished"></translation>
+        <translation>接続済み</translation>
     </message>
     <message>
         <location filename="../src/qml/Bluetooth/Main.qml" line="188"/>
         <source>Not Connected</source>
-        <translation type="unfinished"></translation>
+        <translation>接続されていません</translation>
     </message>
     <message>
         <location filename="../src/qml/Bluetooth/Main.qml" line="207"/>
@@ -802,7 +802,7 @@
     <message>
         <location filename="../src/qml/Bluetooth/Main.qml" line="219"/>
         <source>Disconnect</source>
-        <translation type="unfinished"></translation>
+        <translation>切断</translation>
     </message>
     <message>
         <location filename="../src/qml/Bluetooth/Main.qml" line="228"/>
@@ -953,7 +953,7 @@
     <message>
         <location filename="../src/qml/Accessibility/Main.qml" line="54"/>
         <source>Display window thumbnails on the edge of the screen</source>
-        <translation type="unfinished"></translation>
+        <translation>画面の端にウィンドウのサムネイルを表示する</translation>
     </message>
     <message>
         <location filename="../src/qml/Accessibility/Main.qml" line="70"/>
@@ -963,7 +963,7 @@
     <message>
         <location filename="../src/qml/Accessibility/Main.qml" line="87"/>
         <source>Barrier free function</source>
-        <translation type="unfinished"></translation>
+        <translation>バリアフリー機能</translation>
     </message>
     <message>
         <location filename="../src/qml/Accessibility/Main.qml" line="94"/>
@@ -978,7 +978,7 @@
     <message>
         <location filename="../src/qml/DefaultApp/Main.qml" line="30"/>
         <source>Default Applications</source>
-        <translation type="unfinished"></translation>
+        <translation>デフォルトのアプリ</translation>
     </message>
     <message>
         <location filename="../src/qml/DefaultApp/Main.qml" line="50"/>
@@ -993,7 +993,7 @@
     <message>
         <location filename="../src/qml/DefaultApp/Main.qml" line="84"/>
         <source>Email Client</source>
-        <translation type="unfinished"></translation>
+        <translation>Emailクライアント</translation>
     </message>
     <message>
         <location filename="../src/qml/DefaultApp/Main.qml" line="101"/>
@@ -1008,12 +1008,12 @@
     <message>
         <location filename="../src/qml/Notification/Main.qml" line="46"/>
         <source>Do Not Disturb</source>
-        <translation type="unfinished"></translation>
+        <translation>おやすみモード</translation>
     </message>
     <message>
         <location filename="../src/qml/Proxy/Main.qml" line="32"/>
         <source>Proxy</source>
-        <translation type="unfinished"></translation>
+        <translation>プロキシ</translation>
     </message>
     <message>
         <location filename="../src/qml/Proxy/Main.qml" line="70"/>

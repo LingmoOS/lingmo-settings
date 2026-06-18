@@ -64,12 +64,12 @@
     <message>
         <location filename="../src/qml/ChangeDialog.qml" line="173"/>
         <source>New device name</source>
-        <translation type="unfinished"></translation>
+        <translation>Neuer Gerätename</translation>
     </message>
     <message>
         <location filename="../src/qml/ChangeDialog.qml" line="190"/>
         <source>Ok</source>
-        <translation type="unfinished"></translation>
+        <translation>OK</translation>
     </message>
 </context>
 <context>
@@ -77,7 +77,7 @@
     <message>
         <location filename="../src/qml/WLAN/ConnectDialog.qml" line="67"/>
         <source>Enter Password</source>
-        <translation type="unfinished"></translation>
+        <translation>Passwort eingeben</translation>
     </message>
     <message>
         <location filename="../src/qml/WLAN/ConnectDialog.qml" line="79"/>

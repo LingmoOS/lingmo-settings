@@ -1151,7 +1151,7 @@
     <message>
         <location filename="../src/qml/Bluetooth/PairDialog.qml" line="53"/>
         <source>Bluetooth Pairing Request</source>
-        <translation type="unfinished"></translation>
+        <translation>Demande d&apos;appairage Bluetooth</translation>
     </message>
     <message>
         <location filename="../src/qml/Bluetooth/PairDialog.qml" line="70"/>

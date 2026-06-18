@@ -54,22 +54,22 @@
     <message>
         <location filename="../src/qml/ChangeDialog.qml" line="25"/>
         <source>Device</source>
-        <translation type="unfinished"></translation>
+        <translation>Cihaz</translation>
     </message>
     <message>
         <location filename="../src/qml/ChangeDialog.qml" line="163"/>
         <source>Enter your new device name</source>
-        <translation type="unfinished"></translation>
+        <translation>Yeni cihaz adını girin</translation>
     </message>
     <message>
         <location filename="../src/qml/ChangeDialog.qml" line="173"/>
         <source>New device name</source>
-        <translation type="unfinished"></translation>
+        <translation>Yeni cihaz adı</translation>
     </message>
     <message>
         <location filename="../src/qml/ChangeDialog.qml" line="190"/>
         <source>Ok</source>
-        <translation type="unfinished"></translation>
+        <translation>Tamam</translation>
     </message>
 </context>
 <context>
@@ -77,12 +77,12 @@
     <message>
         <location filename="../src/qml/WLAN/ConnectDialog.qml" line="67"/>
         <source>Enter Password</source>
-        <translation type="unfinished"></translation>
+        <translation>Şifre girin</translation>
     </message>
     <message>
         <location filename="../src/qml/WLAN/ConnectDialog.qml" line="79"/>
         <source>Enter the password for %1</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 için şifreyi girin</translation>
     </message>
     <message>
         <location filename="../src/qml/WLAN/ConnectDialog.qml" line="89"/>
@@ -105,22 +105,22 @@
     <message>
         <location filename="../src/qml/SystemUpdate/FinishedPage.qml" line="52"/>
         <source>The update is complete and we recommend that you restart your computer.</source>
-        <translation type="unfinished"></translation>
+        <translation>Güncelleme tamamlandı. Bilgisayarınızı yeniden başlatmanız önerilir.</translation>
     </message>
     <message>
         <location filename="../src/qml/SystemUpdate/FinishedPage.qml" line="59"/>
         <source>Update failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Güncelleme başarısız oldu</translation>
     </message>
     <message>
         <location filename="../src/qml/SystemUpdate/FinishedPage.qml" line="71"/>
         <source>Exit</source>
-        <translation type="unfinished"></translation>
+        <translation>Çıkış</translation>
     </message>
     <message>
         <location filename="../src/qml/SystemUpdate/FinishedPage.qml" line="78"/>
         <source>Reboot</source>
-        <translation type="unfinished"></translation>
+        <translation>Yeniden başlat</translation>
     </message>
 </context>
 <context>
@@ -128,33 +128,33 @@
     <message>
         <location filename="../src/qml/SystemUpdate/FirstPage.qml" line="85"/>
         <source>Has Update</source>
-        <translation type="unfinished"></translation>
+        <translation>Güncelleme mevcut</translation>
     </message>
     <message>
         <location filename="../src/qml/SystemUpdate/FirstPage.qml" line="91"/>
         <location filename="../src/qml/SystemUpdate/FirstPage.qml" line="204"/>
         <source>Current Version: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Mevcut Versiyon: %1</translation>
     </message>
     <message>
         <location filename="../src/qml/SystemUpdate/FirstPage.qml" line="107"/>
         <source>Check Update</source>
-        <translation type="unfinished"></translation>
+        <translation>Güncellemeleri kontrol et</translation>
     </message>
     <message>
         <location filename="../src/qml/SystemUpdate/FirstPage.qml" line="198"/>
         <source>Discover new versions:</source>
-        <translation type="unfinished"></translation>
+        <translation>Yeni versiyonları keşfet:</translation>
     </message>
     <message>
         <location filename="../src/qml/SystemUpdate/FirstPage.qml" line="219"/>
         <source>Update now</source>
-        <translation type="unfinished"></translation>
+        <translation>Şimdi güncelle</translation>
     </message>
     <message>
         <location filename="../src/qml/SystemUpdate/FirstPage.qml" line="329"/>
         <source>Lingmo OS</source>
-        <translation type="unfinished"></translation>
+        <translation>Lingmo OS</translation>
     </message>
 </context>
 <context>
@@ -162,7 +162,7 @@
     <message>
         <location filename="../src/qml/SystemUpdate/HomePage.qml" line="65"/>
         <source>Checking for updates...</source>
-        <translation type="unfinished"></translation>
+        <translation>Güncellemeler denetleniyor...</translation>
     </message>
     <message>
         <location filename="../src/qml/SystemUpdate/HomePage.qml" line="88"/>
