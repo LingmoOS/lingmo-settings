@@ -46,6 +46,7 @@
 #include "powermanager.h"
 #include "settingsuiadaptor.h"
 #include "touchpad.h"
+#include "aimodule.h"
 // #include "updatorhelper.h"
 // #include "upgradeablemodel.h"
 
@@ -99,6 +100,10 @@ Application::Application(std::shared_ptr<QQmlApplicationEngine> engine)
     qmlRegisterType<Fingerprint>(uri, 1, 0, "Fingerprint");
     qmlRegisterType<FaceAuth>(uri, 1, 0, "FaceAuth");
     qmlRegisterSingletonType<Password>(uri, 1, 0, "Password", passwordSingleton);
+    // One instance for the whole app, so a model download survives page changes
+    qmlRegisterSingletonType<AIModule>(uri, 1, 0, "AIModule", [](QQmlEngine*, QJSEngine*) -> QObject* {
+        return new AIModule();
+    });
 
 #if QT_VERSION < QT_VERSION_CHECK(5, 14, 0)
     qmlRegisterType<QAbstractItemModel>();

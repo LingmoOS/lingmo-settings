@@ -2,6 +2,173 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="pt_BR">
 <context>
+    <name>AIModule</name>
+    <message>
+        <source>Ollama is running.</source>
+        <translation>O Ollama está em execução.</translation>
+    </message>
+    <message>
+        <source>Ollama did not start. Check the service with: systemctl status ollama</source>
+        <translation>O Ollama não iniciou. Verifique o serviço com: systemctl status ollama</translation>
+    </message>
+    <message>
+        <source>Could not start Ollama.</source>
+        <translation>Não foi possível iniciar o Ollama.</translation>
+    </message>
+    <message>
+        <source>Start it in a terminal with: sudo systemctl enable --now ollama</source>
+        <translation>Inicie-o no terminal com: sudo systemctl enable --now ollama</translation>
+    </message>
+    <message>
+        <source>Authorization was cancelled.</source>
+        <translation>A autorização foi cancelada.</translation>
+    </message>
+    <message>
+        <source>Could not start the Ollama service: %1</source>
+        <translation>Não foi possível iniciar o serviço do Ollama: %1</translation>
+    </message>
+    <message>
+        <source>“%1” is not a valid model name. Use names like llama3.2:3b or user/model:tag.</source>
+        <translation>“%1” não é um nome de modelo válido. Use nomes como llama3.2:3b ou usuario/modelo:tag.</translation>
+    </message>
+    <message>
+        <source>Start Ollama before downloading models.</source>
+        <translation>Inicie o Ollama antes de baixar modelos.</translation>
+    </message>
+    <message>
+        <source>%1% · %2 of %3</source>
+        <translation>%1% · %2 de %3</translation>
+    </message>
+    <message>
+        <source>%1/s</source>
+        <translation>%1/s</translation>
+    </message>
+    <message>
+        <source>Verifying the download…</source>
+        <translation>Verificando o download…</translation>
+    </message>
+    <message>
+        <source>Finishing…</source>
+        <translation>Finalizando…</translation>
+    </message>
+    <message>
+        <source>Contacting the Ollama library…</source>
+        <translation>Consultando a biblioteca do Ollama…</translation>
+    </message>
+    <message>
+        <source>Download of %1 cancelled.</source>
+        <translation>Download de %1 cancelado.</translation>
+    </message>
+    <message>
+        <source>%1 is ready to use.</source>
+        <translation>%1 está pronto para usar.</translation>
+    </message>
+    <message>
+        <source>Lost the connection to Ollama at %1.</source>
+        <translation>A conexão com o Ollama em %1 caiu.</translation>
+    </message>
+    <message>
+        <source>Ollama doesn&apos;t know a model called “%1”. Check the name at ollama.com/library.</source>
+        <translation>O Ollama não conhece nenhum modelo chamado “%1”. Confira o nome em ollama.com/library.</translation>
+    </message>
+    <message>
+        <source>There is not enough free disk space for %1.</source>
+        <translation>Não há espaço livre em disco suficiente para %1.</translation>
+    </message>
+    <message>
+        <source>Ollama could not download %1: %2</source>
+        <translation>O Ollama não conseguiu baixar %1: %2</translation>
+    </message>
+    <message>
+        <source>The download of %1 failed.</source>
+        <translation>O download de %1 falhou.</translation>
+    </message>
+    <message>
+        <source>%1 was removed.</source>
+        <translation>%1 foi removido.</translation>
+    </message>
+    <message>
+        <source>Could not reach Ollama at %1.</source>
+        <translation>Não foi possível acessar o Ollama em %1.</translation>
+    </message>
+    <message>
+        <source>Could not remove %1.</source>
+        <translation>Não foi possível remover %1.</translation>
+    </message>
+    <message>
+        <source>Could not remove %1: %2</source>
+        <translation>Não foi possível remover %1: %2</translation>
+    </message>
+    <message>
+        <source>llmfit took too long to answer.</source>
+        <translation>O llmfit demorou demais para responder.</translation>
+    </message>
+    <message>
+        <source>llmfit failed: %1</source>
+        <translation>O llmfit falhou: %1</translation>
+    </message>
+    <message>
+        <source>Could not run llmfit.</source>
+        <translation>Não foi possível executar o llmfit.</translation>
+    </message>
+    <message>
+        <source>llmfit gave an answer this page can&apos;t read.</source>
+        <translation>O llmfit deu uma resposta que esta página não consegue ler.</translation>
+    </message>
+    <message>
+        <source>%1 GB RAM</source>
+        <translation>%1 GB de RAM</translation>
+    </message>
+    <message>
+        <source>%1 with %2 GB</source>
+        <translation>%1 com %2 GB</translation>
+    </message>
+    <message>
+        <source>no dedicated GPU</source>
+        <translation>sem placa de vídeo dedicada</translation>
+    </message>
+    <message>
+        <source>≈ %1 tokens/s</source>
+        <translation>≈ %1 tokens/s</translation>
+    </message>
+    <message>
+        <source>Perfect fit</source>
+        <translation>Perfeito</translation>
+    </message>
+    <message>
+        <source>Good fit</source>
+        <translation>Bom</translation>
+    </message>
+    <message>
+        <source>At the limit</source>
+        <translation>No limite</translation>
+    </message>
+    <message>
+        <source>Too heavy for this computer</source>
+        <translation>Pesado demais para este computador</translation>
+    </message>
+    <message>
+        <source>Runs on the GPU</source>
+        <translation>Roda na GPU</translation>
+    </message>
+    <message>
+        <source>Runs on the CPU and GPU</source>
+        <translation>Roda na CPU e na GPU</translation>
+    </message>
+    <message>
+        <source>Runs on the CPU</source>
+        <translation>Roda na CPU</translation>
+    </message>
+    <message>
+        <source>Runs on the GPU (MoE)</source>
+        <translation>Roda na GPU (MoE)</translation>
+    </message>
+    <message>
+        <source>%1 GB</source>
+        <translation>%1 GB</translation>
+    </message>
+</context>
+<context>
     <name>About</name>
     <message>
         <location filename="../src/about.cpp" line="+210"/>
@@ -2338,6 +2505,222 @@
         <source>Ready. The camera light only turns on while an app is using it.</source>
         <translation>Pronta. A luz da câmera só acende enquanto algum app estiver usando.</translation>
     </message>
+    <message>
+        <source>Artificial Intelligence</source>
+        <translation>Inteligência Artificial</translation>
+    </message>
+    <message>
+        <source>Ollama</source>
+        <translation>Ollama</translation>
+    </message>
+    <message>
+        <source>Running</source>
+        <translation>Em execução</translation>
+    </message>
+    <message>
+        <source>Starting…</source>
+        <translation>Iniciando…</translation>
+    </message>
+    <message>
+        <source>Not reachable</source>
+        <translation>Inacessível</translation>
+    </message>
+    <message>
+        <source>Installed, but not running</source>
+        <translation>Instalado, mas parado</translation>
+    </message>
+    <message>
+        <source>Not installed</source>
+        <translation>Não instalado</translation>
+    </message>
+    <message>
+        <source>Checking…</source>
+        <translation>Verificando…</translation>
+    </message>
+    <message>
+        <source>Version %1 on %2</source>
+        <translation>Versão %1 em %2</translation>
+    </message>
+    <message>
+        <source>Version %1</source>
+        <translation>Versão %1</translation>
+    </message>
+    <message>
+        <source>Waiting for Ollama to answer.</source>
+        <translation>Aguardando o Ollama responder.</translation>
+    </message>
+    <message>
+        <source>Could not reach the Ollama server at %1.</source>
+        <translation>Não foi possível acessar o servidor Ollama em %1.</translation>
+    </message>
+    <message>
+        <source>Ollama runs the AI models. Start it to use and download models.</source>
+        <translation>O Ollama executa os modelos de IA. Inicie-o para usar e baixar modelos.</translation>
+    </message>
+    <message>
+        <source>Ollama runs the AI models on this computer. Install it in a terminal with “sudo pacman -S ollama” (or ollama-cuda for NVIDIA and ollama-rocm for AMD graphics) and come back to this page.</source>
+        <translation>O Ollama executa os modelos de IA neste computador. Instale-o no terminal com “sudo pacman -S ollama” (ou ollama-cuda para placas NVIDIA e ollama-rocm para placas AMD) e volte a esta página.</translation>
+    </message>
+    <message>
+        <source>Start</source>
+        <translation>Iniciar</translation>
+    </message>
+    <message>
+        <source>Model in use</source>
+        <translation>Modelo em uso</translation>
+    </message>
+    <message>
+        <source>The default model for the whole system. Spotlight and Automator answer with it.</source>
+        <translation>O modelo padrão de todo o sistema. O Spotlight e o Automator respondem com ele.</translation>
+    </message>
+    <message>
+        <source>“%1” is chosen but not installed. Download it below or choose another model.</source>
+        <translation>“%1” está escolhido, mas não está instalado. Baixe-o abaixo ou escolha outro modelo.</translation>
+    </message>
+    <message>
+        <source>Chosen: %1. Start Ollama to see the installed models.</source>
+        <translation>Escolhido: %1. Inicie o Ollama para ver os modelos instalados.</translation>
+    </message>
+    <message>
+        <source>Start Ollama to see the installed models.</source>
+        <translation>Inicie o Ollama para ver os modelos instalados.</translation>
+    </message>
+    <message>
+        <source>No models installed yet. Download one below.</source>
+        <translation>Nenhum modelo instalado ainda. Baixe um abaixo.</translation>
+    </message>
+    <message>
+        <source>No model chosen yet. Pick one of the installed models.</source>
+        <translation>Nenhum modelo escolhido ainda. Escolha um dos modelos instalados.</translation>
+    </message>
+    <message>
+        <source>Embeddings for search, not for chat</source>
+        <translation>Embeddings para busca, não para conversa</translation>
+    </message>
+    <message>
+        <source>Too heavy for this computer: answers will be slow.</source>
+        <translation>Pesado para este computador: as respostas vão ficar lentas.</translation>
+    </message>
+    <message>
+        <source>In use</source>
+        <translation>Em uso</translation>
+    </message>
+    <message>
+        <source>Recommended for this computer</source>
+        <translation>Recomendados para este computador</translation>
+    </message>
+    <message>
+        <source>Refresh</source>
+        <translation>Atualizar</translation>
+    </message>
+    <message>
+        <source>This computer: %1</source>
+        <translation>Este computador: %1</translation>
+    </message>
+    <message>
+        <source>Install llmfit to see which models suit this computer: sudo pacman -S llmfit</source>
+        <translation>Instale o llmfit para receber recomendações para este computador: sudo pacman -S llmfit</translation>
+    </message>
+    <message>
+        <source>Conversation</source>
+        <translation>Conversa</translation>
+    </message>
+    <message>
+        <source>General use</source>
+        <translation>Uso geral</translation>
+    </message>
+    <message>
+        <source>Programming</source>
+        <translation>Programação</translation>
+    </message>
+    <message>
+        <source>Reasoning</source>
+        <translation>Raciocínio</translation>
+    </message>
+    <message>
+        <source>Checking which models suit this computer…</source>
+        <translation>Verificando quais modelos servem para este computador…</translation>
+    </message>
+    <message>
+        <source>llmfit found no Ollama model of this kind that fits this computer.</source>
+        <translation>O llmfit não encontrou nenhum modelo do Ollama deste tipo que caiba neste computador.</translation>
+    </message>
+    <message>
+        <source>Downloading %1</source>
+        <translation>Baixando %1</translation>
+    </message>
+    <message>
+        <source>%1 download</source>
+        <translation>download de %1</translation>
+    </message>
+    <message>
+        <source>needs %1 of memory</source>
+        <translation>precisa de %1 de memória</translation>
+    </message>
+    <message>
+        <source>Installed</source>
+        <translation>Instalado</translation>
+    </message>
+    <message>
+        <source>Download</source>
+        <translation>Baixar</translation>
+    </message>
+    <message>
+        <source>Show fewer</source>
+        <translation>Mostrar menos</translation>
+    </message>
+    <message>
+        <source>Show all %1</source>
+        <translation>Mostrar todos os %1</translation>
+    </message>
+    <message>
+        <source>Other model</source>
+        <translation>Outro modelo</translation>
+    </message>
+    <message>
+        <source>Any model from ollama.com/library, for example gemma3:4b or user/model:tag.</source>
+        <translation>Qualquer modelo de ollama.com/library, por exemplo gemma3:4b ou usuario/modelo:tag.</translation>
+    </message>
+    <message>
+        <source>name:tag</source>
+        <translation>nome:tag</translation>
+    </message>
+    <message>
+        <source>Use lowercase letters, numbers, dots and dashes, like llama3.2:3b.</source>
+        <translation>Use letras minúsculas, números, pontos e traços, como llama3.2:3b.</translation>
+    </message>
+    <message>
+        <source>Where it is used</source>
+        <translation>Onde é usado</translation>
+    </message>
+    <message>
+        <source>Spotlight: type “ai:” before a question, or ask anything ending with “?”.</source>
+        <translation>Spotlight: digite “ai:” antes de uma pergunta, ou pergunte qualquer coisa terminando com “?”.</translation>
+    </message>
+    <message>
+        <source>Automator: routines can hand their output to the AI to summarize or explain it.</source>
+        <translation>Automator: as rotinas podem entregar a saída delas para a IA resumir ou explicar.</translation>
+    </message>
+    <message>
+        <source>The models run on the Ollama server at %1.</source>
+        <translation>Os modelos rodam no servidor Ollama em %1.</translation>
+    </message>
+    <message>
+        <source>The models run on this computer. Nothing you ask leaves it.</source>
+        <translation>Os modelos rodam neste computador. Nada do que você pergunta sai dele.</translation>
+    </message>
+    <message>
+        <source>Remove %1?</source>
+        <translation>Remover %1?</translation>
+    </message>
+    <message>
+        <source>It is the model in use: Spotlight and Automator won&apos;t answer until you choose another one. You can download it again later.</source>
+        <translation>É o modelo em uso: o Spotlight e o Automator não vão responder até você escolher outro. Você pode baixá-lo de novo depois.</translation>
+    </message>
+    <message>
+        <source>It frees up disk space. You can download it again later.</source>
+        <translation>Isso libera espaço em disco. Você pode baixá-lo de novo depois.</translation>
+    </message>
 </context>
 <context>
     <name>NewNetworkDialog</name>
@@ -2615,6 +2998,10 @@
         <location line="-126"/>
         <source>Effects</source>
         <translation>Efeitos</translation>
+    </message>
+    <message>
+        <source>Artificial Intelligence</source>
+        <translation>Inteligência Artificial</translation>
     </message>
 </context>
 <context>

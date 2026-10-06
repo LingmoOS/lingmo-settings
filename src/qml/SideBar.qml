@@ -258,6 +258,15 @@ Item {
         }
 
         ListElement {
+            title: qsTr("Artificial Intelligence")
+            name: "ai"
+            page: "qrc:/qml/AI/Main.qml"
+            iconSource: "ai.svg"
+            iconColor: "#6E56CF"
+            category: qsTr("System")
+        }
+
+        ListElement {
             title: qsTr("Language")
             name: "language"
             page: "qrc:/qml/LanguagePage.qml"
