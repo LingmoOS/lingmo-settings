@@ -2721,6 +2721,22 @@
         <source>It frees up disk space. You can download it again later.</source>
         <translation>Isso libera espaço em disco. Você pode baixá-lo de novo depois.</translation>
     </message>
+    <message>
+        <source>Reasoning</source>
+        <translation>Raciocínio</translation>
+    </message>
+    <message>
+        <source>Think before answering</source>
+        <translation>Pensar antes de responder</translation>
+    </message>
+    <message>
+        <source>Reasoning models work the problem out first: better answers to hard questions, but slower. Off, they answer right away.</source>
+        <translation>Modelos com raciocínio resolvem o problema antes de responder: respostas melhores para perguntas difíceis, porém mais lentas. Desligado, eles respondem na hora.</translation>
+    </message>
+    <message>
+        <source>“%1” can&apos;t reason, so it always answers right away. Models marked “Reasoning” can.</source>
+        <translation>“%1” não tem raciocínio, então sempre responde na hora. Os modelos marcados com “Raciocínio” têm.</translation>
+    </message>
 </context>
 <context>
     <name>NewNetworkDialog</name>

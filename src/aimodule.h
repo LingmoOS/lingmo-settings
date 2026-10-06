@@ -40,6 +40,10 @@ class AIModule : public QObject
     Q_PROPERTY(QString provider READ provider NOTIFY configChanged)
     Q_PROPERTY(QString model READ model NOTIFY configChanged)
     Q_PROPERTY(bool modelInstalled READ modelInstalled NOTIFY installedModelsChanged)
+    // Let reasoning models think before answering (better, slower); "think" in ai.conf
+    Q_PROPERTY(bool think READ think WRITE setThink NOTIFY configChanged)
+    // The model in use can reason (Ollama capability "thinking")
+    Q_PROPERTY(bool modelCanThink READ modelCanThink NOTIFY installedModelsChanged)
 
     Q_PROPERTY(int ollamaState READ ollamaState NOTIFY ollamaChanged)
     Q_PROPERTY(QString ollamaVersion READ ollamaVersion NOTIFY ollamaChanged)
@@ -80,6 +84,9 @@ public:
     QString provider() const { return m_provider; }
     QString model() const { return m_model; }
     bool modelInstalled() const;
+    bool think() const { return m_think; }
+    void setThink(bool think);
+    bool modelCanThink() const;
 
     int ollamaState() const { return m_ollamaState; }
     QString ollamaVersion() const { return m_ollamaVersion; }
@@ -136,6 +143,7 @@ private:
         QString quantization;
         qint64 size = 0;
         bool embedding = false;
+        bool thinking = false;
     };
 
     struct FitInfo {
@@ -192,6 +200,7 @@ private:
 
     QString m_provider;
     QString m_model;
+    bool m_think = false;
 
     int m_ollamaState = Checking;
     QString m_ollamaVersion;

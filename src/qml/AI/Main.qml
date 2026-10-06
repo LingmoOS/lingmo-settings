@@ -332,7 +332,7 @@ ItemPage {
                                 Label {
                                     text: modelData.embedding
                                           ? page.joinParts([modelData.details, qsTr("Embeddings for search, not for chat")])
-                                          : modelData.details
+                                          : page.joinParts([modelData.details, modelData.thinking ? qsTr("Reasoning") : ""])
                                     color: LingmoUI.Theme.disabledTextColor
                                     elide: Text.ElideRight
                                     Layout.fillWidth: true
@@ -366,6 +366,44 @@ ItemPage {
                                 }
                             }
                         }
+                    }
+                }
+
+                // Reasoning ("think"): reasoning models think before answering
+                RowLayout {
+                    spacing: LingmoUI.Units.largeSpacing * 2
+                    Layout.fillWidth: true
+                    Layout.topMargin: LingmoUI.Units.smallSpacing
+
+                    ColumnLayout {
+                        spacing: LingmoUI.Units.smallSpacing
+                        Layout.fillWidth: true
+
+                        Label {
+                            text: qsTr("Think before answering")
+                        }
+
+                        Label {
+                            text: qsTr("Reasoning models work the problem out first: better answers to hard questions, but slower. Off, they answer right away.")
+                            color: LingmoUI.Theme.disabledTextColor
+                            wrapMode: Text.WordWrap
+                            Layout.fillWidth: true
+                        }
+
+                        Label {
+                            visible: page.running && AIModule.model !== "" && AIModule.modelInstalled && !AIModule.modelCanThink
+                            text: qsTr("“%1” can't reason, so it always answers right away. Models marked “Reasoning” can.").arg(AIModule.model)
+                            color: LingmoUI.Theme.orangeColor
+                            wrapMode: Text.WordWrap
+                            Layout.fillWidth: true
+                        }
+                    }
+
+                    Switch {
+                        checked: AIModule.think
+                        Layout.alignment: Qt.AlignVCenter | Qt.AlignRight
+                        rightPadding: 0
+                        onToggled: AIModule.think = checked
                     }
                 }
 

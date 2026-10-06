@@ -115,6 +115,26 @@ void AIModule::loadConfig()
     if (m_provider.isEmpty())
         m_provider = QStringLiteral("ollama");
     m_model = settings.value(QStringLiteral("model")).toString();
+    m_think = settings.value(QStringLiteral("think"), false).toBool();
+}
+
+void AIModule::setThink(bool think)
+{
+    if (think == m_think)
+        return;
+    QSettings settings(ConfigOrganization, ConfigApplication);
+    settings.setValue(QStringLiteral("think"), think);
+    settings.sync();
+    m_think = think;
+    emit configChanged();
+}
+
+bool AIModule::modelCanThink() const
+{
+    const QString current = normalizedName(m_model);
+    return std::any_of(m_installed.cbegin(), m_installed.cend(), [&current](const Installed &m) {
+        return m.thinking && normalizedName(m.name) == current;
+    });
 }
 
 void AIModule::writeConfig(const QString &provider, const QString &model)
@@ -358,6 +378,7 @@ void AIModule::fetchTags()
             const QVariantList caps = obj.value(QStringLiteral("capabilities")).toArray().toVariantList();
             if (!caps.isEmpty()) {
                 m.embedding = caps.contains(QStringLiteral("embedding")) && !caps.contains(QStringLiteral("completion"));
+                m.thinking = caps.contains(QStringLiteral("thinking"));
             } else {
                 const QString family = details.value(QStringLiteral("family")).toString();
                 m.embedding = family.contains(QLatin1String("bert")) || m.name.contains(QLatin1String("embed"));
@@ -392,6 +413,7 @@ QVariantList AIModule::installedModels() const
             {QStringLiteral("name"), m.name},
             {QStringLiteral("details"), details.join(QStringLiteral(" · "))},
             {QStringLiteral("embedding"), m.embedding},
+            {QStringLiteral("thinking"), m.thinking},
             {QStringLiteral("inUse"), normalizedName(m.name) == current},
             {QStringLiteral("fitLevel"), QString()},
             {QStringLiteral("fitText"), QString()},
