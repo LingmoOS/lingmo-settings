@@ -481,10 +481,9 @@ ItemPage {
                                     spacing: LingmoUI.Units.smallSpacing
                                     Layout.fillWidth: true
 
+                                    // Always the full name: the tag ("qwen2.5:3b" vs ":7b") is what tells models apart
                                     Label {
                                         text: modelData.name
-                                        elide: Text.ElideRight
-                                        Layout.maximumWidth: parent.width - fitLabel.implicitWidth - parent.spacing
                                     }
 
                                     Label {
