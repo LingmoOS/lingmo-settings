@@ -18,6 +18,8 @@
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
+import QtQuick.Dialogs
+import QtCore
 import LingmoUI.CompatibleModule 3.0 as LingmoUI
 
 import Lingmo.Settings 1.0
@@ -36,6 +38,25 @@ ItemPage {
     property bool showAllRecommendations: false
     readonly property bool running: AIModule.ollamaState === AIModule.Running
     readonly property int collapsedCount: 6
+    property string folderError: ""
+    property bool showBlockedAreas: false
+
+    // docs/assistant-contract.md: tool ids, groups and what each one does
+    readonly property var readTools: [
+        { id: "system_info", name: qsTr("System information"), text: qsTr("Hardware and system: processor, memory, disks, battery and uptime.") },
+        { id: "shell_read", name: qsTr("Terminal read commands"), text: qsTr("A fixed list of commands that only read, run in a sandbox without network.") },
+        { id: "read_files", name: qsTr("Read files"), text: qsTr("Opens text, Markdown, PDF, DOCX and ODT files in the folders below.") },
+        { id: "search_files", name: qsTr("Search files"), text: qsTr("Finds files by name and content in the folders below.") },
+        { id: "notes_read", name: qsTr("Read notes"), text: qsTr("Lists, searches and reads pages in Lingmo Notes.") },
+        { id: "calendar_read", name: qsTr("Read calendar"), text: qsTr("Reads events and tasks from the Lingmo Mail calendar.") },
+        { id: "web", name: qsTr("Internet (search and pages)"), text: qsTr("Searches the web and reads pages."),
+          warning: qsTr("What it searches for leaves this computer.") }
+    ]
+    readonly property var writeTools: [
+        { id: "notes_write", name: qsTr("Write notes"), text: qsTr("Creates pages in Lingmo Notes or adds text to a page.") },
+        { id: "calendar_write", name: qsTr("Add to calendar"), text: qsTr("Creates events, reminders and tasks in the Lingmo Mail calendar.") },
+        { id: "files_write", name: qsTr("Write files"), text: qsTr("Creates files or adds text to files in the folders below. Overwriting shows what changes first.") }
+    ]
 
     function fitColor(level) {
         if (level === "Perfect" || level === "Good")
@@ -332,7 +353,8 @@ ItemPage {
                                 Label {
                                     text: modelData.embedding
                                           ? page.joinParts([modelData.details, qsTr("Embeddings for search, not for chat")])
-                                          : page.joinParts([modelData.details, modelData.thinking ? qsTr("Reasoning") : ""])
+                                          : page.joinParts([modelData.details, modelData.thinking ? qsTr("Reasoning") : "",
+                                                            modelData.tools ? qsTr("Tools") : ""])
                                     color: LingmoUI.Theme.disabledTextColor
                                     elide: Text.ElideRight
                                     Layout.fillWidth: true
@@ -411,6 +433,344 @@ ItemPage {
                     visible: page.messageArea === "installed" && (AIModule.errorText !== "" || AIModule.infoText !== "")
                     text: AIModule.errorText !== "" ? AIModule.errorText : AIModule.infoText
                     color: AIModule.errorText !== "" ? LingmoUI.Theme.redColor : LingmoUI.Theme.disabledTextColor
+                    wrapMode: Text.WordWrap
+                    Layout.fillWidth: true
+                }
+            }
+
+            // ---------------------------------------------------------- Assistant
+            RoundedItem {
+                Label {
+                    text: qsTr("Assistant")
+                    color: LingmoUI.Theme.disabledTextColor
+                }
+
+                RowLayout {
+                    spacing: LingmoUI.Units.largeSpacing * 2
+                    Layout.fillWidth: true
+
+                    Label {
+                        Layout.fillWidth: true
+                        wrapMode: Text.WordWrap
+                        text: qsTr("A helper for everyday things: it reads your documents, summarizes them, takes notes and schedules tasks, with the model in use. It only does what you allow below.")
+                    }
+
+                    Button {
+                        text: qsTr("Open the Assistant")
+                        flat: true
+                        visible: AIModule.assistantInstalled
+                        Layout.alignment: Qt.AlignVCenter | Qt.AlignRight
+                        onClicked: {
+                            page.messageArea = "assistant"
+                            AIModule.openAssistant()
+                        }
+                    }
+                }
+
+                Label {
+                    Layout.fillWidth: true
+                    wrapMode: Text.WordWrap
+                    visible: page.running && AIModule.model !== "" && AIModule.modelInstalled && !AIModule.modelCanUseTools
+                    color: LingmoUI.Theme.orangeColor
+                    text: qsTr("“%1” doesn't use tools: the assistant only chats. Models marked “Tools” can.").arg(AIModule.model)
+                }
+
+                Label {
+                    visible: page.messageArea === "assistant" && AIModule.errorText !== ""
+                    text: AIModule.errorText
+                    color: LingmoUI.Theme.redColor
+                    wrapMode: Text.WordWrap
+                    Layout.fillWidth: true
+                }
+
+                HorizontalDivider {}
+
+                // Permissions
+                Label {
+                    text: qsTr("Permissions")
+                }
+
+                RowLayout {
+                    spacing: LingmoUI.Units.largeSpacing * 2
+                    Layout.fillWidth: true
+
+                    ColumnLayout {
+                        spacing: 0
+                        Layout.fillWidth: true
+
+                        Label {
+                            text: qsTr("Read")
+                        }
+
+                        Label {
+                            text: qsTr("Look at files, notes, the calendar and the system.")
+                            color: LingmoUI.Theme.disabledTextColor
+                            wrapMode: Text.WordWrap
+                            Layout.fillWidth: true
+                        }
+                    }
+
+                    Switch {
+                        checked: AIModule.assistantRead
+                        Layout.alignment: Qt.AlignVCenter | Qt.AlignRight
+                        rightPadding: 0
+                        onToggled: AIModule.assistantRead = checked
+                    }
+                }
+
+                RowLayout {
+                    spacing: LingmoUI.Units.largeSpacing * 2
+                    Layout.fillWidth: true
+
+                    ColumnLayout {
+                        spacing: 0
+                        Layout.fillWidth: true
+
+                        Label {
+                            text: qsTr("Write")
+                        }
+
+                        Label {
+                            text: qsTr("Create notes, events and files. Every write asks for your confirmation first.")
+                            color: LingmoUI.Theme.disabledTextColor
+                            wrapMode: Text.WordWrap
+                            Layout.fillWidth: true
+                        }
+                    }
+
+                    Switch {
+                        checked: AIModule.assistantWrite
+                        Layout.alignment: Qt.AlignVCenter | Qt.AlignRight
+                        rightPadding: 0
+                        onToggled: AIModule.assistantWrite = checked
+                    }
+                }
+
+                // Shown so the rule is visible: there is no way to turn it on
+                RowLayout {
+                    spacing: LingmoUI.Units.largeSpacing * 2
+                    Layout.fillWidth: true
+
+                    ColumnLayout {
+                        spacing: 0
+                        Layout.fillWidth: true
+
+                        Label {
+                            text: qsTr("Delete — never allowed")
+                            color: LingmoUI.Theme.disabledTextColor
+                        }
+
+                        Label {
+                            text: qsTr("The assistant never deletes files, notes, events or tasks.")
+                            color: LingmoUI.Theme.disabledTextColor
+                            wrapMode: Text.WordWrap
+                            Layout.fillWidth: true
+                        }
+                    }
+
+                    Switch {
+                        checked: false
+                        enabled: false
+                        Layout.alignment: Qt.AlignVCenter | Qt.AlignRight
+                        rightPadding: 0
+                    }
+                }
+
+                HorizontalDivider {}
+
+                // Tools, grouped by the permission they need
+                Label {
+                    text: qsTr("Tools")
+                }
+
+                Repeater {
+                    model: [
+                        { title: qsTr("Read"), tools: page.readTools, write: false },
+                        { title: qsTr("Write"), tools: page.writeTools, write: true }
+                    ]
+
+                    ColumnLayout {
+                        id: toolGroup
+                        readonly property bool allowed: modelData.write ? AIModule.assistantWrite : AIModule.assistantRead
+
+                        spacing: LingmoUI.Units.smallSpacing
+                        Layout.fillWidth: true
+
+                        Label {
+                            text: modelData.title
+                            color: LingmoUI.Theme.disabledTextColor
+                        }
+
+                        Label {
+                            visible: !toolGroup.allowed
+                            text: modelData.write ? qsTr("Turn on Write above to use these tools.")
+                                                  : qsTr("Turn on Read above to use these tools.")
+                            color: LingmoUI.Theme.disabledTextColor
+                            wrapMode: Text.WordWrap
+                            Layout.fillWidth: true
+                        }
+
+                        Repeater {
+                            model: modelData.tools
+
+                            RowLayout {
+                                spacing: LingmoUI.Units.smallSpacing
+                                Layout.fillWidth: true
+
+                                CheckBox {
+                                    id: toolCheck
+                                    checked: AIModule.assistantTools.indexOf(modelData.id) >= 0
+                                    enabled: toolGroup.allowed
+                                    Layout.alignment: Qt.AlignTop
+                                    onToggled: AIModule.setAssistantTool(modelData.id, checked)
+                                }
+
+                                ColumnLayout {
+                                    spacing: 0
+                                    Layout.fillWidth: true
+                                    Layout.alignment: Qt.AlignVCenter
+
+                                    TapHandler {
+                                        enabled: toolGroup.allowed
+                                        onTapped: AIModule.setAssistantTool(modelData.id, !toolCheck.checked)
+                                    }
+
+                                    Label {
+                                        text: modelData.name
+                                        color: toolGroup.allowed ? LingmoUI.Theme.textColor : LingmoUI.Theme.disabledTextColor
+                                        Layout.fillWidth: true
+                                    }
+
+                                    Label {
+                                        text: modelData.text
+                                        color: LingmoUI.Theme.disabledTextColor
+                                        wrapMode: Text.WordWrap
+                                        Layout.fillWidth: true
+                                    }
+
+                                    Label {
+                                        visible: modelData.warning !== undefined
+                                        text: modelData.warning || ""
+                                        color: toolGroup.allowed ? LingmoUI.Theme.orangeColor : LingmoUI.Theme.disabledTextColor
+                                        wrapMode: Text.WordWrap
+                                        Layout.fillWidth: true
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                HorizontalDivider {}
+
+                // Folders the file tools may read and write
+                RowLayout {
+                    spacing: LingmoUI.Units.largeSpacing
+                    Layout.fillWidth: true
+
+                    ColumnLayout {
+                        spacing: 0
+                        Layout.fillWidth: true
+
+                        Label {
+                            text: qsTr("Folders the assistant can read and write")
+                            wrapMode: Text.WordWrap
+                            Layout.fillWidth: true
+                        }
+
+                        Label {
+                            text: qsTr("File tools only work inside these folders.")
+                            color: LingmoUI.Theme.disabledTextColor
+                            wrapMode: Text.WordWrap
+                            Layout.fillWidth: true
+                        }
+                    }
+
+                    Button {
+                        text: qsTr("Add folder…")
+                        flat: true
+                        Layout.alignment: Qt.AlignVCenter | Qt.AlignRight
+                        onClicked: {
+                            page.folderError = ""
+                            folderDialog.open()
+                        }
+                    }
+                }
+
+                Label {
+                    visible: AIModule.assistantFolders.length === 0
+                    text: qsTr("No folders: the assistant can't open your files.")
+                    color: LingmoUI.Theme.disabledTextColor
+                    wrapMode: Text.WordWrap
+                    Layout.fillWidth: true
+                }
+
+                ColumnLayout {
+                    spacing: LingmoUI.Units.smallSpacing
+                    Layout.fillWidth: true
+                    visible: AIModule.assistantFolders.length > 0
+
+                    Repeater {
+                        model: AIModule.assistantFolders
+
+                        RowLayout {
+                            spacing: LingmoUI.Units.largeSpacing
+                            Layout.fillWidth: true
+
+                            LingmoUI.IconItem {
+                                source: "folder"
+                                width: LingmoUI.Units.iconSizes.smallMedium
+                                height: width
+                                Layout.preferredWidth: width
+                                Layout.preferredHeight: height
+                            }
+
+                            Label {
+                                text: AIModule.displayPath(modelData)
+                                elide: Text.ElideMiddle
+                                Layout.fillWidth: true
+                            }
+
+                            Button {
+                                text: qsTr("Remove")
+                                onClicked: {
+                                    page.folderError = ""
+                                    AIModule.removeAssistantFolder(modelData)
+                                }
+                            }
+                        }
+                    }
+                }
+
+                Label {
+                    visible: page.folderError !== ""
+                    text: page.folderError
+                    color: LingmoUI.Theme.redColor
+                    wrapMode: Text.WordWrap
+                    Layout.fillWidth: true
+                }
+
+                Label {
+                    text: page.showBlockedAreas ? qsTr("Hide the always-blocked areas")
+                                                : qsTr("Some areas are always blocked, even inside these folders…")
+                    color: LingmoUI.Theme.linkColor
+                    wrapMode: Text.WordWrap
+                    Layout.fillWidth: true
+
+                    TapHandler {
+                        onTapped: page.showBlockedAreas = !page.showBlockedAreas
+                    }
+
+                    HoverHandler {
+                        cursorShape: Qt.PointingHandCursor
+                    }
+                }
+
+                Label {
+                    visible: page.showBlockedAreas
+                    text: qsTr("Passwords, keys and browser data are never read or written: %1.")
+                              .arg(AIModule.assistantBlockedAreas.join(", "))
+                    color: LingmoUI.Theme.disabledTextColor
                     wrapMode: Text.WordWrap
                     Layout.fillWidth: true
                 }
@@ -664,6 +1024,13 @@ ItemPage {
                 height: LingmoUI.Units.largeSpacing
             }
         }
+    }
+
+    FolderDialog {
+        id: folderDialog
+        title: qsTr("Choose a folder for the assistant")
+        currentFolder: StandardPaths.writableLocation(StandardPaths.HomeLocation)
+        onAccepted: page.folderError = AIModule.addAssistantFolder(selectedFolder)
     }
 
     Dialog {

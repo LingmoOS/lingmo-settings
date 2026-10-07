@@ -17,7 +17,9 @@
 
 #include "aimodule.h"
 
+#include <QDir>
 #include <QFile>
+#include <QFileInfo>
 #include <QFutureWatcher>
 #include <QJsonArray>
 #include <QJsonDocument>
@@ -44,6 +46,66 @@ const QString LegacyGroup = QStringLiteral("ai");
 constexpr int LlmfitTimeoutMs = 60000;
 constexpr int ApiTimeoutMs = 4000;
 constexpr int StartPolls = 10; // the page polls every few seconds
+
+// docs/assistant-contract.md
+const QString AssistantProgram = QStringLiteral("lingmo-assistant");
+const QString KeyAssistantRead = QStringLiteral("assistant_read");
+const QString KeyAssistantWrite = QStringLiteral("assistant_write");
+const QString KeyAssistantTools = QStringLiteral("assistant_tools");
+const QString KeyAssistantFolders = QStringLiteral("assistant_folders");
+
+// Tools checked when assistant_tools is missing ("web" starts unchecked)
+const QStringList DefaultAssistantTools = {
+    QStringLiteral("system_info"), QStringLiteral("shell_read"), QStringLiteral("read_files"),
+    QStringLiteral("search_files"), QStringLiteral("notes_read"), QStringLiteral("calendar_read"),
+    QStringLiteral("notes_write"), QStringLiteral("calendar_write"), QStringLiteral("files_write"),
+};
+
+// Home-relative areas no tool may touch, even inside an allowed folder
+const QStringList BlockedHomePaths = {
+    QStringLiteral(".ssh"), QStringLiteral(".gnupg"), QStringLiteral(".password-store"),
+    QStringLiteral(".local/share/keyrings"), QStringLiteral(".config/lingmo-online-accounts"),
+    QStringLiteral(".pki"), QStringLiteral(".mozilla"), QStringLiteral(".thunderbird"),
+    QStringLiteral(".config/google-chrome"), QStringLiteral(".config/chromium"),
+    QStringLiteral(".config/BraveSoftware"), QStringLiteral(".netrc"), QStringLiteral(".aws"),
+    QStringLiteral(".kube"), QStringLiteral(".docker/config.json"),
+};
+const QStringList BlockedFilePatterns = {
+    QStringLiteral("*.kdbx"), QStringLiteral(".env"), QStringLiteral("id_*"),
+    QStringLiteral("*.pem"), QStringLiteral("*.key"),
+};
+
+// Resolves symlinks when the path exists; otherwise just cleans it
+QString resolvedPath(const QString &path)
+{
+    const QString canonical = QFileInfo(path).canonicalFilePath();
+    return canonical.isEmpty() ? QDir::cleanPath(path) : canonical;
+}
+
+bool isSameOrInside(const QString &path, const QString &area)
+{
+    return path == area || area == QLatin1String("/") || path.startsWith(area + QLatin1Char('/'));
+}
+
+// "/home/me/Documents" -> "~/Documents", for messages
+QString shownPath(const QString &path)
+{
+    const QString home = QDir::homePath();
+    if (path == home || path.startsWith(home + QLatin1Char('/')))
+        return QLatin1Char('~') + path.mid(home.size());
+    return path;
+}
+
+QStringList cleanList(const QStringList &list)
+{
+    QStringList out;
+    for (const QString &item : list) {
+        const QString trimmed = item.trimmed();
+        if (!trimmed.isEmpty() && !out.contains(trimmed))
+            out.append(trimmed);
+    }
+    return out;
+}
 
 QString findProgram(const QString &name)
 {
@@ -87,6 +149,7 @@ AIModule::AIModule(QObject *parent)
 {
     m_pollTimer->setSingleShot(true);
     loadConfig();
+    m_assistantBinary = findProgram(AssistantProgram);
     m_llmfitMissing = findProgram(QStringLiteral("llmfit")).isEmpty();
 }
 
@@ -116,6 +179,137 @@ void AIModule::loadConfig()
         m_provider = QStringLiteral("ollama");
     m_model = settings.value(QStringLiteral("model")).toString();
     m_think = settings.value(QStringLiteral("think"), false).toBool();
+    loadAssistantConfig(settings);
+}
+
+// ---------------------------------------------------------------- assistant
+
+void AIModule::loadAssistantConfig(const QSettings &settings)
+{
+    m_assistantRead = settings.value(KeyAssistantRead, true).toBool();
+    m_assistantWrite = settings.value(KeyAssistantWrite, false).toBool();
+    m_assistantTools = settings.contains(KeyAssistantTools)
+        ? cleanList(settings.value(KeyAssistantTools).toStringList())
+        : DefaultAssistantTools;
+    m_assistantFolders = settings.contains(KeyAssistantFolders)
+        ? cleanList(settings.value(KeyAssistantFolders).toStringList())
+        : defaultAssistantFolders();
+}
+
+QStringList AIModule::defaultAssistantFolders()
+{
+    static const QStringList names = {
+        QStringLiteral("Documents"), QStringLiteral("Documentos"), QStringLiteral("Downloads"),
+        QStringLiteral("Desktop"), QStringLiteral("Área de Trabalho"), QStringLiteral("Pictures"),
+        QStringLiteral("Imagens"),
+    };
+    const QDir home = QDir::home();
+    QStringList folders;
+    for (const QString &name : names) {
+        const QString path = home.absoluteFilePath(name);
+        if (QFileInfo(path).isDir() && !folders.contains(path))
+            folders.append(path);
+    }
+    return folders;
+}
+
+// All four keys at once, so the assistant never sees a half-written set
+void AIModule::writeAssistantConfig()
+{
+    QSettings settings(ConfigOrganization, ConfigApplication);
+    settings.setValue(KeyAssistantRead, m_assistantRead);
+    settings.setValue(KeyAssistantWrite, m_assistantWrite);
+    settings.setValue(KeyAssistantTools, m_assistantTools);
+    settings.setValue(KeyAssistantFolders, m_assistantFolders);
+    settings.sync();
+    emit assistantChanged();
+}
+
+void AIModule::setAssistantRead(bool on)
+{
+    if (on == m_assistantRead)
+        return;
+    m_assistantRead = on;
+    writeAssistantConfig();
+}
+
+void AIModule::setAssistantWrite(bool on)
+{
+    if (on == m_assistantWrite)
+        return;
+    m_assistantWrite = on;
+    writeAssistantConfig();
+}
+
+void AIModule::setAssistantTool(const QString &id, bool enabled)
+{
+    if (id.isEmpty() || m_assistantTools.contains(id) == enabled)
+        return;
+    if (enabled)
+        m_assistantTools.append(id);
+    else
+        m_assistantTools.removeAll(id);
+    writeAssistantConfig();
+}
+
+QStringList AIModule::assistantBlockedAreas() const
+{
+    QStringList areas;
+    for (const QString &path : BlockedHomePaths)
+        areas.append(QStringLiteral("~/") + path);
+    return areas + BlockedFilePatterns;
+}
+
+QString AIModule::addAssistantFolder(const QUrl &folder)
+{
+    const QString path = folder.isLocalFile() ? folder.toLocalFile() : folder.toString();
+    const QFileInfo info(path);
+    if (path.isEmpty() || !info.isAbsolute() || !info.isDir())
+        return tr("“%1” is not a folder.").arg(shownPath(path));
+
+    const QString resolved = resolvedPath(path);
+    const QString home = resolvedPath(QDir::homePath());
+    if (isSameOrInside(home, resolved))
+        return tr("The assistant can't have your whole home folder or the whole system. Choose a more specific folder, like Documents.");
+
+    for (const QString &blocked : BlockedHomePaths) {
+        const QString area = resolvedPath(home + QLatin1Char('/') + blocked);
+        if (isSameOrInside(resolved, area))
+            return tr("“%1” holds passwords or keys. It is always blocked for the assistant.").arg(shownPath(path));
+    }
+
+    for (const QString &existing : std::as_const(m_assistantFolders)) {
+        if (resolved == resolvedPath(existing))
+            return tr("“%1” is already in the list.").arg(shownPath(path));
+        if (isSameOrInside(resolved, resolvedPath(existing)))
+            return tr("“%1” is already allowed through “%2”.").arg(shownPath(path), shownPath(existing));
+    }
+
+    m_assistantFolders.append(resolved);
+    writeAssistantConfig();
+    return {};
+}
+
+void AIModule::removeAssistantFolder(const QString &path)
+{
+    if (m_assistantFolders.removeAll(path) > 0)
+        writeAssistantConfig();
+}
+
+QString AIModule::displayPath(const QString &path) const
+{
+    return shownPath(path);
+}
+
+void AIModule::openAssistant()
+{
+    m_assistantBinary = findProgram(AssistantProgram);
+    if (m_assistantBinary.isEmpty()) {
+        emit assistantChanged();
+        return;
+    }
+    if (!QProcess::startDetached(m_assistantBinary, {}))
+        setError(tr("Could not open the assistant."));
 }
 
 void AIModule::setThink(bool think)
@@ -127,6 +321,14 @@ void AIModule::setThink(bool think)
     settings.sync();
     m_think = think;
     emit configChanged();
+}
+
+bool AIModule::modelCanUseTools() const
+{
+    const QString current = normalizedName(m_model);
+    return std::any_of(m_installed.cbegin(), m_installed.cend(), [&current](const Installed &m) {
+        return m.tools && normalizedName(m.name) == current;
+    });
 }
 
 bool AIModule::modelCanThink() const
@@ -221,6 +423,11 @@ void AIModule::refresh()
     if (m_pollTimer->isActive())
         return; // a check is already in flight
     m_pollTimer->start(ApiTimeoutMs + 2000); // guard against overlapping checks
+    const QString assistant = findProgram(AssistantProgram);
+    if (assistant != m_assistantBinary) {
+        m_assistantBinary = assistant;
+        emit assistantChanged();
+    }
     checkVersion();
 }
 
@@ -379,6 +586,7 @@ void AIModule::fetchTags()
             if (!caps.isEmpty()) {
                 m.embedding = caps.contains(QStringLiteral("embedding")) && !caps.contains(QStringLiteral("completion"));
                 m.thinking = caps.contains(QStringLiteral("thinking"));
+                m.tools = caps.contains(QStringLiteral("tools"));
             } else {
                 const QString family = details.value(QStringLiteral("family")).toString();
                 m.embedding = family.contains(QLatin1String("bert")) || m.name.contains(QLatin1String("embed"));
@@ -414,6 +622,7 @@ QVariantList AIModule::installedModels() const
             {QStringLiteral("details"), details.join(QStringLiteral(" · "))},
             {QStringLiteral("embedding"), m.embedding},
             {QStringLiteral("thinking"), m.thinking},
+            {QStringLiteral("tools"), m.tools},
             {QStringLiteral("inUse"), normalizedName(m.name) == current},
             {QStringLiteral("fitLevel"), QString()},
             {QStringLiteral("fitText"), QString()},

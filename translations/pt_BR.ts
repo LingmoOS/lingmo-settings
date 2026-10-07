@@ -167,6 +167,30 @@
         <source>%1 GB</source>
         <translation>%1 GB</translation>
     </message>
+    <message>
+        <source>“%1” is not a folder.</source>
+        <translation>“%1” não é uma pasta.</translation>
+    </message>
+    <message>
+        <source>The assistant can&apos;t have your whole home folder or the whole system. Choose a more specific folder, like Documents.</source>
+        <translation>O assistente não pode ter a sua pasta pessoal inteira nem o sistema todo. Escolha uma pasta mais específica, como Documentos.</translation>
+    </message>
+    <message>
+        <source>“%1” holds passwords or keys. It is always blocked for the assistant.</source>
+        <translation>“%1” guarda senhas ou chaves. Ela é sempre bloqueada para o assistente.</translation>
+    </message>
+    <message>
+        <source>“%1” is already in the list.</source>
+        <translation>“%1” já está na lista.</translation>
+    </message>
+    <message>
+        <source>“%1” is already allowed through “%2”.</source>
+        <translation>“%1” já está liberada por “%2”.</translation>
+    </message>
+    <message>
+        <source>Could not open the assistant.</source>
+        <translation>Não foi possível abrir o assistente.</translation>
+    </message>
 </context>
 <context>
     <name>About</name>
@@ -2722,10 +2746,6 @@
         <translation>Isso libera espaço em disco. Você pode baixá-lo de novo depois.</translation>
     </message>
     <message>
-        <source>Reasoning</source>
-        <translation>Raciocínio</translation>
-    </message>
-    <message>
         <source>Think before answering</source>
         <translation>Pensar antes de responder</translation>
     </message>
@@ -2736,6 +2756,178 @@
     <message>
         <source>“%1” can&apos;t reason, so it always answers right away. Models marked “Reasoning” can.</source>
         <translation>“%1” não tem raciocínio, então sempre responde na hora. Os modelos marcados com “Raciocínio” têm.</translation>
+    </message>
+    <message>
+        <source>System information</source>
+        <translation>Informações do sistema</translation>
+    </message>
+    <message>
+        <source>Hardware and system: processor, memory, disks, battery and uptime.</source>
+        <translation>Hardware e sistema: processador, memória, discos, bateria e tempo ligado.</translation>
+    </message>
+    <message>
+        <source>Terminal read commands</source>
+        <translation>Comandos de leitura do terminal</translation>
+    </message>
+    <message>
+        <source>A fixed list of commands that only read, run in a sandbox without network.</source>
+        <translation>Uma lista fixa de comandos que só leem, executados num ambiente isolado e sem rede.</translation>
+    </message>
+    <message>
+        <source>Read files</source>
+        <translation>Ler arquivos</translation>
+    </message>
+    <message>
+        <source>Opens text, Markdown, PDF, DOCX and ODT files in the folders below.</source>
+        <translation>Abre arquivos de texto, Markdown, PDF, DOCX e ODT nas pastas abaixo.</translation>
+    </message>
+    <message>
+        <source>Search files</source>
+        <translation>Procurar arquivos</translation>
+    </message>
+    <message>
+        <source>Finds files by name and content in the folders below.</source>
+        <translation>Encontra arquivos pelo nome e pelo conteúdo nas pastas abaixo.</translation>
+    </message>
+    <message>
+        <source>Read notes</source>
+        <translation>Ler notas</translation>
+    </message>
+    <message>
+        <source>Lists, searches and reads pages in Lingmo Notes.</source>
+        <translation>Lista, busca e lê páginas do Lingmo Notes.</translation>
+    </message>
+    <message>
+        <source>Read calendar</source>
+        <translation>Ler a agenda</translation>
+    </message>
+    <message>
+        <source>Reads events and tasks from the Lingmo Mail calendar.</source>
+        <translation>Lê eventos e tarefas da agenda do Lingmo Mail.</translation>
+    </message>
+    <message>
+        <source>Internet (search and pages)</source>
+        <translation>Internet (busca e páginas)</translation>
+    </message>
+    <message>
+        <source>Searches the web and reads pages.</source>
+        <translation>Busca na web e lê páginas.</translation>
+    </message>
+    <message>
+        <source>What it searches for leaves this computer.</source>
+        <translation>O que ele pesquisa sai deste computador.</translation>
+    </message>
+    <message>
+        <source>Write notes</source>
+        <translation>Escrever notas</translation>
+    </message>
+    <message>
+        <source>Creates pages in Lingmo Notes or adds text to a page.</source>
+        <translation>Cria páginas no Lingmo Notes ou acrescenta texto a uma página.</translation>
+    </message>
+    <message>
+        <source>Add to calendar</source>
+        <translation>Adicionar à agenda</translation>
+    </message>
+    <message>
+        <source>Creates events, reminders and tasks in the Lingmo Mail calendar.</source>
+        <translation>Cria eventos, lembretes e tarefas na agenda do Lingmo Mail.</translation>
+    </message>
+    <message>
+        <source>Write files</source>
+        <translation>Escrever arquivos</translation>
+    </message>
+    <message>
+        <source>Creates files or adds text to files in the folders below. Overwriting shows what changes first.</source>
+        <translation>Cria arquivos ou acrescenta texto a arquivos nas pastas abaixo. Antes de sobrescrever, mostra o que muda.</translation>
+    </message>
+    <message>
+        <source>Assistant</source>
+        <translation>Assistente</translation>
+    </message>
+    <message>
+        <source>A helper for everyday things: it reads your documents, summarizes them, takes notes and schedules tasks, with the model in use. It only does what you allow below.</source>
+        <translation>Uma ajuda para o dia a dia: lê seus documentos, resume, faz anotações e agenda tarefas, usando o modelo em uso. Ele só faz o que você permitir abaixo.</translation>
+    </message>
+    <message>
+        <source>Open the Assistant</source>
+        <translation>Abrir o Assistente</translation>
+    </message>
+    <message>
+        <source>“%1” doesn&apos;t use tools: the assistant only chats. Models marked “Tools” can.</source>
+        <translation>“%1” não usa ferramentas: o assistente só conversa. Modelos marcados com “Ferramentas” podem.</translation>
+    </message>
+    <message>
+        <source>Permissions</source>
+        <translation>Permissões</translation>
+    </message>
+    <message>
+        <source>Read</source>
+        <translation>Leitura</translation>
+    </message>
+    <message>
+        <source>Look at files, notes, the calendar and the system.</source>
+        <translation>Ver arquivos, notas, a agenda e o sistema.</translation>
+    </message>
+    <message>
+        <source>Write</source>
+        <translation>Escrita</translation>
+    </message>
+    <message>
+        <source>Create notes, events and files. Every write asks for your confirmation first.</source>
+        <translation>Criar notas, eventos e arquivos. Toda escrita pede sua confirmação antes.</translation>
+    </message>
+    <message>
+        <source>Delete — never allowed</source>
+        <translation>Excluir — nunca permitido</translation>
+    </message>
+    <message>
+        <source>The assistant never deletes files, notes, events or tasks.</source>
+        <translation>O assistente nunca apaga arquivos, notas, eventos ou tarefas.</translation>
+    </message>
+    <message>
+        <source>Tools</source>
+        <translation>Ferramentas</translation>
+    </message>
+    <message>
+        <source>Turn on Write above to use these tools.</source>
+        <translation>Ligue a Escrita acima para usar estas ferramentas.</translation>
+    </message>
+    <message>
+        <source>Turn on Read above to use these tools.</source>
+        <translation>Ligue a Leitura acima para usar estas ferramentas.</translation>
+    </message>
+    <message>
+        <source>Folders the assistant can read and write</source>
+        <translation>Pastas que o assistente pode ler e escrever</translation>
+    </message>
+    <message>
+        <source>File tools only work inside these folders.</source>
+        <translation>As ferramentas de arquivo só funcionam dentro destas pastas.</translation>
+    </message>
+    <message>
+        <source>Add folder…</source>
+        <translation>Adicionar pasta…</translation>
+    </message>
+    <message>
+        <source>No folders: the assistant can&apos;t open your files.</source>
+        <translation>Nenhuma pasta: o assistente não consegue abrir seus arquivos.</translation>
+    </message>
+    <message>
+        <source>Hide the always-blocked areas</source>
+        <translation>Ocultar as áreas sempre bloqueadas</translation>
+    </message>
+    <message>
+        <source>Some areas are always blocked, even inside these folders…</source>
+        <translation>Algumas áreas são sempre bloqueadas, mesmo dentro destas pastas…</translation>
+    </message>
+    <message>
+        <source>Passwords, keys and browser data are never read or written: %1.</source>
+        <translation>Senhas, chaves e dados de navegador nunca são lidos nem escritos: %1.</translation>
+    </message>
+    <message>
+        <source>Choose a folder for the assistant</source>
+        <translation>Escolha uma pasta para o assistente</translation>
     </message>
 </context>
 <context>

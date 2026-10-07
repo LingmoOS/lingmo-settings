@@ -28,6 +28,7 @@
 class QNetworkAccessManager;
 class QNetworkReply;
 class QProcess;
+class QSettings;
 class QTimer;
 
 // The system-wide AI settings (~/.config/lingmoos/ai.conf, read by Spotlight
@@ -44,6 +45,18 @@ class AIModule : public QObject
     Q_PROPERTY(bool think READ think WRITE setThink NOTIFY configChanged)
     // The model in use can reason (Ollama capability "thinking")
     Q_PROPERTY(bool modelCanThink READ modelCanThink NOTIFY installedModelsChanged)
+    // The model in use can call tools (Ollama capability "tools"): the assistant needs it
+    Q_PROPERTY(bool modelCanUseTools READ modelCanUseTools NOTIFY installedModelsChanged)
+
+    // The assistant (lingmo-assistant): permissions, tools and folders in ai.conf
+    // (docs/assistant-contract.md). Missing keys read as the contract's defaults.
+    Q_PROPERTY(bool assistantInstalled READ assistantInstalled NOTIFY assistantChanged)
+    Q_PROPERTY(bool assistantRead READ assistantRead WRITE setAssistantRead NOTIFY assistantChanged)
+    Q_PROPERTY(bool assistantWrite READ assistantWrite WRITE setAssistantWrite NOTIFY assistantChanged)
+    Q_PROPERTY(QStringList assistantTools READ assistantTools NOTIFY assistantChanged)
+    Q_PROPERTY(QStringList assistantFolders READ assistantFolders NOTIFY assistantChanged)
+    // Areas no tool may read or write, for display ("~/.ssh", "*.kdbx"...)
+    Q_PROPERTY(QStringList assistantBlockedAreas READ assistantBlockedAreas CONSTANT)
 
     Q_PROPERTY(int ollamaState READ ollamaState NOTIFY ollamaChanged)
     Q_PROPERTY(QString ollamaVersion READ ollamaVersion NOTIFY ollamaChanged)
@@ -87,6 +100,16 @@ public:
     bool think() const { return m_think; }
     void setThink(bool think);
     bool modelCanThink() const;
+    bool modelCanUseTools() const;
+
+    bool assistantInstalled() const { return !m_assistantBinary.isEmpty(); }
+    bool assistantRead() const { return m_assistantRead; }
+    void setAssistantRead(bool on);
+    bool assistantWrite() const { return m_assistantWrite; }
+    void setAssistantWrite(bool on);
+    QStringList assistantTools() const { return m_assistantTools; }
+    QStringList assistantFolders() const { return m_assistantFolders; }
+    QStringList assistantBlockedAreas() const;
 
     int ollamaState() const { return m_ollamaState; }
     QString ollamaVersion() const { return m_ollamaVersion; }
@@ -125,6 +148,14 @@ public:
     Q_INVOKABLE void removeModel(const QString &name);
     Q_INVOKABLE void clearMessages();
 
+    Q_INVOKABLE void openAssistant();
+    Q_INVOKABLE void setAssistantTool(const QString &id, bool enabled);
+    // Returns an error to show, or an empty string when the folder was added
+    Q_INVOKABLE QString addAssistantFolder(const QUrl &folder);
+    Q_INVOKABLE void removeAssistantFolder(const QString &path);
+    // "/home/me/Documents" -> "~/Documents"
+    Q_INVOKABLE QString displayPath(const QString &path) const;
+
 signals:
     void configChanged();
     void ollamaChanged();
@@ -135,6 +166,7 @@ signals:
     void pullChanged();
     void busyChanged();
     void messageChanged();
+    void assistantChanged();
 
 private:
     struct Installed {
@@ -144,6 +176,7 @@ private:
         qint64 size = 0;
         bool embedding = false;
         bool thinking = false;
+        bool tools = false;
     };
 
     struct FitInfo {
@@ -171,6 +204,9 @@ private:
 
     void loadConfig();
     void writeConfig(const QString &provider, const QString &model);
+    void loadAssistantConfig(const QSettings &settings);
+    void writeAssistantConfig();
+    static QStringList defaultAssistantFolders();
     QUrl apiUrl(const QString &path) const;
     void setOllamaState(int state);
     void checkVersion();
@@ -201,6 +237,12 @@ private:
     QString m_provider;
     QString m_model;
     bool m_think = false;
+
+    QString m_assistantBinary;
+    bool m_assistantRead = true;
+    bool m_assistantWrite = false;
+    QStringList m_assistantTools;
+    QStringList m_assistantFolders;
 
     int m_ollamaState = Checking;
     QString m_ollamaVersion;
