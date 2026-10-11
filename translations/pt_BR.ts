@@ -227,6 +227,81 @@
     </message>
 </context>
 <context>
+    <name>BoxesModule</name>
+    <message>
+        <source>Linux programs (%1)</source>
+        <translation>Programas Linux (%1)</translation>
+    </message>
+    <message>
+        <source>Linux box, for .deb and .rpm packages</source>
+        <translation>Caixa Linux, para pacotes .deb e .rpm</translation>
+    </message>
+    <message>
+        <source>Windows programs</source>
+        <translation>Programas do Windows</translation>
+    </message>
+    <message>
+        <source>Windows box (Bottles)</source>
+        <translation>Caixa do Windows (Bottles)</translation>
+    </message>
+    <message>
+        <source>Android apps</source>
+        <translation>Apps Android</translation>
+    </message>
+    <message>
+        <source>Android box (Waydroid)</source>
+        <translation>Caixa Android (Waydroid)</translation>
+    </message>
+    <message>
+        <source>AppImage box</source>
+        <translation>Caixa de AppImage</translation>
+    </message>
+    <message>
+        <source>Box</source>
+        <translation>Caixa</translation>
+    </message>
+    <message>
+        <source>Changes apply the next time the program starts.</source>
+        <translation>As mudanças valem na próxima vez que o programa abrir.</translation>
+    </message>
+    <message>
+        <source>Changing these restarts the box: programs open in it close. Installed programs and their files stay.</source>
+        <translation>Mudar estas opções reinicia a caixa: os programas abertos nela fecham. Os programas instalados e os arquivos deles continuam lá.</translation>
+    </message>
+    <message>
+        <source>Changes apply the next time Bottles starts. Bottles has one set of permissions, so they also apply to bottles you made in Bottles yourself.</source>
+        <translation>As mudanças valem na próxima vez que o Bottles abrir. O Bottles tem um só conjunto de permissões, então elas valem também para garrafas que você criou no Bottles.</translation>
+    </message>
+    <message>
+        <source>Waydroid sets these for all Android apps and they can&apos;t be changed here: Android sees none of your folders, uses the network and plays sound, and has no camera.</source>
+        <translation>O Waydroid define isto para todos os apps Android e não dá para mudar aqui: o Android não vê nenhuma das suas pastas, usa a rede e toca som, e não tem câmera.</translation>
+    </message>
+    <message>
+        <source>The program, its settings and the files it saved in its box will be deleted.</source>
+        <translation>O programa, as configurações dele e os arquivos que ele salvou na caixa serão apagados.</translation>
+    </message>
+    <message>
+        <source>Every program installed in this box and its home folder (%1) will be deleted.</source>
+        <translation>Todos os programas instalados nesta caixa e a pasta pessoal dela (%1) serão apagados.</translation>
+    </message>
+    <message>
+        <source>Every Windows program installed from Lingmo and its settings will be deleted. Your files in %1 stay.</source>
+        <translation>Todos os programas do Windows instalados pelo Lingmo e as configurações deles serão apagados. Os seus arquivos em %1 continuam.</translation>
+    </message>
+    <message>
+        <source>Every Android app installed from Lingmo and its data will be deleted. Android itself stays installed.</source>
+        <translation>Todos os apps Android instalados pelo Lingmo e os dados deles serão apagados. O Android em si continua instalado.</translation>
+    </message>
+    <message>
+        <source>Lingmo Install Programs (lingmo-winrun) is not installed.</source>
+        <translation>O Instalar programas do Lingmo (lingmo-winrun) não está instalado.</translation>
+    </message>
+    <message>
+        <source>The change could not be made.</source>
+        <translation>Não foi possível fazer a mudança.</translation>
+    </message>
+</context>
+<context>
     <name>ChangeDialog</name>
     <message>
         <location filename="../src/qml/ChangeDialog.qml" line="+25"/>
@@ -2945,6 +3020,137 @@
         <source>Glass and no background need desktop effects; without them the dock keeps the solid background.</source>
         <translation>Vidro e sem fundo precisam dos efeitos da área de trabalho; sem eles, a Dock usa o fundo sólido.</translation>
     </message>
+    <message>
+        <source>Boxes</source>
+        <translation>Caixas</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n program(s)</source>
+        <translation>
+            <numerusform>%n programa</numerusform>
+            <numerusform>%n programas</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Programs from outside the system run in boxes</source>
+        <translation>Programas de fora do sistema rodam em caixas</translation>
+    </message>
+    <message>
+        <source>Windows programs, .deb and .rpm packages, AppImages and Android apps are installed in isolated boxes. A box can&apos;t see your files, camera or microphone unless you allow it here, so a bad program can&apos;t reach the rest of the system.</source>
+        <translation>Programas do Windows, pacotes .deb e .rpm, AppImages e apps Android são instalados em caixas isoladas. Uma caixa não vê seus arquivos, câmera ou microfone a não ser que você permita aqui, então um programa ruim não alcança o resto do sistema.</translation>
+    </message>
+    <message>
+        <source>Lingmo Install Programs (lingmo-winrun) is not installed: boxes can be seen but not changed.</source>
+        <translation>O Instalar programas do Lingmo (lingmo-winrun) não está instalado: dá para ver as caixas, mas não mudá-las.</translation>
+    </message>
+    <message>
+        <source>No boxes yet. When you open a Windows program, a .deb or .rpm package, an AppImage or an Android app (.apk) and install it, its box shows up here.</source>
+        <translation>Nenhuma caixa ainda. Quando você abrir e instalar um programa do Windows, um pacote .deb ou .rpm, um AppImage ou um app Android (.apk), a caixa dele aparece aqui.</translation>
+    </message>
+    <message>
+        <source>Hide</source>
+        <translation>Ocultar</translation>
+    </message>
+    <message>
+        <source>Show</source>
+        <translation>Mostrar</translation>
+    </message>
+    <message>
+        <source>Inside: %1</source>
+        <translation>Dentro: %1</translation>
+    </message>
+    <message>
+        <source>No programs installed in it yet.</source>
+        <translation>Nenhum programa instalado nela ainda.</translation>
+    </message>
+    <message>
+        <source>Personal folders</source>
+        <translation>Pastas pessoais</translation>
+    </message>
+    <message>
+        <source>Android sees none of your folders.</source>
+        <translation>O Android não vê nenhuma das suas pastas.</translation>
+    </message>
+    <message>
+        <source>Documents, Downloads, Pictures, Music, Videos and Desktop. It always sees %1.</source>
+        <translation>Documentos, Downloads, Imagens, Músicas, Vídeos e Área de trabalho. Ela sempre vê %1.</translation>
+    </message>
+    <message>
+        <source>Documents, Downloads, Pictures, Music, Videos and Desktop.</source>
+        <translation>Documentos, Downloads, Imagens, Músicas, Vídeos e Área de trabalho.</translation>
+    </message>
+    <message>
+        <source>No</source>
+        <translation>Não</translation>
+    </message>
+    <message>
+        <source>Other folders</source>
+        <translation>Outras pastas</translation>
+    </message>
+    <message>
+        <source>None. Hidden folders, where settings and passwords live, can&apos;t be added.</source>
+        <translation>Nenhuma. Pastas ocultas, onde ficam configurações e senhas, não podem ser adicionadas.</translation>
+    </message>
+    <message>
+        <source>The box can read and change the files in these folders.</source>
+        <translation>A caixa pode ler e mudar os arquivos destas pastas.</translation>
+    </message>
+    <message>
+        <source>Network</source>
+        <translation>Rede</translation>
+    </message>
+    <message>
+        <source>Internet and the local network.</source>
+        <translation>Internet e a rede local.</translation>
+    </message>
+    <message>
+        <source>Yes</source>
+        <translation>Sim</translation>
+    </message>
+    <message>
+        <source>Waydroid doesn&apos;t support cameras.</source>
+        <translation>O Waydroid não tem suporte a câmeras.</translation>
+    </message>
+    <message>
+        <source>Turning it off keeps the graphics card and game controllers.</source>
+        <translation>Desligar mantém a placa de vídeo e os controles de jogo.</translation>
+    </message>
+    <message>
+        <source>Sound and microphone</source>
+        <translation>Som e microfone</translation>
+    </message>
+    <message>
+        <source>The same connection carries sound and the microphone: turning it off also mutes the programs in this box.</source>
+        <translation>A mesma conexão leva o som e o microfone: desligar também deixa mudos os programas desta caixa.</translation>
+    </message>
+    <message>
+        <source>Open Folder</source>
+        <translation>Abrir pasta</translation>
+    </message>
+    <message>
+        <source>Delete Box…</source>
+        <translation>Apagar caixa…</translation>
+    </message>
+    <message>
+        <source>Choose a folder to share with the box</source>
+        <translation>Escolha uma pasta para compartilhar com a caixa</translation>
+    </message>
+    <message>
+        <source>Delete &quot;%1&quot;?</source>
+        <translation>Apagar &quot;%1&quot;?</translation>
+    </message>
+    <message>
+        <source>This can&apos;t be undone.</source>
+        <translation>Isso não pode ser desfeito.</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation>Apagar</translation>
+    </message>
+    <message>
+        <source>Android uses the computer&apos;s sound and microphone.</source>
+        <translation>O Android usa o som e o microfone do computador.</translation>
+    </message>
 </context>
 <context>
     <name>NewNetworkDialog</name>
@@ -3226,6 +3432,10 @@
     <message>
         <source>Artificial Intelligence</source>
         <translation>Inteligência Artificial</translation>
+    </message>
+    <message>
+        <source>Boxes</source>
+        <translation>Caixas</translation>
     </message>
 </context>
 <context>

@@ -47,6 +47,7 @@
 #include "settingsuiadaptor.h"
 #include "touchpad.h"
 #include "aimodule.h"
+#include "boxesmodule.h"
 // #include "updatorhelper.h"
 // #include "upgradeablemodel.h"
 
@@ -103,6 +104,10 @@ Application::Application(std::shared_ptr<QQmlApplicationEngine> engine)
     // One instance for the whole app, so a model download survives page changes
     qmlRegisterSingletonType<AIModule>(uri, 1, 0, "AIModule", [](QQmlEngine*, QJSEngine*) -> QObject* {
         return new AIModule();
+    });
+    // One instance: recreating a Linux box takes a while and survives page changes
+    qmlRegisterSingletonType<BoxesModule>(uri, 1, 0, "BoxesModule", [](QQmlEngine*, QJSEngine*) -> QObject* {
+        return new BoxesModule();
     });
 
 #if QT_VERSION < QT_VERSION_CHECK(5, 14, 0)

@@ -3,6 +3,7 @@
         <file>qml/main.qml</file>
         <file>qml/SideBar.qml</file>
         <file>qml/AI/Main.qml</file>
+        <file>qml/Boxes/Main.qml</file>
         <file>qml/ItemPage.qml</file>
         <file>qml/SysItem.qml</file>
         <file>images/dark/display-brightness-low-symbolic.svg</file>
@@ -83,6 +84,7 @@
         <file>qml/Wallpaper/DesktopPreview.qml</file>
         <file>images/sidebar/all/info.svg</file>
         <file>images/sidebar/all/ai.svg</file>
+        <file>images/sidebar/all/boxes.svg</file>
         <file>images/sidebar/all/accounts.svg</file>
         <file>images/sidebar/all/appearance.svg</file>
         <file>images/sidebar/all/accessibility.svg</file>
