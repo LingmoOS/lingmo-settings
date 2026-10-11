@@ -31,6 +31,8 @@ class Appearance : public QObject
     Q_PROPERTY(int dockDirection READ dockDirection WRITE setDockDirection NOTIFY dockDirectionChanged)
     Q_PROPERTY(int dockVisibility READ dockVisibility WRITE setDockVisibility NOTIFY dockVisibilityChanged)
     Q_PROPERTY(int dockStyle READ dockStyle WRITE setDockStyle NOTIFY dockStyleChanged)
+    // 0 solid, 1 glass, 2 no background
+    Q_PROPERTY(int dockBackground READ dockBackground WRITE setDockBackground NOTIFY dockBackgroundChanged)
     Q_PROPERTY(int fontPointSize READ fontPointSize WRITE setFontPointSize NOTIFY fontPointSizeChanged)
     Q_PROPERTY(int DesktopSettings READ DesktopSettings WRITE setDesktopIcons NOTIFY desktopIconsChanged)
     Q_PROPERTY(bool dimsWallpaper READ dimsWallpaper WRITE setDimsWallpaper NOTIFY dimsWallpaperChanged)
@@ -66,6 +68,9 @@ public:
     int dockStyle() const;
     Q_INVOKABLE void setDockStyle(int style);
 
+    int dockBackground() const { return m_dockBackground; }
+    Q_INVOKABLE void setDockBackground(int background);
+
     Q_INVOKABLE void setGenericFontFamily(const QString &name);
     Q_INVOKABLE void setFixedFontFamily(const QString &name);
 
@@ -95,6 +100,7 @@ signals:
     void dockDirectionChanged();
     void dockVisibilityChanged();
     void dockStyleChanged();
+    void dockBackgroundChanged();
     void fontPointSizeChanged();
     void desktopIconsChanged();
     void dimsWallpaperChanged();
@@ -114,6 +120,7 @@ private:
     int m_dockDirection;
     int m_dockVisibility;
     int m_dockStyle;
+    int m_dockBackground = 0;
     int m_fontPointSize;
 
     int m_DesktopSettings;

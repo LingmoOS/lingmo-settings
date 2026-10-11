@@ -48,6 +48,7 @@ Appearance::Appearance(QObject *parent)
     m_dockVisibility = m_dockSettings->value("Visibility").toInt();
     m_dockRoundedWindow = m_dockSettings->value("RoundedWindow").toBool();
     m_dockStyle = m_dockSettings->value("Style").toInt();
+    m_dockBackground = m_dockSettings->value("Background", 0).toInt();
 
     m_kwinSettings->beginGroup("Compositing");
     m_systemEffects = !m_kwinSettings->value("OpenGLIsUnsafe", false).toBool();
@@ -180,6 +181,24 @@ void Appearance::setDockStyle(int style)
 
         emit dockStyleChanged();
     }
+}
+
+void Appearance::setDockBackground(int background)
+{
+    if (background < 0 || background > 2 || m_dockBackground == background)
+        return;
+    m_dockBackground = background;
+
+    QDBusInterface iface("com.lingmo.Dock",
+                         "/Dock",
+                         "com.lingmo.Dock",
+                         QDBusConnection::sessionBus());
+    if (iface.isValid())
+        iface.call("setBackground", background);
+    else
+        m_dockSettings->setValue("Background", background);  // dock not running: next start reads it
+
+    emit dockBackgroundChanged();
 }
 
 void Appearance::setGenericFontFamily(const QString &name)

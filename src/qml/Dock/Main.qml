@@ -47,6 +47,47 @@ ItemPage {
                 }
             }
 
+            // Background behind the icons
+            RoundedItem {
+                Label {
+                    text: qsTr("Background")
+                    color: LingmoUI.Theme.disabledTextColor
+                }
+
+                RowLayout {
+                    spacing: LingmoUI.Units.largeSpacing * 2
+
+                    IconCheckBox {
+                        source: "qrc:/images/dock_bg_solid.svg"
+                        text: qsTr("Solid")
+                        checked: appearance.dockBackground === 0
+                        onClicked: appearance.setDockBackground(0)
+                    }
+
+                    IconCheckBox {
+                        source: "qrc:/images/dock_bg_glass.svg"
+                        text: qsTr("Glass")
+                        checked: appearance.dockBackground === 1
+                        onClicked: appearance.setDockBackground(1)
+                    }
+
+                    IconCheckBox {
+                        source: "qrc:/images/dock_bg_none.svg"
+                        text: qsTr("No background")
+                        checked: appearance.dockBackground === 2
+                        onClicked: appearance.setDockBackground(2)
+                    }
+                }
+
+                Label {
+                    Layout.fillWidth: true
+                    visible: appearance.dockBackground !== 0
+                    wrapMode: Text.WordWrap
+                    color: LingmoUI.Theme.disabledTextColor
+                    text: qsTr("Glass and no background need desktop effects; without them the dock keeps the solid background.")
+                }
+            }
+
             // position
            RoundedItem {
                Label {

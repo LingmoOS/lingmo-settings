@@ -2929,6 +2929,22 @@
         <source>Choose a folder for the assistant</source>
         <translation>Escolha uma pasta para o assistente</translation>
     </message>
+    <message>
+        <source>Solid</source>
+        <translation>Sólido</translation>
+    </message>
+    <message>
+        <source>Glass</source>
+        <translation>Vidro</translation>
+    </message>
+    <message>
+        <source>No background</source>
+        <translation>Sem fundo</translation>
+    </message>
+    <message>
+        <source>Glass and no background need desktop effects; without them the dock keeps the solid background.</source>
+        <translation>Vidro e sem fundo precisam dos efeitos da área de trabalho; sem eles, a Dock usa o fundo sólido.</translation>
+    </message>
 </context>
 <context>
     <name>NewNetworkDialog</name>
