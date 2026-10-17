@@ -84,6 +84,13 @@ target_link_libraries(${PROJECT_NAME}
         LingmoLogger
 )
 
+# Unit tests (off for packages): cmake -DBUILD_TESTING=ON, then ctest
+option(BUILD_TESTING "Build the unit tests" OFF)
+if(BUILD_TESTING)
+    enable_testing()
+    add_subdirectory(tests)
+endif()
+
 file(GLOB TS_FILES translations/*.ts)
 foreach(filepath ${TS_FILES})
     string(REPLACE "${CMAKE_CURRENT_SOURCE_DIR}/" "" filename ${filepath})

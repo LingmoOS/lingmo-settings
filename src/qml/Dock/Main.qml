@@ -178,6 +178,104 @@ ItemPage {
                 }
             }
 
+            // Magnification: icons grow under the pointer
+            RoundedItem {
+                RowLayout {
+                    Layout.fillWidth: true
+
+                    ColumnLayout {
+                        Layout.fillWidth: true
+                        spacing: 2
+
+                        Label {
+                            text: qsTr("Magnification")
+                            font.pointSize: LingmoUI.Units.fontSubheading
+                            font.weight: Font.DemiBold
+                        }
+
+                        Label {
+                            Layout.fillWidth: true
+                            text: qsTr("Icons grow as the pointer moves over them")
+                            color: LingmoUI.Theme.secondaryTextColor
+                            wrapMode: Text.WordWrap
+                        }
+                    }
+
+                    Switch {
+                        id: _magnificationSwitch
+                        Layout.alignment: Qt.AlignVCenter
+                        checked: appearance.dockMagnification
+                        onClicked: appearance.setDockMagnification(checked)
+                    }
+                }
+
+                MagnificationPreview {
+                    Layout.fillWidth: true
+                    active: appearance.dockMagnification
+                    zoom: _zoomSlider.value / 100
+                    opacity: active ? 1 : 0.6
+                }
+
+                RowLayout {
+                    Layout.fillWidth: true
+                    spacing: LingmoUI.Units.largeSpacing
+                    enabled: appearance.dockMagnification
+
+                    Label {
+                        text: qsTr("Zoom size")
+                    }
+
+                    Label {
+                        text: qsTr("Small")
+                        color: LingmoUI.Theme.secondaryTextColor
+                        font.pointSize: LingmoUI.Theme.fontSize * 0.9
+                    }
+
+                    Slider {
+                        id: _zoomSlider
+                        Layout.fillWidth: true
+                        from: 125
+                        to: 200
+                        stepSize: 5
+                        snapMode: Slider.SnapAlways
+                        value: appearance.dockMagnificationSize
+                        // The preview follows while dragging; the dock is resized once, on release
+                        onPressedChanged: {
+                            if (!pressed)
+                                appearance.setDockMagnificationSize(Math.round(value))
+                        }
+                        onMoved: {
+                            if (!pressed)
+                                appearance.setDockMagnificationSize(Math.round(value))
+                        }
+
+                        Connections {
+                            target: appearance
+                            function onDockMagnificationSizeChanged() {
+                                _zoomSlider.value = appearance.dockMagnificationSize
+                            }
+                        }
+                    }
+
+                    Label {
+                        text: qsTr("Large")
+                        color: LingmoUI.Theme.secondaryTextColor
+                        font.pointSize: LingmoUI.Theme.fontSize * 0.9
+                    }
+
+                    Label {
+                        Layout.preferredWidth: _percentMetrics.advanceWidth
+                        horizontalAlignment: Text.AlignRight
+                        text: qsTr("%1%").arg(Math.round(_zoomSlider.value))
+
+                        TextMetrics {
+                            id: _percentMetrics
+                            text: qsTr("%1%").arg(200)
+                        }
+                    }
+                }
+            }
+
             // Visibility
             RoundedItem {
                 Label {
@@ -193,6 +291,35 @@ ItemPage {
                     onCurrentIndexChanged: appearance.setDockVisibility(currentIndex)
                     // Follows the setting (also after a click, like TabBar did)
                     Binding on currentIndex { value: appearance.dockVisibility }
+                }
+            }
+
+            // Status bar at the top of the screen
+            RoundedItem {
+                Label {
+                    text: qsTr("Status bar height")
+                    font.pointSize: LingmoUI.Units.fontSubheading
+                    font.weight: Font.DemiBold
+                }
+
+                StatusBarPreview {
+                    Layout.fillWidth: true
+                    barHeight: _statusBarSizes.currentIndex >= 0 ? _statusBarSizes.heights[_statusBarSizes.currentIndex]
+                                                                 : appearance.statusBarHeight
+                    maxBarHeight: appearance.statusBarMaxHeight
+                }
+
+                LingmoUI.SegmentedControl {
+                    id: _statusBarSizes
+                    // 28 is the status bar's default
+                    readonly property var heights: [24, 28, 32, 36]
+                    fillWidth: true
+                    Layout.fillWidth: true
+                    Layout.bottomMargin: LingmoUI.Units.smallSpacing
+                    model: [qsTr("Compact"), qsTr("Standard"), qsTr("Large"), qsTr("Extra large")]
+                    onActivated: function(index) { appearance.setStatusBarHeight(heights[index]) }
+                    // Follows the setting; a height set by hand that isn't a preset selects nothing
+                    Binding on currentIndex { value: _statusBarSizes.heights.indexOf(appearance.statusBarHeight) }
                 }
             }
 

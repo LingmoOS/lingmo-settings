@@ -221,7 +221,7 @@ void Effects::setCornerAction(const QString &corner, const QString &action)
 QString Effects::switcherLayout() const
 {
     m_kwinrc->beginGroup("TabBox");
-    const QString layout = m_kwinrc->value("LayoutName", "ling_thumbnail").toString();
+    const QString layout = m_kwinrc->value("LayoutName", "lingmo_carousel").toString();
     m_kwinrc->endGroup();
     return layout;
 }

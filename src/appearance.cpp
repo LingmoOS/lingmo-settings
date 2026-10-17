@@ -28,6 +28,16 @@
 #include <QStandardPaths>
 #include <QDebug>
 
+namespace {
+// Same limits and defaults as lingmo-dock (DockSettings) and lingmo-statusbar
+constexpr int MinMagnificationSize = 125;
+constexpr int MaxMagnificationSize = 200;
+constexpr int DefaultMagnificationSize = 150;
+constexpr int MinStatusBarHeight = 24;
+constexpr int MaxStatusBarHeight = 40;
+constexpr int DefaultStatusBarHeight = 28;
+}
+
 Appearance::Appearance(QObject *parent)
     : QObject(parent)
     , m_interface("com.lingmo.Settings",
@@ -49,6 +59,14 @@ Appearance::Appearance(QObject *parent)
     m_dockRoundedWindow = m_dockSettings->value("RoundedWindow").toBool();
     m_dockStyle = m_dockSettings->value("Style").toInt();
     m_dockBackground = m_dockSettings->value("Background", 0).toInt();
+    m_dockMagnification = m_dockSettings->value("Magnification", false).toBool();
+    m_dockMagnificationSize = qBound(MinMagnificationSize,
+                                     m_dockSettings->value("MagnificationSize", DefaultMagnificationSize).toInt(),
+                                     MaxMagnificationSize);
+
+    QSettings statusBar(QSettings::UserScope, "lingmoos", "statusbar");
+    m_statusBarHeight = qBound(MinStatusBarHeight, statusBar.value("Height", DefaultStatusBarHeight).toInt(),
+                               MaxStatusBarHeight);
 
     m_kwinSettings->beginGroup("Compositing");
     m_systemEffects = !m_kwinSettings->value("OpenGLIsUnsafe", false).toBool();
@@ -199,6 +217,67 @@ void Appearance::setDockBackground(int background)
         m_dockSettings->setValue("Background", background);  // dock not running: next start reads it
 
     emit dockBackgroundChanged();
+}
+
+void Appearance::setDockMagnification(bool enabled)
+{
+    if (m_dockMagnification == enabled)
+        return;
+    m_dockMagnification = enabled;
+
+    QDBusInterface iface("com.lingmo.Dock", "/Dock", "com.lingmo.Dock", QDBusConnection::sessionBus());
+    if (iface.isValid())
+        iface.call("setMagnification", enabled);
+    else
+        m_dockSettings->setValue("Magnification", enabled);  // dock not running: next start reads it
+
+    emit dockMagnificationChanged();
+}
+
+void Appearance::setDockMagnificationSize(int percent)
+{
+    percent = qBound(MinMagnificationSize, percent, MaxMagnificationSize);
+    if (m_dockMagnificationSize == percent)
+        return;
+    m_dockMagnificationSize = percent;
+
+    QDBusInterface iface("com.lingmo.Dock", "/Dock", "com.lingmo.Dock", QDBusConnection::sessionBus());
+    if (iface.isValid())
+        iface.call("setMagnificationSize", percent);
+    else
+        m_dockSettings->setValue("MagnificationSize", percent);
+
+    emit dockMagnificationSizeChanged();
+}
+
+int Appearance::statusBarMinHeight() const
+{
+    return MinStatusBarHeight;
+}
+
+int Appearance::statusBarMaxHeight() const
+{
+    return MaxStatusBarHeight;
+}
+
+void Appearance::setStatusBarHeight(int height)
+{
+    height = qBound(MinStatusBarHeight, height, MaxStatusBarHeight);
+    if (m_statusBarHeight == height)
+        return;
+    m_statusBarHeight = height;
+
+    // The status bar saves it itself (statusbar.conf [General] Height)
+    QDBusInterface iface("com.lingmo.Statusbar", "/Statusbar", "com.lingmo.Statusbar",
+                         QDBusConnection::sessionBus());
+    if (iface.isValid()) {
+        iface.call("setHeight", height);
+    } else {
+        QSettings statusBar(QSettings::UserScope, "lingmoos", "statusbar");
+        statusBar.setValue("Height", height);
+    }
+
+    emit statusBarHeightChanged();
 }
 
 void Appearance::setGenericFontFamily(const QString &name)

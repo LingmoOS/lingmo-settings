@@ -121,6 +121,8 @@
         <file>qml/Battery/BatteryItem.qml</file>
         <file>qml/Battery/HistoryGraph.qml</file>
         <file>qml/Dock/Main.qml</file>
+        <file>qml/Dock/MagnificationPreview.qml</file>
+        <file>qml/Dock/StatusBarPreview.qml</file>
         <file>qml/Display/RotationButton.qml</file>
         <file>images/dark/locked.svg</file>
         <file>images/light/locked.svg</file>

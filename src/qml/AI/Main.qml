@@ -40,6 +40,28 @@ ItemPage {
     readonly property int collapsedCount: 6
     property string folderError: ""
     property bool showBlockedAreas: false
+    property bool showAllWhisper: false
+
+    // subtitle_language values (ISO 639-1, as whisper takes them)
+    readonly property var subtitleLanguages: [
+        { value: "auto", text: qsTr("Detect automatically") },
+        { value: "pt", text: qsTr("Portuguese") },
+        { value: "en", text: qsTr("English") },
+        { value: "es", text: qsTr("Spanish") },
+        { value: "fr", text: qsTr("French") },
+        { value: "de", text: qsTr("German") },
+        { value: "it", text: qsTr("Italian") },
+        { value: "nl", text: qsTr("Dutch") },
+        { value: "pl", text: qsTr("Polish") },
+        { value: "ru", text: qsTr("Russian") },
+        { value: "uk", text: qsTr("Ukrainian") },
+        { value: "tr", text: qsTr("Turkish") },
+        { value: "ar", text: qsTr("Arabic") },
+        { value: "hi", text: qsTr("Hindi") },
+        { value: "ja", text: qsTr("Japanese") },
+        { value: "ko", text: qsTr("Korean") },
+        { value: "zh", text: qsTr("Chinese") }
+    ]
 
     // docs/assistant-contract.md: tool ids, groups and what each one does
     readonly property var readTools: [
@@ -68,6 +90,17 @@ ItemPage {
         return LingmoUI.Theme.secondaryTextColor
     }
 
+    function tagColor(id) {
+        switch (id) {
+        case "tools": return LingmoUI.Theme.blueColor
+        case "thinking": return LingmoUI.Theme.purpleColor
+        case "highlights": return LingmoUI.Theme.orangeColor
+        case "fast": return LingmoUI.Theme.greenColor
+        case "accurate": return LingmoUI.Theme.pinkColor
+        }
+        return LingmoUI.Theme.highlightColor
+    }
+
     function joinParts(parts) {
         return parts.filter(function(p) { return p !== undefined && p !== "" }).join(" · ")
     }
@@ -82,6 +115,7 @@ ItemPage {
         AIModule.clearMessages()
         AIModule.refresh()
         AIModule.loadRecommendations()
+        sectionTimer.start()
     }
 
     // Notice when Ollama gets installed or started outside this page
@@ -90,6 +124,27 @@ ItemPage {
         repeat: true
         running: !page.running
         onTriggered: AIModule.refresh()
+    }
+
+    // Capability chips of a model ({ id, text } from AIModule)
+    component TagRow: Flow {
+        id: tagRow
+        property var tags: []
+
+        spacing: LingmoUI.Units.smallSpacing / 2
+        visible: tags.length > 0
+        Layout.fillWidth: true
+        Layout.topMargin: 2
+        Layout.bottomMargin: 2
+
+        Repeater {
+            model: tagRow.tags
+
+            LingmoUI.Badge {
+                text: modelData.text
+                tone: page.tagColor(modelData.id)
+            }
+        }
     }
 
     // Progress and result of a download, shown next to where it was started
@@ -148,7 +203,24 @@ ItemPage {
         }
     }
 
+    // "lingmo-settings -m ai/transcription" opens the page at the subtitles section
+    Timer {
+        id: sectionTimer
+        interval: 150
+        onTriggered: {
+            // Pages can be pushed twice in a row on start; only the shown one takes the section
+            if (typeof rootWindow === "undefined" || rootWindow.pageSection !== "transcription"
+                    || page.StackView.status !== StackView.Active)
+                return
+            rootWindow.pageSection = ""
+            scroller.contentY = Math.max(-scroller.topMargin,
+                                         Math.min(transcriptionCard.y - LingmoUI.Units.largeSpacing,
+                                                  scroller.contentHeight - scroller.height + scroller.bottomMargin))
+        }
+    }
+
     Scrollable {
+        id: scroller
         anchors.fill: parent
         contentHeight: layout.implicitHeight
 
@@ -353,11 +425,14 @@ ItemPage {
                                 Label {
                                     text: modelData.embedding
                                           ? page.joinParts([modelData.details, qsTr("Embeddings for search, not for chat")])
-                                          : page.joinParts([modelData.details, modelData.thinking ? qsTr("Reasoning") : "",
-                                                            modelData.tools ? qsTr("Tools") : ""])
+                                          : modelData.details
                                     color: LingmoUI.Theme.secondaryTextColor
                                     elide: Text.ElideRight
                                     Layout.fillWidth: true
+                                }
+
+                                TagRow {
+                                    tags: modelData.tags
                                 }
 
                                 Label {
@@ -414,7 +489,7 @@ ItemPage {
 
                         Label {
                             visible: page.running && AIModule.model !== "" && AIModule.modelInstalled && !AIModule.modelCanThink
-                            text: qsTr("“%1” can't reason, so it always answers right away. Models marked “Reasoning” can.").arg(AIModule.model)
+                            text: qsTr("“%1” can't reason, so it always answers right away. Models marked “Thinking” can.").arg(AIModule.model)
                             color: LingmoUI.Theme.orangeColor
                             wrapMode: Text.WordWrap
                             Layout.fillWidth: true
@@ -886,6 +961,10 @@ ItemPage {
                                     }
                                 }
 
+                                TagRow {
+                                    tags: modelData.tags
+                                }
+
                                 Label {
                                     text: page.joinParts([modelData.parameters,
                                                           modelData.download !== "" ? qsTr("%1 download").arg(modelData.download) : "",
@@ -982,6 +1061,313 @@ ItemPage {
                 }
             }
 
+            // ---------------------------------------------------------- Transcription and subtitles
+            // whisper.cpp models for Lingmo Studio's subtitles (ai.conf: subtitle_backend,
+            // subtitle_model, subtitle_language; files in AIModule.whisperModelsDir)
+            RoundedItem {
+                id: transcriptionCard
+
+                Label {
+                    text: qsTr("Transcription and subtitles")
+                    font.pointSize: LingmoUI.Units.fontSubheading
+                    font.weight: Font.DemiBold
+                }
+
+                Label {
+                    Layout.fillWidth: true
+                    wrapMode: Text.WordWrap
+                    text: qsTr("Lingmo Studio turns what is said in your videos into subtitles with Whisper, on this computer. Larger models get more words right but take longer.")
+                }
+
+                LingmoUI.Banner {
+                    Layout.fillWidth: true
+                    visible: !AIModule.whisperCppInstalled && !AIModule.fasterWhisperInstalled
+                    type: 2
+                    closable: false
+                    title: qsTr("No transcription program installed")
+                    text: qsTr("Install whisper.cpp in a terminal with “sudo pacman -S whisper-cpp” and come back to this page. faster-whisper is optional: “pipx install whisper-ctranslate2” or the AUR package whisper-ctranslate2.")
+                }
+
+                // Engine
+                RowLayout {
+                    spacing: LingmoUI.Units.largeSpacing * 2
+                    Layout.fillWidth: true
+
+                    ColumnLayout {
+                        spacing: 0
+                        Layout.fillWidth: true
+
+                        Label {
+                            text: qsTr("Engine")
+                        }
+
+                        Label {
+                            Layout.fillWidth: true
+                            wrapMode: Text.WordWrap
+                            color: LingmoUI.Theme.secondaryTextColor
+                            text: page.joinParts([
+                                AIModule.whisperCppInstalled ? qsTr("whisper.cpp installed") : qsTr("whisper.cpp not installed"),
+                                AIModule.fasterWhisperInstalled ? qsTr("faster-whisper installed") : qsTr("faster-whisper not installed")
+                            ])
+                        }
+                    }
+
+                    LingmoUI.SegmentedControl {
+                        model: [qsTr("Automatic"), "whisper.cpp", "faster-whisper"]
+                        Layout.alignment: Qt.AlignVCenter | Qt.AlignRight
+                        Binding on currentIndex { value: Math.max(0, ["", "whisper.cpp", "faster-whisper"].indexOf(AIModule.subtitleBackend)) }
+                        onActivated: (index) => AIModule.subtitleBackend = ["", "whisper.cpp", "faster-whisper"][index]
+                    }
+                }
+
+                Label {
+                    Layout.fillWidth: true
+                    wrapMode: Text.WordWrap
+                    visible: text !== ""
+                    color: LingmoUI.Theme.orangeColor
+                    text: AIModule.subtitleBackend === "whisper.cpp" && !AIModule.whisperCppInstalled
+                          ? qsTr("whisper.cpp is chosen but not installed: sudo pacman -S whisper-cpp")
+                          : AIModule.subtitleBackend === "faster-whisper" && !AIModule.fasterWhisperInstalled
+                          ? qsTr("faster-whisper is chosen but not installed: pipx install whisper-ctranslate2")
+                          : ""
+                }
+
+                Label {
+                    Layout.fillWidth: true
+                    wrapMode: Text.WordWrap
+                    visible: AIModule.subtitleBackend === "faster-whisper"
+                    color: LingmoUI.Theme.secondaryTextColor
+                    text: qsTr("faster-whisper uses the size chosen below and downloads its own copy of the model the first time.")
+                }
+
+                // Spoken language
+                RowLayout {
+                    spacing: LingmoUI.Units.largeSpacing * 2
+                    Layout.fillWidth: true
+
+                    ColumnLayout {
+                        spacing: 0
+                        Layout.fillWidth: true
+
+                        Label {
+                            text: qsTr("Spoken language")
+                        }
+
+                        Label {
+                            Layout.fillWidth: true
+                            wrapMode: Text.WordWrap
+                            color: LingmoUI.Theme.secondaryTextColor
+                            text: qsTr("Choosing it avoids mistakes in the first seconds; automatic detects it from the audio.")
+                        }
+                    }
+
+                    ComboBox {
+                        id: languageBox
+                        textRole: "text"
+                        valueRole: "value"
+                        model: page.subtitleLanguages
+                        Layout.preferredWidth: 220
+                        Layout.alignment: Qt.AlignVCenter | Qt.AlignRight
+                        currentIndex: Math.max(0, page.subtitleLanguages.findIndex(l => l.value === AIModule.subtitleLanguage))
+                        onActivated: (index) => AIModule.subtitleLanguage = page.subtitleLanguages[index].value
+                    }
+                }
+
+                HorizontalDivider {}
+
+                RowLayout {
+                    spacing: LingmoUI.Units.largeSpacing
+                    Layout.fillWidth: true
+
+                    ColumnLayout {
+                        spacing: 0
+                        Layout.fillWidth: true
+
+                        Label {
+                            text: qsTr("Whisper models")
+                        }
+
+                        Label {
+                            Layout.fillWidth: true
+                            wrapMode: Text.WordWrap
+                            color: LingmoUI.Theme.secondaryTextColor
+                            text: AIModule.subtitleModel !== ""
+                                  ? qsTr("Subtitles use %1. Models are saved in %2.").arg(AIModule.subtitleModel).arg(AIModule.displayPath(AIModule.whisperModelsDir))
+                                  : qsTr("No model chosen yet. Download one; the first one is used for subtitles.")
+                        }
+                    }
+                }
+
+                // Download progress and the result of the last action
+                ColumnLayout {
+                    spacing: LingmoUI.Units.smallSpacing
+                    Layout.fillWidth: true
+                    visible: AIModule.whisperDownloading
+                             || (page.messageArea === "whisper" && (AIModule.errorText !== "" || AIModule.infoText !== ""))
+
+                    RowLayout {
+                        visible: AIModule.whisperDownloading
+                        spacing: LingmoUI.Units.largeSpacing
+                        Layout.fillWidth: true
+
+                        ColumnLayout {
+                            spacing: 0
+                            Layout.fillWidth: true
+
+                            Label {
+                                text: qsTr("Downloading %1").arg(AIModule.whisperDownloadModel)
+                                elide: Text.ElideRight
+                                Layout.fillWidth: true
+                            }
+
+                            Label {
+                                text: AIModule.whisperDownloadDetail
+                                color: LingmoUI.Theme.secondaryTextColor
+                                elide: Text.ElideRight
+                                Layout.fillWidth: true
+                            }
+                        }
+
+                        Button {
+                            text: qsTr("Cancel")
+                            onClicked: AIModule.cancelWhisperDownload()
+                        }
+                    }
+
+                    ProgressBar {
+                        visible: AIModule.whisperDownloading
+                        Layout.fillWidth: true
+                        from: 0
+                        to: 1
+                        indeterminate: AIModule.whisperDownloadProgress < 0
+                        value: Math.max(0, AIModule.whisperDownloadProgress)
+                    }
+
+                    Label {
+                        visible: !AIModule.whisperDownloading && page.messageArea === "whisper"
+                                 && (AIModule.errorText !== "" || AIModule.infoText !== "")
+                        text: AIModule.errorText !== "" ? AIModule.errorText : AIModule.infoText
+                        color: AIModule.errorText !== "" ? LingmoUI.Theme.redColor : LingmoUI.Theme.secondaryTextColor
+                        wrapMode: Text.WordWrap
+                        Layout.fillWidth: true
+                    }
+                }
+
+                ColumnLayout {
+                    spacing: LingmoUI.Units.largeSpacing
+                    Layout.fillWidth: true
+
+                    Repeater {
+                        // Compressed (quantised) versions only on request, unless recommended or installed
+                        model: AIModule.whisperModels.filter(m => page.showAllWhisper || !m.quantized || m.recommended || m.installed)
+
+                        RowLayout {
+                            spacing: LingmoUI.Units.largeSpacing
+                            Layout.fillWidth: true
+
+                            ColumnLayout {
+                                spacing: 0
+                                Layout.fillWidth: true
+
+                                Label {
+                                    text: modelData.name
+                                }
+
+                                Flow {
+                                    spacing: LingmoUI.Units.smallSpacing / 2
+                                    Layout.fillWidth: true
+                                    Layout.topMargin: 2
+                                    Layout.bottomMargin: 2
+
+                                    LingmoUI.Badge {
+                                        visible: modelData.recommended
+                                        text: qsTr("Recommended for your computer")
+                                        tone: LingmoUI.Theme.greenColor
+                                    }
+
+                                    Repeater {
+                                        model: modelData.tags
+
+                                        LingmoUI.Badge {
+                                            text: modelData.text
+                                            tone: page.tagColor(modelData.id)
+                                        }
+                                    }
+
+                                    LingmoUI.Badge {
+                                        visible: modelData.quantized
+                                        text: qsTr("Compressed")
+                                        subtle: true
+                                    }
+                                }
+
+                                Label {
+                                    text: page.joinParts([qsTr("%1 download").arg(modelData.download),
+                                                          qsTr("≈ %1 of memory").arg(modelData.memory)])
+                                    color: LingmoUI.Theme.secondaryTextColor
+                                    wrapMode: Text.WordWrap
+                                    Layout.fillWidth: true
+                                }
+
+                                Label {
+                                    text: page.joinParts([qsTr("Speed: %1").arg(modelData.speedText),
+                                                          qsTr("Portuguese: %1").arg(modelData.qualityText)])
+                                    color: LingmoUI.Theme.secondaryTextColor
+                                    wrapMode: Text.WordWrap
+                                    Layout.fillWidth: true
+                                }
+                            }
+
+                            Label {
+                                visible: modelData.inUse
+                                text: qsTr("In use")
+                                color: LingmoUI.Theme.highlightColor
+                            }
+
+                            Button {
+                                visible: modelData.installed && !modelData.inUse
+                                text: qsTr("Use for subtitles")
+                                flat: true
+                                onClicked: {
+                                    page.messageArea = "whisper"
+                                    AIModule.useWhisperModel(modelData.name)
+                                }
+                            }
+
+                            Button {
+                                visible: modelData.installed
+                                text: qsTr("Remove")
+                                enabled: AIModule.whisperDownloadModel !== modelData.name
+                                onClicked: {
+                                    removeDialog.whisper = true
+                                    removeDialog.modelName = modelData.name
+                                    removeDialog.inUse = modelData.inUse
+                                    removeDialog.open()
+                                }
+                            }
+
+                            Button {
+                                visible: !modelData.installed
+                                text: qsTr("Download")
+                                flat: true
+                                enabled: !AIModule.whisperDownloading
+                                onClicked: {
+                                    page.messageArea = "whisper"
+                                    AIModule.downloadWhisperModel(modelData.name)
+                                }
+                            }
+                        }
+                    }
+
+                    Button {
+                        text: page.showAllWhisper ? qsTr("Hide the compressed versions")
+                                                  : qsTr("Show the compressed versions too")
+                        Layout.fillWidth: true
+                        onClicked: page.showAllWhisper = !page.showAllWhisper
+                    }
+                }
+            }
+
             // ---------------------------------------------------------- Where it is used
             RoundedItem {
                 Label {
@@ -1035,13 +1421,18 @@ ItemPage {
 
         property string modelName: ""
         property bool inUse: false
+        // A whisper model instead of an Ollama one
+        property bool whisper: false
+        onClosed: whisper = false
 
         ColumnLayout {
             spacing: LingmoUI.Units.largeSpacing * 1.5
 
             Label {
                 text: removeDialog.inUse
-                      ? qsTr("It is the model in use: Spotlight and Automator won't answer until you choose another one. You can download it again later.")
+                      ? (removeDialog.whisper
+                         ? qsTr("Lingmo Studio uses it for subtitles: choose or download another one afterwards. You can download it again later.")
+                         : qsTr("It is the model in use: Spotlight and Automator won't answer until you choose another one. You can download it again later."))
                       : qsTr("It frees up disk space. You can download it again later.")
                 wrapMode: Text.WordWrap
                 Layout.maximumWidth: 320
@@ -1061,9 +1452,15 @@ ItemPage {
                     flat: true
                     Layout.fillWidth: true
                     onClicked: {
+                        const whisper = removeDialog.whisper
                         removeDialog.accept()
-                        page.messageArea = "installed"
-                        AIModule.removeModel(removeDialog.modelName)
+                        if (whisper) {
+                            page.messageArea = "whisper"
+                            AIModule.removeWhisperModel(removeDialog.modelName)
+                        } else {
+                            page.messageArea = "installed"
+                            AIModule.removeModel(removeDialog.modelName)
+                        }
                     }
                 }
             }

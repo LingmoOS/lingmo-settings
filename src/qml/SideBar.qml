@@ -365,7 +365,7 @@ LingmoUI.SettingsSideBar {
             title: qsTr("Artificial Intelligence")
             name: "ai"
             // Extra words the search field matches (comma separated)
-            keywords: qsTr("AI, assistant, model, LLM, chat")
+            keywords: qsTr("AI, assistant, model, LLM, chat, whisper, subtitles, transcription")
             page: "qrc:/qml/AI/Main.qml"
             iconSource: "ai.svg"
             iconColor: "#6E56CF"

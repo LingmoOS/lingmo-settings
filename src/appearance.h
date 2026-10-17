@@ -33,6 +33,13 @@ class Appearance : public QObject
     Q_PROPERTY(int dockStyle READ dockStyle WRITE setDockStyle NOTIFY dockStyleChanged)
     // 0 solid, 1 glass, 2 no background
     Q_PROPERTY(int dockBackground READ dockBackground WRITE setDockBackground NOTIFY dockBackgroundChanged)
+    // Icons grow under the pointer, up to dockMagnificationSize percent (125-200)
+    Q_PROPERTY(bool dockMagnification READ dockMagnification WRITE setDockMagnification NOTIFY dockMagnificationChanged)
+    Q_PROPERTY(int dockMagnificationSize READ dockMagnificationSize WRITE setDockMagnificationSize NOTIFY dockMagnificationSizeChanged)
+    // Height of the top status bar in px (24-40)
+    Q_PROPERTY(int statusBarHeight READ statusBarHeight WRITE setStatusBarHeight NOTIFY statusBarHeightChanged)
+    Q_PROPERTY(int statusBarMinHeight READ statusBarMinHeight CONSTANT)
+    Q_PROPERTY(int statusBarMaxHeight READ statusBarMaxHeight CONSTANT)
     Q_PROPERTY(int fontPointSize READ fontPointSize WRITE setFontPointSize NOTIFY fontPointSizeChanged)
     Q_PROPERTY(int DesktopSettings READ DesktopSettings WRITE setDesktopIcons NOTIFY desktopIconsChanged)
     Q_PROPERTY(bool dimsWallpaper READ dimsWallpaper WRITE setDimsWallpaper NOTIFY dimsWallpaperChanged)
@@ -71,6 +78,17 @@ public:
     int dockBackground() const { return m_dockBackground; }
     Q_INVOKABLE void setDockBackground(int background);
 
+    bool dockMagnification() const { return m_dockMagnification; }
+    Q_INVOKABLE void setDockMagnification(bool enabled);
+
+    int dockMagnificationSize() const { return m_dockMagnificationSize; }
+    Q_INVOKABLE void setDockMagnificationSize(int percent);
+
+    int statusBarHeight() const { return m_statusBarHeight; }
+    Q_INVOKABLE void setStatusBarHeight(int height);
+    int statusBarMinHeight() const;
+    int statusBarMaxHeight() const;
+
     Q_INVOKABLE void setGenericFontFamily(const QString &name);
     Q_INVOKABLE void setFixedFontFamily(const QString &name);
 
@@ -101,6 +119,9 @@ signals:
     void dockVisibilityChanged();
     void dockStyleChanged();
     void dockBackgroundChanged();
+    void dockMagnificationChanged();
+    void dockMagnificationSizeChanged();
+    void statusBarHeightChanged();
     void fontPointSizeChanged();
     void desktopIconsChanged();
     void dimsWallpaperChanged();
@@ -121,6 +142,9 @@ private:
     int m_dockVisibility;
     int m_dockStyle;
     int m_dockBackground = 0;
+    bool m_dockMagnification = false;
+    int m_dockMagnificationSize = 150;
+    int m_statusBarHeight = 28;
     int m_fontPointSize;
 
     int m_DesktopSettings;

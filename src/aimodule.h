@@ -25,6 +25,8 @@
 #include <QUrl>
 #include <QVariantList>
 
+class QCryptographicHash;
+class QFile;
 class QNetworkAccessManager;
 class QNetworkReply;
 class QProcess;
@@ -77,6 +79,22 @@ class AIModule : public QObject
     Q_PROPERTY(QString pullModel READ pullModel NOTIFY pullChanged)
     Q_PROPERTY(qreal pullProgress READ pullProgress NOTIFY pullChanged)
     Q_PROPERTY(QString pullDetail READ pullDetail NOTIFY pullChanged)
+
+    // Transcription and subtitles (whisper.cpp ggml models). ai.conf keys
+    // subtitle_backend, subtitle_model and subtitle_language are read by Lingmo Studio;
+    // the model file is <whisperModelsDir>/ggml-<subtitle_model>.bin
+    Q_PROPERTY(QVariantList whisperModels READ whisperModels NOTIFY whisperChanged)
+    Q_PROPERTY(QString whisperRecommended READ whisperRecommended NOTIFY whisperChanged)
+    Q_PROPERTY(QString whisperModelsDir READ whisperModelsDir CONSTANT)
+    Q_PROPERTY(bool whisperCppInstalled READ whisperCppInstalled NOTIFY whisperChanged)
+    Q_PROPERTY(bool fasterWhisperInstalled READ fasterWhisperInstalled NOTIFY whisperChanged)
+    Q_PROPERTY(QString subtitleBackend READ subtitleBackend WRITE setSubtitleBackend NOTIFY subtitleConfigChanged)
+    Q_PROPERTY(QString subtitleModel READ subtitleModel NOTIFY subtitleConfigChanged)
+    Q_PROPERTY(QString subtitleLanguage READ subtitleLanguage WRITE setSubtitleLanguage NOTIFY subtitleConfigChanged)
+    Q_PROPERTY(bool whisperDownloading READ whisperDownloading NOTIFY whisperDownloadChanged)
+    Q_PROPERTY(QString whisperDownloadModel READ whisperDownloadModel NOTIFY whisperDownloadChanged)
+    Q_PROPERTY(qreal whisperDownloadProgress READ whisperDownloadProgress NOTIFY whisperDownloadChanged)
+    Q_PROPERTY(QString whisperDownloadDetail READ whisperDownloadDetail NOTIFY whisperDownloadChanged)
 
     Q_PROPERTY(bool busy READ busy NOTIFY busyChanged)
     Q_PROPERTY(QString errorText READ errorText NOTIFY messageChanged)
@@ -132,6 +150,22 @@ public:
     qreal pullProgress() const { return m_pullProgress; }
     QString pullDetail() const { return m_pullDetail; }
 
+    QVariantList whisperModels() const;
+    QString whisperRecommended() const;
+    static bool whisperGpuBackend(const QString &vendor);
+    static QString whisperModelsDir();
+    bool whisperCppInstalled() const { return !m_whisperCliBinary.isEmpty(); }
+    bool fasterWhisperInstalled() const { return !m_fasterWhisperBinary.isEmpty(); }
+    QString subtitleBackend() const { return m_subtitleBackend; }
+    void setSubtitleBackend(const QString &backend);
+    QString subtitleModel() const { return m_subtitleModel; }
+    QString subtitleLanguage() const { return m_subtitleLanguage; }
+    void setSubtitleLanguage(const QString &language);
+    bool whisperDownloading() const { return m_whisperReply != nullptr; }
+    QString whisperDownloadModel() const { return m_whisperDownloadModel; }
+    qreal whisperDownloadProgress() const { return m_whisperProgress; }
+    QString whisperDownloadDetail() const { return m_whisperDetail; }
+
     bool busy() const { return m_busy > 0; }
     QString errorText() const { return m_errorText; }
     QString infoText() const { return m_infoText; }
@@ -147,6 +181,12 @@ public:
     Q_INVOKABLE void cancelPull();
     Q_INVOKABLE void removeModel(const QString &name);
     Q_INVOKABLE void clearMessages();
+
+    Q_INVOKABLE void downloadWhisperModel(const QString &name);
+    Q_INVOKABLE void cancelWhisperDownload();
+    Q_INVOKABLE void removeWhisperModel(const QString &name);
+    // Writes subtitle_model; the model must be downloaded
+    Q_INVOKABLE void useWhisperModel(const QString &name);
 
     Q_INVOKABLE void openAssistant();
     Q_INVOKABLE void setAssistantTool(const QString &id, bool enabled);
@@ -167,6 +207,9 @@ signals:
     void busyChanged();
     void messageChanged();
     void assistantChanged();
+    void whisperChanged();
+    void subtitleConfigChanged();
+    void whisperDownloadChanged();
 
 private:
     struct Installed {
@@ -190,10 +233,19 @@ private:
         QString parameters;
     };
 
+    // For the whisper recommendation: llmfit's "system" section when it ran, else our own probe
+    struct Hardware {
+        double ramGb = 0;
+        int cores = 0;
+        double vramGb = 0;
+        QString gpuVendor; // "nvidia", "amd", "intel" or ""
+    };
+
     struct LlmfitResult {
         bool ok = false;
         QString error;
         QString systemSummary;
+        Hardware hardware;
         QList<FitInfo> models; // ollama-usable only, best score first, one per name
     };
 
@@ -223,6 +275,18 @@ private:
     QVariantMap fitToMap(const FitInfo &fit) const;
     QString fitText(const QString &level) const;
     QString runModeText(const QString &mode) const;
+
+    QVariantList modelTagList(const QString &name, const QString &parameterSize,
+                              bool embedding, bool tools, bool thinking) const;
+    QString tagText(const QString &id) const;
+    void loadSubtitleConfig(const QSettings &settings);
+    void writeSubtitleValue(const QString &key, const QString &value);
+    void detectWhisperEngines();
+    void detectHardware();
+    static Hardware probeHardware();
+    void readWhisperData();
+    void finishWhisperDownload();
+    void updateWhisperDetail(qint64 received, qint64 total);
 
     void readPullData();
     void finishPull();
@@ -276,6 +340,26 @@ private:
     QElapsedTimer m_speedTimer;
     qint64 m_speedBytes = 0;
     double m_speed = 0;
+
+    Hardware m_hardware;
+    bool m_hardwareFromLlmfit = false;
+    bool m_hardwareProbing = false;
+    QString m_whisperCliBinary;
+    QString m_fasterWhisperBinary;
+    QString m_subtitleBackend;
+    QString m_subtitleModel;
+    QString m_subtitleLanguage = QStringLiteral("auto");
+    QPointer<QNetworkReply> m_whisperReply;
+    QFile *m_whisperFile = nullptr;
+    QCryptographicHash *m_whisperHash = nullptr;
+    QString m_whisperDownloadModel;
+    QString m_whisperFailure;
+    bool m_whisperCancelled = false;
+    qreal m_whisperProgress = -1;
+    QString m_whisperDetail;
+    QElapsedTimer m_whisperSpeedTimer;
+    qint64 m_whisperSpeedBytes = 0;
+    double m_whisperSpeed = 0;
 
     int m_busy = 0;
     QString m_errorText;

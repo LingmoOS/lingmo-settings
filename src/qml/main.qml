@@ -38,6 +38,8 @@ LingmoUI.Window {
     minimumHeight: 600
 
     property alias stackView: _stackView
+    // Part of a page to show, from "-m page/section" (the page reads and clears it)
+    property string pageSection: ""
 
     // Nearly opaque: a see-through window turns grey over a dark wallpaper in the light theme
     background.opacity: LingmoUI.Theme.darkMode ? 0.88 : 0.97
@@ -107,6 +109,10 @@ LingmoUI.Window {
     }
 
     function switchPageFromName(pageName) {
+        var slash = pageName.indexOf("/")
+        pageSection = slash >= 0 ? pageName.substring(slash + 1) : ""
+        if (slash >= 0)
+            pageName = pageName.substring(0, slash)
         for (var i = 0; i < sideBar.model.count; ++i) {
             if (pageName === sideBar.model.get(i).name) {
                 switchPageFromIndex(i)

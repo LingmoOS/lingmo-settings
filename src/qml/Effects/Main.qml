@@ -270,14 +270,13 @@ ItemPage {
 
                 LingmoUI.SegmentedControl {
                     fillWidth: true
-                    model: [qsTr("Strip"), qsTr("Flip")]
+                    readonly property var layouts: ["lingmo_carousel", "ling_thumbnail", "ling_flip"]
+                    model: [qsTr("Carousel"), qsTr("Strip"), qsTr("Flip")]
                     Layout.fillWidth: true
-                    // Follows the setting (also after a click, like TabBar did)
-                    Binding on currentIndex { value: effects.switcherLayout === "ling_flip" ? 1 : 0 }
-                    onActivated: (index) => {
-                        if (index === 0) { effects.switcherLayout = "ling_thumbnail" }
-                        else if (index === 1) { effects.switcherLayout = "ling_flip" }
-                    }
+                    // Follows the setting (also after a click, like TabBar did); an
+                    // unknown layout (picked elsewhere) selects nothing
+                    Binding on currentIndex { value: layouts.indexOf(effects.switcherLayout) }
+                    onActivated: (index) => effects.switcherLayout = layouts[index]
                 }
 
                 Label {
@@ -286,7 +285,9 @@ ItemPage {
                     color: LingmoUI.Theme.secondaryTextColor
                     text: effects.switcherLayout === "ling_flip"
                           ? qsTr("Windows stacked like the pages of a book; each Tab turns a page.")
-                          : qsTr("Window previews side by side.")
+                          : effects.switcherLayout === "ling_thumbnail"
+                            ? qsTr("Window previews side by side.")
+                            : qsTr("The selected window in the middle, the previous ones on the left and the next ones on the right.")
                 }
             }
 
