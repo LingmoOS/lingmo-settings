@@ -1,0 +1,117 @@
+#!/bin/bash
+#
+# fingerprint-pam - turn fingerprint (pam_fprintd) authentication on or off
+# for the login screen (sddm), polkit (administrator prompts) and sudo.
+#
+# Usage: fingerprint-pam enable|disable|status
+#
+# "enable" adds one line at the top of the auth stack of each PAM service:
+#
+#     auth       sufficient  pam_fprintd.so timeout=10  # lingmo-fingerprint
+#
+# and creates /etc/lingmo-fingerprint-enabled, which the lock screen and the
+# login screen read to show the fingerprint hint. "disable" removes exactly the
+# lines carrying the "# lingmo-fingerprint" tag and nothing else, then removes
+# the marker. Both are idempotent. The line goes below face-pam's
+# "# lingmo-face" lines, so the camera is tried before the reader. Backups,
+# atomic writes and the polkit-1 copy: see pam-common.sh (installed next to
+# this script), shared with face-pam.
+#
+# The lock screen (lingmo-screenlocker) is not edited here: it runs its own
+# "lingmo-screenlocker-fingerprint" service next to the password one, so the
+# password never waits for the reader.
+#
+# "status" works without root and prints "key: value" lines, the last one being
+# "state: enabled|disabled|partial".
+#
+# Tests: LINGMO_FINGERPRINT_ROOT=<dir> makes the script use <dir>/etc/pam.d,
+# <dir>/usr/lib/pam.d, <dir>/usr/lib/security, ... instead of the real system.
+# It is refused when running as root.
+
+readonly TAG_NAME=lingmo-fingerprint
+readonly STATE_NAME=fingerprint-pam
+readonly FOREIGN_RE='pam_fprintd\.so'
+# Face recognition (face-pam) is tried first: it gives up quickly, the reader
+# waits up to 10 seconds
+readonly SKIP_RE='#[[:space:]]*lingmo-face([[:space:]:]|$)'
+readonly SERVICES=(sddm polkit-1 sudo)
+
+pam_line() {
+    echo "auth       sufficient  pam_fprintd.so timeout=10  $TAG"
+}
+
+# shellcheck source=pam-common.sh
+. "${BASH_SOURCE[0]%/*}/pam-common.sh" || exit 2
+
+readonly MARKER="$ROOT/etc/lingmo-fingerprint-enabled"
+
+cmd_status() {
+    local svc st enabled=0 disabled=0 marker=absent
+    if have_module pam_fprintd.so; then
+        echo "module: present"
+    else
+        echo "module: missing"
+    fi
+    for svc in "${SERVICES[@]}"; do
+        st=$(service_state "$svc")
+        echo "$svc: $st"
+        case $st in
+            enabled|external) enabled=$((enabled + 1)) ;;
+            disabled) disabled=$((disabled + 1)) ;;
+        esac
+    done
+    [ -e "$MARKER" ] && marker=present
+    echo "marker: $marker"
+    if [ $marker = present ] && [ $disabled -eq 0 ] && [ $enabled -gt 0 ]; then
+        echo "state: enabled"
+    elif [ $marker = absent ] && [ $enabled -eq 0 ]; then
+        echo "state: disabled"
+    else
+        echo "state: partial"
+    fi
+}
+
+cmd_enable() {
+    local svc failed=0 done_any=0 st
+    need_root enable
+    have_module pam_fprintd.so || die "pam_fprintd.so not found: install the fprintd package first"
+    [ -d "$PAM_DIR" ] || die "$PAM_DIR doesn't exist"
+    lock
+    for svc in "${SERVICES[@]}"; do
+        if enable_service "$svc"; then
+            st=$(service_state "$svc")
+            [ "$st" = enabled ] || [ "$st" = external ] && done_any=1
+        else
+            failed=1
+        fi
+    done
+    if [ $done_any -eq 1 ]; then
+        write_marker "$MARKER" "fingerprint authentication is enabled." || { warn "couldn't write $MARKER"; failed=1; }
+    else
+        warn "no PAM service could be set up"
+        failed=1
+    fi
+    [ $failed -eq 0 ] || exit 2
+}
+
+cmd_disable() {
+    local svc failed=0
+    need_root disable
+    [ -d "$PAM_DIR" ] || die "$PAM_DIR doesn't exist"
+    lock
+    for svc in "${SERVICES[@]}"; do
+        disable_service "$svc" || failed=1
+    done
+    rm -f -- "$MARKER" || { warn "couldn't remove $MARKER"; failed=1; }
+    [ $failed -eq 0 ] || exit 2
+}
+
+case "${1:-}" in
+    enable) cmd_enable ;;
+    disable) cmd_disable ;;
+    status) cmd_status ;;
+    *)
+        echo "Usage: $PROG enable|disable|status" >&2
+        exit 1
+        ;;
+esac

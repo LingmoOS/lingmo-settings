@@ -113,7 +113,7 @@ LingmoUI.Window {
 
                 Behavior on opacity {
                     NumberAnimation {
-                        duration: 100
+                        duration: LingmoUI.Units.veryShortDuration
                         easing.type: Easing.InOutCubic
                     }
                 }
@@ -149,7 +149,7 @@ LingmoUI.Window {
             Layout.topMargin: 5
             text: about.hostName
             color: LingmoUI.Theme.textColor
-            font.pointSize: 9
+            font.pointSize: LingmoUI.Units.fontCaption
         }
 
         Item {
@@ -162,7 +162,7 @@ LingmoUI.Window {
             Layout.topMargin: 15
             text: qsTr("Enter your new device name")
             color: LingmoUI.Theme.textColor
-            font.pointSize: 10
+            font.pointSize: LingmoUI.Units.fontBody
         }
 
         TextField {

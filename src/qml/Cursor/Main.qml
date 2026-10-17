@@ -121,7 +121,8 @@ ItemPage {
             RoundedItem {
                 Label {
                     text: qsTr("Theme")
-                    color: LingmoUI.Theme.disabledTextColor
+                    font.pointSize: LingmoUI.Units.fontSubheading
+                    font.weight: Font.DemiBold
                     visible: _view.count > 0
                 }
 
@@ -165,7 +166,7 @@ ItemPage {
 
                         Behavior on scale {
                             NumberAnimation {
-                                duration: 200
+                                duration: LingmoUI.Units.shortDuration
                                 easing.type: Easing.OutSine
                             }
                         }
@@ -184,7 +185,7 @@ ItemPage {
                         Rectangle {
                             anchors.fill: parent
                             anchors.margins: LingmoUI.Units.smallSpacing * 1.5
-                            color: LingmoUI.Theme.darkMode ? "#3C3C3C" : "#FAFAFA"
+                            color: LingmoUI.Theme.alternateBackgroundColor
                             radius: LingmoUI.Theme.mediumRadius
                             z: -1
 

@@ -20,7 +20,8 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
-import QtQuick.Dialogs 1.2
+import QtQuick.Dialogs
+import QtCore
 import Qt5Compat.GraphicalEffects
 
 
@@ -43,11 +44,12 @@ RoundedItem {
 
     FileDialog {
         id: fileDialog
-        folder: shortcuts.pictures
-        nameFilters: ["Image files (*.jpg *.png)", "All files (*)"]
+        currentFolder: StandardPaths.standardLocations(StandardPaths.PicturesLocation)[0]
+        nameFilters: ["Image files (*.jpg *.jpeg *.png)", "All files (*)"]
         onAccepted: {
-            currentUser.iconFileName = fileDialog.fileUrl.toString().replace("file://", "")
-            _userImage.source = fileDialog.fileUrl
+            // Qt 6 FileDialog: selectedFile is a URL; AccountsService wants a local path
+            currentUser.iconFileName = decodeURIComponent(selectedFile.toString().replace("file://", ""))
+            _userImage.source = selectedFile
             _userImage.update()
         }
     }
@@ -78,41 +80,86 @@ RoundedItem {
                     anchors.bottomMargin: LingmoUI.Units.smallSpacing
                     spacing: 0
 
-                    Image {
-                        id: _userImage
+                    // Avatar: the user's picture, or a coloured circle with their initial.
+                    // Always visible and clickable, so users without a picture can set one.
+                    Item {
+                        id: _avatar
 
                         property int iconSize: 48
 
                         Layout.preferredWidth: iconSize
                         Layout.preferredHeight: iconSize
-                        sourceSize: String(source) === "image://icontheme/default-user" ? Qt.size(iconSize, iconSize) : undefined
-                        source: iconFileName ? "file:///" + iconFileName : "image://icontheme/default-user"
-                        visible: status === Image.Ready
                         Layout.alignment: Qt.AlignVCenter
 
-                        MouseArea {
+                        Rectangle {
                             anchors.fill: parent
-                            onClicked: fileDialog.open()
-                            cursorShape: Qt.PointingHandCursor
+                            radius: width / 2
+                            color: LingmoUI.Theme.highlightColor
+                            visible: _userImage.status !== Image.Ready
+
+                            Label {
+                                anchors.centerIn: parent
+                                text: (realName || userName).charAt(0).toUpperCase()
+                                color: "white"
+                                font.pixelSize: _avatar.iconSize * 0.45
+                                font.bold: true
+                            }
                         }
 
-                        layer.enabled: true
-                        layer.effect: OpacityMask {
-                            maskSource: Item {
-                                width: _userImage.width
-                                height: width
+                        Image {
+                            id: _userImage
+                            anchors.fill: parent
+                            source: iconFileName ? "file:///" + iconFileName : ""
+                            sourceSize: Qt.size(_avatar.iconSize * 2, _avatar.iconSize * 2)
+                            fillMode: Image.PreserveAspectCrop
+                            visible: status === Image.Ready
 
-                                Rectangle {
-                                    anchors.fill: parent
-                                    radius: width / 2
+                            layer.enabled: true
+                            layer.effect: OpacityMask {
+                                maskSource: Item {
+                                    width: _userImage.width
+                                    height: width
+
+                                    Rectangle {
+                                        anchors.fill: parent
+                                        radius: width / 2
+                                    }
                                 }
                             }
+                        }
+
+                        // Small camera badge hinting that the avatar can be changed
+                        Rectangle {
+                            width: _avatar.iconSize * 0.36
+                            height: width
+                            radius: width / 2
+                            anchors.right: parent.right
+                            anchors.bottom: parent.bottom
+                            color: LingmoUI.Theme.backgroundColor
+                            border.color: LingmoUI.Theme.highlightColor
+                            border.width: 1
+                            opacity: _avatarArea.containsMouse ? 1 : 0.85
+
+                            Label {
+                                anchors.centerIn: parent
+                                text: "✎"
+                                font.pixelSize: parent.width * 0.6
+                                color: LingmoUI.Theme.highlightColor
+                            }
+                        }
+
+                        MouseArea {
+                            id: _avatarArea
+                            anchors.fill: parent
+                            hoverEnabled: true
+                            cursorShape: Qt.PointingHandCursor
+                            onClicked: fileDialog.open()
                         }
                     }
 
                     Label {
                         Layout.alignment: Qt.AlignVCenter
-                        font.pixelSize: 15
+                        font.pointSize: LingmoUI.Units.fontSubheading
                         text: "<b>%1</b>".arg(userName)
                         leftPadding: LingmoUI.Units.largeSpacing
                     }
@@ -124,7 +171,7 @@ RoundedItem {
                     Label {
                         Layout.alignment: Qt.AlignVCenter
                         text: realName
-                        color: LingmoUI.Theme.disabledTextColor
+                        color: LingmoUI.Theme.secondaryTextColor
                         visible: realName !== userName
                     }
 
@@ -270,19 +317,19 @@ RoundedItem {
 
             // Change password end.
 
-            StandardButton {
+            LingmoUI.ActionButton {
                 text: qsTr("Change password")
                 onClicked: showChangePasswordItem()
-                backgroundColor: LingmoUI.Theme.darkMode ? "#363636" : LingmoUI.Theme.backgroundColor
                 Layout.fillWidth: true
                 visible: !changePasswdLabel.visible
             }
 
-            StandardButton {
+            LingmoUI.ActionButton {
                 text: qsTr("Delete this user")
+                destructive: true
+                subtle: true
                 enabled: model.userId !== loggedUser.userId
                 onClicked: accountsManager.deleteUser(userId, true)
-                backgroundColor: LingmoUI.Theme.darkMode ? "#363636" : LingmoUI.Theme.backgroundColor
                 Layout.fillWidth: true
             }
         }

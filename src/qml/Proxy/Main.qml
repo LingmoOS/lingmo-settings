@@ -291,7 +291,7 @@ ItemPage {
     FileDialog {
         id: fileDialog
         onAccepted: {
-            autoScriptField.text = fileDialog.fileUrl.toString().replace("file://", "")
+            autoScriptField.text = decodeURIComponent(fileDialog.selectedFile.toString().replace("file://", ""))
             networkProxy.scriptProxy = autoScriptField.text
         }
     }

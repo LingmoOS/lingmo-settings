@@ -18,6 +18,12 @@
 
 #include "about.h"
 #include "accessibility.h"
+#include "shortcuts.h"
+#include "autostart.h"
+#include "effects.h"
+#include "nightlight.h"
+#include "keyboardlayouts.h"
+#include "camerasettings.h"
 #include "appearance.h"
 #include "background.h"
 #include "battery.h"
@@ -28,6 +34,8 @@
 #include "datetime/time.h"
 #include "datetime/timezonemap.h"
 #include "defaultapplications.h"
+#include "faceauth.h"
+#include "fingerprint.h"
 #include "fonts/fonts.h"
 #include "fontsmodel.h"
 #include "hostname.h"
@@ -38,6 +46,8 @@
 #include "powermanager.h"
 #include "settingsuiadaptor.h"
 #include "touchpad.h"
+#include "aimodule.h"
+#include "boxesmodule.h"
 // #include "updatorhelper.h"
 // #include "upgradeablemodel.h"
 
@@ -82,7 +92,23 @@ Application::Application(std::shared_ptr<QQmlApplicationEngine> engine)
     qmlRegisterType<Notifications>(uri, 1, 0, "Notifications");
     qmlRegisterType<DefaultApplications>(uri, 1, 0, "DefaultApplications");
     qmlRegisterType<Accessibility>(uri, 1, 0, "Accessibility");
+    qmlRegisterType<Shortcuts>(uri, 1, 0, "Shortcuts");
+    qmlRegisterType<Autostart>(uri, 1, 0, "Autostart");
+    qmlRegisterType<Effects>(uri, 1, 0, "Effects");
+    qmlRegisterType<NightLight>(uri, 1, 0, "NightLight");
+    qmlRegisterType<KeyboardLayouts>(uri, 1, 0, "KeyboardLayouts");
+    qmlRegisterType<CameraSettings>(uri, 1, 0, "CameraSettings");
+    qmlRegisterType<Fingerprint>(uri, 1, 0, "Fingerprint");
+    qmlRegisterType<FaceAuth>(uri, 1, 0, "FaceAuth");
     qmlRegisterSingletonType<Password>(uri, 1, 0, "Password", passwordSingleton);
+    // One instance for the whole app, so a model download survives page changes
+    qmlRegisterSingletonType<AIModule>(uri, 1, 0, "AIModule", [](QQmlEngine*, QJSEngine*) -> QObject* {
+        return new AIModule();
+    });
+    // One instance: recreating a Linux box takes a while and survives page changes
+    qmlRegisterSingletonType<BoxesModule>(uri, 1, 0, "BoxesModule", [](QQmlEngine*, QJSEngine*) -> QObject* {
+        return new BoxesModule();
+    });
 
 #if QT_VERSION < QT_VERSION_CHECK(5, 14, 0)
     qmlRegisterType<QAbstractItemModel>();

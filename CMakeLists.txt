@@ -18,7 +18,7 @@ endif()
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake;${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
 # set(QT Core Gui Widgets Network WebEngine Quick QuickControls2 X11Extras DBus Xml Concurrent LinguistTools)
-set(QT Core Gui Widgets Network Quick QuickControls2 DBus Xml Concurrent LinguistTools)
+set(QT Core Gui GuiPrivate Widgets Network Quick QuickControls2 DBus Xml Concurrent LinguistTools)
 find_package(Qt6 REQUIRED ${QT})
 find_package(X11 REQUIRED)
 find_package(Freetype REQUIRED)
@@ -32,7 +32,7 @@ find_package(KF6Config)
 find_package(LingmoLogger REQUIRED)
 
 pkg_search_module(FontConfig REQUIRED fontconfig IMPORTED_TARGET)
-pkg_search_module(ICU REQUIRED icu-i18n)
+pkg_check_modules(ICU REQUIRED icu-i18n icu-uc)
 
 include_directories(${ICU_INCLUDE_DIRS})
 
@@ -84,12 +84,19 @@ target_link_libraries(${PROJECT_NAME}
         LingmoLogger
 )
 
+# Unit tests (off for packages): cmake -DBUILD_TESTING=ON, then ctest
+option(BUILD_TESTING "Build the unit tests" OFF)
+if(BUILD_TESTING)
+    enable_testing()
+    add_subdirectory(tests)
+endif()
+
 file(GLOB TS_FILES translations/*.ts)
 foreach(filepath ${TS_FILES})
     string(REPLACE "${CMAKE_CURRENT_SOURCE_DIR}/" "" filename ${filepath})
     list(APPEND ts_files_replaced ${filename})
 endforeach()
-qt6_create_translation(QM_FILES ${CMAKE_CURRENT_SOURCE_DIR} ${ts_files_replaced})
+qt_add_translation(QM_FILES ${ts_files_replaced})
 
 add_custom_target(translations ALL DEPENDS ${QM_FILES} SOURCES ${TS_FILES})
 
@@ -114,3 +121,11 @@ set(INCLUDE_INSTALL_DIR ${CMAKE_INSTALL_INCLUDEDIR}/${PROJECT_NAME})
 install(DIRECTORY ${EXPORT_HEADERS} DESTINATION ${INCLUDE_INSTALL_DIR})
 
 install(FILES "tools/auto-install-policy/org.lingmo.settings.update.lminstall.policy" DESTINATION "${CMAKE_INSTALL_DATADIR}/polkit-1/actions/")
+
+# Fingerprint login: PAM helper run through pkexec (the policy names its path)
+install(PROGRAMS fingerprint/fingerprint-pam DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/${PROJECT_NAME}")
+install(FILES fingerprint/org.lingmo.settings.fingerprint-pam.policy DESTINATION "${CMAKE_INSTALL_DATADIR}/polkit-1/actions/")
+# Face login (lingmo-faceauth from lingmo-camera): the same for pam_exec; both helpers source pam-common.sh
+install(PROGRAMS fingerprint/face-pam DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/${PROJECT_NAME}")
+install(FILES fingerprint/pam-common.sh DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/${PROJECT_NAME}")
+install(FILES fingerprint/org.lingmo.settings.face-pam.policy DESTINATION "${CMAKE_INSTALL_DATADIR}/polkit-1/actions/")

@@ -2,6 +2,8 @@
     <qresource prefix="/">
         <file>qml/main.qml</file>
         <file>qml/SideBar.qml</file>
+        <file>qml/AI/Main.qml</file>
+        <file>qml/Boxes/Main.qml</file>
         <file>qml/ItemPage.qml</file>
         <file>qml/SysItem.qml</file>
         <file>images/dark/display-brightness-low-symbolic.svg</file>
@@ -16,7 +18,6 @@
         <file>qml/ChangeDialog.qml</file>
         <file>images/sensors-voltage-symbolic.svg</file>
         <file>qml/StandardItem.qml</file>
-        <file>qml/ItemButton.qml</file>
         <file>qml/SystemUpdate/Main.qml</file>
         <file>qml/SystemUpdate/FirstPage.qml</file>
         <file>qml/SystemUpdate/UpdatePage.qml</file>
@@ -63,7 +64,6 @@
         <file>images/dark/network-wireless-connected-100.svg</file>
         <file>images/view-refresh.svg</file>
         <file>images/info.svg</file>
-        <file>qml/IconButton.qml</file>
         <file>images/go-previous.svg</file>
         <file>qml/Hideable.qml</file>
         <file>qml/BluetoothPage.qml</file>
@@ -81,9 +81,15 @@
         <file>qml/Wallpaper/Main.qml</file>
         <file>qml/Wallpaper/DesktopPreview.qml</file>
         <file>images/sidebar/all/info.svg</file>
+        <file>images/sidebar/all/ai.svg</file>
+        <file>images/sidebar/all/boxes.svg</file>
         <file>images/sidebar/all/accounts.svg</file>
         <file>images/sidebar/all/appearance.svg</file>
         <file>images/sidebar/all/accessibility.svg</file>
+        <file>images/sidebar/all/keyboard.svg</file>
+        <file>images/sidebar/all/keyboard-layout.svg</file>
+        <file>images/sidebar/all/startup.svg</file>
+        <file>images/sidebar/all/effects.svg</file>
         <file>images/sidebar/all/battery.svg</file>
         <file>images/sidebar/all/bluetooth.svg</file>
         <file>images/sidebar/all/display.svg</file>
@@ -101,12 +107,22 @@
         <file>images/dark/checked.svg</file>
         <file>qml/About/Main.qml</file>
         <file>qml/User/Main.qml</file>
+        <file>qml/User/FingerprintSection.qml</file>
+        <file>qml/User/FingerprintEnrollDialog.qml</file>
+        <file>images/light/fingerprint.svg</file>
+        <file>images/dark/fingerprint.svg</file>
+        <file>qml/User/FaceSection.qml</file>
+        <file>qml/User/FaceEnrollDialog.qml</file>
+        <file>images/light/face.svg</file>
+        <file>images/dark/face.svg</file>
         <file>qml/Appearance/Main.qml</file>
         <file>qml/Display/Main.qml</file>
         <file>qml/Battery/Main.qml</file>
         <file>qml/Battery/BatteryItem.qml</file>
         <file>qml/Battery/HistoryGraph.qml</file>
         <file>qml/Dock/Main.qml</file>
+        <file>qml/Dock/MagnificationPreview.qml</file>
+        <file>qml/Dock/StatusBarPreview.qml</file>
         <file>qml/Display/RotationButton.qml</file>
         <file>images/dark/locked.svg</file>
         <file>images/light/locked.svg</file>
@@ -120,7 +136,6 @@
         <file>qml/WLAN/WirelessDetailsDialog.qml</file>
         <file>images/sidebar/all/wlan.svg</file>
         <file>qml/Bluetooth/Main.qml</file>
-        <file>qml/StandardButton.qml</file>
         <file>qml/Hotspot/Main.qml</file>
         <file>qml/Application/Main.qml</file>
         <file>qml/Cursor/Main.qml</file>
@@ -139,12 +154,21 @@
         <file>images/light/devlogo3.png</file>
         <file>images/dark/devlogo3.png</file>
         <file>images/dock_straight.svg</file>
+        <file>images/dock_bg_solid.svg</file>
+        <file>images/dock_bg_glass.svg</file>
+        <file>images/dock_bg_none.svg</file>
         <file>qml/Bluetooth/PairDialog.qml</file>
         <file>qml/VPN/Main.qml</file>
         <file>qml/Proxy/Main.qml</file>
         <file>images/sidebar/all/proxy.svg</file>
         <file>qml/Sound/Main.qml</file>
         <file>qml/Accessibility/Main.qml</file>
+        <file>qml/Shortcuts/Main.qml</file>
+        <file>qml/Autostart/Main.qml</file>
+        <file>qml/Effects/Main.qml</file>
+        <file>qml/Keyboard/Main.qml</file>
+        <file>qml/Camera/Main.qml</file>
+        <file>images/sidebar/all/camera.svg</file>
         <file>images/sidebar/all/sound.svg</file>
         <file>images/light/audio-volume-high-symbolic.svg</file>
         <file>images/light/audio-volume-low-symbolic.svg</file>

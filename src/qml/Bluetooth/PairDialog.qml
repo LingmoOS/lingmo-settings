@@ -57,7 +57,7 @@ LingmoUI.Window {
         Label {
             text: "<b>%1</b>".arg(control.pin)
             visible: control.pin !== ""
-            font.pointSize: 16
+            font.pointSize: LingmoUI.Units.fontDisplay
 
             Layout.alignment: Qt.AlignHCenter
             Layout.bottomMargin: LingmoUI.Units.largeSpacing

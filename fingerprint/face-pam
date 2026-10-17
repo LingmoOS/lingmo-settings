@@ -1,0 +1,280 @@
+#!/bin/bash
+#
+# face-pam - turn face recognition with the webcam (lingmo-faceauth, through
+# pam_exec) on or off.
+#
+# Usage: face-pam status
+#        face-pam enable login|admin
+#        face-pam disable login|admin|all
+#        face-pam sync
+#
+# Two scopes:
+#
+#   login  the login screen and the lock screen. Adds to /etc/pam.d/sddm
+#
+#            auth sufficient pam_exec.so quiet stdout expose_authtok
+#                 /usr/bin/lingmo-faceauth verify --skip-if-password  # lingmo-face
+#
+#          and creates /etc/lingmo-face-enabled, which makes the lock screen run
+#          its own "lingmo-screenlocker-face" service (installed by
+#          lingmo-screenlocker, not edited here) and the login screen show the
+#          hint. expose_authtok hands the typed password to lingmo-faceauth,
+#          which skips the camera when there is one (and forgets it), and keeps
+#          it for pam_unix below (try_first_pass), so typing the password never
+#          waits for the camera.
+#
+#   admin  sudo and polkit (administrator prompts). Adds to sudo and polkit-1
+#
+#            auth sufficient pam_exec.so quiet stdout
+#                 /usr/bin/lingmo-faceauth verify --system  # lingmo-face
+#
+#          creates /etc/lingmo-face-admin-enabled, and copies the calling user's
+#          enrolled face to /var/lib/lingmo-face (root only): "--system" reads
+#          that copy, so a program running as the user can't swap the face that
+#          grants administrator rights. "sync" refreshes the copy after the user
+#          enrolled again or deleted the face; "disable admin" deletes every copy.
+#
+# pam_exec returns an error for any exit code but 0, so "sufficient" falls
+# through to the fingerprint and the password when the face doesn't match, the
+# camera is busy or there is no enrolled face. "quiet" hides pam_exec's own
+# "failed" message; "stdout" shows lingmo-faceauth's short messages ("Look at
+# the camera..."). Our line goes first, above the fingerprint one: the camera
+# gives up after a few seconds, the reader waits for 10.
+#
+# Lines are tagged "# lingmo-face"; "disable" removes exactly those. Backups,
+# atomic writes and the polkit-1 copy work as in fingerprint-pam (pam-common.sh,
+# installed next to this script).
+#
+# "status" works without root and prints "key: value" lines.
+#
+# Tests: LINGMO_FINGERPRINT_ROOT=<dir> works on <dir>/etc/pam.d, ... (refused as
+# root); the calling user is then the one running the script, its enrollment
+# <dir>/home/<user>.dat, and LINGMO_FACEAUTH_BIN may name lingmo-faceauth.
+
+readonly TAG_NAME=lingmo-face
+readonly STATE_NAME=face-pam
+readonly FOREIGN_RE='lingmo-faceauth'
+readonly SKIP_RE=''
+readonly LOGIN_SERVICES=(sddm)
+readonly ADMIN_SERVICES=(sudo polkit-1)
+readonly FACEAUTH=/usr/bin/lingmo-faceauth
+
+pam_line() {
+    case $1 in
+        sddm)
+            echo "auth       sufficient  pam_exec.so quiet stdout expose_authtok $FACEAUTH verify --skip-if-password  $TAG"
+            ;;
+        *)
+            echo "auth       sufficient  pam_exec.so quiet stdout $FACEAUTH verify --system  $TAG"
+            ;;
+    esac
+}
+
+# shellcheck source=pam-common.sh
+. "${BASH_SOURCE[0]%/*}/pam-common.sh" || exit 2
+
+readonly LOGIN_MARKER="$ROOT/etc/lingmo-face-enabled"
+readonly ADMIN_MARKER="$ROOT/etc/lingmo-face-admin-enabled"
+readonly SYSTEM_DIR="$ROOT/var/lib/lingmo-face"
+
+faceauth_bin() {
+    if [ -n "$ROOT" ] && [ -n "${LINGMO_FACEAUTH_BIN:-}" ]; then
+        echo "$LINGMO_FACEAUTH_BIN"
+    else
+        echo "$ROOT$FACEAUTH"
+    fi
+}
+
+have_faceauth() {
+    [ -x "$(faceauth_bin)" ] || [ -f "$ROOT$FACEAUTH" ]
+}
+
+# The user who asked: pkexec tells us, tests are run by that user.
+calling_user() {
+    local uid name
+    if [ -n "$ROOT" ]; then
+        uid=$(id -u)
+    else
+        uid=${PKEXEC_UID:-${SUDO_UID:-}}
+    fi
+    case $uid in
+        ''|*[!0-9]*) return 1 ;;
+    esac
+    name=$(getent passwd "$uid" | cut -d: -f1)
+    [ -n "$name" ] || return 1
+    echo "$name"
+}
+
+# faceauth install-system|remove-system <args>
+run_faceauth() {
+    local user
+    if [ -n "$ROOT" ]; then
+        user=$(id -un)
+        "$(faceauth_bin)" "$@" --system-dir "$SYSTEM_DIR" --store "$ROOT/home/$user.dat"
+    else
+        "$FACEAUTH" "$@"
+    fi
+}
+
+# Copy the calling user's enrolled face for sudo and polkit
+install_copy() {
+    local user=$1
+    mkdir -p -- "$SYSTEM_DIR" && chmod 711 -- "$SYSTEM_DIR" || return 1
+    run_faceauth install-system --user "$user"
+}
+
+remove_copy() {
+    [ -d "$SYSTEM_DIR" ] || return 0
+    run_faceauth remove-system "$@"
+}
+
+# scope_state <marker> <services...>: enabled, disabled or partial
+scope_state() {
+    local marker=$1 svc st enabled=0 disabled=0
+    shift
+    for svc in "$@"; do
+        st=$(service_state "$svc")
+        case $st in
+            enabled|external) enabled=$((enabled + 1)) ;;
+            disabled) disabled=$((disabled + 1)) ;;
+        esac
+    done
+    if [ -e "$marker" ] && [ $disabled -eq 0 ]; then
+        # The lock screen works from the marker alone, sddm may be missing
+        echo enabled
+    elif [ ! -e "$marker" ] && [ $enabled -eq 0 ]; then
+        echo disabled
+    else
+        echo partial
+    fi
+}
+
+cmd_status() {
+    local svc user copy=missing
+    if have_module pam_exec.so && have_faceauth; then
+        echo "module: present"
+    else
+        echo "module: missing"
+    fi
+    for svc in "${LOGIN_SERVICES[@]}" "${ADMIN_SERVICES[@]}"; do
+        echo "$svc: $(service_state "$svc")"
+    done
+    user=$(id -un)
+    [ -e "$SYSTEM_DIR/$user.dat" ] && copy=present
+    echo "copy: $copy"
+    echo "login: $(scope_state "$LOGIN_MARKER" "${LOGIN_SERVICES[@]}")"
+    echo "admin: $(scope_state "$ADMIN_MARKER" "${ADMIN_SERVICES[@]}")"
+}
+
+# enable_services <services...>: prints 1 when at least one is set up
+enable_services() {
+    local svc failed=0 done_any=0 st
+    for svc in "$@"; do
+        # progress on stderr, the result on stdout
+        if enable_service "$svc" >&2; then
+            st=$(service_state "$svc")
+            [ "$st" = enabled ] || [ "$st" = external ] && done_any=1
+        else
+            failed=1
+        fi
+    done
+    [ $failed -eq 0 ] || return 1
+    echo "$done_any"
+}
+
+cmd_enable() {
+    local scope=${1:-} user failed=0
+    need_root enable
+    have_module pam_exec.so || die "pam_exec.so not found"
+    have_faceauth || die "$FACEAUTH not found: install lingmo-camera first"
+    [ -d "$PAM_DIR" ] || die "$PAM_DIR doesn't exist"
+    lock
+    case $scope in
+        login)
+            enable_services "${LOGIN_SERVICES[@]}" >/dev/null || failed=1
+            # The lock screen needs only the marker
+            write_marker "$LOGIN_MARKER" "face recognition unlocks the login and lock screens." ||
+                { warn "couldn't write $LOGIN_MARKER"; failed=1; }
+            ;;
+        admin)
+            user=$(calling_user) || die "can't tell who is asking (run it through pkexec)"
+            # The face must be there before sudo is told to look for it
+            install_copy "$user" || die "couldn't copy the enrolled face of $user (enroll it in Settings first)"
+            if [ "$(enable_services "${ADMIN_SERVICES[@]}")" = 1 ]; then
+                write_marker "$ADMIN_MARKER" "face recognition is accepted by sudo and polkit." ||
+                    { warn "couldn't write $ADMIN_MARKER"; failed=1; }
+            else
+                warn "no PAM service could be set up"
+                failed=1
+            fi
+            ;;
+        *)
+            die "usage: $PROG enable login|admin"
+            ;;
+    esac
+    [ $failed -eq 0 ] || exit 2
+}
+
+disable_admin() {
+    local svc failed=0
+    for svc in "${ADMIN_SERVICES[@]}"; do
+        disable_service "$svc" || failed=1
+    done
+    rm -f -- "$ADMIN_MARKER" || { warn "couldn't remove $ADMIN_MARKER"; failed=1; }
+    remove_copy --all || { warn "couldn't remove the copies in $SYSTEM_DIR"; failed=1; }
+    return $failed
+}
+
+disable_login() {
+    local svc failed=0
+    for svc in "${LOGIN_SERVICES[@]}"; do
+        disable_service "$svc" || failed=1
+    done
+    rm -f -- "$LOGIN_MARKER" || { warn "couldn't remove $LOGIN_MARKER"; failed=1; }
+    return $failed
+}
+
+cmd_disable() {
+    local scope=${1:-} failed=0
+    need_root disable
+    [ -d "$PAM_DIR" ] || die "$PAM_DIR doesn't exist"
+    case $scope in
+        login|admin|all) ;;
+        *) die "usage: $PROG disable login|admin|all" ;;
+    esac
+    lock
+    if [ "$scope" = admin ] || [ "$scope" = all ]; then
+        disable_admin || failed=1
+    fi
+    if [ "$scope" = login ] || [ "$scope" = all ]; then
+        disable_login || failed=1
+    fi
+    [ $failed -eq 0 ] || exit 2
+}
+
+# After enrolling again or deleting the face: refresh or delete the copy
+cmd_sync() {
+    local user
+    need_root sync
+    user=$(calling_user) || die "can't tell who is asking (run it through pkexec)"
+    lock
+    if [ -e "$ADMIN_MARKER" ]; then
+        if install_copy "$user" 2>/dev/null; then
+            echo "copy of $user updated"
+            return 0
+        fi
+    fi
+    remove_copy --user "$user" || die "couldn't remove the copy of $user"
+    echo "copy of $user removed"
+}
+
+case "${1:-}" in
+    enable) cmd_enable "${2:-}" ;;
+    disable) cmd_disable "${2:-}" ;;
+    status) cmd_status ;;
+    sync) cmd_sync ;;
+    *)
+        echo "Usage: $PROG status | enable login|admin | disable login|admin|all | sync" >&2
+        exit 1
+        ;;
+esac

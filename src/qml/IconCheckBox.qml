@@ -1,7 +1,7 @@
 import QtQuick 2.4
 import QtQuick.Controls 2.4
 import QtQuick.Layouts 1.3
-import QtGraphicalEffects 1.12
+import Qt5Compat.GraphicalEffects
 import LingmoUI.CompatibleModule 3.0 as LingmoUI
 
 
@@ -60,7 +60,7 @@ Item {
 
                 Behavior on opacity {
                     NumberAnimation {
-                        duration: 200
+                        duration: LingmoUI.Units.shortDuration
                         easing.type: Easing.OutSine
                     }
                 }
@@ -89,7 +89,7 @@ Item {
 
     Behavior on scale {
         NumberAnimation {
-            duration: 200
+            duration: LingmoUI.Units.shortDuration
             easing.type: Easing.OutSine
         }
     }

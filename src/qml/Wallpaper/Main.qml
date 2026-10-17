@@ -3,7 +3,8 @@ import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
 import Qt5Compat.GraphicalEffects
 
-import QtQuick.Dialogs 1.2
+import QtQuick.Dialogs
+import QtCore
 import Lingmo.Settings 1.0
 import LingmoUI.CompatibleModule 3.0 as LingmoUI
 
@@ -28,20 +29,18 @@ ItemPage {
 
             FileDialog {
                 id: fileDialog
-                folder: shortcuts.pictures
-                nameFilters: ["Image files (*.jpg *.png)", "All files (*)"]
-                selectFolder: fales
-                onAccepted: {
-                    _image.sources = fileDialog.fileUrl
-                    fileDialog.baseData = fileDialog.fileUrl
-                    background.setBackground(baseData)
-                }
+                title: qsTr("Add images")
+                fileMode: FileDialog.OpenFiles
+                currentFolder: StandardPaths.standardLocations(StandardPaths.PicturesLocation)[0]
+                nameFilters: [qsTr("Images") + " (*.jpg *.jpeg *.png *.webp)", qsTr("All files") + " (*)"]
+                onAccepted: background.addCustomBackgrounds(selectedFiles)
             }
 
             DesktopPreview {
                Layout.alignment: Qt.AlignHCenter
-               width: 500
-               height: 300
+               // Qt 6 layouts size children from Layout.* hints, not width/height
+               Layout.preferredWidth: 500
+               Layout.preferredHeight: 300
             }
 
             RoundedItem {
@@ -53,173 +52,99 @@ ItemPage {
                         leftPadding: LingmoUI.Units.smallSpacing
                     }
 
-                    TabBar {
+                    LingmoUI.SegmentedControl {
+                        id: tabBar
                         Layout.fillWidth: true
+                        fillWidth: true
+                        model: [qsTr("Picture"), qsTr("Color"), qsTr("Custom Images")]
 
+                        // Pictures and custom images both are "picture" wallpapers (type 0)
                         onCurrentIndexChanged: {
-                            background.backgroundType = currentIndex
+                            const type = currentIndex === 1 ? 1 : 0
+                            if (background.backgroundType !== type)
+                                background.backgroundType = type
                         }
 
                         Component.onCompleted: {
-                            currentIndex = background.backgroundType
-                        }
-
-                        TabButton {
-                            text: qsTr("Picture")
-                        }
-
-                        TabButton {
-                            text: qsTr("Color")
-                        }
-
-                        TabButton {
-                            text: qsTr("Custom Images")
+                            currentIndex = background.backgroundType === 1 ? 1
+                                         : background.isCustomBackground(background.currentBackgroundPath) ? 2 : 0
                         }
                     }
                 }
 
-                GridView {
-                    id: _view
-
-                    property int rowCount: _view.width / itemWidth
-
+                WallpaperGrid {
                     Layout.fillWidth: true
-                    implicitHeight: Math.ceil(_view.count / rowCount) * cellHeight + LingmoUI.Units.largeSpacing
+                    visible: tabBar.currentIndex === 0
+                    paths: background.backgrounds
+                }
 
-                    visible: background.backgroundType === 0
+                // The user's own pictures: ~/Pictures/Wallpapers
+                ColumnLayout {
+                    Layout.fillWidth: true
+                    visible: tabBar.currentIndex === 2
+                    spacing: LingmoUI.Units.largeSpacing
 
-                    clip: true
-                    model: background.backgrounds
-                    currentIndex: -1
-                    interactive: false
+                    RowLayout {
+                        Layout.fillWidth: true
+                        spacing: LingmoUI.Units.largeSpacing
 
-                    cellHeight: itemHeight
-                    cellWidth: calcExtraSpacing(itemWidth, _view.width) + itemWidth
+                        ColumnLayout {
+                            spacing: 0
+                            Layout.fillWidth: true
 
-                    property int itemWidth: 180
-                    property int itemHeight: 127
+                            Label {
+                                text: qsTr("Folder")
+                                color: LingmoUI.Theme.secondaryTextColor
+                            }
 
-                    delegate: Item {
-                        id: item
-
-                        property bool isSelected: modelData === background.currentBackgroundPath
-
-                        width: GridView.view.cellWidth
-                        height: GridView.view.cellHeight
-                        scale: 1.0
-
-                        Behavior on scale {
-                            NumberAnimation {
-                                duration: 200
-                                easing.type: Easing.OutSine
+                            Label {
+                                text: background.customFolder
+                                elide: Text.ElideMiddle
+                                Layout.fillWidth: true
                             }
                         }
 
-                        // Preload background
-                        Rectangle {
-                            anchors.fill: parent
-                            anchors.margins: LingmoUI.Units.largeSpacing
-                            radius: LingmoUI.Theme.bigRadius + LingmoUI.Units.smallSpacing / 2
-                            color: LingmoUI.Theme.backgroundColor
-                            visible: _image.status !== Image.Ready
+                        Button {
+                            text: qsTr("Open folder")
+                            icon.name: "folder-open"
+                            onClicked: background.openCustomFolder()
                         }
 
-                        // Preload image
-                        Image {
-                            anchors.centerIn: parent
-                            width: 32
-                            height: width
-                            sourceSize: Qt.size(width, height)
-                            source: LingmoUI.Theme.darkMode ? "qrc:/images/dark/picture.svg"
-                                                          : "qrc:/images/light/picture.svg"
-                            visible: _image.status !== Image.Ready
-                        }
-
-                        Rectangle {
-                            anchors.fill: parent
-                            anchors.margins: LingmoUI.Units.smallSpacing
-                            color: "transparent"
-                            radius: LingmoUI.Theme.bigRadius + LingmoUI.Units.smallSpacing / 2
-
-                            border.color: LingmoUI.Theme.highlightColor
-                            border.width: _image.status == Image.Ready & isSelected ? 3 : 0
-
-                            Image {
-                                id: _image
-                                anchors.fill: parent
-                                anchors.margins: LingmoUI.Units.smallSpacing
-                                source: "file://" + modelData
-                                sourceSize: Qt.size(width, height)
-                                fillMode: Image.PreserveAspectCrop
-                                asynchronous: true
-                                mipmap: true
-                                cache: true
-                                smooth: true
-                                opacity: 1.0
-
-                                Behavior on opacity {
-                                    NumberAnimation {
-                                        duration: 100
-                                        easing.type: Easing.InOutCubic
-                                    }
-                                }
-
-                                layer.enabled: true
-                                layer.effect: OpacityMask {
-                                    maskSource: Item {
-                                        width: _image.width
-                                        height: _image.height
-
-                                        Rectangle {
-                                            anchors.fill: parent
-                                            radius: LingmoUI.Theme.bigRadius
-                                        }
-                                    }
-                                }
-                            }
-
-                            MouseArea {
-                                anchors.fill: parent
-                                acceptedButtons: Qt.LeftButton
-                                hoverEnabled: true
-
-                                onClicked: {
-                                    background.setBackground(modelData)
-                                }
-
-                                onEntered: function() {
-                                    _image.opacity = 0.7
-                                }
-                                onExited: function() {
-                                    _image.opacity = 1.0
-                                }
-
-                                onPressedChanged: item.scale = pressed ? 0.97 : 1.0
-                            }
+                        Button {
+                            text: qsTr("Add images")
+                            icon.name: "list-add"
+                            flat: true
+                            onClicked: fileDialog.open()
                         }
                     }
 
-                    function calcExtraSpacing(cellSize, containerSize) {
-                        var availableColumns = Math.floor(containerSize / cellSize)
-                        var extraSpacing = 0
-                        if (availableColumns > 0) {
-                            var allColumnSize = availableColumns * cellSize
-                            var extraSpace = Math.max(containerSize - allColumnSize, 0)
-                            extraSpacing = extraSpace / availableColumns
-                        }
-                        return Math.floor(extraSpacing)
+                    WallpaperGrid {
+                        Layout.fillWidth: true
+                        visible: count > 0
+                        paths: background.customBackgrounds
+                        removable: true
+                    }
+
+                    LingmoUI.EmptyState {
+                        Layout.fillWidth: true
+                        Layout.topMargin: LingmoUI.Units.largeSpacing
+                        Layout.bottomMargin: LingmoUI.Units.largeSpacing
+                        visible: background.customBackgrounds.length === 0
+                        iconName: "folder-pictures"
+                        iconSize: LingmoUI.Units.iconSizes.large
+                        text: qsTr("No images yet. Add images, or copy them into the folder above.")
                     }
                 }
 
                 Item {
-                    visible: background.backgroundType === 1
+                    visible: tabBar.currentIndex === 1
                     height: LingmoUI.Units.smallSpacing
                 }
 
                 Loader {
                     Layout.fillWidth: true
-                    height: item.height
-                    visible: background.backgroundType === 1
+                    height: item ? item.height : 0
+                    visible: tabBar.currentIndex === 1
                     sourceComponent: colorView
                 }
             }
@@ -298,37 +223,160 @@ ItemPage {
         }
     }
 
-    Component {
-        id: customView
+    // Grid of wallpaper thumbnails; a click sets the wallpaper
+    component WallpaperGrid: GridView {
+        id: grid
 
-        GridView {
-            id: _customView
-            Layout.fillWidth: true
+        property var paths: []
+        property bool removable: false
 
-            property int rowCount: _customView.width / cellWidth
+        // At least one row, or the height below is NaN before the first layout pass
+        property int rowCount: Math.max(1, Math.floor(grid.width / itemWidth))
+        property int itemWidth: 180
+        property int itemHeight: 127
 
-            implicitHeight: Math.ceil(_customView.count / _customView.rowCount) * cellHeight + LingmoUI.Units.largeSpacing
+        implicitHeight: Math.ceil(grid.count / rowCount) * cellHeight + LingmoUI.Units.largeSpacing
+        clip: true
+        model: paths
+        currentIndex: -1
+        interactive: false
 
-            cellWidth: 50
-            cellHeight: 50
+        cellHeight: itemHeight
+        cellWidth: calcExtraSpacing(itemWidth, grid.width) + itemWidth
 
-            interactive: false
-            model: ListModel {}
-
-            Item {
-                height: LingmoUI.Units.largeSpacing
+        function calcExtraSpacing(cellSize, containerSize) {
+            var availableColumns = Math.floor(containerSize / cellSize)
+            var extraSpacing = 0
+            if (availableColumns > 0) {
+                var allColumnSize = availableColumns * cellSize
+                var extraSpace = Math.max(containerSize - allColumnSize, 0)
+                extraSpacing = extraSpace / availableColumns
             }
+            return Math.floor(extraSpacing)
+        }
 
-            StandardButton {
-                Layout.alignment: Qt.AlignTop | Qt.AlignHCenter
-                text: qsTr("Use Custom Images")
-                onClicked: {
-                    fileDialog.open()
+        delegate: Item {
+            id: item
+
+            property bool isSelected: background.backgroundType === 0 && modelData === background.currentBackgroundPath
+
+            width: GridView.view.cellWidth
+            height: GridView.view.cellHeight
+            scale: 1.0
+
+            Behavior on scale {
+                NumberAnimation {
+                    duration: LingmoUI.Units.shortDuration
+                    easing.type: Easing.OutSine
                 }
             }
-            Item {
-                height: LingmoUI.Units.largeSpacing
+
+            // Preload background
+            Rectangle {
+                anchors.fill: parent
+                anchors.margins: LingmoUI.Units.largeSpacing
+                radius: LingmoUI.Theme.bigRadius + LingmoUI.Units.smallSpacing / 2
+                color: LingmoUI.Theme.backgroundColor
+                visible: _image.status !== Image.Ready
             }
-        }      
+
+            // Preload image
+            Image {
+                anchors.centerIn: parent
+                width: 32
+                height: width
+                sourceSize: Qt.size(width, height)
+                source: LingmoUI.Theme.darkMode ? "qrc:/images/dark/picture.svg"
+                                              : "qrc:/images/light/picture.svg"
+                visible: _image.status !== Image.Ready
+            }
+
+            Rectangle {
+                anchors.fill: parent
+                anchors.margins: LingmoUI.Units.smallSpacing
+                color: "transparent"
+                radius: LingmoUI.Theme.bigRadius + LingmoUI.Units.smallSpacing / 2
+
+                border.color: LingmoUI.Theme.highlightColor
+                border.width: _image.status == Image.Ready & isSelected ? 3 : 0
+
+                Image {
+                    id: _image
+                    anchors.fill: parent
+                    anchors.margins: LingmoUI.Units.smallSpacing
+                    source: "file://" + modelData
+                    sourceSize: Qt.size(width, height)
+                    fillMode: Image.PreserveAspectCrop
+                    asynchronous: true
+                    mipmap: true
+                    cache: true
+                    smooth: true
+                    opacity: 1.0
+
+                    Behavior on opacity {
+                        NumberAnimation {
+                            duration: LingmoUI.Units.veryShortDuration
+                            easing.type: Easing.InOutCubic
+                        }
+                    }
+
+                    layer.enabled: true
+                    layer.effect: OpacityMask {
+                        maskSource: Item {
+                            width: _image.width
+                            height: _image.height
+
+                            Rectangle {
+                                anchors.fill: parent
+                                radius: LingmoUI.Theme.bigRadius
+                            }
+                        }
+                    }
+                }
+
+                MouseArea {
+                    id: itemMouse
+                    anchors.fill: parent
+                    acceptedButtons: Qt.LeftButton
+                    hoverEnabled: true
+
+                    onClicked: {
+                        if (background.backgroundType !== 0)
+                            background.backgroundType = 0
+                        background.setBackground(modelData)
+                    }
+
+                    onEntered: _image.opacity = 0.7
+                    onExited: _image.opacity = 1.0
+                    onPressedChanged: item.scale = pressed ? 0.97 : 1.0
+                }
+
+                // Remove (custom images only): the file goes to the trash
+                Rectangle {
+                    anchors.top: parent.top
+                    anchors.right: parent.right
+                    anchors.margins: LingmoUI.Units.smallSpacing * 1.5
+                    width: 22
+                    height: 22
+                    radius: 11
+                    visible: grid.removable && (itemMouse.containsMouse || removeMouse.containsMouse)
+                    color: removeMouse.containsMouse ? LingmoUI.Theme.redColor : Qt.rgba(0, 0, 0, 0.55)
+
+                    Label {
+                        anchors.centerIn: parent
+                        text: "\u2715"
+                        color: "white"
+                        font.pointSize: LingmoUI.Units.fontCaption
+                    }
+
+                    MouseArea {
+                        id: removeMouse
+                        anchors.fill: parent
+                        hoverEnabled: true
+                        onClicked: background.removeCustomBackground(modelData)
+                    }
+                }
+            }
+        }
     }
 }

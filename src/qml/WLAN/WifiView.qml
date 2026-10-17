@@ -50,7 +50,8 @@ ColumnLayout {
         Label {
             id: wlanLabel
             text: qsTr("WLAN")
-            color: LingmoUI.Theme.disabledTextColor
+            font.pointSize: LingmoUI.Units.fontSubheading
+            font.weight: Font.DemiBold
         }
 
         Item {

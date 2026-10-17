@@ -89,10 +89,10 @@ ItemPage {
                 }
             }
 
-            StandardButton {
+            LingmoUI.Card {
                 Layout.fillWidth: true
-                text: ""
-                // onClicked: timeZoneDialog.visibility = "Maximized"
+                implicitHeight: LingmoUI.Units.controlHeight + LingmoUI.Units.largeSpacing
+                clickable: true
                 onClicked: timeZoneDialog.show()
 
                 RowLayout {
@@ -110,6 +110,7 @@ ItemPage {
 
                     Label {
                         text: timeZoneMap.currentTimeZone
+                        color: LingmoUI.Theme.secondaryTextColor
                     }
                 }
             }

@@ -55,7 +55,7 @@ Item {
 
         Label {
             id: valueLabel
-            color: LingmoUI.Theme.disabledTextColor
+            color: LingmoUI.Theme.secondaryTextColor
         }
     }
 }

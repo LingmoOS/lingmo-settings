@@ -92,7 +92,7 @@ ItemPage {
                         Label {
                             text: "%"
                             color: "white"
-                            font.pointSize: 12
+                            font.pointSize: LingmoUI.Units.fontSubheading
                             Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
                         }
 
@@ -123,7 +123,8 @@ ItemPage {
 
                 Label {
                     text: qsTr("History")
-                    color: LingmoUI.Theme.disabledTextColor
+                    font.pointSize: LingmoUI.Units.fontSubheading
+                    font.weight: Font.DemiBold
                 }
 
                 HistoryGraph {
@@ -172,7 +173,8 @@ ItemPage {
 
                 Label {
                     text: qsTr("Health")
-                    color: LingmoUI.Theme.disabledTextColor
+                    font.pointSize: LingmoUI.Units.fontSubheading
+                    font.weight: Font.DemiBold
                 }
 
                 RowLayout {
@@ -187,7 +189,7 @@ ItemPage {
                         Rectangle {
                             id: _poorRect
                             anchors.fill: parent
-                            color: "#FF8738"
+                            color: LingmoUI.Theme.orangeColor
                             radius: LingmoUI.Theme.mediumRadius
                             opacity: 0.1
                             visible: battery.capacity >= 0 && battery.capacity <= 79
@@ -197,7 +199,7 @@ ItemPage {
                             id: _poorLabel
                             anchors.centerIn: parent
                             text: qsTr("Poor")
-                            color: "#FF8738"
+                            color: LingmoUI.Theme.orangeColor
                         }
                     }
 
@@ -212,7 +214,7 @@ ItemPage {
                         Rectangle {
                             id: _normalRect
                             anchors.fill: parent
-                            color: "#3385FF"
+                            color: LingmoUI.Theme.blueColor
                             radius: LingmoUI.Theme.mediumRadius
                             opacity: 0.1
                             visible: battery.capacity >= 80 && battery.capacity <= 89
@@ -222,7 +224,7 @@ ItemPage {
                             id: _normalLabel
                             anchors.centerIn: parent
                             text: qsTr("Normal")
-                            color: "#3385FF"
+                            color: LingmoUI.Theme.blueColor
                         }
                     }
 
@@ -237,7 +239,7 @@ ItemPage {
                         Rectangle {
                             id: _excellentRect
                             anchors.fill: parent
-                            color: "#00CD23"
+                            color: LingmoUI.Theme.greenColor
                             radius: LingmoUI.Theme.mediumRadius
                             opacity: 0.1
                             visible: battery.capacity >= 90 && battery.capacity <= 100
@@ -247,7 +249,7 @@ ItemPage {
                             id: _excellentLabel
                             anchors.centerIn: parent
                             text: qsTr("Excellent")
-                            color: "#00CD23"
+                            color: LingmoUI.Theme.greenColor
                         }
                     }
                 }
@@ -291,9 +293,10 @@ ItemPage {
         }
     }
 
-    Label {
+    LingmoUI.EmptyState {
         anchors.centerIn: parent
-        text: qsTr("No battery found")
         visible: !battery.available
+        iconName: "battery-missing"
+        title: qsTr("No battery found")
     }
 }

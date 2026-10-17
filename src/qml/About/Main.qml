@@ -55,8 +55,7 @@ ItemPage {
                     }
                     height: sysinf.height/1.2
                     width: 2
-                    color: LingmoUI.Theme.disabledTextColor
-                    opacity: LingmoUI.Theme.darkMode ? 0.5 : 0.5
+                    color: LingmoUI.Theme.borderColor
                 }
 
                 Rectangle {
@@ -96,7 +95,7 @@ ItemPage {
 
                         Behavior on opacity {
                             NumberAnimation {
-                                duration: 100
+                                duration: LingmoUI.Units.veryShortDuration
                                 easing.type: Easing.InOutCubic
                             }
                         }
@@ -299,9 +298,14 @@ ItemPage {
 
             RoundedItem {
                 
-                StandardButton {
-                    text: ""
+                // A clickable row: its hover tint reaches a little past the text
+                LingmoUI.Card {
                     Layout.fillWidth: true
+                    Layout.leftMargin: -LingmoUI.Units.smallSpacing * 1.5
+                    Layout.rightMargin: -LingmoUI.Units.smallSpacing * 1.5
+                    implicitHeight: LingmoUI.Units.controlHeight
+                    clickable: true
+                    borderEnabled: false
                     visible: about.checkForLingmoOS()
                     onClicked: {
                         about.openUpdator()
@@ -309,8 +313,8 @@ ItemPage {
 
                     RowLayout {
                         anchors.fill: parent
-                        anchors.leftMargin: LingmoUI.Units.largeSpacing * 1.5
-                        anchors.rightMargin: LingmoUI.Units.largeSpacing * 1.5
+                        anchors.leftMargin: LingmoUI.Units.smallSpacing * 1.5
+                        anchors.rightMargin: LingmoUI.Units.smallSpacing * 1.5
 
                         Label {
                             text: qsTr("System Update")
@@ -322,6 +326,7 @@ ItemPage {
 
                         Label {
                             text: qsTr("→")
+                            color: LingmoUI.Theme.secondaryTextColor
                         }
                     }
                 }

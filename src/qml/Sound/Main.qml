@@ -85,7 +85,7 @@ ItemPage {
                 text: qsTr("Output Devices")
                 leftPadding: LingmoUI.Units.largeSpacing
                 bottomPadding: LingmoUI.Units.smallSpacing
-                color: LingmoUI.Theme.disabledTextColor
+                color: LingmoUI.Theme.secondaryTextColor
                 visible: sinks.count >= 1
             }
 
@@ -174,7 +174,7 @@ ItemPage {
                 text: qsTr("Input Devices")
                 leftPadding: LingmoUI.Units.largeSpacing
                 bottomPadding: LingmoUI.Units.smallSpacing
-                color: LingmoUI.Theme.disabledTextColor
+                color: LingmoUI.Theme.secondaryTextColor
                 visible: sinkInputView.count >= 1
             }
 

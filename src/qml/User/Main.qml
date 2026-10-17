@@ -82,6 +82,14 @@ ItemPage {
                 }
             }
 
+            // Fingerprints of the logged-in user
+            FingerprintSection {
+            }
+
+            // Face recognition with the webcam
+            FaceSection {
+            }
+
             // Add new user.
             RoundedItem {
                 id: newUserItem
@@ -193,10 +201,11 @@ ItemPage {
                 }
             }
 
-            StandardButton {
+            LingmoUI.Card {
                 id: _addUserButton
-                text: ""
                 Layout.fillWidth: true
+                implicitHeight: LingmoUI.Units.controlHeight + LingmoUI.Units.largeSpacing
+                clickable: true
                 onClicked: {
                     newUserItem.visible = true
                     userNameField.forceActiveFocus()
@@ -219,6 +228,7 @@ ItemPage {
 
                     Label {
                         text: qsTr("→")
+                        color: LingmoUI.Theme.secondaryTextColor
                     }
                 }
             }

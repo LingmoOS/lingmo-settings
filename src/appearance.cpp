@@ -28,6 +28,16 @@
 #include <QStandardPaths>
 #include <QDebug>
 
+namespace {
+// Same limits and defaults as lingmo-dock (DockSettings) and lingmo-statusbar
+constexpr int MinMagnificationSize = 125;
+constexpr int MaxMagnificationSize = 200;
+constexpr int DefaultMagnificationSize = 150;
+constexpr int MinStatusBarHeight = 24;
+constexpr int MaxStatusBarHeight = 40;
+constexpr int DefaultStatusBarHeight = 28;
+}
+
 Appearance::Appearance(QObject *parent)
     : QObject(parent)
     , m_interface("com.lingmo.Settings",
@@ -48,12 +58,22 @@ Appearance::Appearance(QObject *parent)
     m_dockVisibility = m_dockSettings->value("Visibility").toInt();
     m_dockRoundedWindow = m_dockSettings->value("RoundedWindow").toBool();
     m_dockStyle = m_dockSettings->value("Style").toInt();
+    m_dockBackground = m_dockSettings->value("Background", 0).toInt();
+    m_dockMagnification = m_dockSettings->value("Magnification", false).toBool();
+    m_dockMagnificationSize = qBound(MinMagnificationSize,
+                                     m_dockSettings->value("MagnificationSize", DefaultMagnificationSize).toInt(),
+                                     MaxMagnificationSize);
+
+    QSettings statusBar(QSettings::UserScope, "lingmoos", "statusbar");
+    m_statusBarHeight = qBound(MinStatusBarHeight, statusBar.value("Height", DefaultStatusBarHeight).toInt(),
+                               MaxStatusBarHeight);
 
     m_kwinSettings->beginGroup("Compositing");
     m_systemEffects = !m_kwinSettings->value("OpenGLIsUnsafe", false).toBool();
     m_kwinSettings->endGroup();
     m_kwinSettings->beginGroup("Plugins");
     m_minimiumAnimation = m_kwinSettings->value("magiclampEnabled").toBool() ? 1 : 0;
+    m_wobblyWindows = m_kwinSettings->value("wobblywindowsEnabled", false).toBool();
     m_kwinSettings->endGroup();
 
     // Init
@@ -181,6 +201,85 @@ void Appearance::setDockStyle(int style)
     }
 }
 
+void Appearance::setDockBackground(int background)
+{
+    if (background < 0 || background > 2 || m_dockBackground == background)
+        return;
+    m_dockBackground = background;
+
+    QDBusInterface iface("com.lingmo.Dock",
+                         "/Dock",
+                         "com.lingmo.Dock",
+                         QDBusConnection::sessionBus());
+    if (iface.isValid())
+        iface.call("setBackground", background);
+    else
+        m_dockSettings->setValue("Background", background);  // dock not running: next start reads it
+
+    emit dockBackgroundChanged();
+}
+
+void Appearance::setDockMagnification(bool enabled)
+{
+    if (m_dockMagnification == enabled)
+        return;
+    m_dockMagnification = enabled;
+
+    QDBusInterface iface("com.lingmo.Dock", "/Dock", "com.lingmo.Dock", QDBusConnection::sessionBus());
+    if (iface.isValid())
+        iface.call("setMagnification", enabled);
+    else
+        m_dockSettings->setValue("Magnification", enabled);  // dock not running: next start reads it
+
+    emit dockMagnificationChanged();
+}
+
+void Appearance::setDockMagnificationSize(int percent)
+{
+    percent = qBound(MinMagnificationSize, percent, MaxMagnificationSize);
+    if (m_dockMagnificationSize == percent)
+        return;
+    m_dockMagnificationSize = percent;
+
+    QDBusInterface iface("com.lingmo.Dock", "/Dock", "com.lingmo.Dock", QDBusConnection::sessionBus());
+    if (iface.isValid())
+        iface.call("setMagnificationSize", percent);
+    else
+        m_dockSettings->setValue("MagnificationSize", percent);
+
+    emit dockMagnificationSizeChanged();
+}
+
+int Appearance::statusBarMinHeight() const
+{
+    return MinStatusBarHeight;
+}
+
+int Appearance::statusBarMaxHeight() const
+{
+    return MaxStatusBarHeight;
+}
+
+void Appearance::setStatusBarHeight(int height)
+{
+    height = qBound(MinStatusBarHeight, height, MaxStatusBarHeight);
+    if (m_statusBarHeight == height)
+        return;
+    m_statusBarHeight = height;
+
+    // The status bar saves it itself (statusbar.conf [General] Height)
+    QDBusInterface iface("com.lingmo.Statusbar", "/Statusbar", "com.lingmo.Statusbar",
+                         QDBusConnection::sessionBus());
+    if (iface.isValid()) {
+        iface.call("setHeight", height);
+    } else {
+        QSettings statusBar(QSettings::UserScope, "lingmoos", "statusbar");
+        statusBar.setValue("Height", height);
+    }
+
+    emit statusBarHeightChanged();
+}
+
 void Appearance::setGenericFontFamily(const QString &name)
 {
     if (name.isEmpty())
@@ -305,5 +404,32 @@ void Appearance::setMinimiumAnimation(int minimiumAnimation)
         m_kwinSettings->sync();
         QDBusInterface("org.kde.KWin", "/KWin").call("reconfigure");
         emit minimiumAnimationChanged();
+    }
+}
+
+bool Appearance::wobblyWindowsSupported() const
+{
+    QDBusInterface effects("org.kde.KWin", "/Effects", "org.kde.kwin.Effects");
+    if (!effects.isValid())
+        return true;
+    const QDBusReply<bool> reply = effects.call("isEffectSupported", QStringLiteral("wobblywindows"));
+    return !reply.isValid() || reply.value();
+}
+
+bool Appearance::wobblyWindows() const
+{
+    return m_wobblyWindows;
+}
+
+void Appearance::setWobblyWindows(bool enabled)
+{
+    if (m_wobblyWindows != enabled) {
+        m_wobblyWindows = enabled;
+        m_kwinSettings->beginGroup("Plugins");
+        m_kwinSettings->setValue("wobblywindowsEnabled", enabled);
+        m_kwinSettings->endGroup();
+        m_kwinSettings->sync();
+        QDBusInterface("org.kde.KWin", "/KWin").call("reconfigure");
+        emit wobblyWindowsChanged();
     }
 }

@@ -13,7 +13,6 @@ Item {
         anchors.centerIn: parent
         height: 1
         width: control.width
-        color: LingmoUI.Theme.disabledTextColor
-        opacity: LingmoUI.Theme.darkMode ? 0.3 : 0.1
+        color: LingmoUI.Theme.dividerColor
     }
 }
