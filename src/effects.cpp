@@ -120,7 +120,7 @@ bool Effects::defaultEnabled(const QString &id) const
 bool Effects::isEnabled(const QString &id) const
 {
     // The user's kwinrc, then the system ones (Lingmo's defaults live in
-    // /etc/xdg/kwinrc), then the effect's own default
+    // /usr/share/lingmo/xdg/kwinrc), then the effect's own default
     const QStringList files = QStandardPaths::locateAll(QStandardPaths::GenericConfigLocation, QStringLiteral("kwinrc"));
     for (const QString &path : files) {
         QSettings kwinrc(path, QSettings::IniFormat);
