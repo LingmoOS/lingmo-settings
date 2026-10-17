@@ -41,7 +41,7 @@ LingmoUI.Window {
 
     // Nearly opaque: a see-through window turns grey over a dark wallpaper in the light theme
     background.opacity: LingmoUI.Theme.darkMode ? 0.88 : 0.97
-    header.height: 40
+    header.height: LingmoUI.Units.windowHeaderHeight
     contentTopMargin: 0
 
     LayoutMirroring.enabled: Qt.application.layoutDirection === Qt.RightToLeft
@@ -71,7 +71,6 @@ LingmoUI.Window {
             id: _stackView
             Layout.fillWidth: true
             Layout.fillHeight: true
-            initialItem: Qt.resolvedUrl(sideBar.model.get(0).page)
             clip: true
 
             pushEnter: Transition {}
@@ -92,9 +91,19 @@ LingmoUI.Window {
     );
     }
     
+    // The first page; pushed here (not as initialItem) so it gets its header icon too
+    Component.onCompleted: {
+        if (_stackView.depth === 0 && sideBar.model.count > 0)
+            switchPageFromIndex(Math.max(0, sideBar.currentIndex))
+    }
+
     function switchPageFromIndex(index) {
+        var module = sideBar.model.get(index)
         _stackView.pop()
-        _stackView.push(Qt.resolvedUrl(sideBar.model.get(index).page))
+        _stackView.push(Qt.resolvedUrl(module.page), {
+            "headerIconSource": sideBar.iconUrl(module.iconSource),
+            "headerIconColor": module.iconColor ? module.iconColor : LingmoUI.Theme.highlightColor
+        })
     }
 
     function switchPageFromName(pageName) {

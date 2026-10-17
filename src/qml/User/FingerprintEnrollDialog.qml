@@ -159,13 +159,13 @@ Dialog {
                 anchors.fill: parent
 
                 property real value: control.progress
-                property color trackColor: LingmoUI.Theme.darkMode ? "#4D4D4D" : "#E0E0E0"
+                property color trackColor: LingmoUI.Theme.pressedColor
                 property color valueColor: control.phase === "done" && !control.succeeded
-                                           ? "#E95B4E" : LingmoUI.Theme.highlightColor
+                                           ? LingmoUI.Theme.errorColor : LingmoUI.Theme.highlightColor
 
                 Behavior on value {
                     NumberAnimation {
-                        duration: 250
+                        duration: LingmoUI.Units.longDuration
                         easing.type: Easing.OutCubic
                     }
                 }
@@ -222,7 +222,7 @@ Dialog {
                     anchors.fill: parent
                     source: fingerprintIcon
                     color: control.phase === "choose" ? LingmoUI.Theme.textColor
-                           : control.phase === "done" && !control.succeeded ? "#E95B4E"
+                           : control.phase === "done" && !control.succeeded ? LingmoUI.Theme.errorColor
                            : LingmoUI.Theme.highlightColor
                     opacity: control.phase === "choose" ? 0.6 : 1
                 }
@@ -259,7 +259,7 @@ Dialog {
 
             Label {
                 text: control.instruction
-                font.pointSize: 12
+                font.pointSize: LingmoUI.Units.fontSubheading
                 wrapMode: Text.WordWrap
                 horizontalAlignment: Text.AlignHCenter
                 Layout.fillWidth: true
@@ -269,7 +269,7 @@ Dialog {
                 text: control.retryText !== "" ? control.retryText
                       : control.stages > 0 ? qsTr("%1 of %2 touches").arg(control.stagesDone).arg(control.stages)
                       : ""
-                color: control.retryText !== "" ? "#E95B4E" : LingmoUI.Theme.disabledTextColor
+                color: control.retryText !== "" ? LingmoUI.Theme.errorColor : LingmoUI.Theme.secondaryTextColor
                 wrapMode: Text.WordWrap
                 horizontalAlignment: Text.AlignHCenter
                 Layout.fillWidth: true
@@ -284,14 +284,14 @@ Dialog {
 
             Label {
                 text: control.succeeded ? qsTr("Fingerprint registered") : qsTr("Registration failed")
-                font.pointSize: 12
+                font.pointSize: LingmoUI.Units.fontSubheading
                 horizontalAlignment: Text.AlignHCenter
                 Layout.fillWidth: true
             }
 
             Label {
                 text: control.resultText
-                color: LingmoUI.Theme.disabledTextColor
+                color: LingmoUI.Theme.secondaryTextColor
                 wrapMode: Text.WordWrap
                 horizontalAlignment: Text.AlignHCenter
                 Layout.fillWidth: true

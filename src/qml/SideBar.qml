@@ -20,33 +20,84 @@
 import QtQuick 2.4
 import QtQuick.Controls 2.4
 import QtQuick.Layouts 1.3
-import Qt5Compat.GraphicalEffects
 
 import LingmoUI.CompatibleModule 3.0 as LingmoUI
 
 import Lingmo.Settings 1.0
 import Lingmo.NetworkManagement 1.0 as NM
 
-Item {
-    implicitWidth: 230
+// The shared Settings sidebar, with the module list and a search field that
+// matches titles and keywords
+LingmoUI.SettingsSideBar {
+    id: control
 
-    property int itemRadiusV: 8
+    model: listModel
+    sectionRole: "category"
+    searchVisible: true
+    searchPlaceholder: qsTr("Search")
+    // Filtered rows collapse to zero height, so drop the gaps while searching
+    view.spacing: searchQuery.length > 0 ? 0 : LingmoUI.Units.smallSpacing
 
-    property alias view: listView
-    property alias model: listModel
-    property alias currentIndex: listView.currentIndex
+    readonly property string searchQuery: searchText.trim().toLowerCase()
+    readonly property int matchCount: {
+        var n = 0
+        for (var i = 0; i < listModel.count; ++i) {
+            if (matches(listModel.get(i)))
+                ++n
+        }
+        return n
+    }
 
-    Rectangle {
-        anchors.fill: parent
-        // Own tone per theme: a cool light grey (light) or a deeper Dracula-like panel (dark)
-        color: LingmoUI.Theme.darkMode ? Qt.rgba(0.11, 0.11, 0.15, 0.55) : "#EDEEF2"
+    function matches(item) {
+        if (searchQuery.length === 0)
+            return true
+        var text = [item.title, item.keywords, item.name].filter(function (t) { return !!t }).join(",")
+        return text.toLowerCase().indexOf(searchQuery) !== -1
+    }
 
-        Behavior on color {
-            ColorAnimation {
-                duration: 250
-                easing.type: Easing.Linear
+    // Sidebar glyphs ship in qrc:/images/sidebar/all; plugins may pass a full url
+    function iconUrl(source) {
+        if (!source)
+            return ""
+        return source.indexOf("/") !== -1 ? source : "qrc:/images/sidebar/all/" + source
+    }
+
+    // Enter opens the first match
+    onSearchAccepted: {
+        for (var i = 0; i < listModel.count; ++i) {
+            if (matches(listModel.get(i))) {
+                currentIndex = i
+                break
             }
         }
+    }
+
+    view.delegate: LingmoUI.SideBarItem {
+        required property int index
+        required property var model
+
+        width: ListView.view.width - ListView.view.leftMargin - ListView.view.rightMargin
+        visible: control.matches(model)
+        height: visible ? implicitHeight : 0
+
+        title: model.title
+        // As iconName: SideBarItem's hidden plain Image loops on sourceSize when given an iconSource
+        iconName: control.iconUrl(model.iconSource)
+        tileColor: model.iconColor ? model.iconColor : LingmoUI.Theme.highlightColor
+        isCurrent: ListView.view.currentIndex === index
+        drawHighlight: false
+
+        onClicked: ListView.view.currentIndex = index
+    }
+
+    LingmoUI.EmptyState {
+        anchors.centerIn: parent
+        width: parent.width - LingmoUI.Units.largeSpacing * 2
+        visible: control.matchCount === 0
+        iconName: "edit-find"
+        iconSize: LingmoUI.Units.iconSizes.large
+        title: qsTr("No results")
+        text: qsTr("Try a different word.")
     }
 
     ListModel {
@@ -55,6 +106,8 @@ Item {
         ListElement {
             title: qsTr("WLAN")
             name: "wlan"
+            // Extra words the search field matches (comma separated)
+            keywords: qsTr("Wi-Fi, wireless, network, internet")
             page: "qrc:/qml/WLAN/Main.qml"
             // source: "wlan.svg"
             iconSource: "wlan.svg"
@@ -65,6 +118,8 @@ Item {
         ListElement {
             title: qsTr("Ethernet")
             name: "ethernet"
+            // Extra words the search field matches (comma separated)
+            keywords: qsTr("wired, cable, network, LAN, internet")
             page: "qrc:/qml/Wired/Main.qml"
             // source: "network.svg"
             iconSource: "network.svg"
@@ -75,6 +130,8 @@ Item {
         ListElement {
             title: qsTr("Bluetooth")
             name: "bluetooth"
+            // Extra words the search field matches (comma separated)
+            keywords: qsTr("devices, pairing, headphones, wireless")
             page: "qrc:/qml/Bluetooth/Main.qml"
             // source: "bluetooth.svg"
             iconSource: "bluetooth.svg"
@@ -85,6 +142,8 @@ Item {
         ListElement {
             title: qsTr("Proxy")
             name: "proxy"
+            // Extra words the search field matches (comma separated)
+            keywords: qsTr("network, HTTP, SOCKS, internet")
             page: "qrc:/qml/Proxy/Main.qml"
             // source: "proxy.svg"
             iconSource: "proxy.svg"
@@ -95,6 +154,8 @@ Item {
         ListElement {
             title: qsTr("Display")
             name: "display"
+            // Extra words the search field matches (comma separated)
+            keywords: qsTr("screen, monitor, resolution, brightness, scale, night light, refresh rate")
             page: "qrc:/qml/Display/Main.qml"
             // source: "display.svg"
             iconSource: "display.svg"
@@ -105,6 +166,8 @@ Item {
         ListElement {
             title: qsTr("Appearance")
             name: "appearance"
+            // Extra words the search field matches (comma separated)
+            keywords: qsTr("theme, dark mode, light mode, accent color, fonts")
             page: "qrc:/qml/Appearance/Main.qml"
             // source: "appearance.svg"
             iconSource: "appearance.svg"
@@ -115,6 +178,8 @@ Item {
         ListElement {
             title: qsTr("Effects")
             name: "effects"
+            // Extra words the search field matches (comma separated)
+            keywords: qsTr("animations, blur, transparency, windows")
             page: "qrc:/qml/Effects/Main.qml"
             iconSource: "effects.svg"
             iconColor: "#BF5AF2"
@@ -124,6 +189,8 @@ Item {
         ListElement {
             title: qsTr("Background")
             name: "background"
+            // Extra words the search field matches (comma separated)
+            keywords: qsTr("wallpaper, desktop, picture")
             page: "qrc:/qml/Wallpaper/Main.qml"
             // source: "wallpaper.svg"
             iconSource: "wallpaper.svg"
@@ -134,6 +201,8 @@ Item {
         ListElement {
             title: qsTr("Dock")
             name: "dock"
+            // Extra words the search field matches (comma separated)
+            keywords: qsTr("taskbar, panel, launcher")
             page: "qrc:/qml/Dock/Main.qml"
             // source: "dock.svg"
             iconSource: "dock.svg"
@@ -144,6 +213,8 @@ Item {
         ListElement {
             title: qsTr("User")
             name: "accounts"
+            // Extra words the search field matches (comma separated)
+            keywords: qsTr("account, password, avatar, login, fingerprint, face")
             page: "qrc:/qml/User/Main.qml"
             // source: "accounts.svg"
             iconSource: "accounts.svg"
@@ -154,6 +225,8 @@ Item {
         ListElement {
             title: qsTr("Notifications")
             name: "notifications"
+            // Extra words the search field matches (comma separated)
+            keywords: qsTr("alerts, do not disturb, messages")
             page: "qrc:/qml/Notification/Main.qml"
             // source: "notifications.svg"
             iconSource: "notifications.svg"
@@ -164,6 +237,8 @@ Item {
         ListElement {
             title: qsTr("Sound")
             name: "sound"
+            // Extra words the search field matches (comma separated)
+            keywords: qsTr("audio, volume, speakers, headphones, microphone")
             page: "qrc:/qml/Sound/Main.qml"
             // source: "sound.svg"
             iconSource: "sound.svg"
@@ -174,6 +249,8 @@ Item {
         ListElement {
             title: qsTr("Camera")
             name: "camera"
+            // Extra words the search field matches (comma separated)
+            keywords: qsTr("webcam, video")
             page: "qrc:/qml/Camera/Main.qml"
             iconSource: "camera.svg"
             iconColor: "#30B0C7"
@@ -183,6 +260,8 @@ Item {
         ListElement {
             title: qsTr("Mouse")
             name: "mouse"
+            // Extra words the search field matches (comma separated)
+            keywords: qsTr("cursor, pointer, scrolling, speed")
             page: "qrc:/qml/Cursor/Main.qml"
             // source: "cursor.svg"
             iconSource: "cursor.svg"
@@ -193,6 +272,8 @@ Item {
         ListElement {
             title: qsTr("Touchpad")
             name: "touchpad"
+            // Extra words the search field matches (comma separated)
+            keywords: qsTr("trackpad, tap to click, scrolling, gestures")
             page: "qrc:/qml/Touchpad/Main.qml"
             // source: "touchpad.svg"
             iconSource: "touchpad.svg"
@@ -203,6 +284,8 @@ Item {
         ListElement {
             title: qsTr("Date & Time")
             name: "datetime"
+            // Extra words the search field matches (comma separated)
+            keywords: qsTr("clock, time zone, calendar")
             page: "qrc:/qml/DateTime/Main.qml"
             // source: "datetime.svg"
             iconSource: "datetime.svg"
@@ -213,6 +296,8 @@ Item {
         ListElement {
             title: qsTr("Accessibility")
             name: "accessibility"
+            // Extra words the search field matches (comma separated)
+            keywords: qsTr("zoom, contrast, magnifier, reduce motion")
             page: "qrc:/qml/Accessibility/Main.qml"
             //source: "accessibility.svg"
             iconSource: "accessibility.svg"
@@ -223,6 +308,8 @@ Item {
         ListElement {
             title: qsTr("Keyboard")
             name: "keyboard"
+            // Extra words the search field matches (comma separated)
+            keywords: qsTr("layout, input, typing, key repeat")
             page: "qrc:/qml/Keyboard/Main.qml"
             iconSource: "keyboard-layout.svg"
             iconColor: "#34AADC"
@@ -232,6 +319,8 @@ Item {
         ListElement {
             title: qsTr("Shortcuts")
             name: "shortcuts"
+            // Extra words the search field matches (comma separated)
+            keywords: qsTr("keyboard shortcuts, hotkeys, keys")
             page: "qrc:/qml/Shortcuts/Main.qml"
             iconSource: "keyboard.svg"
             iconColor: "#5856D6"
@@ -241,6 +330,8 @@ Item {
         ListElement {
             title: qsTr("Startup")
             name: "startup"
+            // Extra words the search field matches (comma separated)
+            keywords: qsTr("autostart, login, apps")
             page: "qrc:/qml/Autostart/Main.qml"
             iconSource: "startup.svg"
             iconColor: "#FF9F0A"
@@ -250,6 +341,8 @@ Item {
         ListElement {
             title: qsTr("Default Applications")
             name: "defaultapps"
+            // Extra words the search field matches (comma separated)
+            keywords: qsTr("browser, email, file manager, terminal, apps")
             page: "qrc:/qml/DefaultApp/Main.qml"
             //source: "defaultapps.svg"
             iconSource: "defaultapps.svg"
@@ -260,6 +353,8 @@ Item {
         ListElement {
             title: qsTr("Boxes")
             name: "boxes"
+            // Extra words the search field matches (comma separated)
+            keywords: qsTr("sandbox, isolation, Windows, Android, AppImage, permissions")
             page: "qrc:/qml/Boxes/Main.qml"
             iconSource: "boxes.svg"
             iconColor: "#30B0C7"
@@ -269,6 +364,8 @@ Item {
         ListElement {
             title: qsTr("Artificial Intelligence")
             name: "ai"
+            // Extra words the search field matches (comma separated)
+            keywords: qsTr("AI, assistant, model, LLM, chat")
             page: "qrc:/qml/AI/Main.qml"
             iconSource: "ai.svg"
             iconColor: "#6E56CF"
@@ -278,6 +375,8 @@ Item {
         ListElement {
             title: qsTr("Language")
             name: "language"
+            // Extra words the search field matches (comma separated)
+            keywords: qsTr("region, locale, translation")
             page: "qrc:/qml/LanguagePage.qml"
             // source: "language.svg"
             iconSource: "language.svg"
@@ -288,6 +387,8 @@ Item {
         ListElement {
             title: qsTr("Battery")
             name: "battery"
+            // Extra words the search field matches (comma separated)
+            keywords: qsTr("power, charge, energy")
             page: "qrc:/qml/Battery/Main.qml"
             // source: "battery.svg"
             iconColor: "#34C759"
@@ -298,6 +399,8 @@ Item {
         ListElement {
             title: qsTr("Power")
             name: "power"
+            // Extra words the search field matches (comma separated)
+            keywords: qsTr("energy, sleep, suspend, screen off")
             page: "qrc:/qml/Power/Main.qml"
             iconColor: "#30D158"
             iconSource: "power.svg"
@@ -316,312 +419,14 @@ Item {
         ListElement {
             title: qsTr("About")
             name: "about"
+            // Extra words the search field matches (comma separated)
+            keywords: qsTr("system, version, computer name, hardware")
             page: "qrc:/qml/About/Main.qml"
             iconSource: "info.svg"
             iconColor: "#8E8E93"
             category: qsTr("System & Update")
         }
 
-    }
-
-    ColumnLayout {
-        anchors.fill: parent
-        anchors.margins: 0
-        spacing: 0
-
-        // The window's traffic-light buttons sit in this strip, like macOS
-        Item {
-            Layout.preferredHeight: rootWindow.header.height
-        }
-
-        Label {
-            text: rootWindow.title
-            color: rootWindow.active ? LingmoUI.Theme.textColor : LingmoUI.Theme.disabledTextColor
-            leftPadding: LingmoUI.Units.largeSpacing + LingmoUI.Units.smallSpacing
-            rightPadding: LingmoUI.Units.largeSpacing + LingmoUI.Units.smallSpacing
-            topPadding: 2
-            bottomPadding: LingmoUI.Units.smallSpacing * 1.5
-            font.pointSize: 17
-            font.bold: true
-        }
-
-        ListView {
-            id: listView
-            Layout.fillHeight: true
-            Layout.fillWidth: true
-            clip: true
-            model: listModel
-
-            spacing: LingmoUI.Units.smallSpacing
-            leftMargin: LingmoUI.Units.largeSpacing
-            rightMargin: LingmoUI.Units.largeSpacing
-            topMargin: 0
-            bottomMargin: LingmoUI.Units.largeSpacing
-
-            ScrollBar.vertical: ScrollBar {}
-
-            highlightFollowsCurrentItem: true
-            highlightMoveDuration: 0
-            highlightResizeDuration : 0
-            highlight: Rectangle {
-                radius: LingmoUI.Theme.mediumRadius
-                color: LingmoUI.Theme.highlightColor
-                smooth: true
-            }
-
-            section.property: "category"
-            section.delegate: Item {
-                width: ListView.view.width - ListView.view.leftMargin - ListView.view.rightMargin
-                height: LingmoUI.Units.fontMetrics.height + LingmoUI.Units.largeSpacing + LingmoUI.Units.smallSpacing
-
-                Text {
-                    anchors.fill: parent
-                    anchors.leftMargin: LingmoUI.Units.smallSpacing
-                    anchors.rightMargin: LingmoUI.Units.largeSpacing
-                    anchors.topMargin: LingmoUI.Units.largeSpacing
-                    anchors.bottomMargin: LingmoUI.Units.smallSpacing
-                    color: LingmoUI.Theme.disabledTextColor
-                    text: section
-                }
-            }
-
-            // highlightFollowsCurrentItem: true
-            // highlightMoveDuration: 0
-            // highlightResizeDuration : 0
-            // highlight: Rectangle {
-            //     radius: LingmoUI.Theme.mediumRadius
-            //     color: Qt.rgba(LingmoUI.Theme.textColor.r,
-            //                    LingmoUI.Theme.textColor.g,
-            //                    LingmoUI.Theme.textColor.b, 0.05)
-            //     // color: "#4DA4ED"
-            //     smooth: true
-            // }
-
-            // section.property: "category"
-            // section.delegate: Item {
-            //     width: ListView.view.width - ListView.view.leftMargin - ListView.view.rightMargin
-            //     height: LingmoUI.Units.fontMetrics.height + LingmoUI.Units.largeSpacing + LingmoUI.Units.smallSpacing
-
-            //     Text {
-            //         anchors.left: parent.left
-            //         anchors.top: parent.top
-            //         anchors.leftMargin: Qt.application.layoutDirection === Qt.RightToLeft ? 0 : LingmoUI.Units.smallSpacing
-            //         anchors.rightMargin: LingmoUI.Units.smallSpacing
-            //         anchors.topMargin: LingmoUI.Units.largeSpacing
-            //         anchors.bottomMargin: LingmoUI.Units.smallSpacing
-            //         color: LingmoUI.Theme.disabledTextColor
-            //         font.pointSize: 8
-            //         text: section
-            //     }
-            // }
-
-            LingmoUI.WheelHandler {
-                target: listView
-            }
-
-            delegate: Item {
-                id: item
-                width: ListView.view.width - ListView.view.leftMargin - ListView.view.rightMargin
-                height: LingmoUI.Units.fontMetrics.height + LingmoUI.Units.largeSpacing * 1.5
-
-                property bool isCurrent: listView.currentIndex === index
-
-                Rectangle {
-                    anchors.fill: parent
-
-                    MouseArea {
-                        id: mouseArea
-                        anchors.fill: parent
-                        hoverEnabled: true
-                        acceptedButtons: Qt.LeftButton
-                        onClicked: listView.currentIndex = index
-                    }
-
-                    radius: LingmoUI.Theme.mediumRadius
-                    color: mouseArea.containsMouse && !isCurrent ? Qt.rgba(LingmoUI.Theme.textColor.r,
-                                                                           LingmoUI.Theme.textColor.g,
-                                                                           LingmoUI.Theme.textColor.b,
-                                                                   0.1) : "transparent"
-
-                    smooth: true
-                }
-
-                RowLayout {
-                    anchors.fill: parent
-                    anchors.leftMargin: LingmoUI.Units.largeSpacing
-                    spacing: LingmoUI.Units.smallSpacing * 1.5
-
-                    // Image {
-                    //     id: icon
-                    //     width: 16
-                    //     height: width
-                    //     source: LingmoUI.Theme.darkMode || isCurrent ? "qrc:/images/sidebar/dark/" + model.iconSource
-                    //                                                : "qrc:/images/sidebar/light/" + model.iconSource
-                    //     sourceSize: Qt.size(width, height)
-                    //     Layout.alignment: Qt.AlignVCenter
-                    // }
-
-                    // macOS-style tile: a rounded square in the item's own colour
-                    Rectangle {
-                        id: iconRect
-                        Layout.preferredWidth: 26
-                        Layout.preferredHeight: 26
-                        Layout.alignment: Qt.AlignVCenter
-                        radius: 7
-                        // Same hue in both themes, tuned per theme: deeper on light
-                        // backgrounds so the tile doesn't wash out, brighter on dark ones
-                        readonly property color tileColor: {
-                            var c = model.iconColor || LingmoUI.Theme.highlightColor
-                            return LingmoUI.Theme.darkMode ? Qt.lighter(c, 1.12) : Qt.darker(c, 1.04)
-                        }
-                        gradient: Gradient {
-                            GradientStop { position: 0.0; color: Qt.lighter(iconRect.tileColor, LingmoUI.Theme.darkMode ? 1.18 : 1.12) }
-                            GradientStop { position: 1.0; color: iconRect.tileColor }
-                        }
-                        border.width: 1
-                        border.color: LingmoUI.Theme.darkMode ? Qt.rgba(1, 1, 1, isCurrent ? 0.55 : 0.18)
-                                                              : Qt.rgba(0, 0, 0, isCurrent ? 0.0 : 0.10)
-
-                        Image {
-                            id: icon
-                            anchors.centerIn: parent
-                            width: 16
-                            height: width
-                            source: "qrc:/images/sidebar/all/" + model.iconSource
-                            sourceSize: Qt.size(width * 2, height * 2)
-                            smooth: true
-                            antialiasing: true
-                        }
-                    }
-
-                    // Rectangle {
-                    //     id: iconRect
-                    //     width: 24
-                    //     height: 24
-                    //     Layout.alignment: Qt.AlignVCenter
-                    //     radius: 20
-                    //     color: model.iconColor
-
-                    //     // gradient: Gradient {
-                    //     //     GradientStop { position: 0.0; color: Qt.lighter(model.iconColor, 1.15) }
-                    //     //     GradientStop { position: 1.0; color: model.iconColor }
-                    //     // }
-
-                    //     Image {
-                    //         id: icon
-                    //         anchors.centerIn: parent
-                    //         width: 12
-                    //         height: width
-                    //         source: "qrc:/images/sidebar/all/" + model.iconSource
-                    //         sourceSize: Qt.size(width, height)
-                    //         Layout.alignment: Qt.AlignVCenter
-                    //         antialiasing: false
-                    //         smooth: false
-                    //     }
-                    // }
-
-                    Label {
-                        id: itemTitle
-                        text: model.title
-                        color: isCurrent ? LingmoUI.Theme.highlightedTextColor : LingmoUI.Theme.textColor
-                    }
-
-                    Item {
-                        Layout.fillWidth: true
-                    }
-                }
-            }
-
-
-
-            // delegate: Item {
-            //     id: item
-            //     width: ListView.view.width - ListView.view.leftMargin - ListView.view.rightMargin
-            //     height: 35
-
-            //     property bool isCurrent: listView.currentIndex === index
-
-            //     Rectangle {
-            //         anchors.fill: parent
-
-            //         // DropShadow{
-            //         //     anchors.fill: parent
-            //         //     radius: 10
-            //         //     samples: 10
-            //         //     horizontalOffset: 5
-            //         //     verticalOffset: 5
-            //         //     color: LingmoUI.Theme.darkMode ? LingmoUI.Theme.textColor : "#363636"                        
-            //         // }
-
-            //         MouseArea {
-            //             id: mouseArea
-            //             anchors.fill: parent
-            //             hoverEnabled: true
-            //             acceptedButtons: Qt.LeftButton
-            //             onClicked: listView.currentIndex = index
-            //         }
-
-            //         radius: LingmoUI.Theme.mediumRadius
-            //         // color: mouseArea.pressed ? Qt.rgba(LingmoUI.Theme.textColor.r,
-            //         //                                     LingmoUI.Theme.textColor.g,
-            //         //                                     LingmoUI.Theme.textColor.b, LingmoUI.Theme.darkMode ? 0.05 : 0.1) :
-            //         //        mouseArea.containsMouse || isCurrent ? "#2277FF" :
-            //         //                                               "transparent"
-            //         color: mouseArea.pressed ? Qt.rgba(LingmoUI.Theme.textColor.r,
-            //                                            LingmoUI.Theme.textColor.g,
-            //                                            LingmoUI.Theme.textColor.b, LingmoUI.Theme.darkMode ? 0.05 : 0.1) :
-            //                mouseArea.containsMouse || isCurrent ? Qt.rgba(LingmoUI.Theme.textColor.r,
-            //                                                               LingmoUI.Theme.textColor.g,
-            //                                                               LingmoUI.Theme.textColor.b, LingmoUI.Theme.darkMode ? 0.1 : 0.05) :
-            //                                                       "transparent"
-
-            //         smooth: true
-            //     }
-
-            //     RowLayout {
-            //         anchors.fill: parent
-            //         anchors.leftMargin: LingmoUI.Units.smallSpacing
-            //         spacing: LingmoUI.Units.smallSpacing
-
-            //         Rectangle {
-            //             id: iconRect
-            //             width: 24
-            //             height: 24
-            //             Layout.alignment: Qt.AlignVCenter
-            //             radius: 20
-            //             color: model.iconColor
-
-            //             // gradient: Gradient {
-            //             //     GradientStop { position: 0.0; color: Qt.lighter(model.iconColor, 1.15) }
-            //             //     GradientStop { position: 1.0; color: model.iconColor }
-            //             // }
-
-            //             Image {
-            //                 id: icon
-            //                 anchors.centerIn: parent
-            //                 width: 12
-            //                 height: width
-            //                 source: "qrc:/images/sidebar/all/" + model.iconSource
-            //                 sourceSize: Qt.size(width, height)
-            //                 Layout.alignment: Qt.AlignVCenter
-            //                 antialiasing: false
-            //                 smooth: false
-            //             }
-            //         }
-
-            //         Label {
-            //             id: itemTitle
-            //             text: model.title
-            //             color: LingmoUI.Theme.darkMode ? LingmoUI.Theme.textColor : "#363636"
-            //             font.pointSize: 9
-            //         }
-
-            //         Item {
-            //             Layout.fillWidth: true
-            //         }
-            //     }
-            // }
-        }
     }
 
     function removeItem(name) {

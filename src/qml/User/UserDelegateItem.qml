@@ -159,7 +159,7 @@ RoundedItem {
 
                     Label {
                         Layout.alignment: Qt.AlignVCenter
-                        font.pixelSize: 15
+                        font.pointSize: LingmoUI.Units.fontSubheading
                         text: "<b>%1</b>".arg(userName)
                         leftPadding: LingmoUI.Units.largeSpacing
                     }
@@ -171,7 +171,7 @@ RoundedItem {
                     Label {
                         Layout.alignment: Qt.AlignVCenter
                         text: realName
-                        color: LingmoUI.Theme.disabledTextColor
+                        color: LingmoUI.Theme.secondaryTextColor
                         visible: realName !== userName
                     }
 
@@ -317,19 +317,19 @@ RoundedItem {
 
             // Change password end.
 
-            StandardButton {
+            LingmoUI.ActionButton {
                 text: qsTr("Change password")
                 onClicked: showChangePasswordItem()
-                backgroundColor: LingmoUI.Theme.darkMode ? "#363636" : LingmoUI.Theme.backgroundColor
                 Layout.fillWidth: true
                 visible: !changePasswdLabel.visible
             }
 
-            StandardButton {
+            LingmoUI.ActionButton {
                 text: qsTr("Delete this user")
+                destructive: true
+                subtle: true
                 enabled: model.userId !== loggedUser.userId
                 onClicked: accountsManager.deleteUser(userId, true)
-                backgroundColor: LingmoUI.Theme.darkMode ? "#363636" : LingmoUI.Theme.backgroundColor
                 Layout.fillWidth: true
             }
         }

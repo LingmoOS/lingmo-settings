@@ -44,11 +44,11 @@ ItemPage {
         id: configuration
     }
 
-    Label {
+    LingmoUI.EmptyState {
         anchors.centerIn: parent
-        text: qsTr("Not supported")
         visible: !handler.hotspotSupported
-        font.pointSize: 15
+        iconName: "network-wireless-hotspot"
+        title: qsTr("Not supported")
     }
 
     Scrollable {
@@ -69,7 +69,8 @@ ItemPage {
                 RowLayout {
                     Label {
                         text: qsTr("Hotspot")
-                        color: LingmoUI.Theme.disabledTextColor
+                        font.pointSize: LingmoUI.Units.fontSubheading
+                        font.weight: Font.DemiBold
                     }
 
                     Item {

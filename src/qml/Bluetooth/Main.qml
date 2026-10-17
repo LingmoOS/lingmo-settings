@@ -73,7 +73,8 @@ ItemPage {
                 RowLayout {
                     Label {
                         text: qsTr("Bluetooth")
-                        color: LingmoUI.Theme.disabledTextColor
+                        font.pointSize: LingmoUI.Units.fontSubheading
+                        font.weight: Font.DemiBold
                     }
 
                     Item {
@@ -110,7 +111,7 @@ ItemPage {
                     section.property: "Section"
                     section.criteria: ViewSection.FullString
                     section.delegate: Label {
-                        color: LingmoUI.Theme.disabledTextColor
+                        color: LingmoUI.Theme.secondaryTextColor
                         topPadding: LingmoUI.Units.largeSpacing
                         bottomPadding: LingmoUI.Units.largeSpacing
                         text: section == "My devices" ? qsTr("My devices")

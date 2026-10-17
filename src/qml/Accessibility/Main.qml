@@ -29,7 +29,8 @@ ItemPage {
             RoundedItem {
                 Label {
                     text: qsTr("Appearance enhancement")
-                    color: LingmoUI.Theme.disabledTextColor
+                    font.pointSize: LingmoUI.Units.fontSubheading
+                    font.weight: Font.DemiBold
                     visible: _view.count > 0
                 }
 
@@ -85,7 +86,8 @@ ItemPage {
             RoundedItem {
                 Label {
                     text: qsTr("Barrier free function")
-                    color: LingmoUI.Theme.disabledTextColor
+                    font.pointSize: LingmoUI.Units.fontSubheading
+                    font.weight: Font.DemiBold
                     visible: _view.count > 0
                 }
 

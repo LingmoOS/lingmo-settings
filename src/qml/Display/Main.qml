@@ -70,7 +70,8 @@ ItemPage {
 
                 Label {
                     text: qsTr("Brightness")
-                    color: LingmoUI.Theme.disabledTextColor
+                    font.pointSize: LingmoUI.Units.fontSubheading
+                    font.weight: Font.DemiBold
                     visible: brightness.enabled
                 }
 
@@ -128,7 +129,8 @@ ItemPage {
 
                 Label {
                     text: qsTr("Night Light")
-                    color: LingmoUI.Theme.disabledTextColor
+                    font.pointSize: LingmoUI.Units.fontSubheading
+                    font.weight: Font.DemiBold
                 }
 
                 RowLayout {
@@ -167,7 +169,7 @@ ItemPage {
 
                         Label {
                             text: qsTr("Cooler")
-                            color: LingmoUI.Theme.disabledTextColor
+                            color: LingmoUI.Theme.secondaryTextColor
                         }
 
                         Timer {
@@ -180,6 +182,8 @@ ItemPage {
                         Slider {
                             id: temperatureSlider
                             Layout.fillWidth: true
+                            // Shrinks with the larger body text instead of pushing "Warmer" out of the card
+                            Layout.preferredWidth: 120
                             from: nightLight.maxTemperature
                             to: nightLight.minTemperature
                             stepSize: 100
@@ -195,7 +199,7 @@ ItemPage {
 
                         Label {
                             text: qsTr("Warmer")
-                            color: LingmoUI.Theme.disabledTextColor
+                            color: LingmoUI.Theme.secondaryTextColor
                         }
                     }
 
@@ -203,18 +207,15 @@ ItemPage {
                         text: qsTr("Schedule")
                     }
 
-                    TabBar {
+                    LingmoUI.SegmentedControl {
+                        fillWidth: true
+                        model: [qsTr("Always"), qsTr("Custom hours")]
                         Layout.fillWidth: true
-                        currentIndex: nightLight.mode
-
-                        TabButton {
-                            text: qsTr("Always")
-                            onClicked: nightLight.mode = 0
-                        }
-
-                        TabButton {
-                            text: qsTr("Custom hours")
-                            onClicked: nightLight.mode = 1
+                        // Follows the setting (also after a click, like TabBar did)
+                        Binding on currentIndex { value: nightLight.mode }
+                        onActivated: (index) => {
+                            if (index === 0) { nightLight.mode = 0 }
+                            else if (index === 1) { nightLight.mode = 1 }
                         }
                     }
 
@@ -274,7 +275,8 @@ ItemPage {
 
                 Label {
                     text: qsTr("Screen")
-                    color: LingmoUI.Theme.disabledTextColor
+                    font.pointSize: LingmoUI.Units.fontSubheading
+                    font.weight: Font.DemiBold
                     visible: _screenView.count > 0
                 }
 
@@ -378,11 +380,10 @@ ItemPage {
                             color: current ? LingmoUI.Theme.highlightColor : LingmoUI.Theme.secondBackgroundColor
                             border.width: 1
                             border.color: current ? LingmoUI.Theme.highlightColor
-                                                  : Qt.rgba(LingmoUI.Theme.textColor.r, LingmoUI.Theme.textColor.g,
-                                                            LingmoUI.Theme.textColor.b, 0.15)
+                                                  : LingmoUI.Theme.pressedColor
 
                             Behavior on color {
-                                ColorAnimation { duration: 150 }
+                                ColorAnimation { duration: LingmoUI.Units.shortDuration }
                             }
 
                             ColumnLayout {
@@ -405,8 +406,8 @@ ItemPage {
                                     elide: Text.ElideRight
                                     visible: model.primary || !model.enabled
                                     text: !model.enabled ? qsTr("Off") : qsTr("Primary")
-                                    font.pointSize: LingmoUI.Theme.smallFont.pointSize
-                                    color: monitor.current ? LingmoUI.Theme.highlightedTextColor : LingmoUI.Theme.disabledTextColor
+                                    font.pointSize: LingmoUI.Units.fontCaption
+                                    color: monitor.current ? LingmoUI.Theme.highlightedTextColor : LingmoUI.Theme.secondaryTextColor
                                 }
                             }
 
@@ -456,7 +457,7 @@ ItemPage {
                     Layout.alignment: Qt.AlignHCenter
                     visible: arrangement.visible
                     text: qsTr("Drag the monitors to match how they sit on your desk")
-                    color: LingmoUI.Theme.disabledTextColor
+                    color: LingmoUI.Theme.secondaryTextColor
                 }
 
                 ListView {
@@ -471,7 +472,7 @@ ItemPage {
 
                     Behavior on Layout.preferredHeight {
                         NumberAnimation {
-                            duration: 300
+                            duration: LingmoUI.Units.longDuration
                             easing.type: Easing.OutSine
                         }
                     }
@@ -500,7 +501,7 @@ ItemPage {
 
                                 Label {
                                     text: element.display
-                                    color: LingmoUI.Theme.disabledTextColor
+                                    color: LingmoUI.Theme.secondaryTextColor
                                     visible: _screenView.count > 1
                                 }
 
@@ -628,7 +629,7 @@ ItemPage {
                                         Layout.fillWidth: true
                                         text: element.primary ? qsTr("Status bar and dock are shown here")
                                                               : qsTr("Show the status bar and dock on this display")
-                                        color: LingmoUI.Theme.disabledTextColor
+                                        color: LingmoUI.Theme.secondaryTextColor
                                         wrapMode: Text.WordWrap
                                     }
                                 }
@@ -652,50 +653,15 @@ ItemPage {
             RoundedItem {
                 Label {
                     text: qsTr("Scale")
-                    color: LingmoUI.Theme.disabledTextColor
+                    font.pointSize: LingmoUI.Units.fontSubheading
+                    font.weight: Font.DemiBold
                 }
 
-                TabBar {
+                LingmoUI.SegmentedControl {
                     id: dockSizeTabbar
+                    fillWidth: true
+                    model: ["100%", "125%", "150%", "175%", "200%"]
                     Layout.fillWidth: true
-
-                    TabButton {
-                        text: "100%"
-                    }
-
-                    TabButton {
-                        text: "125%"
-                    }
-
-                    TabButton {
-                        text: "150%"
-                    }
-
-                    TabButton {
-                        text: "175%"
-                    }
-
-                    TabButton {
-                        text: "200%"
-                    }
-
-                    currentIndex: {
-                        var index = 0
-
-                        if (appearance.devicePixelRatio <= 1.0)
-                            index = 0
-                        else if (appearance.devicePixelRatio <= 1.25)
-                            index = 1
-                        else if (appearance.devicePixelRatio <= 1.50)
-                            index = 2
-                        else if (appearance.devicePixelRatio <= 1.75)
-                            index = 3
-                        else if (appearance.devicePixelRatio <= 2.0)
-                            index = 4
-
-                        return index
-                    }
-
                     onCurrentIndexChanged: {
                         var value = 1.0
 
@@ -719,6 +685,25 @@ ItemPage {
 
                         if (appearance.devicePixelRatio !== value) {
                             appearance.setDevicePixelRatio(value)
+                        }
+                    }
+                    // Follows the setting (also after a click, like TabBar did)
+                    Binding on currentIndex {
+                        value: {
+                            var index = 0
+
+                            if (appearance.devicePixelRatio <= 1.0)
+                                index = 0
+                            else if (appearance.devicePixelRatio <= 1.25)
+                                index = 1
+                            else if (appearance.devicePixelRatio <= 1.50)
+                                index = 2
+                            else if (appearance.devicePixelRatio <= 1.75)
+                                index = 3
+                            else if (appearance.devicePixelRatio <= 2.0)
+                                index = 4
+
+                            return index
                         }
                     }
                 }

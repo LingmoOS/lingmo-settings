@@ -201,12 +201,11 @@ ItemPage {
                 }
             }
 
-            StandardButton {
+            LingmoUI.Card {
                 id: _addUserButton
-                text: ""
                 Layout.fillWidth: true
-                // Empty text gives the button almost no implicit height; size it like a settings row
-                Layout.preferredHeight: 48
+                implicitHeight: LingmoUI.Units.controlHeight + LingmoUI.Units.largeSpacing
+                clickable: true
                 onClicked: {
                     newUserItem.visible = true
                     userNameField.forceActiveFocus()
@@ -229,6 +228,7 @@ ItemPage {
 
                     Label {
                         text: qsTr("→")
+                        color: LingmoUI.Theme.secondaryTextColor
                     }
                 }
             }

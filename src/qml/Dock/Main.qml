@@ -25,7 +25,8 @@ ItemPage {
             RoundedItem {
                 Label {
                     text: qsTr("Style")
-                    color: LingmoUI.Theme.disabledTextColor
+                    font.pointSize: LingmoUI.Units.fontSubheading
+                    font.weight: Font.DemiBold
                 }
 
                 RowLayout {
@@ -51,7 +52,8 @@ ItemPage {
             RoundedItem {
                 Label {
                     text: qsTr("Background")
-                    color: LingmoUI.Theme.disabledTextColor
+                    font.pointSize: LingmoUI.Units.fontSubheading
+                    font.weight: Font.DemiBold
                 }
 
                 RowLayout {
@@ -83,7 +85,7 @@ ItemPage {
                     Layout.fillWidth: true
                     visible: appearance.dockBackground !== 0
                     wrapMode: Text.WordWrap
-                    color: LingmoUI.Theme.disabledTextColor
+                    color: LingmoUI.Theme.secondaryTextColor
                     text: qsTr("Glass and no background need desktop effects; without them the dock keeps the solid background.")
                 }
             }
@@ -92,7 +94,8 @@ ItemPage {
            RoundedItem {
                Label {
                    text: qsTr("Position on screen")
-                   color: LingmoUI.Theme.disabledTextColor
+                   font.pointSize: LingmoUI.Units.fontSubheading
+                   font.weight: Font.DemiBold
                }
 
                RowLayout {
@@ -125,45 +128,16 @@ ItemPage {
             RoundedItem {
                 Label {
                     text: qsTr("Size")
-                    color: LingmoUI.Theme.disabledTextColor
+                    font.pointSize: LingmoUI.Units.fontSubheading
+                    font.weight: Font.DemiBold
                 }
 
-                TabBar {
+                LingmoUI.SegmentedControl {
                     id: dockSizeTabbar
+                    fillWidth: true
+                    model: [qsTr("Small"), qsTr("Medium"), qsTr("Large"), qsTr("Huge")]
                     Layout.fillWidth: true
-                    bottomPadding: LingmoUI.Units.smallSpacing
-
-                    TabButton {
-                        text: qsTr("Small")
-                    }
-
-                    TabButton {
-                        text: qsTr("Medium")
-                    }
-
-                    TabButton {
-                        text: qsTr("Large")
-                    }
-
-                    TabButton {
-                        text: qsTr("Huge")
-                    }
-
-                    currentIndex: {
-                        var index = 0
-
-                        if (appearance.dockIconSize <= 45)
-                            index = 0
-                        else if (appearance.dockIconSize <= 53)
-                            index = 1
-                        else if (appearance.dockIconSize <= 63)
-                            index = 2
-                        else if (appearance.dockIconSize <= 72)
-                            index = 3
-
-                        return index
-                    }
-
+                    Layout.bottomMargin: LingmoUI.Units.smallSpacing
                     onCurrentIndexChanged: {
                         var iconSize = 0
 
@@ -184,6 +158,23 @@ ItemPage {
 
                         appearance.setDockIconSize(iconSize)
                     }
+                    // Follows the setting (also after a click, like TabBar did)
+                    Binding on currentIndex {
+                        value: {
+                            var index = 0
+
+                            if (appearance.dockIconSize <= 45)
+                                index = 0
+                            else if (appearance.dockIconSize <= 53)
+                                index = 1
+                            else if (appearance.dockIconSize <= 63)
+                                index = 2
+                            else if (appearance.dockIconSize <= 72)
+                                index = 3
+
+                            return index
+                        }
+                    }
                 }
             }
 
@@ -191,25 +182,17 @@ ItemPage {
             RoundedItem {
                 Label {
                     text: qsTr("Display mode")
-                    color: LingmoUI.Theme.disabledTextColor
+                    font.pointSize: LingmoUI.Units.fontSubheading
+                    font.weight: Font.DemiBold
                 }
 
-                TabBar {
+                LingmoUI.SegmentedControl {
+                    fillWidth: true
+                    model: [qsTr("Always show"), qsTr("Always hide"), qsTr("Smart hide")]
                     Layout.fillWidth: true
-                    currentIndex: appearance.dockVisibility
                     onCurrentIndexChanged: appearance.setDockVisibility(currentIndex)
-
-                    TabButton {
-                        text: qsTr("Always show")
-                    }
-
-                    TabButton {
-                        text: qsTr("Always hide")
-                    }
-
-                    TabButton {
-                        text: qsTr("Smart hide")
-                    }
+                    // Follows the setting (also after a click, like TabBar did)
+                    Binding on currentIndex { value: appearance.dockVisibility }
                 }
             }
 

@@ -89,7 +89,7 @@ ItemPage {
 
                         Label {
                             text: qsTr("The camera follows your face and keeps you centred during video calls, even when you move.")
-                            color: LingmoUI.Theme.disabledTextColor
+                            color: LingmoUI.Theme.secondaryTextColor
                             wrapMode: Text.WordWrap
                             Layout.fillWidth: true
                         }
@@ -113,21 +113,16 @@ ItemPage {
                         text: qsTr("Zoom")
                     }
 
-                    TabBar {
+                    LingmoUI.SegmentedControl {
+                        fillWidth: true
+                        model: [qsTr("Wide"), qsTr("Medium"), qsTr("Close")]
                         Layout.fillWidth: true
-                        currentIndex: camera.zoom === "wide" ? 0 : camera.zoom === "close" ? 2 : 1
-
-                        TabButton {
-                            text: qsTr("Wide")
-                            onClicked: camera.zoom = "wide"
-                        }
-                        TabButton {
-                            text: qsTr("Medium")
-                            onClicked: camera.zoom = "medium"
-                        }
-                        TabButton {
-                            text: qsTr("Close")
-                            onClicked: camera.zoom = "close"
+                        // Follows the setting (also after a click, like TabBar did)
+                        Binding on currentIndex { value: camera.zoom === "wide" ? 0 : camera.zoom === "close" ? 2 : 1 }
+                        onActivated: (index) => {
+                            if (index === 0) { camera.zoom = "wide" }
+                            else if (index === 1) { camera.zoom = "medium" }
+                            else if (index === 2) { camera.zoom = "close" }
                         }
                     }
                 }
@@ -174,7 +169,7 @@ ItemPage {
 
                         Label {
                             text: qsTr("You stay sharp and the room behind you is blurred, in every app.")
-                            color: LingmoUI.Theme.disabledTextColor
+                            color: LingmoUI.Theme.secondaryTextColor
                             wrapMode: Text.WordWrap
                             Layout.fillWidth: true
                         }
@@ -198,17 +193,15 @@ ItemPage {
                         text: qsTr("Strength")
                     }
 
-                    TabBar {
+                    LingmoUI.SegmentedControl {
+                        fillWidth: true
+                        model: [qsTr("Light", "blur strength"), qsTr("Strong", "blur strength")]
                         Layout.fillWidth: true
-                        currentIndex: camera.blurStrength === "light" ? 0 : 1
-
-                        TabButton {
-                            text: qsTr("Light", "blur strength")
-                            onClicked: camera.blurStrength = "light"
-                        }
-                        TabButton {
-                            text: qsTr("Strong", "blur strength")
-                            onClicked: camera.blurStrength = "strong"
+                        // Follows the setting (also after a click, like TabBar did)
+                        Binding on currentIndex { value: camera.blurStrength === "light" ? 0 : 1 }
+                        onActivated: (index) => {
+                            if (index === 0) { camera.blurStrength = "light" }
+                            else if (index === 1) { camera.blurStrength = "strong" }
                         }
                     }
                 }
@@ -230,7 +223,7 @@ ItemPage {
                             text: camera.backgroundImage !== ""
                                   ? camera.backgroundImage.substring(camera.backgroundImage.lastIndexOf("/") + 1)
                                   : qsTr("Optional: shown behind you instead of the blur.")
-                            color: LingmoUI.Theme.disabledTextColor
+                            color: LingmoUI.Theme.secondaryTextColor
                             elide: Text.ElideMiddle
                             Layout.fillWidth: true
                         }
@@ -257,7 +250,7 @@ ItemPage {
 
                     Label {
                         text: qsTr("Preview")
-                        color: LingmoUI.Theme.disabledTextColor
+                        color: LingmoUI.Theme.secondaryTextColor
                         Layout.fillWidth: true
                     }
 
@@ -289,7 +282,8 @@ ItemPage {
             RoundedItem {
                 Label {
                     text: qsTr("How to use")
-                    color: LingmoUI.Theme.disabledTextColor
+                    font.pointSize: LingmoUI.Units.fontSubheading
+                    font.weight: Font.DemiBold
                 }
 
                 Label {
@@ -301,7 +295,7 @@ ItemPage {
                 Label {
                     Layout.fillWidth: true
                     wrapMode: Text.WordWrap
-                    color: LingmoUI.Theme.disabledTextColor
+                    color: LingmoUI.Theme.secondaryTextColor
                     text: !camera.running ? qsTr("The camera service is not running.")
                         : !camera.available ? qsTr("The virtual camera is not ready yet. Restart the computer once after installing, or run: sudo modprobe -r v4l2loopback && sudo modprobe v4l2loopback")
                         : camera.active ? qsTr("In use now.")

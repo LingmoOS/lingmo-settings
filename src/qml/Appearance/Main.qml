@@ -59,7 +59,8 @@ ItemPage {
             RoundedItem {
                 Label {
                     text: qsTr("Theme")
-                    color: LingmoUI.Theme.disabledTextColor
+                    font.pointSize: LingmoUI.Units.fontSubheading
+                    font.weight: Font.DemiBold
                 }
 
                 // Light Mode and Dark Mode
@@ -129,7 +130,8 @@ ItemPage {
             RoundedItem {
                 Label {
                     text: qsTr("Accent color")
-                    color: LingmoUI.Theme.disabledTextColor
+                    font.pointSize: LingmoUI.Units.fontSubheading
+                    font.weight: Font.DemiBold
                 }
 
                 GridView {
@@ -205,7 +207,8 @@ ItemPage {
             RoundedItem {
                 Label {
                     text: qsTr("Fonts")
-                    color: LingmoUI.Theme.disabledTextColor
+                    font.pointSize: LingmoUI.Units.fontSubheading
+                    font.weight: Font.DemiBold
                 }
                 GridLayout {
                     rows: 3
@@ -253,40 +256,10 @@ ItemPage {
                         bottomPadding: LingmoUI.Units.smallSpacing
                     }
 
-                    TabBar {
+                    LingmoUI.SegmentedControl {
+                        fillWidth: true
+                        model: [qsTr("Small"), qsTr("Medium"), qsTr("Large"), qsTr("Huge")]
                         Layout.fillWidth: true
-
-                        TabButton {
-                            text: qsTr("Small")
-                        }
-
-                        TabButton {
-                            text: qsTr("Medium")
-                        }
-
-                        TabButton {
-                            text: qsTr("Large")
-                        }
-
-                        TabButton {
-                            text: qsTr("Huge")
-                        }
-
-                        currentIndex: {
-                            var index = 0
-
-                            if (appearance.fontPointSize <= 9)
-                                index = 0
-                            else if (appearance.fontPointSize <= 10)
-                                index = 1
-                            else if (appearance.fontPointSize <= 12)
-                                index = 2
-                            else if (appearance.fontPointSize <= 15)
-                                index = 3
-
-                            return index
-                        }
-
                         onCurrentIndexChanged: {
                             var fontSize = 0
 
@@ -306,6 +279,23 @@ ItemPage {
                             }
 
                             appearance.setFontPointSize(fontSize)
+                        }
+                        // Follows the setting (also after a click, like TabBar did)
+                        Binding on currentIndex {
+                            value: {
+                                var index = 0
+
+                                if (appearance.fontPointSize <= 9)
+                                    index = 0
+                                else if (appearance.fontPointSize <= 10)
+                                    index = 1
+                                else if (appearance.fontPointSize <= 12)
+                                    index = 2
+                                else if (appearance.fontPointSize <= 15)
+                                    index = 3
+
+                                return index
+                            }
                         }
                     }
 
@@ -339,7 +329,8 @@ ItemPage {
             RoundedItem {
                 Label {
                     text: qsTr("Desktop Settings")
-                    color: LingmoUI.Theme.disabledTextColor
+                    font.pointSize: LingmoUI.Units.fontSubheading
+                    font.weight: Font.DemiBold
                 }
                 GridLayout {
                     rows: 3
@@ -353,40 +344,10 @@ ItemPage {
                         bottomPadding: LingmoUI.Units.smallSpacing
                     }
 
-                    TabBar {
+                    LingmoUI.SegmentedControl {
+                        fillWidth: true
+                        model: [qsTr("Small"), qsTr("Medium"), qsTr("Large"), qsTr("Huge")]
                         Layout.fillWidth: true
-
-                        TabButton {
-                            text: qsTr("Small")
-                        }
-
-                        TabButton {
-                            text: qsTr("Medium")
-                        }
-
-                        TabButton {
-                            text: qsTr("Large")
-                        }
-
-                        TabButton {
-                            text: qsTr("Huge")
-                        }
-
-                        currentIndex: {
-                            var index = 0
-
-                            if (appearance.desktopIconSize <= 55)
-                                index = 0
-                            else if (appearance.desktopIconSize <= 79)
-                                index = 1
-                            else if (appearance.desktopIconSize <= 95)
-                                index = 2
-                            else if (appearance.desktopIconSize <= 105)
-                                index = 3
-
-                            return index
-                        }
-
                         onCurrentIndexChanged: {
                             var desktopIconSize = 0
 
@@ -406,6 +367,23 @@ ItemPage {
                             }
 
                             appearance.setDesktopIcons(desktopIconSize)
+                        }
+                        // Follows the setting (also after a click, like TabBar did)
+                        Binding on currentIndex {
+                            value: {
+                                var index = 0
+
+                                if (appearance.desktopIconSize <= 55)
+                                    index = 0
+                                else if (appearance.desktopIconSize <= 79)
+                                    index = 1
+                                else if (appearance.desktopIconSize <= 95)
+                                    index = 2
+                                else if (appearance.desktopIconSize <= 105)
+                                    index = 3
+
+                                return index
+                            }
                         }
                     }
                 }

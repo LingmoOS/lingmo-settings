@@ -34,7 +34,7 @@ RoundedItem {
     property bool pendingLoginValue: false
     property bool pendingAdminValue: false
 
-    readonly property color warningColor: "#E95B4E"
+    readonly property color warningColor: LingmoUI.Theme.errorColor
 
     FaceAuth {
         id: face
@@ -99,19 +99,16 @@ RoundedItem {
 
         Label {
             text: qsTr("Face recognition")
-            color: LingmoUI.Theme.disabledTextColor
+            color: LingmoUI.Theme.secondaryTextColor
         }
 
         Item {
             Layout.fillWidth: true
         }
 
-        LingmoUI.BusyIndicator {
+        LingmoUI.Spinner {
             id: busyIndicator
-            // The style's own icon path doesn't resolve in LingmoUI 3
-            source: "qrc:/images/view-refresh.svg"
-            width: 22
-            height: width
+            size: 22
             visible: !face.ready || face.pamBusy || face.testing
             running: busyIndicator.visible
         }
@@ -134,7 +131,7 @@ RoundedItem {
         Label {
             Layout.fillWidth: true
             wrapMode: Text.WordWrap
-            color: LingmoUI.Theme.disabledTextColor
+            color: LingmoUI.Theme.secondaryTextColor
             text: !face.available
                   ? qsTr("Face recognition is not installed. Install the lingmo-camera package to log in with the webcam.")
                   : qsTr("No camera was found. Connect a webcam and open this page again to log in with your face.")
@@ -164,7 +161,7 @@ RoundedItem {
                 text: face.enrolled
                       ? qsTr("Face registered on %1").arg(Qt.formatDate(face.enrolledDate, Qt.DefaultLocaleShortDate))
                       : qsTr("No face registered yet.")
-                color: face.enrolled ? LingmoUI.Theme.textColor : LingmoUI.Theme.disabledTextColor
+                color: face.enrolled ? LingmoUI.Theme.textColor : LingmoUI.Theme.secondaryTextColor
                 elide: Text.ElideRight
                 Layout.fillWidth: true
             }
@@ -207,7 +204,7 @@ RoundedItem {
         Label {
             Layout.fillWidth: true
             wrapMode: Text.WordWrap
-            color: LingmoUI.Theme.disabledTextColor
+            color: LingmoUI.Theme.secondaryTextColor
             text: qsTr("No photo is kept: only numbers describing your face, in your home folder.")
         }
     }
@@ -256,7 +253,7 @@ RoundedItem {
         Label {
             Layout.fillWidth: true
             wrapMode: Text.WordWrap
-            color: LingmoUI.Theme.disabledTextColor
+            color: LingmoUI.Theme.secondaryTextColor
             text: {
                 if (!face.pamHelperAvailable)
                     return qsTr("The face-pam helper of Lingmo Settings is missing, so this can't be changed here.")

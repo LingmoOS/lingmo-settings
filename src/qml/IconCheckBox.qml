@@ -60,7 +60,7 @@ Item {
 
                 Behavior on opacity {
                     NumberAnimation {
-                        duration: 200
+                        duration: LingmoUI.Units.shortDuration
                         easing.type: Easing.OutSine
                     }
                 }
@@ -89,7 +89,7 @@ Item {
 
     Behavior on scale {
         NumberAnimation {
-            duration: 200
+            duration: LingmoUI.Units.shortDuration
             easing.type: Easing.OutSine
         }
     }

@@ -65,7 +65,7 @@ ItemPage {
             return LingmoUI.Theme.orangeColor
         if (level === "Too Tight")
             return LingmoUI.Theme.redColor
-        return LingmoUI.Theme.disabledTextColor
+        return LingmoUI.Theme.secondaryTextColor
     }
 
     function joinParts(parts) {
@@ -118,7 +118,7 @@ ItemPage {
 
                 Label {
                     text: AIModule.pullDetail
-                    color: LingmoUI.Theme.disabledTextColor
+                    color: LingmoUI.Theme.secondaryTextColor
                     elide: Text.ElideRight
                     Layout.fillWidth: true
                 }
@@ -142,7 +142,7 @@ ItemPage {
         Label {
             visible: !AIModule.pulling && (AIModule.errorText !== "" || AIModule.infoText !== "")
             text: AIModule.errorText !== "" ? AIModule.errorText : AIModule.infoText
-            color: AIModule.errorText !== "" ? LingmoUI.Theme.redColor : LingmoUI.Theme.disabledTextColor
+            color: AIModule.errorText !== "" ? LingmoUI.Theme.redColor : LingmoUI.Theme.secondaryTextColor
             wrapMode: Text.WordWrap
             Layout.fillWidth: true
         }
@@ -164,18 +164,17 @@ ItemPage {
 
                     Label {
                         text: qsTr("Ollama")
-                        color: LingmoUI.Theme.disabledTextColor
+                        font.pointSize: LingmoUI.Units.fontSubheading
+                        font.weight: Font.DemiBold
                     }
 
                     Item {
                         Layout.fillWidth: true
                     }
 
-                    LingmoUI.BusyIndicator {
+                    LingmoUI.Spinner {
                         id: ollamaBusy
-                        source: "qrc:/images/view-refresh.svg"
-                        width: 22
-                        height: width
+                        size: 22
                         visible: AIModule.ollamaState === AIModule.Checking
                                  || AIModule.ollamaState === AIModule.Starting
                                  || (AIModule.busy && page.messageArea === "ollama")
@@ -200,12 +199,12 @@ ItemPage {
                             case AIModule.Stopped: return LingmoUI.Theme.orangeColor
                             case AIModule.NotInstalled: return LingmoUI.Theme.redColor
                             }
-                            return LingmoUI.Theme.disabledTextColor
+                            return LingmoUI.Theme.secondaryTextColor
                         }
 
                         Behavior on color {
                             ColorAnimation {
-                                duration: 200
+                                duration: LingmoUI.Units.shortDuration
                                 easing.type: Easing.Linear
                             }
                         }
@@ -233,7 +232,7 @@ ItemPage {
                         Label {
                             Layout.fillWidth: true
                             wrapMode: Text.WordWrap
-                            color: LingmoUI.Theme.disabledTextColor
+                            color: LingmoUI.Theme.secondaryTextColor
                             visible: text !== ""
                             text: {
                                 switch (AIModule.ollamaState) {
@@ -281,7 +280,8 @@ ItemPage {
             RoundedItem {
                 Label {
                     text: qsTr("Model in use")
-                    color: LingmoUI.Theme.disabledTextColor
+                    font.pointSize: LingmoUI.Units.fontSubheading
+                    font.weight: Font.DemiBold
                 }
 
                 Label {
@@ -301,7 +301,7 @@ ItemPage {
                 Label {
                     Layout.fillWidth: true
                     wrapMode: Text.WordWrap
-                    color: LingmoUI.Theme.disabledTextColor
+                    color: LingmoUI.Theme.secondaryTextColor
                     visible: text !== ""
                     text: {
                         if (!page.running)
@@ -346,7 +346,7 @@ ItemPage {
                                 Label {
                                     text: modelData.name
                                     elide: Text.ElideRight
-                                    color: modelData.embedding ? LingmoUI.Theme.disabledTextColor : LingmoUI.Theme.textColor
+                                    color: modelData.embedding ? LingmoUI.Theme.secondaryTextColor : LingmoUI.Theme.textColor
                                     Layout.fillWidth: true
                                 }
 
@@ -355,7 +355,7 @@ ItemPage {
                                           ? page.joinParts([modelData.details, qsTr("Embeddings for search, not for chat")])
                                           : page.joinParts([modelData.details, modelData.thinking ? qsTr("Reasoning") : "",
                                                             modelData.tools ? qsTr("Tools") : ""])
-                                    color: LingmoUI.Theme.disabledTextColor
+                                    color: LingmoUI.Theme.secondaryTextColor
                                     elide: Text.ElideRight
                                     Layout.fillWidth: true
                                 }
@@ -366,7 +366,7 @@ ItemPage {
                                           ? qsTr("Too heavy for this computer: answers will be slow.")
                                           : page.joinParts([modelData.fitText, modelData.runMode, modelData.speed])
                                     color: modelData.fitLevel === "Too Tight" ? LingmoUI.Theme.orangeColor
-                                                                              : LingmoUI.Theme.disabledTextColor
+                                                                              : LingmoUI.Theme.secondaryTextColor
                                     wrapMode: Text.WordWrap
                                     Layout.fillWidth: true
                                 }
@@ -407,7 +407,7 @@ ItemPage {
 
                         Label {
                             text: qsTr("Reasoning models work the problem out first: better answers to hard questions, but slower. Off, they answer right away.")
-                            color: LingmoUI.Theme.disabledTextColor
+                            color: LingmoUI.Theme.secondaryTextColor
                             wrapMode: Text.WordWrap
                             Layout.fillWidth: true
                         }
@@ -432,7 +432,7 @@ ItemPage {
                 Label {
                     visible: page.messageArea === "installed" && (AIModule.errorText !== "" || AIModule.infoText !== "")
                     text: AIModule.errorText !== "" ? AIModule.errorText : AIModule.infoText
-                    color: AIModule.errorText !== "" ? LingmoUI.Theme.redColor : LingmoUI.Theme.disabledTextColor
+                    color: AIModule.errorText !== "" ? LingmoUI.Theme.redColor : LingmoUI.Theme.secondaryTextColor
                     wrapMode: Text.WordWrap
                     Layout.fillWidth: true
                 }
@@ -442,7 +442,8 @@ ItemPage {
             RoundedItem {
                 Label {
                     text: qsTr("Assistant")
-                    color: LingmoUI.Theme.disabledTextColor
+                    font.pointSize: LingmoUI.Units.fontSubheading
+                    font.weight: Font.DemiBold
                 }
 
                 RowLayout {
@@ -504,7 +505,7 @@ ItemPage {
 
                         Label {
                             text: qsTr("Look at files, notes, the calendar and the system.")
-                            color: LingmoUI.Theme.disabledTextColor
+                            color: LingmoUI.Theme.secondaryTextColor
                             wrapMode: Text.WordWrap
                             Layout.fillWidth: true
                         }
@@ -532,7 +533,7 @@ ItemPage {
 
                         Label {
                             text: qsTr("Create notes, events and files. Every write asks for your confirmation first.")
-                            color: LingmoUI.Theme.disabledTextColor
+                            color: LingmoUI.Theme.secondaryTextColor
                             wrapMode: Text.WordWrap
                             Layout.fillWidth: true
                         }
@@ -557,12 +558,12 @@ ItemPage {
 
                         Label {
                             text: qsTr("Delete — never allowed")
-                            color: LingmoUI.Theme.disabledTextColor
+                            color: LingmoUI.Theme.secondaryTextColor
                         }
 
                         Label {
                             text: qsTr("The assistant never deletes files, notes, events or tasks.")
-                            color: LingmoUI.Theme.disabledTextColor
+                            color: LingmoUI.Theme.secondaryTextColor
                             wrapMode: Text.WordWrap
                             Layout.fillWidth: true
                         }
@@ -598,14 +599,14 @@ ItemPage {
 
                         Label {
                             text: modelData.title
-                            color: LingmoUI.Theme.disabledTextColor
+                            color: LingmoUI.Theme.secondaryTextColor
                         }
 
                         Label {
                             visible: !toolGroup.allowed
                             text: modelData.write ? qsTr("Turn on Write above to use these tools.")
                                                   : qsTr("Turn on Read above to use these tools.")
-                            color: LingmoUI.Theme.disabledTextColor
+                            color: LingmoUI.Theme.secondaryTextColor
                             wrapMode: Text.WordWrap
                             Layout.fillWidth: true
                         }
@@ -637,13 +638,13 @@ ItemPage {
 
                                     Label {
                                         text: modelData.name
-                                        color: toolGroup.allowed ? LingmoUI.Theme.textColor : LingmoUI.Theme.disabledTextColor
+                                        color: toolGroup.allowed ? LingmoUI.Theme.textColor : LingmoUI.Theme.secondaryTextColor
                                         Layout.fillWidth: true
                                     }
 
                                     Label {
                                         text: modelData.text
-                                        color: LingmoUI.Theme.disabledTextColor
+                                        color: LingmoUI.Theme.secondaryTextColor
                                         wrapMode: Text.WordWrap
                                         Layout.fillWidth: true
                                     }
@@ -651,7 +652,7 @@ ItemPage {
                                     Label {
                                         visible: modelData.warning !== undefined
                                         text: modelData.warning || ""
-                                        color: toolGroup.allowed ? LingmoUI.Theme.orangeColor : LingmoUI.Theme.disabledTextColor
+                                        color: toolGroup.allowed ? LingmoUI.Theme.orangeColor : LingmoUI.Theme.secondaryTextColor
                                         wrapMode: Text.WordWrap
                                         Layout.fillWidth: true
                                     }
@@ -680,7 +681,7 @@ ItemPage {
 
                         Label {
                             text: qsTr("File tools only work inside these folders.")
-                            color: LingmoUI.Theme.disabledTextColor
+                            color: LingmoUI.Theme.secondaryTextColor
                             wrapMode: Text.WordWrap
                             Layout.fillWidth: true
                         }
@@ -700,7 +701,7 @@ ItemPage {
                 Label {
                     visible: AIModule.assistantFolders.length === 0
                     text: qsTr("No folders: the assistant can't open your files.")
-                    color: LingmoUI.Theme.disabledTextColor
+                    color: LingmoUI.Theme.secondaryTextColor
                     wrapMode: Text.WordWrap
                     Layout.fillWidth: true
                 }
@@ -770,7 +771,7 @@ ItemPage {
                     visible: page.showBlockedAreas
                     text: qsTr("Passwords, keys and browser data are never read or written: %1.")
                               .arg(AIModule.assistantBlockedAreas.join(", "))
-                    color: LingmoUI.Theme.disabledTextColor
+                    color: LingmoUI.Theme.secondaryTextColor
                     wrapMode: Text.WordWrap
                     Layout.fillWidth: true
                 }
@@ -783,16 +784,14 @@ ItemPage {
 
                     Label {
                         text: qsTr("Recommended for this computer")
-                        color: LingmoUI.Theme.disabledTextColor
+                        color: LingmoUI.Theme.secondaryTextColor
                         elide: Text.ElideRight
                         Layout.fillWidth: true
                     }
 
-                    LingmoUI.BusyIndicator {
+                    LingmoUI.Spinner {
                         id: llmfitBusy
-                        source: "qrc:/images/view-refresh.svg"
-                        width: 22
-                        height: width
+                        size: 22
                         visible: AIModule.llmfitBusy
                         running: llmfitBusy.visible
                     }
@@ -809,7 +808,7 @@ ItemPage {
                     Layout.fillWidth: true
                     wrapMode: Text.WordWrap
                     visible: AIModule.systemSummary !== ""
-                    color: LingmoUI.Theme.disabledTextColor
+                    color: LingmoUI.Theme.secondaryTextColor
                     text: qsTr("This computer: %1").arg(AIModule.systemSummary)
                 }
 
@@ -817,30 +816,22 @@ ItemPage {
                     Layout.fillWidth: true
                     wrapMode: Text.WordWrap
                     visible: !AIModule.llmfitAvailable
-                    color: LingmoUI.Theme.disabledTextColor
+                    color: LingmoUI.Theme.secondaryTextColor
                     text: qsTr("Install llmfit to see which models suit this computer: sudo pacman -S llmfit")
                 }
 
-                TabBar {
+                LingmoUI.SegmentedControl {
+                    fillWidth: true
+                    model: [qsTr("Conversation"), qsTr("General use"), qsTr("Programming"), qsTr("Reasoning")]
                     Layout.fillWidth: true
                     visible: AIModule.llmfitAvailable
-                    currentIndex: ["chat", "general", "coding", "reasoning"].indexOf(AIModule.useCase)
-
-                    TabButton {
-                        text: qsTr("Conversation")
-                        onClicked: { page.showAllRecommendations = false; AIModule.useCase = "chat" }
-                    }
-                    TabButton {
-                        text: qsTr("General use")
-                        onClicked: { page.showAllRecommendations = false; AIModule.useCase = "general" }
-                    }
-                    TabButton {
-                        text: qsTr("Programming")
-                        onClicked: { page.showAllRecommendations = false; AIModule.useCase = "coding" }
-                    }
-                    TabButton {
-                        text: qsTr("Reasoning")
-                        onClicked: { page.showAllRecommendations = false; AIModule.useCase = "reasoning" }
+                    // Follows the setting (also after a click, like TabBar did)
+                    Binding on currentIndex { value: ["chat", "general", "coding", "reasoning"].indexOf(AIModule.useCase) }
+                    onActivated: (index) => {
+                        if (index === 0) { page.showAllRecommendations = false; AIModule.useCase = "chat" }
+                        else if (index === 1) { page.showAllRecommendations = false; AIModule.useCase = "general" }
+                        else if (index === 2) { page.showAllRecommendations = false; AIModule.useCase = "coding" }
+                        else if (index === 3) { page.showAllRecommendations = false; AIModule.useCase = "reasoning" }
                     }
                 }
 
@@ -848,7 +839,7 @@ ItemPage {
                     Layout.fillWidth: true
                     wrapMode: Text.WordWrap
                     visible: AIModule.llmfitAvailable && AIModule.recommendations.length === 0 && text !== ""
-                    color: AIModule.llmfitError !== "" ? LingmoUI.Theme.redColor : LingmoUI.Theme.disabledTextColor
+                    color: AIModule.llmfitError !== "" ? LingmoUI.Theme.redColor : LingmoUI.Theme.secondaryTextColor
                     text: AIModule.llmfitError !== "" ? AIModule.llmfitError
                         : AIModule.llmfitBusy ? qsTr("Checking which models suit this computer…")
                         : qsTr("llmfit found no Ollama model of this kind that fits this computer.")
@@ -899,14 +890,14 @@ ItemPage {
                                     text: page.joinParts([modelData.parameters,
                                                           modelData.download !== "" ? qsTr("%1 download").arg(modelData.download) : "",
                                                           modelData.memory !== "" ? qsTr("needs %1 of memory").arg(modelData.memory) : ""])
-                                    color: LingmoUI.Theme.disabledTextColor
+                                    color: LingmoUI.Theme.secondaryTextColor
                                     wrapMode: Text.WordWrap
                                     Layout.fillWidth: true
                                 }
 
                                 Label {
                                     text: page.joinParts([modelData.runMode, modelData.speed])
-                                    color: LingmoUI.Theme.disabledTextColor
+                                    color: LingmoUI.Theme.secondaryTextColor
                                     wrapMode: Text.WordWrap
                                     Layout.fillWidth: true
                                 }
@@ -915,7 +906,7 @@ ItemPage {
                             Label {
                                 visible: modelData.installed
                                 text: modelData.inUse ? qsTr("In use") : qsTr("Installed")
-                                color: modelData.inUse ? LingmoUI.Theme.highlightColor : LingmoUI.Theme.disabledTextColor
+                                color: modelData.inUse ? LingmoUI.Theme.highlightColor : LingmoUI.Theme.secondaryTextColor
                             }
 
                             Button {
@@ -950,7 +941,7 @@ ItemPage {
                     Label {
                         Layout.fillWidth: true
                         wrapMode: Text.WordWrap
-                        color: LingmoUI.Theme.disabledTextColor
+                        color: LingmoUI.Theme.secondaryTextColor
                         text: qsTr("Any model from ollama.com/library, for example gemma3:4b or user/model:tag.")
                     }
 
@@ -995,7 +986,8 @@ ItemPage {
             RoundedItem {
                 Label {
                     text: qsTr("Where it is used")
-                    color: LingmoUI.Theme.disabledTextColor
+                    font.pointSize: LingmoUI.Units.fontSubheading
+                    font.weight: Font.DemiBold
                 }
 
                 Label {
@@ -1013,7 +1005,7 @@ ItemPage {
                 Label {
                     Layout.fillWidth: true
                     wrapMode: Text.WordWrap
-                    color: LingmoUI.Theme.disabledTextColor
+                    color: LingmoUI.Theme.secondaryTextColor
                     text: AIModule.remoteServer
                           ? qsTr("The models run on the Ollama server at %1.").arg(AIModule.serverAddress)
                           : qsTr("The models run on this computer. Nothing you ask leaves it.")

@@ -52,9 +52,11 @@ ItemPage {
                         leftPadding: LingmoUI.Units.smallSpacing
                     }
 
-                    TabBar {
+                    LingmoUI.SegmentedControl {
                         id: tabBar
                         Layout.fillWidth: true
+                        fillWidth: true
+                        model: [qsTr("Picture"), qsTr("Color"), qsTr("Custom Images")]
 
                         // Pictures and custom images both are "picture" wallpapers (type 0)
                         onCurrentIndexChanged: {
@@ -66,18 +68,6 @@ ItemPage {
                         Component.onCompleted: {
                             currentIndex = background.backgroundType === 1 ? 1
                                          : background.isCustomBackground(background.currentBackgroundPath) ? 2 : 0
-                        }
-
-                        TabButton {
-                            text: qsTr("Picture")
-                        }
-
-                        TabButton {
-                            text: qsTr("Color")
-                        }
-
-                        TabButton {
-                            text: qsTr("Custom Images")
                         }
                     }
                 }
@@ -104,7 +94,7 @@ ItemPage {
 
                             Label {
                                 text: qsTr("Folder")
-                                color: LingmoUI.Theme.disabledTextColor
+                                color: LingmoUI.Theme.secondaryTextColor
                             }
 
                             Label {
@@ -135,14 +125,13 @@ ItemPage {
                         removable: true
                     }
 
-                    Label {
+                    LingmoUI.EmptyState {
                         Layout.fillWidth: true
+                        Layout.topMargin: LingmoUI.Units.largeSpacing
+                        Layout.bottomMargin: LingmoUI.Units.largeSpacing
                         visible: background.customBackgrounds.length === 0
-                        horizontalAlignment: Text.AlignHCenter
-                        wrapMode: Text.WordWrap
-                        topPadding: LingmoUI.Units.largeSpacing
-                        bottomPadding: LingmoUI.Units.largeSpacing
-                        color: LingmoUI.Theme.disabledTextColor
+                        iconName: "folder-pictures"
+                        iconSize: LingmoUI.Units.iconSizes.large
                         text: qsTr("No images yet. Add images, or copy them into the folder above.")
                     }
                 }
@@ -277,7 +266,7 @@ ItemPage {
 
             Behavior on scale {
                 NumberAnimation {
-                    duration: 200
+                    duration: LingmoUI.Units.shortDuration
                     easing.type: Easing.OutSine
                 }
             }
@@ -326,7 +315,7 @@ ItemPage {
 
                     Behavior on opacity {
                         NumberAnimation {
-                            duration: 100
+                            duration: LingmoUI.Units.veryShortDuration
                             easing.type: Easing.InOutCubic
                         }
                     }
@@ -371,13 +360,13 @@ ItemPage {
                     height: 22
                     radius: 11
                     visible: grid.removable && (itemMouse.containsMouse || removeMouse.containsMouse)
-                    color: removeMouse.containsMouse ? "#FF453A" : Qt.rgba(0, 0, 0, 0.55)
+                    color: removeMouse.containsMouse ? LingmoUI.Theme.redColor : Qt.rgba(0, 0, 0, 0.55)
 
                     Label {
                         anchors.centerIn: parent
                         text: "\u2715"
                         color: "white"
-                        font.pointSize: 8
+                        font.pointSize: LingmoUI.Units.fontCaption
                     }
 
                     MouseArea {

@@ -34,7 +34,7 @@ Rectangle {
 
     Behavior on color {
         ColorAnimation {
-            duration: 200
+            duration: LingmoUI.Units.shortDuration
             easing.type: Easing.Linear
         }
     }

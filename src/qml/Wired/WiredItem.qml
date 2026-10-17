@@ -33,14 +33,11 @@ Item {
     Rectangle {
         anchors.fill: parent
         radius: LingmoUI.Theme.smallRadius
-        color: mouseArea.containsMouse ? Qt.rgba(LingmoUI.Theme.textColor.r,
-                                                 LingmoUI.Theme.textColor.g,
-                                                 LingmoUI.Theme.textColor.b,
-                                                 0.1) : "transparent"
+        color: mouseArea.containsMouse ? LingmoUI.Theme.hoverColor : "transparent"
 
         Behavior on color {
             ColorAnimation {
-                duration: 125
+                duration: LingmoUI.Units.veryShortDuration
                 easing.type: Easing.InOutCubic
             }
         }

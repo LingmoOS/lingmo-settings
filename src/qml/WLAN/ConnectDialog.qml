@@ -77,7 +77,7 @@ LingmoUI.Window {
 
         Label {
             text: qsTr("Enter the password for %1").arg(control.name)
-            color: LingmoUI.Theme.disabledTextColor
+            color: LingmoUI.Theme.secondaryTextColor
             wrapMode: Text.WordWrap
         }
 

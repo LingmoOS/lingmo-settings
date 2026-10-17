@@ -1,6 +1,7 @@
 import QtQuick 2.4
 import QtQuick.Layouts 1.3
 import Qt5Compat.GraphicalEffects
+import LingmoUI.CompatibleModule 3.0 as LingmoUI
 
 
 Item {
@@ -15,7 +16,7 @@ Item {
 
     Behavior on implicitHeight {
         NumberAnimation {
-            duration: 200
+            duration: LingmoUI.Units.shortDuration
             easing.type: Easing.OutSine
         }
     }

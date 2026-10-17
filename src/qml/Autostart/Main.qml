@@ -26,7 +26,8 @@ ItemPage {
                 RowLayout {
                     Label {
                         text: qsTr("Apps opened at login")
-                        color: LingmoUI.Theme.disabledTextColor
+                        font.pointSize: LingmoUI.Units.fontSubheading
+                        font.weight: Font.DemiBold
                         Layout.fillWidth: true
                     }
 
@@ -44,10 +45,14 @@ ItemPage {
                     }
                 }
 
-                Label {
+                LingmoUI.EmptyState {
                     visible: entries.count === 0
-                    text: qsTr("No apps open at login")
-                    color: LingmoUI.Theme.disabledTextColor
+                    Layout.fillWidth: true
+                    Layout.topMargin: LingmoUI.Units.smallSpacing
+                    Layout.bottomMargin: LingmoUI.Units.smallSpacing
+                    iconName: "system-run"
+                    iconSize: LingmoUI.Units.iconSizes.large
+                    title: qsTr("No apps open at login")
                 }
 
                 Repeater {
@@ -84,8 +89,8 @@ ItemPage {
                                 Label {
                                     text: model.comment || model.command
                                     visible: text !== ""
-                                    color: LingmoUI.Theme.disabledTextColor
-                                    font.pointSize: Qt.application.font.pointSize * 0.9
+                                    color: LingmoUI.Theme.secondaryTextColor
+                                    font.pointSize: LingmoUI.Units.fontCaption
                                     elide: Text.ElideRight
                                     Layout.fillWidth: true
                                 }
@@ -112,7 +117,7 @@ ItemPage {
                 Layout.fillWidth: true
                 Layout.leftMargin: LingmoUI.Units.largeSpacing
                 wrapMode: Text.WordWrap
-                color: LingmoUI.Theme.disabledTextColor
+                color: LingmoUI.Theme.secondaryTextColor
                 text: qsTr("Changes apply at the next login.")
             }
         }
@@ -146,7 +151,7 @@ ItemPage {
             Label {
                 text: qsTr("Add app")
                 font.weight: Font.DemiBold
-                font.pointSize: Qt.application.font.pointSize * 1.15
+                font.pointSize: LingmoUI.Units.fontHeading
             }
 
             TextField {
@@ -224,7 +229,7 @@ ItemPage {
             Label {
                 text: qsTr("Add command")
                 font.weight: Font.DemiBold
-                font.pointSize: Qt.application.font.pointSize * 1.15
+                font.pointSize: LingmoUI.Units.fontHeading
             }
 
             TextField {
@@ -240,11 +245,10 @@ ItemPage {
                 onAccepted: addButton.clicked()
             }
 
-            Label {
+            LingmoUI.Banner {
                 id: errorLabel
-                visible: text !== ""
-                color: "#FF453A"
-                wrapMode: Text.WordWrap
+                type: LingmoUI.Banner.Error
+                closable: false
                 Layout.fillWidth: true
             }
 

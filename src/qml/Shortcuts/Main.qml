@@ -26,7 +26,8 @@ ItemPage {
                 RowLayout {
                     Label {
                         text: qsTr("Keyboard shortcuts")
-                        color: LingmoUI.Theme.disabledTextColor
+                        font.pointSize: LingmoUI.Units.fontSubheading
+                        font.weight: Font.DemiBold
                         Layout.fillWidth: true
                     }
 
@@ -38,10 +39,14 @@ ItemPage {
                     }
                 }
 
-                Label {
+                LingmoUI.EmptyState {
                     visible: listRepeater.count === 0
-                    text: qsTr("No shortcuts yet")
-                    color: LingmoUI.Theme.disabledTextColor
+                    Layout.fillWidth: true
+                    Layout.topMargin: LingmoUI.Units.smallSpacing
+                    Layout.bottomMargin: LingmoUI.Units.smallSpacing
+                    iconName: "preferences-desktop-keyboard-shortcuts"
+                    iconSize: LingmoUI.Units.iconSizes.large
+                    title: qsTr("No shortcuts yet")
                 }
 
                 Repeater {
@@ -57,10 +62,11 @@ ItemPage {
                             anchors.leftMargin: -LingmoUI.Units.smallSpacing
                             anchors.rightMargin: -LingmoUI.Units.smallSpacing
                             radius: LingmoUI.Theme.mediumRadius
-                            color: rowMouse.containsMouse ? Qt.rgba(LingmoUI.Theme.textColor.r,
-                                                                    LingmoUI.Theme.textColor.g,
-                                                                    LingmoUI.Theme.textColor.b, 0.06)
-                                                          : "transparent"
+                            color: rowMouse.containsMouse ? LingmoUI.Theme.hoverColor : "transparent"
+
+                            Behavior on color {
+                                ColorAnimation { duration: LingmoUI.Units.veryShortDuration }
+                            }
                         }
 
                         MouseArea {
@@ -93,8 +99,8 @@ ItemPage {
                                 Label {
                                     text: model.command
                                     visible: model.command !== model.name
-                                    color: LingmoUI.Theme.disabledTextColor
-                                    font.pointSize: Qt.application.font.pointSize * 0.9
+                                    color: LingmoUI.Theme.secondaryTextColor
+                                    font.pointSize: LingmoUI.Units.fontCaption
                                     elide: Text.ElideMiddle
                                     Layout.fillWidth: true
                                 }
@@ -122,7 +128,7 @@ ItemPage {
                 Layout.fillWidth: true
                 Layout.leftMargin: LingmoUI.Units.largeSpacing
                 wrapMode: Text.WordWrap
-                color: LingmoUI.Theme.disabledTextColor
+                color: LingmoUI.Theme.secondaryTextColor
                 text: qsTr("Changes apply immediately. Press Super alone to set a shortcut for tapping the Super key.")
             }
         }
@@ -134,9 +140,9 @@ ItemPage {
         implicitHeight: chipLabel.implicitHeight + LingmoUI.Units.smallSpacing * 1.5
         implicitWidth: chipLabel.implicitWidth + LingmoUI.Units.largeSpacing * 2
         radius: 6
-        color: LingmoUI.Theme.darkMode ? Qt.rgba(1, 1, 1, 0.08) : Qt.rgba(0, 0, 0, 0.05)
+        color: LingmoUI.Theme.hoverColor
         border.width: 1
-        border.color: LingmoUI.Theme.darkMode ? Qt.rgba(1, 1, 1, 0.12) : Qt.rgba(0, 0, 0, 0.10)
+        border.color: LingmoUI.Theme.borderColor
 
         Label {
             id: chipLabel
@@ -181,7 +187,7 @@ ItemPage {
             Label {
                 text: editor.oldSequence ? qsTr("Edit shortcut") : qsTr("New shortcut")
                 font.weight: Font.DemiBold
-                font.pointSize: Qt.application.font.pointSize * 1.15
+                font.pointSize: LingmoUI.Units.fontHeading
             }
 
             // Click, then press the keys
@@ -193,10 +199,10 @@ ItemPage {
                 color: editor.capturing ? Qt.rgba(LingmoUI.Theme.highlightColor.r,
                                                   LingmoUI.Theme.highlightColor.g,
                                                   LingmoUI.Theme.highlightColor.b, 0.12)
-                                        : (LingmoUI.Theme.darkMode ? Qt.rgba(1, 1, 1, 0.05) : Qt.rgba(0, 0, 0, 0.04))
+                                        : LingmoUI.Theme.hoverColor
                 border.width: editor.capturing ? 2 : 1
                 border.color: editor.capturing ? LingmoUI.Theme.highlightColor
-                                               : (LingmoUI.Theme.darkMode ? Qt.rgba(1, 1, 1, 0.12) : Qt.rgba(0, 0, 0, 0.10))
+                                               : LingmoUI.Theme.borderColor
                 focus: editor.capturing
 
                 KeyChip {
@@ -209,7 +215,7 @@ ItemPage {
                     anchors.centerIn: parent
                     visible: editor.capturing || editor.sequence === ""
                     text: editor.capturing ? qsTr("Press the keys… (Esc to cancel)") : qsTr("Click to set the keys")
-                    color: editor.capturing ? LingmoUI.Theme.highlightColor : LingmoUI.Theme.disabledTextColor
+                    color: editor.capturing ? LingmoUI.Theme.highlightColor : LingmoUI.Theme.secondaryTextColor
                 }
 
                 MouseArea {
@@ -265,11 +271,10 @@ ItemPage {
                 onAccepted: saveButton.clicked()
             }
 
-            Label {
+            LingmoUI.Banner {
                 id: errorLabel
-                visible: text !== ""
-                color: "#FF453A"
-                wrapMode: Text.WordWrap
+                type: LingmoUI.Banner.Error
+                closable: false
                 Layout.fillWidth: true
             }
 

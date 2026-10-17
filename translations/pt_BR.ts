@@ -3437,6 +3437,126 @@
         <source>Boxes</source>
         <translation>Caixas</translation>
     </message>
+    <message>
+        <source>Wi-Fi, wireless, network, internet</source>
+        <translation>Wi-Fi, sem fio, rede, internet</translation>
+    </message>
+    <message>
+        <source>wired, cable, network, LAN, internet</source>
+        <translation>cabo, cabeada, rede, LAN, internet</translation>
+    </message>
+    <message>
+        <source>devices, pairing, headphones, wireless</source>
+        <translation>dispositivos, parear, fones, sem fio</translation>
+    </message>
+    <message>
+        <source>network, HTTP, SOCKS, internet</source>
+        <translation>rede, HTTP, SOCKS, internet</translation>
+    </message>
+    <message>
+        <source>screen, monitor, resolution, brightness, scale, night light, refresh rate</source>
+        <translation>tela, monitor, resolução, brilho, escala, luz noturna, taxa de atualização</translation>
+    </message>
+    <message>
+        <source>theme, dark mode, light mode, accent color, fonts</source>
+        <translation>tema, modo escuro, modo claro, cor de destaque, fontes</translation>
+    </message>
+    <message>
+        <source>animations, blur, transparency, windows</source>
+        <translation>animações, desfoque, transparência, janelas</translation>
+    </message>
+    <message>
+        <source>wallpaper, desktop, picture</source>
+        <translation>papel de parede, área de trabalho, imagem</translation>
+    </message>
+    <message>
+        <source>taskbar, panel, launcher</source>
+        <translation>barra de tarefas, painel, lançador</translation>
+    </message>
+    <message>
+        <source>account, password, avatar, login, fingerprint, face</source>
+        <translation>conta, senha, foto, login, impressão digital, rosto</translation>
+    </message>
+    <message>
+        <source>alerts, do not disturb, messages</source>
+        <translation>alertas, não perturbe, mensagens</translation>
+    </message>
+    <message>
+        <source>audio, volume, speakers, headphones, microphone</source>
+        <translation>áudio, volume, alto-falantes, fones, microfone</translation>
+    </message>
+    <message>
+        <source>webcam, video</source>
+        <translation>webcam, vídeo</translation>
+    </message>
+    <message>
+        <source>cursor, pointer, scrolling, speed</source>
+        <translation>cursor, ponteiro, rolagem, velocidade</translation>
+    </message>
+    <message>
+        <source>trackpad, tap to click, scrolling, gestures</source>
+        <translation>trackpad, tocar para clicar, rolagem, gestos</translation>
+    </message>
+    <message>
+        <source>clock, time zone, calendar</source>
+        <translation>relógio, fuso horário, calendário, data, hora</translation>
+    </message>
+    <message>
+        <source>zoom, contrast, magnifier, reduce motion</source>
+        <translation>zoom, contraste, lupa, reduzir movimento, acessibilidade</translation>
+    </message>
+    <message>
+        <source>layout, input, typing, key repeat</source>
+        <translation>layout, entrada, digitação, repetição de teclas</translation>
+    </message>
+    <message>
+        <source>keyboard shortcuts, hotkeys, keys</source>
+        <translation>atalhos de teclado, teclas de atalho, teclas</translation>
+    </message>
+    <message>
+        <source>autostart, login, apps</source>
+        <translation>iniciar automaticamente, login, aplicativos</translation>
+    </message>
+    <message>
+        <source>browser, email, file manager, terminal, apps</source>
+        <translation>navegador, e-mail, gerenciador de arquivos, terminal, aplicativos</translation>
+    </message>
+    <message>
+        <source>sandbox, isolation, Windows, Android, AppImage, permissions</source>
+        <translation>sandbox, isolamento, Windows, Android, AppImage, permissões</translation>
+    </message>
+    <message>
+        <source>AI, assistant, model, LLM, chat</source>
+        <translation>IA, assistente, modelo, LLM, chat</translation>
+    </message>
+    <message>
+        <source>region, locale, translation</source>
+        <translation>idioma, região, localidade, tradução</translation>
+    </message>
+    <message>
+        <source>power, charge, energy</source>
+        <translation>energia, carga, bateria</translation>
+    </message>
+    <message>
+        <source>energy, sleep, suspend, screen off</source>
+        <translation>energia, dormir, suspender, desligar a tela</translation>
+    </message>
+    <message>
+        <source>system, version, computer name, hardware</source>
+        <translation>sistema, versão, nome do computador, hardware, sobre</translation>
+    </message>
+    <message>
+        <source>Search</source>
+        <translation>Buscar</translation>
+    </message>
+    <message>
+        <source>No results</source>
+        <translation>Nenhum resultado</translation>
+    </message>
+    <message>
+        <source>Try a different word.</source>
+        <translation>Tente outra palavra.</translation>
+    </message>
 </context>
 <context>
     <name>TimeZoneDialog</name>
@@ -3605,6 +3725,10 @@
         <location line="+14"/>
         <source>Disconnect</source>
         <translation>Desconectar</translation>
+    </message>
+    <message>
+        <source>Details</source>
+        <translation>Detalhes</translation>
     </message>
 </context>
 <context>

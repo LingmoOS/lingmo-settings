@@ -63,7 +63,7 @@ RoundedItem {
 
         Label {
             text: qsTr("Fingerprints")
-            color: LingmoUI.Theme.disabledTextColor
+            color: LingmoUI.Theme.secondaryTextColor
         }
 
         Item {
@@ -73,17 +73,14 @@ RoundedItem {
         Label {
             text: fingerprint.deviceName
             visible: fingerprint.deviceAvailable
-            color: LingmoUI.Theme.disabledTextColor
+            color: LingmoUI.Theme.secondaryTextColor
             elide: Text.ElideRight
             Layout.maximumWidth: control.width / 2
         }
 
-        LingmoUI.BusyIndicator {
+        LingmoUI.Spinner {
             id: busyIndicator
-            // The style's own icon path doesn't resolve in LingmoUI 3
-            source: "qrc:/images/view-refresh.svg"
-            width: 22
-            height: width
+            size: 22
             visible: !fingerprint.ready || fingerprint.busy || fingerprint.pamBusy
             running: busyIndicator.visible
         }
@@ -106,7 +103,7 @@ RoundedItem {
         Label {
             Layout.fillWidth: true
             wrapMode: Text.WordWrap
-            color: LingmoUI.Theme.disabledTextColor
+            color: LingmoUI.Theme.secondaryTextColor
             text: fingerprint.serviceAvailable
                   ? qsTr("No fingerprint reader was found. Connect a reader and open this page again.")
                   : qsTr("Fingerprint support is not installed. Install the fprintd package to use a fingerprint reader.")
@@ -122,7 +119,7 @@ RoundedItem {
         Label {
             visible: fingerprint.enrolledFingers.length === 0
             text: qsTr("No fingerprint registered yet.")
-            color: LingmoUI.Theme.disabledTextColor
+            color: LingmoUI.Theme.secondaryTextColor
         }
 
         Repeater {
@@ -222,7 +219,7 @@ RoundedItem {
         Label {
             Layout.fillWidth: true
             wrapMode: Text.WordWrap
-            color: LingmoUI.Theme.disabledTextColor
+            color: LingmoUI.Theme.secondaryTextColor
             text: {
                 if (!fingerprint.pamHelperAvailable)
                     return qsTr("The fingerprint-pam helper of Lingmo Settings is missing, so this can't be changed here.")
@@ -237,11 +234,10 @@ RoundedItem {
         }
     }
 
-    Label {
-        visible: control.errorText !== ""
+    LingmoUI.Banner {
+        type: LingmoUI.Banner.Error
+        closable: false
         text: control.errorText
-        color: "#E95B4E"
-        wrapMode: Text.WordWrap
         Layout.fillWidth: true
     }
 

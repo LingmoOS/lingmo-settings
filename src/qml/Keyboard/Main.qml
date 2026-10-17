@@ -45,7 +45,8 @@ ItemPage {
                 RowLayout {
                     Label {
                         text: qsTr("Input layouts")
-                        color: LingmoUI.Theme.disabledTextColor
+                        font.pointSize: LingmoUI.Units.fontSubheading
+                        font.weight: Font.DemiBold
                         Layout.fillWidth: true
                     }
 
@@ -62,7 +63,7 @@ ItemPage {
                 Label {
                     visible: !keyboard.available
                     text: qsTr("The settings service is not running")
-                    color: LingmoUI.Theme.disabledTextColor
+                    color: LingmoUI.Theme.secondaryTextColor
                 }
 
                 Repeater {
@@ -78,10 +79,11 @@ ItemPage {
                             anchors.leftMargin: -LingmoUI.Units.smallSpacing
                             anchors.rightMargin: -LingmoUI.Units.smallSpacing
                             radius: LingmoUI.Theme.mediumRadius
-                            color: rowMouse.containsMouse ? Qt.rgba(LingmoUI.Theme.textColor.r,
-                                                                    LingmoUI.Theme.textColor.g,
-                                                                    LingmoUI.Theme.textColor.b, 0.06)
-                                                          : "transparent"
+                            color: rowMouse.containsMouse ? LingmoUI.Theme.hoverColor : "transparent"
+
+                            Behavior on color {
+                                ColorAnimation { duration: LingmoUI.Units.veryShortDuration }
+                            }
                         }
 
                         MouseArea {
@@ -100,9 +102,9 @@ ItemPage {
                                 implicitWidth: 44
                                 implicitHeight: codeLabel.implicitHeight + LingmoUI.Units.smallSpacing * 1.5
                                 radius: 6
-                                color: LingmoUI.Theme.darkMode ? Qt.rgba(1, 1, 1, 0.08) : Qt.rgba(0, 0, 0, 0.05)
+                                color: LingmoUI.Theme.hoverColor
                                 border.width: 1
-                                border.color: LingmoUI.Theme.darkMode ? Qt.rgba(1, 1, 1, 0.12) : Qt.rgba(0, 0, 0, 0.10)
+                                border.color: LingmoUI.Theme.borderColor
 
                                 Label {
                                     id: codeLabel
@@ -124,8 +126,8 @@ ItemPage {
 
                                 Label {
                                     text: index === 0 ? qsTr("Default") : modelData
-                                    color: LingmoUI.Theme.disabledTextColor
-                                    font.pointSize: Qt.application.font.pointSize * 0.9
+                                    color: LingmoUI.Theme.secondaryTextColor
+                                    font.pointSize: LingmoUI.Units.fontCaption
                                     Layout.fillWidth: true
                                 }
                             }
@@ -161,7 +163,8 @@ ItemPage {
             RoundedItem {
                 Label {
                     text: qsTr("Switch layouts with")
-                    color: LingmoUI.Theme.disabledTextColor
+                    font.pointSize: LingmoUI.Units.fontSubheading
+                    font.weight: Font.DemiBold
                 }
 
                 ComboBox {
@@ -185,7 +188,7 @@ ItemPage {
                 Label {
                     Layout.fillWidth: true
                     wrapMode: Text.WordWrap
-                    color: LingmoUI.Theme.disabledTextColor
+                    color: LingmoUI.Theme.secondaryTextColor
                     text: qsTr("With more than one layout, the status bar shows the current one: click it to switch, or right click to pick one.")
                 }
             }
@@ -220,7 +223,7 @@ ItemPage {
             Label {
                 text: qsTr("Add layout")
                 font.weight: Font.DemiBold
-                font.pointSize: Qt.application.font.pointSize * 1.15
+                font.pointSize: LingmoUI.Units.fontHeading
             }
 
             TextField {

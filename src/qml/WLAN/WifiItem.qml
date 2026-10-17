@@ -130,10 +130,9 @@ Item {
                     Layout.fillWidth: true
                 }
 
-                LingmoUI.BusyIndicator {
+                LingmoUI.Spinner {
                     id: busyIndicator
-                    width: 22
-                    height: width
+                    size: 22
                     visible: connectionState === NM.Enums.Activating ||
                              connectionState === NM.Enums.Deactivating
                     running: busyIndicator.visible
@@ -166,8 +165,10 @@ Item {
                     smooth: false
                 }
 
-                IconButton {
-                    source: "qrc:/images/info.svg"
+                LingmoUI.IconButton {
+                    iconName: "qrc:/images/info.svg"
+                    iconSize: LingmoUI.Units.iconSizes.small + 2
+                    tipText: qsTr("Details")
                     onClicked: {
                         var component = Qt.createComponent("WirelessDetailsDialog.qml")
                         if (component.status === Component.Ready) {

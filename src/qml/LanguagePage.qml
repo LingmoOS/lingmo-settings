@@ -67,9 +67,12 @@ ItemPage {
 
                 Rectangle {
                     anchors.fill: parent
-                    color: isSelected ? "transparent" : item.containsMouse ? LingmoUI.Theme.disabledTextColor : "transparent"
-                    opacity: isSelected ? 1 : 0.1
+                    color: !isSelected && item.containsMouse ? LingmoUI.Theme.hoverColor : "transparent"
                     radius: LingmoUI.Theme.smallRadius
+
+                    Behavior on color {
+                        ColorAnimation { duration: LingmoUI.Units.veryShortDuration }
+                    }
                 }
 
                 RowLayout {

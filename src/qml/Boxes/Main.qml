@@ -80,7 +80,7 @@ ItemPage {
             Label {
                 visible: row.text.length > 0
                 text: row.text
-                color: LingmoUI.Theme.disabledTextColor
+                color: LingmoUI.Theme.secondaryTextColor
                 wrapMode: Text.WordWrap
                 Layout.fillWidth: true
             }
@@ -89,7 +89,7 @@ ItemPage {
         Label {
             visible: !row.changeable
             text: row.fixedText
-            color: LingmoUI.Theme.disabledTextColor
+            color: LingmoUI.Theme.secondaryTextColor
         }
 
         Switch {
@@ -135,7 +135,7 @@ ItemPage {
 
                         Label {
                             text: qsTr("Windows programs, .deb and .rpm packages, AppImages and Android apps are installed in isolated boxes. A box can't see your files, camera or microphone unless you allow it here, so a bad program can't reach the rest of the system.")
-                            color: LingmoUI.Theme.disabledTextColor
+                            color: LingmoUI.Theme.secondaryTextColor
                             wrapMode: Text.WordWrap
                             Layout.fillWidth: true
                         }
@@ -155,11 +155,13 @@ ItemPage {
             RoundedItem {
                 visible: BoxesModule.boxes.length === 0
 
-                Label {
-                    text: qsTr("No boxes yet. When you open a Windows program, a .deb or .rpm package, an AppImage or an Android app (.apk) and install it, its box shows up here.")
-                    color: LingmoUI.Theme.disabledTextColor
-                    wrapMode: Text.WordWrap
+                LingmoUI.EmptyState {
                     Layout.fillWidth: true
+                    Layout.topMargin: LingmoUI.Units.largeSpacing
+                    Layout.bottomMargin: LingmoUI.Units.largeSpacing
+                    iconName: "package-x-generic"
+                    iconSize: LingmoUI.Units.iconSizes.large
+                    text: qsTr("No boxes yet. When you open a Windows program, a .deb or .rpm package, an AppImage or an Android app (.apk) and install it, its box shows up here.")
                 }
             }
 
@@ -214,18 +216,16 @@ ItemPage {
 
                             Label {
                                 text: page.summary(card.box)
-                                color: LingmoUI.Theme.disabledTextColor
+                                color: LingmoUI.Theme.secondaryTextColor
                                 elide: Text.ElideRight
                                 Layout.fillWidth: true
                             }
                         }
 
-                        LingmoUI.BusyIndicator {
+                        LingmoUI.Spinner {
                             visible: card.busy
                             running: visible
-                            source: "qrc:/images/view-refresh.svg"
-                            width: 22
-                            height: width
+                            size: 22
                         }
 
                         Button {
@@ -240,7 +240,7 @@ ItemPage {
                         text: card.box.apps.length > 0
                               ? qsTr("Inside: %1").arg(card.box.apps.map(function(a) { return a.name }).join(", "))
                               : qsTr("No programs installed in it yet.")
-                        color: LingmoUI.Theme.disabledTextColor
+                        color: LingmoUI.Theme.secondaryTextColor
                         wrapMode: Text.WordWrap
                         Layout.fillWidth: true
                     }
@@ -286,7 +286,7 @@ ItemPage {
                                     text: card.box.folders.length === 0
                                           ? qsTr("None. Hidden folders, where settings and passwords live, can't be added.")
                                           : qsTr("The box can read and change the files in these folders.")
-                                    color: LingmoUI.Theme.disabledTextColor
+                                    color: LingmoUI.Theme.secondaryTextColor
                                     wrapMode: Text.WordWrap
                                     Layout.fillWidth: true
                                 }
@@ -368,7 +368,7 @@ ItemPage {
                     Label {
                         visible: card.open
                         text: card.box.applies
-                        color: LingmoUI.Theme.disabledTextColor
+                        color: LingmoUI.Theme.secondaryTextColor
                         wrapMode: Text.WordWrap
                         Layout.fillWidth: true
                     }

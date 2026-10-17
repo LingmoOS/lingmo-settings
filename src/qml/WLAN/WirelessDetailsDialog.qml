@@ -66,7 +66,7 @@ Dialog {
                 text: qsTr("Auto-Join")
                 visible: false
                 Layout.alignment: Qt.AlignRight
-                color: LingmoUI.Theme.disabledTextColor
+                color: LingmoUI.Theme.secondaryTextColor
             }
 
             Switch {
@@ -80,7 +80,7 @@ Dialog {
 
             Label {
                 text: qsTr("Security")
-                color: LingmoUI.Theme.disabledTextColor
+                color: LingmoUI.Theme.secondaryTextColor
                 Layout.alignment: Qt.AlignRight
             }
 
@@ -92,7 +92,7 @@ Dialog {
 
             Label {
                 text: qsTr("Signal")
-                color: LingmoUI.Theme.disabledTextColor
+                color: LingmoUI.Theme.secondaryTextColor
                 Layout.alignment: Qt.AlignRight
             }
 
@@ -104,7 +104,7 @@ Dialog {
 
             Label {
                 text: qsTr("IPv4 Address")
-                color: LingmoUI.Theme.disabledTextColor
+                color: LingmoUI.Theme.secondaryTextColor
                 Layout.alignment: Qt.AlignRight
             }
 
@@ -118,7 +118,7 @@ Dialog {
             Label {
                 font.bold: true
                 text: qsTr("IPv6 Address")
-                color: LingmoUI.Theme.disabledTextColor
+                color: LingmoUI.Theme.secondaryTextColor
                 Layout.alignment: Qt.AlignRight
             }
 
@@ -132,7 +132,7 @@ Dialog {
             Label {
                 font.bold: true
                 text: qsTr("MAC Address")
-                color: LingmoUI.Theme.disabledTextColor
+                color: LingmoUI.Theme.secondaryTextColor
                 Layout.alignment: Qt.AlignRight
             }
 
@@ -146,7 +146,7 @@ Dialog {
             Label {
                 font.bold: true
                 text: qsTr("Gateway")
-                color: LingmoUI.Theme.disabledTextColor
+                color: LingmoUI.Theme.secondaryTextColor
                 Layout.alignment: Qt.AlignRight
             }
 
@@ -159,7 +159,7 @@ Dialog {
             Label {
                 font.bold: true
                 text: qsTr("DNS")
-                color: LingmoUI.Theme.disabledTextColor
+                color: LingmoUI.Theme.secondaryTextColor
                 Layout.alignment: Qt.AlignRight
             }
 

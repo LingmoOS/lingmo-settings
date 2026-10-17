@@ -119,7 +119,7 @@ Dialog {
             Layout.preferredWidth: 320
             Layout.preferredHeight: 240
             radius: LingmoUI.Theme.mediumRadius
-            color: LingmoUI.Theme.darkMode ? "#262626" : "#EBEBEB"
+            color: LingmoUI.Theme.alternateBackgroundColor
             clip: true
 
             Image {
@@ -160,11 +160,9 @@ Dialog {
                 opacity: control.phase === "intro" ? 0.6 : 1
             }
 
-            LingmoUI.BusyIndicator {
+            LingmoUI.Spinner {
                 anchors.centerIn: parent
-                source: "qrc:/images/view-refresh.svg"
-                width: 32
-                height: width
+                size: 32
                 visible: control.phase === "enroll" && !previewImage.visible
                 running: visible
             }
@@ -187,7 +185,7 @@ Dialog {
 
             Label {
                 text: control.face ? control.hintText(control.face.enrollHint) : ""
-                font.pointSize: 12
+                font.pointSize: LingmoUI.Units.fontSubheading
                 wrapMode: Text.WordWrap
                 horizontalAlignment: Text.AlignHCenter
                 Layout.fillWidth: true
@@ -209,14 +207,14 @@ Dialog {
 
             Label {
                 text: control.succeeded ? qsTr("Face registered") : qsTr("Registration failed")
-                font.pointSize: 12
+                font.pointSize: LingmoUI.Units.fontSubheading
                 horizontalAlignment: Text.AlignHCenter
                 Layout.fillWidth: true
             }
 
             Label {
                 text: control.resultText
-                color: LingmoUI.Theme.disabledTextColor
+                color: LingmoUI.Theme.secondaryTextColor
                 wrapMode: Text.WordWrap
                 horizontalAlignment: Text.AlignHCenter
                 Layout.fillWidth: true
@@ -246,5 +244,5 @@ Dialog {
         }
     }
 
-    readonly property color warningColor: "#E95B4E"
+    readonly property color warningColor: LingmoUI.Theme.errorColor
 }

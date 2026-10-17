@@ -36,7 +36,7 @@ ItemPage {
             Label {
                 text: row.supported ? row.description : qsTr("Requires video acceleration (GPU)")
                 visible: text !== ""
-                color: LingmoUI.Theme.disabledTextColor
+                color: LingmoUI.Theme.secondaryTextColor
                 wrapMode: Text.WordWrap
                 Layout.fillWidth: true
             }
@@ -57,8 +57,8 @@ ItemPage {
         property alias title: choiceLabel.text
         property string firstId
         property string secondId
-        property alias firstText: firstButton.text
-        property alias secondText: secondButton.text
+        property string firstText
+        property string secondText
 
         // Only a click changes anything: opening the page must not
         function pick(second) {
@@ -75,18 +75,13 @@ ItemPage {
             id: choiceLabel
         }
 
-        TabBar {
+        LingmoUI.SegmentedControl {
             Layout.fillWidth: true
-            currentIndex: effects.revision >= 0 && effects.isEnabled(choice.secondId) ? 1 : 0
-
-            TabButton {
-                id: firstButton
-                onClicked: choice.pick(false)
-            }
-            TabButton {
-                id: secondButton
-                onClicked: choice.pick(true)
-            }
+            fillWidth: true
+            model: [choice.firstText, choice.secondText]
+            // Follows the setting (also after a click, like TabBar did)
+            Binding on currentIndex { value: effects.revision >= 0 && effects.isEnabled(choice.secondId) ? 1 : 0 }
+            onActivated: (index) => choice.pick(index === 1)
         }
     }
 
@@ -143,7 +138,8 @@ ItemPage {
             RoundedItem {
                 Label {
                     text: qsTr("Windows")
-                    color: LingmoUI.Theme.disabledTextColor
+                    font.pointSize: LingmoUI.Units.fontSubheading
+                    font.weight: Font.DemiBold
                 }
 
                 EffectRow {
@@ -202,7 +198,8 @@ ItemPage {
             RoundedItem {
                 Label {
                     text: qsTr("Desktop and menus")
-                    color: LingmoUI.Theme.disabledTextColor
+                    font.pointSize: LingmoUI.Units.fontSubheading
+                    font.weight: Font.DemiBold
                 }
 
                 EffectChoice {
@@ -229,7 +226,8 @@ ItemPage {
             RoundedItem {
                 Label {
                     text: qsTr("Hot corners")
-                    color: LingmoUI.Theme.disabledTextColor
+                    font.pointSize: LingmoUI.Units.fontSubheading
+                    font.weight: Font.DemiBold
                 }
 
                 Label {
@@ -266,27 +264,26 @@ ItemPage {
             RoundedItem {
                 Label {
                     text: qsTr("Window switcher (Alt+Tab)")
-                    color: LingmoUI.Theme.disabledTextColor
+                    font.pointSize: LingmoUI.Units.fontSubheading
+                    font.weight: Font.DemiBold
                 }
 
-                TabBar {
+                LingmoUI.SegmentedControl {
+                    fillWidth: true
+                    model: [qsTr("Strip"), qsTr("Flip")]
                     Layout.fillWidth: true
-                    currentIndex: effects.switcherLayout === "ling_flip" ? 1 : 0
-
-                    TabButton {
-                        text: qsTr("Strip")
-                        onClicked: effects.switcherLayout = "ling_thumbnail"
-                    }
-                    TabButton {
-                        text: qsTr("Flip")
-                        onClicked: effects.switcherLayout = "ling_flip"
+                    // Follows the setting (also after a click, like TabBar did)
+                    Binding on currentIndex { value: effects.switcherLayout === "ling_flip" ? 1 : 0 }
+                    onActivated: (index) => {
+                        if (index === 0) { effects.switcherLayout = "ling_thumbnail" }
+                        else if (index === 1) { effects.switcherLayout = "ling_flip" }
                     }
                 }
 
                 Label {
                     Layout.fillWidth: true
                     wrapMode: Text.WordWrap
-                    color: LingmoUI.Theme.disabledTextColor
+                    color: LingmoUI.Theme.secondaryTextColor
                     text: effects.switcherLayout === "ling_flip"
                           ? qsTr("Windows stacked like the pages of a book; each Tab turns a page.")
                           : qsTr("Window previews side by side.")
@@ -296,7 +293,8 @@ ItemPage {
             RoundedItem {
                 Label {
                     text: qsTr("Mouse")
-                    color: LingmoUI.Theme.disabledTextColor
+                    font.pointSize: LingmoUI.Units.fontSubheading
+                    font.weight: Font.DemiBold
                 }
 
                 EffectRow {

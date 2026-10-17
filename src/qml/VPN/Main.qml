@@ -53,7 +53,8 @@ ItemPage {
                 RowLayout {
                     Label {
                         text: qsTr("VPN")
-                        color: LingmoUI.Theme.disabledTextColor
+                        font.pointSize: LingmoUI.Units.fontSubheading
+                        font.weight: Font.DemiBold
                     }
 
                     Item {

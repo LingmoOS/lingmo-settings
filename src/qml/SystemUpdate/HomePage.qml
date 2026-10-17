@@ -70,7 +70,7 @@ Item {
         Label {
             text: updator.checkProgress + "%"
             Layout.alignment: Qt.AlignHCenter
-            color: LingmoUI.Theme.disabledTextColor
+            color: LingmoUI.Theme.secondaryTextColor
             visible: !control.error
         }
 
@@ -87,7 +87,7 @@ Item {
         Label {
             text: qsTr("Check for update failure")
             Layout.alignment: Qt.AlignHCenter
-            color: LingmoUI.Theme.disabledTextColor
+            color: LingmoUI.Theme.secondaryTextColor
             visible: control.error
         }
 

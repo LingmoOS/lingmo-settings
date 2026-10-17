@@ -69,7 +69,8 @@ ItemPage {
             RoundedItem {
                 Label {
                     text: qsTr("Mode")
-                    color: LingmoUI.Theme.disabledTextColor
+                    font.pointSize: LingmoUI.Units.fontSubheading
+                    font.weight: Font.DemiBold
                 }
 
                 RowLayout {
@@ -98,7 +99,7 @@ ItemPage {
             }
 
             Label {
-                color: LingmoUI.Theme.disabledTextColor
+                color: LingmoUI.Theme.secondaryTextColor
                 leftPadding: LingmoUI.Units.largeSpacing * 2
                 rightPadding: LingmoUI.Units.largeSpacing
                 Layout.fillWidth: true

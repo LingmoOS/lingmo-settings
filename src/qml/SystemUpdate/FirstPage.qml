@@ -89,7 +89,7 @@ Item {
                         Label {
                             visible: !control.check
                             text: qsTr("Current Version: %1").arg(updator.version)
-                            color: LingmoUI.Theme.disabledTextColor
+                            color: LingmoUI.Theme.secondaryTextColor
                         }
 
                         Item {
@@ -202,7 +202,7 @@ Item {
                         Label {
                             visible: !control.check
                             text: qsTr("Current Version: %1").arg(updator.version)
-                            color: LingmoUI.Theme.disabledTextColor
+                            color: LingmoUI.Theme.secondaryTextColor
                         }
 
                         Item {
@@ -333,7 +333,7 @@ Item {
 
                             Label {
                                 text: model.version
-                                color: LingmoUI.Theme.disabledTextColor
+                                color: LingmoUI.Theme.secondaryTextColor
                                 font.pointSize: 9
                             }
 
@@ -346,7 +346,7 @@ Item {
                     // Size
                     Label {
                         text: model.installedSize
-                        color: LingmoUI.Theme.disabledTextColor
+                        color: LingmoUI.Theme.secondaryTextColor
                         font.pointSize: 10
                     }
                 }              
@@ -380,7 +380,7 @@ Item {
                             id: textArea
                             text: updator.updateInfo
                             textFormat: TextArea.RichText
-                            color: LingmoUI.Theme.disabledTextColor
+                            color: LingmoUI.Theme.secondaryTextColor
                             readOnly: true // 设置为只读模式，因为是用于显示日志
                             wrapMode: Text.WordWrap // 确保文本可以换行
                         }

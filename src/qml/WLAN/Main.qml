@@ -79,9 +79,10 @@ ItemPage {
                 }
             }
 
-            StandardButton {
+            LingmoUI.Card {
                 Layout.fillWidth: true
-                text: ""
+                implicitHeight: LingmoUI.Units.controlHeight + LingmoUI.Units.largeSpacing
+                clickable: true
                 onClicked: newNetworkDialog.show()
 
                 RowLayout {
@@ -99,6 +100,7 @@ ItemPage {
 
                     Label {
                         text: qsTr("→")
+                        color: LingmoUI.Theme.secondaryTextColor
                     }
                 }
             }
@@ -114,7 +116,7 @@ ItemPage {
 //                RowLayout {
 //                    Label {
 //                        text: qsTr("Hotspot")
-//                        color: LingmoUI.Theme.disabledTextColor
+//                        color: LingmoUI.Theme.secondaryTextColor
 //                    }
 
 //                    Item {
